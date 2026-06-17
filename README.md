@@ -3,9 +3,11 @@
 Standalone Python engine for text normalization (TN), inverse text normalization (ITN), and multilingual number-to-words conversion.
 
 This repository is the standalone `light_text_process` engine. zh/en TN and ITN
-now run through first-party native rules by default: product-owned rules live in
-`light_text_process/rules`, runtime engines live in `light_text_process/runtime`,
-and golden regression cases live in `data/rule_cases`.
+are strengthened by first-party helpers while the full vendored
+`fun_text_processing` backend remains available for its original multilingual
+TN/ITN coverage. Product-owned rules live in `light_text_process/rules`,
+runtime adapters live in `light_text_process/runtime`, and golden regression
+cases live in `data/rule_cases`.
 
 ## Setup
 
@@ -29,12 +31,14 @@ print(processor.number_to_words("123", "en").output)
 
 - `light_text_process/processor.py` exposes the public engine API.
 - `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
-- `light_text_process/runtime/` contains native runtime engines and the
-  engine boundary.
+- `light_text_process/runtime/` contains runtime adapters and the engine boundary.
+- `third_party/fun_text_processing/` is the preserved grammar backend.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
-- `docs/native_cutover_release_notes.md` describes native route defaults,
-  dependency cleanup, and final removal status.
+- `scripts/cache_maintenance.py` inspects and maintains project-local grammar
+  caches.
+- `docs/vendor_preserving_enhancement_plan.md` describes the retained vendor
+  backend and zh/en enhancement boundary.
 
 ## Validation
 
@@ -42,12 +46,13 @@ print(processor.number_to_words("123", "en").output)
 .venv/bin/python -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
 .venv/bin/python -m compileall -q light_text_process scripts tests
 .venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/cache_maintenance.py status
 .venv/bin/python scripts/validate_rules.py
 .venv/bin/python -c "from light_text_process import TextProcessor; print(TextProcessor().number_to_words('123', 'en').output)"
 ```
 
 ## Direction
 
-The native cutover is complete for zh/en TN and ITN. num2words remains a
-separate dependency-backed surface, and non-zh/en TN/ITN languages remain
-unsupported until first-party rules and golden cases are added.
+`fun_text_processing` remains the default TN/ITN grammar backend. zh/en behavior
+is enhanced through focused first-party prepare/finalize helpers at the runtime
+adapter boundary. num2words remains a separate dependency-backed surface.

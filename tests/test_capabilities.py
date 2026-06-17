@@ -7,16 +7,36 @@ from light_text_process.capabilities import ITN_LANGUAGES, TN_LANGUAGES
 
 
 class CapabilityTests(unittest.TestCase):
-    def test_tn_and_itn_capabilities_are_validated_languages_only(self) -> None:
-        self.assertEqual(TN_LANGUAGES, {"en": "英语", "zh": "中文"})
-        self.assertEqual(ITN_LANGUAGES, {"en": "英语", "zh": "中文"})
+    def test_tn_and_itn_capabilities_include_vendor_languages(self) -> None:
+        self.assertEqual(
+            TN_LANGUAGES,
+            {"de": "德语", "en": "英语", "es": "西班牙语", "ru": "俄语", "zh": "中文"},
+        )
+        self.assertEqual(
+            ITN_LANGUAGES,
+            {
+                "de": "德语",
+                "en": "英语",
+                "es": "西班牙语",
+                "fr": "法语",
+                "id": "印尼语",
+                "ja": "日语",
+                "ko": "韩语",
+                "pt": "葡萄牙语",
+                "ru": "俄语",
+                "tl": "他加禄语",
+                "vi": "越南语",
+                "zh": "中文",
+            },
+        )
 
     def test_capabilities_include_language_scoped_options(self) -> None:
         capabilities = build_capabilities()
 
         tn = capabilities["operations"]["tn"]
         self.assertEqual(tn["display_label"], "文本转读法")
-        self.assertEqual(tn["languages"], {"en": "英语", "zh": "中文"})
+        self.assertIn("de", tn["languages"])
+        self.assertIn("ru", tn["languages"])
         self.assertEqual(tn["languages"]["zh"], "中文")
         self.assertNotIn("cache_enabled", tn["options"])
         self.assertNotIn("overwrite_cache", tn["options"])
@@ -25,8 +45,9 @@ class CapabilityTests(unittest.TestCase):
 
         itn = capabilities["operations"]["itn"]
         self.assertEqual(itn["display_label"], "读法转文本")
-        self.assertEqual(itn["languages"], {"en": "英语", "zh": "中文"})
-        self.assertEqual(itn["language_options"], {})
+        self.assertIn("ja", itn["languages"])
+        self.assertIn("vi", itn["languages"])
+        self.assertEqual(itn["language_options"], {"ja": ["enable_standalone_number", "enable_0_to_9"]})
         self.assertEqual(itn["options"], [])
         self.assertEqual(itn["option_details"], {})
         self.assertNotIn("cache_enabled", itn["options"])

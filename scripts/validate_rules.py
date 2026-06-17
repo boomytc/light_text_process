@@ -89,7 +89,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--overwrite-cache",
         action="store_true",
-        help="accepted for legacy command compatibility; native rules do not build grammar caches",
+        help="rebuild fun_text_processing grammar caches while running selected cases",
     )
     parser.add_argument("--list", action="store_true", help="list selected cases without running them")
     parser.add_argument("--verbose", action="store_true", help="print passing case outputs too")

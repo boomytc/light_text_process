@@ -29,9 +29,13 @@ class ArchitectureBoundaryTests(unittest.TestCase):
             for pattern in RULE_BUCKET_IMPORT_PATTERNS:
                 self.assertIsNone(pattern.search(source), path.name)
 
-    def test_vendor_backend_imports_are_not_present(self) -> None:
+    def test_vendor_backend_imports_are_limited_to_runtime_adapter(self) -> None:
+        allowed = PROJECT_DIR / "light_text_process" / "runtime" / "fun_text_processing.py"
         for path in (PROJECT_DIR / "light_text_process").rglob("*.py"):
             source = path.read_text(encoding="utf-8")
+            if path == allowed:
+                self.assertIn(f"from {VENDOR_MODULE}", source)
+                continue
             self.assertNotIn(f"from {VENDOR_MODULE}", source, str(path))
             self.assertNotIn(f"import {VENDOR_MODULE}", source, str(path))
 

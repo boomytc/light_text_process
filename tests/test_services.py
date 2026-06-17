@@ -44,15 +44,15 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(tn.metadata["engine"], "fake")
         self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
 
-    def test_default_chinese_itn_uses_native_route(self) -> None:
+    def test_default_chinese_itn_uses_vendor_enhancement_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.inverse_normalize_text("二零二六年六月十五日 我有一百二十三元", "zh")
 
         self.assertEqual(response.output, "2026年06月15日 我有123元")
-        self.assertEqual(response.metadata["engine"], "light_text_process_native")
+        self.assertEqual(response.metadata["engine"], "fun_text_processing")
 
-    def test_default_english_itn_uses_native_route(self) -> None:
+    def test_default_english_itn_uses_vendor_enhancement_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.inverse_normalize_text(
@@ -61,23 +61,30 @@ class ServiceSmokeTests(unittest.TestCase):
         )
 
         self.assertEqual(response.output, "I paid $12.50 on 2026-06-15")
-        self.assertEqual(response.metadata["engine"], "light_text_process_native")
+        self.assertEqual(response.metadata["engine"], "fun_text_processing")
 
-    def test_default_chinese_tn_uses_native_route(self) -> None:
+    def test_default_chinese_tn_uses_vendor_enhancement_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.normalize_text("今天是 2026年6月15日。", "zh")
 
         self.assertEqual(response.output, "今天是 二零二六年六月十五日。")
-        self.assertEqual(response.metadata["engine"], "light_text_process_native")
+        self.assertEqual(response.metadata["engine"], "fun_text_processing")
 
-    def test_default_english_tn_uses_native_route(self) -> None:
+    def test_default_english_tn_uses_vendor_enhancement_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.normalize_text("I paid $12.50 on 06/15/2026.", "en")
 
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
-        self.assertEqual(response.metadata["engine"], "light_text_process_native")
+        self.assertEqual(response.metadata["engine"], "fun_text_processing")
+
+    def test_vendor_languages_are_preserved_on_public_surface(self) -> None:
+        tn = self.processor.normalize_text("123", "de", TNOptions())
+        itn = self.processor.inverse_normalize_text("ichi ni san", "ja", ITNOptions())
+
+        self.assertEqual(tn.output, "tn:de:123")
+        self.assertEqual(itn.output, "itn:ja:1:1:ichi ni san")
 
     def test_num2words_success_and_unsupported_currency(self) -> None:
         success = self.processor.number_to_words("123", "en", Num2WordsOptions(mode="cardinal"))
@@ -90,8 +97,8 @@ class ServiceSmokeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsupported TN language: ja"):
             self.processor.normalize_text("123", "ja", TNOptions())
 
-        with self.assertRaisesRegex(ValueError, "unsupported ITN language: ja"):
-            self.processor.inverse_normalize_text("one two three", "ja", ITNOptions())
+        with self.assertRaisesRegex(ValueError, "unsupported ITN language: xx"):
+            self.processor.inverse_normalize_text("one two three", "xx", ITNOptions())
 
     def test_num2words_batch_keeps_input_errors_per_row(self) -> None:
         response = self.processor.batch(
