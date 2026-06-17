@@ -37,6 +37,7 @@ class GrammarWarmupTask:
 
 
 DEFAULT_GRAMMAR_WARMUP_PROFILES = ("zh-default",)
+DEFAULT_NATIVE_ROUTES = {("itn", "zh")}
 GRAMMAR_WARMUP_PROFILES = {
     "zh-default": (
         GrammarWarmupTask(
@@ -63,6 +64,7 @@ class TextProcessor:
         self.text_engine = text_engine or CompositeTextProcessingEngine(
             native_engine=NativeTextProcessingEngine(),
             fallback_engine=FunTextProcessingEngine(),
+            native_routes=set(DEFAULT_NATIVE_ROUTES),
         )
         self.num2words_engine = Num2WordsEngine()
 
@@ -196,7 +198,8 @@ class TextProcessor:
         else:
             raise ValueError(f"unsupported warmup operation: {task.operation}")
 
-        _ensure_expected_cache_files(task)
+        if _engine_name(self.text_engine) != NativeTextProcessingEngine.name:
+            _ensure_expected_cache_files(task)
 
 
 def _ensure_language(language: str, supported: dict[str, str], label: str) -> None:
