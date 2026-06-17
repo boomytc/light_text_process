@@ -20,16 +20,16 @@ does not import, package, install, or require `fun_text_processing`.
 
 ## Current Phase
 
-`P0` is the current control phase. Do not remove or bypass
-`third_party/fun_text_processing` until the relevant native replacement has
-passed the equivalence gates defined in the phase files.
+`P1` is the current implementation phase. The baseline is frozen in
+`docs/native_migration_inventory.md`; native routes must preserve the public API
+and golden behavior defined there.
 
 ## Phase Index
 
 | Status | Phase | File | Purpose |
 | --- | --- | --- | --- |
-| [~] | P0 | [TODO_00_BASELINE_AND_SCOPE.md](todo/TODO_00_BASELINE_AND_SCOPE.md) | Freeze the baseline, inventory vendor capabilities, and define migration gates. |
-| [ ] | P1 | [TODO_01_ENGINE_ABSTRACTION.md](todo/TODO_01_ENGINE_ABSTRACTION.md) | Add a native-ready runtime boundary without changing `TextProcessor` callers. |
+| [x] | P0 | [TODO_00_BASELINE_AND_SCOPE.md](todo/TODO_00_BASELINE_AND_SCOPE.md) | Freeze the baseline, inventory vendor capabilities, and define migration gates. |
+| [~] | P1 | [TODO_01_ENGINE_ABSTRACTION.md](todo/TODO_01_ENGINE_ABSTRACTION.md) | Add a native-ready runtime boundary without changing `TextProcessor` callers. |
 | [ ] | P2 | [TODO_02_ZH_ITN_NATIVE.md](todo/TODO_02_ZH_ITN_NATIVE.md) | Migrate Chinese ITN categories first because they are high-value for ASR output. |
 | [ ] | P3 | [TODO_03_EN_ITN_NATIVE.md](todo/TODO_03_EN_ITN_NATIVE.md) | Migrate English ITN with ASR-friendly post-processing and ambiguity controls. |
 | [ ] | P4 | [TODO_04_ZH_TN_NATIVE.md](todo/TODO_04_ZH_TN_NATIVE.md) | Migrate Chinese TN while preserving deterministic readout behavior. |
