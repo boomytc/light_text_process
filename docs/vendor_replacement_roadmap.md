@@ -1,14 +1,11 @@
 # Vendor Replacement Roadmap
 
-## Final Direction
+## Final State
 
-The final target is for first-party `light_text_process` code to replace
-`third_party/fun_text_processing`, so the package no longer depends on the
-third-party grammar tree.
-
-During the transition, `fun_text_processing` remains only as a temporary backend
-for code that has not yet been removed. Non-zh/en TN/ITN routes are no longer
-public capabilities because they have no first-party owner or golden coverage.
+First-party `light_text_process` code has replaced the temporary vendor grammar
+backend. The package no longer depends on the third-party grammar tree.
+Non-zh/en TN/ITN routes are no longer public capabilities because they have no
+first-party owner or golden coverage.
 
 ## Stages
 
@@ -33,11 +30,9 @@ vendor-only route from surviving as an implicit promise.
 ## Runtime Boundary
 
 - `TextProcessor` uses the first-party native engine by default.
-- Direct imports from `fun_text_processing` are allowed only inside
-  `light_text_process/runtime/fun_text_processing.py`.
-- `light_text_process/rules/` remains first-party and must not import vendor
-  modules.
-- Vendor caches are project-local under ignored `runtime/cache/fun_text_processing/`.
+- `light_text_process/rules/` remains first-party and must not import vendor modules.
+- No runtime path insertion, package discovery, package-data metadata, or cache
+  maintenance logic points at the removed vendor tree.
 
 ## Replacement Gates
 
@@ -47,7 +42,7 @@ A route can leave vendor only when:
 - Differential behavior against the vendor baseline is recorded.
 - Intentional product improvements are documented.
 - Unsupported options and malformed inputs fail visibly.
-- Tests prove the route does not import or read from `third_party/fun_text_processing`.
+- Tests prove the route does not import or read removed vendor assets.
 
 The vendor tree can be removed only when every public TN/ITN route is either
 first-party or deliberately retired from capabilities.

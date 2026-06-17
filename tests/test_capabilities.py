@@ -24,10 +24,8 @@ class CapabilityTests(unittest.TestCase):
         self.assertEqual(tn["display_label"], "文本转读法")
         self.assertEqual(set(tn["languages"]), {"en", "zh"})
         self.assertEqual(tn["languages"]["zh"], "中文")
-        self.assertNotIn("cache_enabled", tn["options"])
-        self.assertNotIn("overwrite_cache", tn["options"])
-        self.assertNotIn("cache_enabled", tn["option_details"])
-        self.assertNotIn("overwrite_cache", tn["option_details"])
+        self.assertEqual(tn["options"], [])
+        self.assertEqual(tn["option_details"], {})
 
         itn = capabilities["operations"]["itn"]
         self.assertEqual(itn["display_label"], "读法转文本")
@@ -35,10 +33,6 @@ class CapabilityTests(unittest.TestCase):
         self.assertEqual(itn["language_options"], {})
         self.assertEqual(itn["options"], [])
         self.assertEqual(itn["option_details"], {})
-        self.assertNotIn("cache_enabled", itn["options"])
-        self.assertNotIn("overwrite_cache", itn["options"])
-        self.assertNotIn("cache_enabled", itn["option_details"])
-        self.assertNotIn("overwrite_cache", itn["option_details"])
 
         num2words = capabilities["operations"]["num2words"]
         self.assertEqual(num2words["display_label"], "数字转外语词")

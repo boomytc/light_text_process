@@ -5,14 +5,7 @@
     "language": "en",
     "category": "money",
     "input": "I paid $12.50 on 06/15/2026.",
-    "expected": "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "I paid twelve dollars fifty cents on june fifteenth twenty twenty six."
   },
   {
     "id": "tn-en-foreign-currency",
@@ -20,14 +13,7 @@
     "language": "en",
     "category": "money",
     "input": "I owe €12.50 and £3.",
-    "expected": "I owe twelve euros fifty cents and three pounds.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "I owe twelve euros fifty cents and three pounds."
   },
   {
     "id": "tn-en-prefix-currency-code",
@@ -35,14 +21,7 @@
     "language": "en",
     "category": "money",
     "input": "Budget USD 12.50, cost EUR 3, yen JPY 100.",
-    "expected": "Budget twelve dollars fifty cents, cost three euros, yen one hundred yen.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Budget twelve dollars fifty cents, cost three euros, yen one hundred yen."
   },
   {
     "id": "tn-en-flight-time",
@@ -50,14 +29,7 @@
     "language": "en",
     "category": "time",
     "input": "Flight AA123 leaves at 7:30 pm.",
-    "expected": "Flight AA one hundred twenty three leaves at seven thirty PM.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Flight AA one hundred twenty three leaves at seven thirty PM."
   },
   {
     "id": "tn-en-quarter-fiscal-year",
@@ -65,14 +37,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Q2 2026 revenue grew. 2026 Q3 outlook improved. FY2026 budget is ready.",
-    "expected": "second quarter twenty twenty six revenue grew. third quarter twenty twenty six outlook improved. fiscal year twenty twenty six budget is ready.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "second quarter twenty twenty six revenue grew. third quarter twenty twenty six outlook improved. fiscal year twenty twenty six budget is ready."
   },
   {
     "id": "tn-en-version-decimal",
@@ -80,14 +45,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Version v2.0 build V10.3.",
-    "expected": "Version v two point zero build V ten point three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Version v two point zero build V ten point three."
   },
   {
     "id": "tn-en-dotted-version",
@@ -95,14 +53,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Version 2.0.1 and v2.0.1.",
-    "expected": "Version two point zero point one and v two point zero point one.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Version two point zero point one and v two point zero point one."
   },
   {
     "id": "tn-en-negative-currency",
@@ -110,14 +61,7 @@
     "language": "en",
     "category": "money",
     "input": "I paid -$12.50 and -€3.05.",
-    "expected": "I paid minus twelve dollars fifty cents and minus three euros five cents.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "I paid minus twelve dollars fifty cents and minus three euros five cents."
   },
   {
     "id": "tn-en-number-abbreviation",
@@ -125,14 +69,7 @@
     "language": "en",
     "category": "ordinal",
     "input": "No. 5 is ready.",
-    "expected": "number five is ready.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "number five is ready."
   },
   {
     "id": "tn-en-page-abbreviations",
@@ -148,14 +85,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Growth +12%, decline -3.5%. Item #5 is ready.",
-    "expected": "Growth plus twelve percent, decline minus three point five percent. Item number five is ready.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Growth plus twelve percent, decline minus three point five percent. Item number five is ready."
   },
   {
     "id": "tn-en-finance-basis-abbreviated-values",
@@ -163,14 +93,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Rate rose 25bp, spread widened 3.5bps, users 1.2M, revenue 3B.",
-    "expected": "Rate rose twenty five basis points, spread widened three point five basis points, users one point two million, revenue three billion.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Rate rose twenty five basis points, spread widened three point five basis points, users one point two million, revenue three billion."
   },
   {
     "id": "tn-en-percent-point-scientific-coordinate",
@@ -178,14 +101,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Growth is 2pp, error is 1e-5, speed is 3x10^8m/s, coordinate is 39.9°N 116.4°E.",
-    "expected": "Growth is two percentage points, error is one times ten to the minus five, speed is three times ten to the eight meters per second, coordinate is thirty nine point nine degrees north one sixteen point four degrees east.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Growth is two percentage points, error is one times ten to the minus five, speed is three times ten to the eight meters per second, coordinate is thirty nine point nine degrees north one sixteen point four degrees east."
   },
   {
     "id": "tn-en-url",
@@ -193,14 +109,7 @@
     "language": "en",
     "category": "electronic",
     "input": "URL https://example.com/a-b.",
-    "expected": "URL HTTPS colon slash slash example dot com slash A dash B.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "URL HTTPS colon slash slash example dot com slash A dash B."
   },
   {
     "id": "tn-en-email-ip",
@@ -208,14 +117,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Email test@example.com and IP 192.168.0.1.",
-    "expected": "Email test at example dot com and IP one nine two dot one six eight dot zero dot one.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Email test at example dot com and IP one nine two dot one six eight dot zero dot one."
   },
   {
     "id": "tn-en-account-card-digits",
@@ -223,14 +125,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Account 6222 1234 5678 9012 and card number 4111-1111-1111-1111.",
-    "expected": "Account six two two two one two three four five six seven eight nine zero one two and card number four one one one one one one one one one one one one one one one.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Account six two two two one two three four five six seven eight nine zero one two and card number four one one one one one one one one one one one one one one one."
   },
   {
     "id": "tn-en-business-codes-extension",
@@ -238,14 +133,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Order AB-1234, invoice INV-2026-001, tracking SF1234567890, phone 415-555-0123 ext. 45.",
-    "expected": "Order A B dash one two three four, invoice I N V dash two zero two six dash zero zero one, tracking S F one two three four five six seven eight nine zero, phone four one five five five five zero one two three extension four five.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Order A B dash one two three four, invoice I N V dash two zero two six dash zero zero one, tracking S F one two three four five six seven eight nine zero, phone four one five five five five zero one two three extension four five."
   },
   {
     "id": "tn-en-identity-vehicle-codes",
@@ -253,14 +141,7 @@
     "language": "en",
     "category": "identity",
     "input": "License plate ABC-123, VIN 1HGCM82633A004352, passport E12345678.",
-    "expected": "License plate A B C dash one two three, VIN one H G C M eight two six three three A zero zero four three five two, passport E one two three four five six seven eight.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "License plate A B C dash one two three, VIN one H G C M eight two six three three A zero zero four three five two, passport E one two three four five six seven eight."
   },
   {
     "id": "tn-en-file-path-social",
@@ -268,14 +149,7 @@
     "language": "en",
     "category": "electronic",
     "input": "File report_v2.0.pdf, path /data/input-01/test.csv, handle @light_user, hashtag #AI2026.",
-    "expected": "File report underscore v two point zero dot p d f, path slash data slash input dash zero one slash test dot c s v, handle at light underscore user, hashtag hash A I two zero two six.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "File report underscore v two point zero dot p d f, path slash data slash input dash zero one slash test dot c s v, handle at light underscore user, hashtag hash A I two zero two six."
   },
   {
     "id": "tn-en-url-query-fragment",
@@ -283,14 +157,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Link https://example.com/a-b?q=hello_world&n=123#top.",
-    "expected": "Link HTTPS colon slash slash example dot com slash a dash b question mark q equals hello underscore world ampersand n equals one two three hash top.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Link HTTPS colon slash slash example dot com slash a dash b question mark q equals hello underscore world ampersand n equals one two three hash top."
   },
   {
     "id": "tn-en-mac-uuid-hex-color",
@@ -298,14 +165,7 @@
     "language": "en",
     "category": "electronic",
     "input": "MAC AA:BB:CC:DD:EE:FF, UUID 550e8400-e29b-41d4-a716-446655440000, color #FF5733.",
-    "expected": "MAC A A colon B B colon C C colon D D colon E E colon F F, UUID five five zero e eight four zero zero dash e two nine b dash four one d four dash a seven one six dash four four six six five five four four zero zero zero zero, color hash F F five seven three three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "MAC A A colon B B colon C C colon D D colon E E colon F F, UUID five five zero e eight four zero zero dash e two nine b dash four one d four dash a seven one six dash four four six six five five four four zero zero zero zero, color hash F F five seven three three."
   },
   {
     "id": "tn-en-temperature-fahrenheit-kelvin",
@@ -313,14 +173,7 @@
     "language": "en",
     "category": "measure",
     "input": "It is 72°F and 300 K.",
-    "expected": "It is seventy two degrees Fahrenheit and three hundred kelvin.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "It is seventy two degrees Fahrenheit and three hundred kelvin."
   },
   {
     "id": "tn-en-ipv4-port-ipv6",
@@ -328,14 +181,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Server 127.0.0.1:8080 and IPv6 2001:0db8::1.",
-    "expected": "Server one two seven dot zero dot zero dot one colon eight zero eight zero and IPv six two zero zero one colon zero D B eight colon colon one.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Server one two seven dot zero dot zero dot one colon eight zero eight zero and IPv six two zero zero one colon zero D B eight colon colon one."
   },
   {
     "id": "tn-en-isbn-doi",
@@ -343,14 +189,7 @@
     "language": "en",
     "category": "electronic",
     "input": "ISBN 978-1-4028-9462-6, DOI 10.1000/xyz123.",
-    "expected": "ISBN nine seven eight dash one dash four zero two eight dash nine four six two dash six, DOI one zero point one zero zero zero slash X Y Z one two three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "ISBN nine seven eight dash one dash four zero two eight dash nine four six two dash six, DOI one zero point one zero zero zero slash X Y Z one two three."
   },
   {
     "id": "tn-en-semver-prerelease",
@@ -358,14 +197,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Version v2.0.1-beta.3.",
-    "expected": "Version v two point zero point one dash beta point three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Version v two point zero point one dash beta point three."
   },
   {
     "id": "tn-en-http-port-iso-datetime",
@@ -373,14 +205,7 @@
     "language": "en",
     "category": "electronic",
     "input": "The API returned HTTP 404, port 8080, deadline 2026-06-15T14:30:05Z.",
-    "expected": "The API returned HTTP four zero four, port eight zero eight zero, deadline two zero two six dash zero six dash one five T one four colon three zero colon zero five Z.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "The API returned HTTP four zero four, port eight zero eight zero, deadline two zero two six dash zero six dash one five T one four colon three zero colon zero five Z."
   },
   {
     "id": "tn-en-address-zip-room",
@@ -388,14 +213,7 @@
     "language": "en",
     "category": "address",
     "input": "Room 1208, Ste. 305, Apt. 5B, ZIP 10001-1234.",
-    "expected": "Room one two zero eight, suite three zero five, apartment five B, zip one zero zero zero one dash one two three four.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Room one two zero eight, suite three zero five, apartment five B, zip one zero zero zero one dash one two three four."
   },
   {
     "id": "tn-en-power-area-abbreviated-count",
@@ -403,14 +221,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Area is 80m², volume is 2m³, density is 5kg/m². Users 3.5K.",
-    "expected": "Area is eighty square meters, volume is two cubic meters, density is five kilograms per square meter. Users three point five thousand.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Area is eighty square meters, volume is two cubic meters, density is five kilograms per square meter. Users three point five thousand."
   },
   {
     "id": "tn-en-medical-science-units",
@@ -418,14 +229,7 @@
     "language": "en",
     "category": "measure",
     "input": "Gas is 400ppm, glucose is 5.6mmol/L, cholesterol is 90mg/dL, blood pressure is 120mmHg, pressure is 101kPa, dose is 5mg/kg, lead is 12ppb.",
-    "expected": "Gas is four hundred parts per million, glucose is five point six millimoles per liter, cholesterol is ninety milligrams per deciliter, blood pressure is one hundred and twenty millimeters of mercury, pressure is one hundred and one kilopascals, dose is five milligrams per kilogram, lead is twelve parts per billion.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Gas is four hundred parts per million, glucose is five point six millimoles per liter, cholesterol is ninety milligrams per deciliter, blood pressure is one hundred and twenty millimeters of mercury, pressure is one hundred and one kilopascals, dose is five milligrams per kilogram, lead is twelve parts per billion."
   },
   {
     "id": "tn-en-square-meter-unit-price",
@@ -441,14 +245,7 @@
     "language": "en",
     "category": "measure",
     "input": "Vitamin D is 25IU/L, drug is 2µg/mL, hormone is 50ng/mL, sample is 20µL.",
-    "expected": "Vitamin D is twenty five international units per liter, drug is two micrograms per milliliter, hormone is fifty nanograms per milliliter, sample is twenty microliters.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Vitamin D is twenty five international units per liter, drug is two micrograms per milliliter, hormone is fifty nanograms per milliliter, sample is twenty microliters."
   },
   {
     "id": "tn-en-engineering-lab-units",
@@ -456,14 +253,7 @@
     "language": "en",
     "category": "measure",
     "input": "The pH is 7.4, noise is 30dB, irradiance is 80W/m², torque is 5N·m, battery is 5000mAh.",
-    "expected": "The pH is seven point four, noise is thirty decibels, irradiance is eighty watts per square meter, torque is five newton meters, battery is five thousand milliampere hours.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "The pH is seven point four, noise is thirty decibels, irradiance is eighty watts per square meter, torque is five newton meters, battery is five thousand milliampere hours."
   },
   {
     "id": "tn-en-electrical-units",
@@ -471,14 +261,7 @@
     "language": "en",
     "category": "measure",
     "input": "Resistance is 10Ω, current is 2A, voltage is 3.3mV, capacitance is 47µF, power is 5W.",
-    "expected": "Resistance is ten ohms, current is two amperes, voltage is three point three millivolts, capacitance is forty seven microfarads, power is five watts.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Resistance is ten ohms, current is two amperes, voltage is three point three millivolts, capacitance is forty seven microfarads, power is five watts."
   },
   {
     "id": "tn-en-motion-pressure-units",
@@ -486,14 +269,7 @@
     "language": "en",
     "category": "measure",
     "input": "Force is 5N, pressure is 101Pa, stress is 0.1MPa, acceleration is 9.8m/s², speed is 3000rpm, flow is 2L/min.",
-    "expected": "Force is five newtons, pressure is one hundred and one pascals, stress is zero point one megapascals, acceleration is nine point eight meters per second squared, speed is three thousand revolutions per minute, flow is two liters per minute.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Force is five newtons, pressure is one hundred and one pascals, stress is zero point one megapascals, acceleration is nine point eight meters per second squared, speed is three thousand revolutions per minute, flow is two liters per minute."
   },
   {
     "id": "tn-en-resolution-dimension",
@@ -501,14 +277,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Resolution is 1920x1080, size is 10x20cm.",
-    "expected": "Resolution is nineteen twenty by ten eighty, size is ten by twenty centimeters.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Resolution is nineteen twenty by ten eighty, size is ten by twenty centimeters."
   },
   {
     "id": "tn-en-si-data-units",
@@ -516,14 +285,7 @@
     "language": "en",
     "category": "measure",
     "input": "Distance 5m, speed 10m/s, size 16GB, voltage 220V.",
-    "expected": "Distance five meters, speed ten meters per second, size sixteen gigabytes, voltage two hundred and twenty volts.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Distance five meters, speed ten meters per second, size sixteen gigabytes, voltage two hundred and twenty volts."
   },
   {
     "id": "tn-en-length-liter-units",
@@ -531,14 +293,7 @@
     "language": "en",
     "category": "measure",
     "input": "Length 30cm, width 5mm, distance 2km, weight 3kg, capacity 1L.",
-    "expected": "Length thirty centimeters, width five millimeters, distance two kilometers, weight three kilograms, capacity one liter.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Length thirty centimeters, width five millimeters, distance two kilometers, weight three kilograms, capacity one liter."
   },
   {
     "id": "tn-en-throughput-latency-binary",
@@ -546,14 +301,7 @@
     "language": "en",
     "category": "measure",
     "input": "Throughput 120MB/s, frame rate 60fps, latency 12ms, memory 2GiB.",
-    "expected": "Throughput one hundred and twenty megabytes per second, frame rate sixty frames per second, latency twelve milliseconds, memory two gibibytes.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Throughput one hundred and twenty megabytes per second, frame rate sixty frames per second, latency twelve milliseconds, memory two gibibytes."
   },
   {
     "id": "tn-en-duration-angle-frequency",
@@ -561,14 +309,7 @@
     "language": "en",
     "category": "measure",
     "input": "Duration 2h 30min 45s, timeout 500ms. Angle 90deg, frequency 44.1kHz.",
-    "expected": "Duration two hours thirty minutes forty five seconds, timeout five hundred milliseconds. Angle ninety degrees, frequency forty four point one kilohertz.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Duration two hours thirty minutes forty five seconds, timeout five hundred milliseconds. Angle ninety degrees, frequency forty four point one kilohertz."
   },
   {
     "id": "tn-en-imperial-units",
@@ -576,14 +317,7 @@
     "language": "en",
     "category": "measure",
     "input": "Height 6ft, length 12in, weight 5lb, volume 2oz, distance 3mi, speed 55mph.",
-    "expected": "Height six feet, length twelve inches, weight five pounds, volume two ounces, distance three miles, speed fifty five miles per hour.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Height six feet, length twelve inches, weight five pounds, volume two ounces, distance three miles, speed fifty five miles per hour."
   },
   {
     "id": "tn-en-power-storage-units",
@@ -591,14 +325,7 @@
     "language": "en",
     "category": "measure",
     "input": "Power 3kW, energy 5kWh, storage 512MB, cache 128KB, volume 500mL, current 20mA.",
-    "expected": "Power three kilowatts, energy five kilowatt hours, storage five hundred and twelve megabytes, cache one hundred and twenty eight kilobytes, volume five hundred milliliters, current twenty milliamperes.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Power three kilowatts, energy five kilowatt hours, storage five hundred and twelve megabytes, cache one hundred and twenty eight kilobytes, volume five hundred milliliters, current twenty milliamperes."
   },
   {
     "id": "tn-en-ratio-range-math",
@@ -606,14 +333,7 @@
     "language": "en",
     "category": "math",
     "input": "The ratio is 3:2 and the range is 3-5 days. Formula 3+5=8 and 20/4=5.",
-    "expected": "The ratio is three to two and the range is three to five days. Formula three plus five equals eight and twenty divided by four equals five.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "The ratio is three to two and the range is three to five days. Formula three plus five equals eight and twenty divided by four equals five."
   },
   {
     "id": "tn-en-fraction-comparison",
@@ -621,14 +341,7 @@
     "language": "en",
     "category": "math",
     "input": "The ratio is 1/2 and progress is 3/4. x>=5 and y<=10.",
-    "expected": "The ratio is one half and progress is three quarters. x greater than or equal to five and y less than or equal to ten.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "The ratio is one half and progress is three quarters. x greater than or equal to five and y less than or equal to ten."
   },
   {
     "id": "tn-en-plus-phone",
@@ -636,14 +349,7 @@
     "language": "en",
     "category": "telephone",
     "input": "Call +1 415-555-0123.",
-    "expected": "Call plus one four one five five five five zero one two three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Call plus one four one five five five five zero one two three."
   },
   {
     "id": "tn-en-speed-kmh",
@@ -651,14 +357,7 @@
     "language": "en",
     "category": "measure",
     "input": "Speed is 80 km/h.",
-    "expected": "Speed is eighty kilometers per hour.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Speed is eighty kilometers per hour."
   },
   {
     "id": "tn-en-ftp-url",
@@ -666,14 +365,7 @@
     "language": "en",
     "category": "electronic",
     "input": "Contact ftp://files.example.org/a_b.",
-    "expected": "Contact FTP colon slash slash files dot example dot org slash A underscore B.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Contact FTP colon slash slash files dot example dot org slash A underscore B."
   },
   {
     "id": "tn-en-domain-timezone",
@@ -681,14 +373,7 @@
     "language": "en",
     "category": "mixed",
     "input": "Visit www.example.com and docs.example.org/path. Timezone UTC+8 and GMT-5.",
-    "expected": "Visit www dot example dot com and docs dot example dot org slash path. Timezone UTC plus eight and GMT minus five.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Visit www dot example dot com and docs dot example dot org slash path. Timezone UTC plus eight and GMT minus five."
   },
   {
     "id": "tn-en-temperature-percent",
@@ -696,14 +381,7 @@
     "language": "en",
     "category": "measure",
     "input": "It is 23.5°C and 60%.",
-    "expected": "It is twenty three point five degrees Celsius and sixty percent.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "It is twenty three point five degrees Celsius and sixty percent."
   },
   {
     "id": "tn-en-plus-minus-temperature-percent-range",
@@ -719,14 +397,7 @@
     "language": "en",
     "category": "measure",
     "input": "Error 1‰, rate 3.5‰, probability 0.05%.",
-    "expected": "Error one per mille, rate three point five per mille, probability zero point zero five percent.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "Error one per mille, rate three point five per mille, probability zero point zero five percent."
   },
   {
     "id": "tn-en-measure-phone",
@@ -734,14 +405,7 @@
     "language": "en",
     "category": "mixed",
     "input": "The package weighs 3 kg. Call 415-555-0123.",
-    "expected": "The package weighs three kilograms. Call four one five five five five zero one two three.",
-    "options": {
-      "input_case": "cased",
-      "deterministic": true,
-      "post_process": true,
-      "punct_pre_process": false,
-      "punct_post_process": false
-    }
+    "expected": "The package weighs three kilograms. Call four one five five five five zero one two three."
   },
   {
     "id": "tn-en-shortcut-space-datetime",

@@ -3,8 +3,8 @@
 Standalone Python engine for text normalization (TN), inverse text normalization (ITN), and multilingual number-to-words conversion.
 
 This repository is the standalone `light_text_process` engine. Public TN and
-ITN routes are limited to zh/en while the temporary vendored
-`fun_text_processing` backend is being removed. Product-owned rules live in
+ITN routes are first-party zh/en routes, and num2words remains a separate
+dependency-backed surface. Product-owned rules live in
 `light_text_process/rules`, runtime adapters live in `light_text_process/runtime`,
 and golden regression cases live in `data/rule_cases`.
 
@@ -31,14 +31,10 @@ print(processor.number_to_words("123", "en").output)
 - `light_text_process/processor.py` exposes the public engine API.
 - `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
 - `light_text_process/runtime/` contains runtime adapters and the engine boundary.
-- `third_party/fun_text_processing/` is the temporary preserved grammar backend
-  until vendor removal is complete.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
-- `scripts/cache_maintenance.py` inspects and maintains project-local grammar
-  caches.
-- `docs/vendor_replacement_roadmap.md` describes the transition from retained
-  vendor baseline to final vendor removal.
+- `scripts/cache_maintenance.py` reports the vendor-free cache policy.
+- `docs/vendor_replacement_roadmap.md` records the completed vendor removal.
 
 ## Validation
 
@@ -53,8 +49,6 @@ print(processor.number_to_words("123", "en").output)
 
 ## Direction
 
-The final target is to replace `third_party/fun_text_processing` with
-first-party `light_text_process` routes. During the transition, non-zh/en vendor
-TN/ITN routes are retired from the public capability surface instead of
-remaining implicit vendor-only promises. zh/en behavior is covered by focused
-first-party rules, and num2words remains a separate dependency-backed surface.
+The vendor grammar backend has been removed. Non-zh/en TN/ITN routes are
+retired from the public capability surface instead of remaining implicit
+vendor-only promises.

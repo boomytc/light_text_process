@@ -16,9 +16,7 @@ class FakeTextProcessingEngine:
         return [f"tn:{language}:{text}" for text in texts]
 
     def inverse_normalize(self, texts: list[str], language: str, options: ITNOptions) -> list[str]:
-        standalone = int(options.enable_standalone_number)
-        zero_to_nine = int(options.enable_0_to_9)
-        return [f"itn:{language}:{standalone}:{zero_to_nine}:{text}" for text in texts]
+        return [f"itn:{language}:{text}" for text in texts]
 
     def warmup_tn(self, language: str, options: TNOptions) -> None:
         self.warmed.append(("tn", language))
@@ -34,15 +32,11 @@ class ServiceSmokeTests(unittest.TestCase):
 
     def test_tn_and_itn_service_smoke_without_fst_build(self) -> None:
         tn = self.processor.normalize_text("abc", "zh", TNOptions())
-        itn = self.processor.inverse_normalize_text(
-            "one hundred twenty three",
-            "en",
-            ITNOptions(enable_standalone_number=False, enable_0_to_9=False),
-        )
+        itn = self.processor.inverse_normalize_text("one hundred twenty three", "en", ITNOptions())
 
         self.assertEqual(tn.output, "tn:zh:abc")
         self.assertEqual(tn.metadata["engine"], "fake")
-        self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
+        self.assertEqual(itn.output, "itn:en:one hundred twenty three")
 
     def test_default_chinese_itn_uses_native_route(self) -> None:
         processor = TextProcessor()

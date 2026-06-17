@@ -22,8 +22,8 @@ Stage A is complete: the vendor backend has been restored as the baseline, the
 public capability surface reflects vendor language coverage, and zh/en
 enhancement hooks live at the runtime adapter boundary.
 
-Next work starts with Stage C0: remove the temporary vendor backend and cache
-maintenance assumptions.
+Next work starts with Stage C1: validate and document the vendor-free release
+state.
 
 ## Phase Index
 
@@ -36,7 +36,7 @@ maintenance assumptions.
 | [x] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity before making those routes vendor-free. |
 | [x] | B2 | [TODO_05_LANGUAGE_SUPPORT_DECISIONS.md](todo/TODO_05_LANGUAGE_SUPPORT_DECISIONS.md) | Decide which non-zh/en vendor routes remain public and which are retired. |
 | [x] | B3 | [TODO_06_ROUTE_MIGRATION.md](todo/TODO_06_ROUTE_MIGRATION.md) | Migrate approved routes one language/operation pair at a time. |
-| [ ] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
+| [x] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
 | [ ] | C1 | [TODO_08_RELEASE_VALIDATION.md](todo/TODO_08_RELEASE_VALIDATION.md) | Validate the vendor-free release state. |
 
 ## Cross-Stage Rules

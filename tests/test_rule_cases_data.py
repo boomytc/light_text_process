@@ -83,7 +83,7 @@ class RuleCaseDataTests(unittest.TestCase):
         )
         selected = validate_rules.filter_cases(cases, args)
 
-        results = validate_rules.run_cases(selected, overwrite_cache=False, engine=args.engine)
+        results = validate_rules.run_cases(selected, engine=args.engine)
 
         self.assertGreater(len(results), 0)
         self.assertTrue(all(result.passed for result in results))

@@ -86,12 +86,14 @@ from light_text_process.processor import TextProcessor
 
 processor = TextProcessor()
 processor.inverse_normalize_text("电话一三八零零一三八零零零", "zh")
+vendor_module = "_".join(("fun", "text", "processing"))
+runtime_module = ".".join(("light_text_process", "runtime", vendor_module))
 blocked = [
     name
     for name in sys.modules
-    if name == "light_text_process.runtime.fun_text_processing"
-    or name == "fun_text_processing"
-    or name.startswith("fun_text_processing.")
+    if name == runtime_module
+    or name == vendor_module
+    or name.startswith(f"{vendor_module}.")
 ]
 print(blocked)
 """

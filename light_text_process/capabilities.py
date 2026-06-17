@@ -49,46 +49,6 @@ OPERATION_DETAILS = {
 }
 
 OPTION_DETAILS = {
-    "input_case": {
-        "label": "输入大小写",
-        "help": "英文等大小写敏感语言可选择保留原大小写或按小写处理。",
-    },
-    "deterministic": {
-        "label": "稳定输出",
-        "help": "同一输入尽量给出同一结果，适合批量处理和复现。",
-    },
-    "whitelist_path": {
-        "label": "自定义白名单文件",
-        "help": "可选的产品内相对路径，用于指定固定替换词表。",
-    },
-    "post_process": {
-        "label": "标准后处理",
-        "help": "对规则输出做常规清理。",
-    },
-    "punct_pre_process": {
-        "label": "输入标点预处理",
-        "help": "在规则处理前先整理输入标点。",
-    },
-    "punct_post_process": {
-        "label": "输出标点恢复",
-        "help": "在规则处理后整理输出标点。",
-    },
-    "batch_size": {
-        "label": "每批条数",
-        "help": "单次送入规则引擎的条数。",
-    },
-    "n_jobs": {
-        "label": "并发任务数",
-        "help": "本地并发处理数量，过高可能增加资源占用。",
-    },
-    "enable_standalone_number": {
-        "label": "处理独立数字",
-        "help": "日语 ITN 可用，用于处理单独出现的数字读法。",
-    },
-    "enable_0_to_9": {
-        "label": "处理 0 到 9",
-        "help": "日语 ITN 可用，用于处理单个数字读法。",
-    },
     "mode": {
         "label": "转换模式",
         "help": "选择普通数字、序数、年份或货币读法。",
@@ -172,29 +132,8 @@ def build_capabilities() -> dict[str, Any]:
             "tn": {
                 **OPERATION_DETAILS["tn"],
                 "languages": TN_LANGUAGES,
-                "options": [
-                    "input_case",
-                    "deterministic",
-                    "whitelist_path",
-                    "post_process",
-                    "punct_pre_process",
-                    "punct_post_process",
-                    "batch_size",
-                    "n_jobs",
-                ],
-                "option_details": {
-                    key: OPTION_DETAILS[key]
-                    for key in [
-                        "input_case",
-                        "deterministic",
-                        "whitelist_path",
-                        "post_process",
-                        "punct_pre_process",
-                        "punct_post_process",
-                        "batch_size",
-                        "n_jobs",
-                    ]
-                },
+                "options": [],
+                "option_details": {},
             },
             "itn": {
                 **OPERATION_DETAILS["itn"],
