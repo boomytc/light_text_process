@@ -6,6 +6,8 @@ import unittest
 from unittest.mock import patch
 
 from light_text_process.runtime.fun_text_processing import FunTextProcessingEngine
+from light_text_process.runtime.base import CompositeTextProcessingEngine, NativeRouteUnsupportedError
+from light_text_process.runtime.native import NativeTextProcessingEngine
 from light_text_process.schemas import ITNOptions, TNOptions
 
 
@@ -29,6 +31,45 @@ class RuntimeEngineCacheTests(unittest.TestCase):
 
         self.assertEqual(output, ["abc"])
         clear_cache.assert_called_once_with()
+
+
+class RuntimeEngineBoundaryTests(unittest.TestCase):
+    def test_composite_routes_selected_native_pairs_only(self) -> None:
+        class FakeEngine:
+            def __init__(self, name: str) -> None:
+                self.name = name
+
+            def normalize(self, texts: list[str], language: str, options: TNOptions) -> list[str]:
+                return [f"{self.name}:tn:{language}:{text}" for text in texts]
+
+            def inverse_normalize(self, texts: list[str], language: str, options: ITNOptions) -> list[str]:
+                return [f"{self.name}:itn:{language}:{text}" for text in texts]
+
+            def warmup_tn(self, language: str, options: TNOptions | None = None) -> None:
+                return None
+
+            def warmup_itn(self, language: str, options: ITNOptions | None = None) -> None:
+                return None
+
+        engine = CompositeTextProcessingEngine(
+            native_engine=FakeEngine("native"),
+            fallback_engine=FakeEngine("fallback"),
+            native_routes={("itn", "zh")},
+        )
+
+        self.assertEqual(engine.inverse_normalize(["一二三"], "zh", ITNOptions()), ["native:itn:zh:一二三"])
+        self.assertEqual(engine.last_engine_name, "native")
+        self.assertEqual(engine.normalize(["123"], "zh", TNOptions()), ["fallback:tn:zh:123"])
+        self.assertEqual(engine.last_engine_name, "fallback")
+
+    def test_native_skeleton_fails_visibly_for_unenabled_routes(self) -> None:
+        engine = NativeTextProcessingEngine()
+
+        with self.assertRaisesRegex(NativeRouteUnsupportedError, "native TN route is not enabled"):
+            engine.normalize(["abc"], "zh", TNOptions())
+
+        with self.assertRaisesRegex(NativeRouteUnsupportedError, "native ITN route is not enabled"):
+            engine.inverse_normalize(["abc"], "zh", ITNOptions())
 
     def test_itn_overwrite_clears_process_cache(self) -> None:
         class FakeInverseNormalizer:

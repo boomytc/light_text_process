@@ -13,7 +13,9 @@ from light_text_process.capabilities import (
     num2words_modes_for_language,
 )
 from light_text_process.paths import GRAMMAR_CACHE_DIR
+from light_text_process.runtime.base import CompositeTextProcessingEngine, TextProcessingEngine
 from light_text_process.runtime.fun_text_processing import FunTextProcessingEngine
+from light_text_process.runtime.native import NativeTextProcessingEngine
 from light_text_process.runtime.num2words_engine import Num2WordsEngine
 from light_text_process.schemas import (
     BatchItemResponse,
@@ -57,34 +59,37 @@ GRAMMAR_WARMUP_PROFILES = {
 
 
 class TextProcessor:
-    def __init__(self) -> None:
-        self.fun_text_processing = FunTextProcessingEngine()
+    def __init__(self, text_engine: TextProcessingEngine | None = None) -> None:
+        self.text_engine = text_engine or CompositeTextProcessingEngine(
+            native_engine=NativeTextProcessingEngine(),
+            fallback_engine=FunTextProcessingEngine(),
+        )
         self.num2words_engine = Num2WordsEngine()
 
     def normalize_text(self, text: str, language: str, options: TNOptions | None = None) -> ProcessResponse:
         options = options or TNOptions()
         _ensure_language(language, TN_LANGUAGES, "TN")
         started = perf_counter()
-        output = self.fun_text_processing.normalize([text], language, options)[0]
+        output = self.text_engine.normalize([text], language, options)[0]
         return ProcessResponse(
             operation="tn",
             language=language,
             input=text,
             output=output,
-            metadata={"engine": "fun_text_processing", "elapsed_seconds": round(perf_counter() - started, 4)},
+            metadata={"engine": _engine_name(self.text_engine), "elapsed_seconds": round(perf_counter() - started, 4)},
         )
 
     def inverse_normalize_text(self, text: str, language: str, options: ITNOptions | None = None) -> ProcessResponse:
         options = options or ITNOptions()
         _ensure_language(language, ITN_LANGUAGES, "ITN")
         started = perf_counter()
-        output = self.fun_text_processing.inverse_normalize([text], language, options)[0]
+        output = self.text_engine.inverse_normalize([text], language, options)[0]
         return ProcessResponse(
             operation="itn",
             language=language,
             input=text,
             output=output,
-            metadata={"engine": "fun_text_processing", "elapsed_seconds": round(perf_counter() - started, 4)},
+            metadata={"engine": _engine_name(self.text_engine), "elapsed_seconds": round(perf_counter() - started, 4)},
         )
 
     def number_to_words(self, number: str, language: str, options: Num2WordsOptions | None = None) -> ProcessResponse:
@@ -120,13 +125,13 @@ class TextProcessor:
             _ensure_language(language, TN_LANGUAGES, "TN")
             rows = _batch_rows(
                 items,
-                lambda batch_items: self.fun_text_processing.normalize(batch_items, language, tn_options),
+                lambda batch_items: self.text_engine.normalize(batch_items, language, tn_options),
             )
         elif operation == "itn":
             _ensure_language(language, ITN_LANGUAGES, "ITN")
             rows = _batch_rows(
                 items,
-                lambda batch_items: self.fun_text_processing.inverse_normalize(batch_items, language, itn_options),
+                lambda batch_items: self.text_engine.inverse_normalize(batch_items, language, itn_options),
             )
         elif operation == "num2words":
             _ensure_language(language, num2words_languages(), "num2words")
@@ -159,11 +164,11 @@ class TextProcessor:
         warmed = {"tn": [], "itn": []}
         for language in tn_languages or []:
             _ensure_language(language, TN_LANGUAGES, "TN")
-            self.fun_text_processing.warmup_tn(language, TNOptions())
+            self.text_engine.warmup_tn(language, TNOptions())
             warmed["tn"].append(language)
         for language in itn_languages or []:
             _ensure_language(language, ITN_LANGUAGES, "ITN")
-            self.fun_text_processing.warmup_itn(language, ITNOptions())
+            self.text_engine.warmup_itn(language, ITNOptions())
             warmed["itn"].append(language)
         return warmed
 
@@ -182,11 +187,11 @@ class TextProcessor:
     def _warmup_task(self, task: GrammarWarmupTask, warmed: dict[str, list[str]]) -> None:
         if task.operation == "tn":
             _ensure_language(task.language, TN_LANGUAGES, "TN")
-            self.fun_text_processing.warmup_tn(task.language, task.tn_options or TNOptions())
+            self.text_engine.warmup_tn(task.language, task.tn_options or TNOptions())
             warmed["tn"].append(task.language)
         elif task.operation == "itn":
             _ensure_language(task.language, ITN_LANGUAGES, "ITN")
-            self.fun_text_processing.warmup_itn(task.language, task.itn_options or ITNOptions())
+            self.text_engine.warmup_itn(task.language, task.itn_options or ITNOptions())
             warmed["itn"].append(task.language)
         else:
             raise ValueError(f"unsupported warmup operation: {task.operation}")
@@ -211,6 +216,13 @@ def _ensure_expected_cache_files(task: GrammarWarmupTask) -> None:
             f"grammar cache warmup did not create expected files for "
             f"{task.operation}:{task.language}: {missing_text}"
         )
+
+
+def _engine_name(engine: TextProcessingEngine) -> str:
+    last_engine_name = getattr(engine, "last_engine_name", None)
+    if isinstance(last_engine_name, str) and last_engine_name:
+        return last_engine_name
+    return engine.name
 
 
 def _ensure_num2words_options(language: str, options: Num2WordsOptions) -> None:

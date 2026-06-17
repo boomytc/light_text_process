@@ -6,7 +6,9 @@ from light_text_process.schemas import ITNOptions, Num2WordsOptions, TNOptions
 from light_text_process.processor import TextProcessor, _batch_rows
 
 
-class FakeFunTextProcessingEngine:
+class FakeTextProcessingEngine:
+    name = "fake"
+
     def __init__(self) -> None:
         self.warmed: list[tuple[str, str]] = []
 
@@ -27,8 +29,8 @@ class FakeFunTextProcessingEngine:
 
 class ServiceSmokeTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.processor = TextProcessor()
-        self.processor.fun_text_processing = FakeFunTextProcessingEngine()
+        self.fake_engine = FakeTextProcessingEngine()
+        self.processor = TextProcessor(text_engine=self.fake_engine)
 
     def test_tn_and_itn_service_smoke_without_fst_build(self) -> None:
         tn = self.processor.normalize_text("abc", "zh", TNOptions())
@@ -39,6 +41,7 @@ class ServiceSmokeTests(unittest.TestCase):
         )
 
         self.assertEqual(tn.output, "tn:zh:abc")
+        self.assertEqual(tn.metadata["engine"], "fake")
         self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
 
     def test_num2words_success_and_unsupported_currency(self) -> None:
@@ -68,7 +71,7 @@ class ServiceSmokeTests(unittest.TestCase):
 
         self.assertEqual(result, {"tn": ["zh"], "itn": ["en"]})
         self.assertEqual(
-            self.processor.fun_text_processing.warmed,
+            self.fake_engine.warmed,
             [("tn", "zh"), ("itn", "en")],
         )
 
