@@ -2,8 +2,8 @@
 
 ## Objective
 
-Keep the public capability surface aligned with the vendor backend instead of
-only advertising zh/en native coverage.
+Keep the current public capability surface aligned with the vendor backend
+while replacement scope is still being decided.
 
 ## Required Work
 
@@ -22,3 +22,5 @@ only advertising zh/en native coverage.
 - [x] Capability unit tests assert the restored language coverage.
 - [x] Service tests prove non-zh/en vendor languages can pass the public
       language gate.
+- [x] Future removal of any public vendor route is deferred to an explicit
+      support decision phase.

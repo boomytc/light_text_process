@@ -2,7 +2,8 @@
 
 ## Objective
 
-Strengthen zh/en TN and ITN without removing `fun_text_processing`.
+Strengthen zh/en TN and ITN without removing `fun_text_processing` during the
+transition phase.
 
 ## Required Work
 
@@ -18,3 +19,5 @@ Strengthen zh/en TN and ITN without removing `fun_text_processing`.
 
 - [x] zh/en golden rule cases still run through the public `TextProcessor`.
 - [x] Architecture tests allow vendor imports only in the runtime adapter.
+- [x] This enhancement layer remains a bridge until zh/en routes are proven
+      vendor-free.

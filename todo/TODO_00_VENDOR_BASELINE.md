@@ -2,8 +2,8 @@
 
 ## Objective
 
-Preserve the full `fun_text_processing` backend as the baseline grammar runtime
-for this standalone package.
+Preserve the full `fun_text_processing` backend as the temporary baseline
+grammar runtime while first-party replacement coverage is built.
 
 ## Required Work
 
@@ -21,3 +21,4 @@ for this standalone package.
 - [x] `fun_text_processing` can be imported through the project runtime path.
 - [x] Missing vendor dependencies still fail visibly.
 - [x] Runtime caches remain ignored and are not tracked source.
+- [x] This phase does not declare vendor to be permanent.

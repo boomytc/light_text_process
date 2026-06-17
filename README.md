@@ -37,8 +37,8 @@ print(processor.number_to_words("123", "en").output)
 - `scripts/validate_rules.py` runs the golden suite.
 - `scripts/cache_maintenance.py` inspects and maintains project-local grammar
   caches.
-- `docs/vendor_preserving_enhancement_plan.md` describes the retained vendor
-  backend and zh/en enhancement boundary.
+- `docs/vendor_replacement_roadmap.md` describes the transition from retained
+  vendor baseline to final vendor removal.
 
 ## Validation
 
@@ -53,6 +53,9 @@ print(processor.number_to_words("123", "en").output)
 
 ## Direction
 
-`fun_text_processing` remains the default TN/ITN grammar backend. zh/en behavior
-is enhanced through focused first-party prepare/finalize helpers at the runtime
-adapter boundary. num2words remains a separate dependency-backed surface.
+The final target is to replace `third_party/fun_text_processing` with
+first-party `light_text_process` routes. During the transition,
+`fun_text_processing` remains the default TN/ITN grammar backend so existing
+vendor language coverage is not lost. zh/en behavior is enhanced through
+focused first-party prepare/finalize helpers at the runtime adapter boundary.
+num2words remains a separate dependency-backed surface.
