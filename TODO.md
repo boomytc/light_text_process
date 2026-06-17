@@ -20,9 +20,9 @@ does not import, package, install, or require `fun_text_processing`.
 
 ## Current Phase
 
-`P4` is the current implementation phase. Chinese and English ITN now default to
-the native route; remaining TN route work must preserve the public API and
-golden behavior defined in `docs/native_migration_inventory.md`.
+`P5` is the current implementation phase. Chinese and English ITN plus Chinese
+TN now default to native routes; remaining English TN route work must preserve
+the public API and golden behavior defined in `docs/native_migration_inventory.md`.
 
 ## Phase Index
 
@@ -32,8 +32,8 @@ golden behavior defined in `docs/native_migration_inventory.md`.
 | [x] | P1 | [TODO_01_ENGINE_ABSTRACTION.md](todo/TODO_01_ENGINE_ABSTRACTION.md) | Add a native-ready runtime boundary without changing `TextProcessor` callers. |
 | [x] | P2 | [TODO_02_ZH_ITN_NATIVE.md](todo/TODO_02_ZH_ITN_NATIVE.md) | Migrate Chinese ITN categories first because they are high-value for ASR output. |
 | [x] | P3 | [TODO_03_EN_ITN_NATIVE.md](todo/TODO_03_EN_ITN_NATIVE.md) | Migrate English ITN with ASR-friendly post-processing and ambiguity controls. |
-| [~] | P4 | [TODO_04_ZH_TN_NATIVE.md](todo/TODO_04_ZH_TN_NATIVE.md) | Migrate Chinese TN while preserving deterministic readout behavior. |
-| [ ] | P5 | [TODO_05_EN_TN_NATIVE.md](todo/TODO_05_EN_TN_NATIVE.md) | Migrate English TN categories and keep casing/punctuation options compatible. |
+| [x] | P4 | [TODO_04_ZH_TN_NATIVE.md](todo/TODO_04_ZH_TN_NATIVE.md) | Migrate Chinese TN while preserving deterministic readout behavior. |
+| [~] | P5 | [TODO_05_EN_TN_NATIVE.md](todo/TODO_05_EN_TN_NATIVE.md) | Migrate English TN categories and keep casing/punctuation options compatible. |
 | [ ] | P6 | [TODO_06_NUM2WORDS_AND_MULTILINGUAL.md](todo/TODO_06_NUM2WORDS_AND_MULTILINGUAL.md) | Decide which num2words and non-zh/en language surfaces become first-party. |
 | [ ] | P7 | [TODO_07_CUTOVER_AND_RELEASE.md](todo/TODO_07_CUTOVER_AND_RELEASE.md) | Cut over validated native defaults and prepare release documentation. |
 | [ ] | P8 | [TODO_08_REMOVE_FUN_TEXT_PROCESSING.md](todo/TODO_08_REMOVE_FUN_TEXT_PROCESSING.md) | Remove `fun_text_processing` imports, package data, dependencies, caches, and vendor files. |

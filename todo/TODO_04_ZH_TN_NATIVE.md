@@ -16,40 +16,40 @@ number and category infrastructure.
 
 ## Deliverables
 
-- [ ] Chinese number verbalizer with deterministic output.
-- [ ] Native Chinese TN pipeline with category ordering.
-- [ ] Project-local whitelist handling compatible with `TNOptions`.
-- [ ] Golden and differential coverage for every enabled category.
-- [ ] Cache strategy decision for native TN, including whether any generated
+- [x] Chinese number verbalizer with deterministic output.
+- [x] Native Chinese TN pipeline with category ordering.
+- [x] Project-local whitelist handling compatible with `TNOptions`.
+- [x] Golden and differential coverage for every enabled category.
+- [x] Cache strategy decision for native TN, including whether any generated
       artifacts belong under ignored `runtime/`.
 
 ## Suggested Category Order
 
-- [ ] Numbers, decimals, signed values, and percentages.
-- [ ] Dates, date ranges, time, and timezone forms.
-- [ ] Money and currency symbols.
-- [ ] Measures, temperatures, speeds, and rates.
-- [ ] Phone numbers, IDs, order numbers, and codes.
-- [ ] Electronic strings, URLs, domains, email, and IP addresses.
-- [ ] Promotions, ratings, mixed expressions, and punctuation.
+- [x] Numbers, decimals, signed values, and percentages.
+- [x] Dates, date ranges, time, and timezone forms.
+- [x] Money and currency symbols.
+- [x] Measures, temperatures, speeds, and rates.
+- [x] Phone numbers, IDs, order numbers, and codes.
+- [x] Electronic strings, URLs, domains, email, and IP addresses.
+- [x] Promotions, ratings, mixed expressions, and punctuation.
 
 ## Detailed Tasks
 
-- [ ] Keep readout rules separate from ITN parsing rules even when they share
+- [x] Keep readout rules separate from ITN parsing rules even when they share
       digit maps or unit metadata.
-- [ ] Preserve existing `zh_tn.prepare_input` behavior until native equivalents
+- [x] Preserve existing `zh_tn.prepare_input` behavior until native equivalents
       are proven.
-- [ ] Add explicit tests for comma-separated money, decimal yuan, signed
+- [x] Add explicit tests for comma-separated money, decimal yuan, signed
       temperatures, percent ranges, and date separators.
-- [ ] Decide which vendor differences are product improvements rather than
+- [x] Decide which vendor differences are product improvements rather than
       regressions.
 
 ## Acceptance Gates
 
-- [ ] All `zh/tn` golden cases pass with the native route.
-- [ ] Differential comparison shows no unexplained regressions against vendor.
-- [ ] Whitelist and bad path behavior remains visible and project-local.
-- [ ] Root [TODO.md](../TODO.md) phase status is updated.
+- [x] All `zh/tn` golden cases pass with the native route.
+- [x] Differential comparison shows no unexplained regressions against vendor.
+- [x] Whitelist and bad path behavior remains visible and project-local.
+- [x] Root [TODO.md](../TODO.md) phase status is updated.
 
 ## Validation
 
@@ -58,4 +58,3 @@ number and category infrastructure.
 .venv/bin/python -m unittest tests/test_zh_tn_rule_helpers.py
 .venv/bin/python -m unittest discover -s tests
 ```
-
