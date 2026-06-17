@@ -27,8 +27,8 @@ coverage is built and verified.
 | num2words | installed `num2words` converter languages | `num2words` |
 
 This table is the transition baseline and the replacement target. Each
-non-zh/en route needs first-party ownership, golden coverage, and a migration
-order before vendor removal.
+non-zh/en route has first-party ownership, golden coverage, and migration order
+assigned in `docs/route_ownership.md`.
 
 ## Runtime Boundary
 
