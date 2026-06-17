@@ -24,48 +24,48 @@ by first-party `light_text_process` code, not by the vendored backend.
 
 ## Deliverables
 
-- [ ] Remove or retire `light_text_process/runtime/fun_text_processing.py`.
-- [ ] Remove `third_party/fun_text_processing/` from the repository, or move any
+- [x] Remove or retire `light_text_process/runtime/fun_text_processing.py`.
+- [x] Remove `third_party/fun_text_processing/` from the repository, or move any
       explicitly approved non-runtime reference material outside the package
       boundary.
-- [ ] Remove `fun_text_processing*` from package discovery and package data.
-- [ ] Remove dependencies that only existed for the vendor backend, such as
+- [x] Remove `fun_text_processing*` from package discovery and package data.
+- [x] Remove dependencies that only existed for the vendor backend, such as
       `pynini`, `joblib`, or `tqdm`, if no first-party runtime still needs them.
-- [ ] Replace vendor-specific cache maintenance with native cache handling or
+- [x] Replace vendor-specific cache maintenance with native cache handling or
       remove the obsolete cache commands.
-- [ ] Update architecture tests so any `fun_text_processing` import, package
+- [x] Update architecture tests so any `fun_text_processing` import, package
       metadata entry, or runtime path fails the test suite.
-- [ ] Update README to describe native coverage and the absence of the vendor
+- [x] Update README to describe native coverage and the absence of the vendor
       dependency.
-- [ ] Update root [TODO.md](../TODO.md) to mark the migration complete only
+- [x] Update root [TODO.md](../TODO.md) to mark the migration complete only
       after validation passes.
 
 ## Detailed Tasks
 
-- [ ] Search for `fun_text_processing` across runtime code, tests, scripts,
+- [x] Search for `fun_text_processing` across runtime code, tests, scripts,
       docs, packaging, and data.
-- [ ] Decide whether historical docs may mention the old dependency. Runtime
+- [x] Decide whether historical docs may mention the old dependency. Runtime
       code and packaging must not depend on it.
-- [ ] Remove `THIRD_PARTY_DIR` path injection if it only exists for the removed
+- [x] Remove `THIRD_PARTY_DIR` path injection if it only exists for the removed
       backend.
-- [ ] Remove vendor cache profile names and expected FAR filenames.
-- [ ] Replace any validation command that assumes vendor FAR cache generation.
-- [ ] Confirm unsupported languages fail visibly rather than falling through to
+- [x] Remove vendor cache profile names and expected FAR filenames.
+- [x] Replace any validation command that assumes vendor FAR cache generation.
+- [x] Confirm unsupported languages fail visibly rather than falling through to
       a removed backend.
-- [ ] Confirm native-supported zh/en TN/ITN still pass all golden cases.
-- [ ] Confirm generated outputs and transient caches are cleaned up.
+- [x] Confirm native-supported zh/en TN/ITN still pass all golden cases.
+- [x] Confirm generated outputs and transient caches are cleaned up.
 
 ## Acceptance Gates
 
-- [ ] `rg -n "fun_text_processing|FunTextProcessingEngine" light_text_process scripts tests pyproject.toml`
+- [x] `rg -n "fun_text_processing|FunTextProcessingEngine" light_text_process scripts tests pyproject.toml`
       returns no runtime or packaging dependency references. Intentional
       historical TODO references must be documented separately.
-- [ ] `find third_party -path '*fun_text_processing*' -print` returns no
+- [x] `find third_party -path '*fun_text_processing*' -print` returns no
       required runtime files.
-- [ ] All supported TN and ITN operations run through native code.
-- [ ] Unsupported languages and modes fail visibly.
-- [ ] All global validation gates pass.
-- [ ] `git status --short` shows only intentional source and documentation
+- [x] All supported TN and ITN operations run through native code.
+- [x] Unsupported languages and modes fail visibly.
+- [x] All global validation gates pass.
+- [x] `git status --short` shows only intentional source and documentation
       changes.
 
 ## Validation
@@ -80,4 +80,3 @@ rg -n "fun_text_processing|FunTextProcessingEngine" light_text_process scripts t
 find third_party -path '*fun_text_processing*' -print
 git status --short
 ```
-

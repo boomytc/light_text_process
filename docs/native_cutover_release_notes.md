@@ -13,16 +13,15 @@
 No non-zh/en TN or ITN route is supported. Requests for unsupported TN/ITN
 languages fail before reaching any runtime engine.
 
-## Temporary Fallback Policy
+## Fallback Policy
 
-The engine abstraction can still host a fallback engine during the migration
-window, but no supported default TN/ITN route requires it after P5. The fallback
-exists only as a temporary bridge until P8 removes the vendored backend and its
-cache maintenance assumptions.
+No supported default TN/ITN route requires a fallback engine after P8. The
+engine boundary remains for tests and future experiments, but production
+`TextProcessor` instances use `light_text_process_native` directly.
 
 ## Dependency Cleanup Plan
 
-P8 can remove dependencies that only existed for the vendored grammar backend:
+P8 removed dependencies that only existed for the vendored grammar backend:
 
 - `pynini`
 - `joblib`
@@ -34,15 +33,14 @@ The following dependencies remain required after cutover:
 
 - `num2words` for the separate number-to-words surface.
 - `pydantic` for request/response schemas.
-- `inflect`, `PyYAML`, and `regex` until a focused dependency audit proves they
-  are unused by first-party runtime code.
+No first-party runtime dependency currently requires `inflect`, `PyYAML`, or
+`regex`.
 
 ## Cache State
 
 Native zh/en TN and ITN routes do not require FAR/FST caches. Existing files
 under ignored `runtime/cache/` are transient validation artifacts and can be
-removed. P8 should retire vendor-specific cache commands or replace them with
-native cache handling if a future native cache is introduced.
+removed. Vendor-specific cache commands have been retired.
 
 ## Known Limits
 
@@ -51,9 +49,9 @@ native cache handling if a future native cache is introduced.
 - Non-zh/en TN/ITN languages are unsupported until first-party rules and golden
   cases are added.
 
-## P8 Prerequisites
+## Final Removal Status
 
-- Remove the vendored runtime adapter and `third_party/fun_text_processing`.
-- Remove vendor package discovery, package data, and vendor-only dependencies.
-- Update architecture tests to reject vendor imports and metadata entries.
-- Clean ignored validation caches before final status reporting.
+- Vendored runtime adapter removed.
+- `third_party/fun_text_processing` removed from the project tree.
+- Vendor package discovery, package data, and vendor-only dependencies removed.
+- Architecture tests reject vendor imports.

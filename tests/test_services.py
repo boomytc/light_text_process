@@ -144,9 +144,9 @@ class BatchFallbackTests(unittest.TestCase):
 
     def test_batch_fallback_reraises_system_errors(self) -> None:
         def processor(items: list[str]) -> list[str]:
-            raise RuntimeError("missing pynini")
+            raise RuntimeError("missing runtime module")
 
-        with self.assertRaisesRegex(RuntimeError, "missing pynini"):
+        with self.assertRaisesRegex(RuntimeError, "missing runtime module"):
             _batch_rows(["a", "b"], processor)
 
 

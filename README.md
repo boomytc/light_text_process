@@ -30,11 +30,11 @@ print(processor.number_to_words("123", "en").output)
 - `light_text_process/processor.py` exposes the public engine API.
 - `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
 - `light_text_process/runtime/` contains native runtime engines and the
-  migration-time engine boundary.
+  engine boundary.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
 - `docs/native_cutover_release_notes.md` describes native route defaults,
-  dependency cleanup, and final removal prerequisites.
+  dependency cleanup, and final removal status.
 
 ## Validation
 
