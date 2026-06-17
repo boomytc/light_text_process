@@ -16,7 +16,7 @@ has an equivalent first-party implementation.
       `pyproject.toml`.
 - [ ] Remove vendor-only dependencies such as `pynini`, `joblib`, `tqdm`,
       `PyYAML`, `regex`, and `inflect` when no first-party runtime needs them.
-- [ ] Retire or rewrite `scripts/cache_maintenance.py` so it no longer assumes
+- [ ] Remove or rewrite `scripts/cache_maintenance.py` so it no longer assumes
       FAR/FST grammar caches.
 - [ ] Update architecture tests to reject all `fun_text_processing` imports.
 - [ ] Update README, AGENTS, TODO, and release docs to describe the vendor-free

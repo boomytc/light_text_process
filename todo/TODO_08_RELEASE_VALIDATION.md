@@ -10,12 +10,12 @@ Validate the final vendor-free release state.
       the vendor-free cache policy.
 - [ ] Confirm `pyproject.toml` has no vendor package discovery, vendor package
       data, or vendor-only dependencies.
-- [ ] Confirm public capabilities list only retained first-party or accepted
-      dependency-backed routes.
+- [ ] Confirm public capabilities still list every replacement-target route,
+      with each TN/ITN route served by first-party runtime code.
 - [ ] Confirm generated cache files stay under ignored runtime directories or no
       longer exist.
-- [ ] Update release notes with removed languages, migrated routes, dependency
-      changes, and customer-visible behavior changes.
+- [ ] Update release notes with route migration status, capability preservation
+      evidence, dependency changes, and customer-visible behavior changes.
 
 ## Acceptance
 

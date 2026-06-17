@@ -20,7 +20,8 @@ replacement.
 
 ## Acceptance
 
-- [ ] No current vendor route is removed from public capabilities as a shortcut.
+- [ ] Every current vendor route stays in public capabilities until its
+      first-party replacement is active.
 - [ ] `light_text_process/capabilities.py` continues to expose all current
       vendor TN/ITN languages during the transition.
 - [ ] Each route has a concrete first-party migration owner and test plan.

@@ -3,8 +3,8 @@
 ## Final Direction
 
 The final target is for first-party `light_text_process` code to replace
-`third_party/fun_text_processing`, so the package no longer depends on the
-third-party grammar tree.
+`third_party/fun_text_processing`, so runtime capability is owned by this
+package rather than the third-party grammar tree.
 
 During the transition, `fun_text_processing` remains the ability baseline. This
 prevents losing existing multilingual TN/ITN behavior while first-party route

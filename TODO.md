@@ -79,8 +79,8 @@ vendor-removal validators in `todo/TODO_07_VENDOR_REMOVAL.md`.
 A phase is complete only when:
 
 - Its detailed TODO file has all required checklist items checked.
-- Public API behavior remains compatible unless the phase explicitly documents a
-  supported breaking change and the user accepts it.
+- Public API behavior remains compatible; route removal is not a replacement
+  strategy and requires a separate explicit scope decision.
 - Golden rule cases pass for every affected language and operation.
 - Differential results against the vendor baseline are either matching or
   documented as intentional product improvements.
