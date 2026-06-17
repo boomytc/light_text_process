@@ -6,9 +6,9 @@ The final target is for first-party `light_text_process` code to replace
 `third_party/fun_text_processing`, so the package no longer depends on the
 third-party grammar tree.
 
-During the transition, `fun_text_processing` remains the ability baseline. This
-prevents losing existing multilingual TN/ITN behavior while first-party route
-coverage is built and verified.
+During the transition, `fun_text_processing` remains only as a temporary backend
+for code that has not yet been removed. Non-zh/en TN/ITN routes are no longer
+public capabilities because they have no first-party owner or golden coverage.
 
 ## Stages
 
@@ -22,13 +22,13 @@ coverage is built and verified.
 
 | Operation | Current public languages | Current runtime |
 | --- | --- | --- |
-| TN | de, en, es, ru, zh | `fun_text_processing` with zh/en prepare helpers |
-| ITN | de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh | `fun_text_processing` with zh/en prepare/finalize helpers |
+| TN | en, zh | first-party route policy; temporary backend still present before removal |
+| ITN | en, zh | first-party route policy; temporary backend still present before removal |
 | num2words | installed `num2words` converter languages | `num2words` |
 
-This table is a transition baseline, not a promise that every vendor language
-must remain public forever. Each non-zh/en route needs an explicit replace,
-retire, or defer decision before vendor removal.
+The non-zh/en vendor TN/ITN routes are explicitly retired from the public
+surface before vendor removal. This is the breaking change that prevents a
+vendor-only route from surviving as an implicit promise.
 
 ## Runtime Boundary
 

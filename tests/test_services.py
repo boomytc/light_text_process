@@ -79,12 +79,19 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
         self.assertEqual(response.metadata["engine"], "fun_text_processing")
 
-    def test_vendor_languages_are_preserved_on_public_surface(self) -> None:
-        tn = self.processor.normalize_text("123", "de", TNOptions())
-        itn = self.processor.inverse_normalize_text("ichi ni san", "ja", ITNOptions())
+    def test_retired_vendor_languages_are_not_public_routes(self) -> None:
+        retired_tn_languages = {"de", "es", "ru"}
+        retired_itn_languages = {"de", "es", "fr", "id", "ja", "ko", "pt", "ru", "tl", "vi"}
 
-        self.assertEqual(tn.output, "tn:de:123")
-        self.assertEqual(itn.output, "itn:ja:1:1:ichi ni san")
+        for language in sorted(retired_tn_languages):
+            with self.subTest(operation="tn", language=language):
+                with self.assertRaisesRegex(ValueError, f"unsupported TN language: {language}"):
+                    self.processor.normalize_text("123", language, TNOptions())
+
+        for language in sorted(retired_itn_languages):
+            with self.subTest(operation="itn", language=language):
+                with self.assertRaisesRegex(ValueError, f"unsupported ITN language: {language}"):
+                    self.processor.inverse_normalize_text("one two three", language, ITNOptions())
 
     def test_num2words_success_and_unsupported_currency(self) -> None:
         success = self.processor.number_to_words("123", "en", Num2WordsOptions(mode="cardinal"))

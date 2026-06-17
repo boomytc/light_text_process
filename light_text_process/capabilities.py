@@ -5,25 +5,12 @@ from typing import Any
 
 
 TN_LANGUAGES = {
-    "de": "德语",
     "en": "英语",
-    "es": "西班牙语",
-    "ru": "俄语",
     "zh": "中文",
 }
 
 ITN_LANGUAGES = {
-    "de": "德语",
     "en": "英语",
-    "es": "西班牙语",
-    "fr": "法语",
-    "id": "印尼语",
-    "ja": "日语",
-    "ko": "韩语",
-    "pt": "葡萄牙语",
-    "ru": "俄语",
-    "tl": "他加禄语",
-    "vi": "越南语",
     "zh": "中文",
 }
 
@@ -35,9 +22,7 @@ NUM2WORDS_MODES = {
     "currency": "货币读法",
 }
 
-ITN_LANGUAGE_OPTIONS: dict[str, list[str]] = {
-    "ja": ["enable_standalone_number", "enable_0_to_9"],
-}
+ITN_LANGUAGE_OPTIONS: dict[str, list[str]] = {}
 
 OPERATION_DETAILS = {
     "tn": {

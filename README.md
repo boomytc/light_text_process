@@ -2,12 +2,11 @@
 
 Standalone Python engine for text normalization (TN), inverse text normalization (ITN), and multilingual number-to-words conversion.
 
-This repository is the standalone `light_text_process` engine. zh/en TN and ITN
-are strengthened by first-party helpers while the full vendored
-`fun_text_processing` backend remains available for its original multilingual
-TN/ITN coverage. Product-owned rules live in `light_text_process/rules`,
-runtime adapters live in `light_text_process/runtime`, and golden regression
-cases live in `data/rule_cases`.
+This repository is the standalone `light_text_process` engine. Public TN and
+ITN routes are limited to zh/en while the temporary vendored
+`fun_text_processing` backend is being removed. Product-owned rules live in
+`light_text_process/rules`, runtime adapters live in `light_text_process/runtime`,
+and golden regression cases live in `data/rule_cases`.
 
 ## Setup
 
@@ -32,7 +31,8 @@ print(processor.number_to_words("123", "en").output)
 - `light_text_process/processor.py` exposes the public engine API.
 - `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
 - `light_text_process/runtime/` contains runtime adapters and the engine boundary.
-- `third_party/fun_text_processing/` is the preserved grammar backend.
+- `third_party/fun_text_processing/` is the temporary preserved grammar backend
+  until vendor removal is complete.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
 - `scripts/cache_maintenance.py` inspects and maintains project-local grammar
@@ -54,8 +54,7 @@ print(processor.number_to_words("123", "en").output)
 ## Direction
 
 The final target is to replace `third_party/fun_text_processing` with
-first-party `light_text_process` routes. During the transition,
-`fun_text_processing` remains the default TN/ITN grammar backend so existing
-vendor language coverage is not lost. zh/en behavior is enhanced through
-focused first-party prepare/finalize helpers at the runtime adapter boundary.
-num2words remains a separate dependency-backed surface.
+first-party `light_text_process` routes. During the transition, non-zh/en vendor
+TN/ITN routes are retired from the public capability surface instead of
+remaining implicit vendor-only promises. zh/en behavior is covered by focused
+first-party rules, and num2words remains a separate dependency-backed surface.
