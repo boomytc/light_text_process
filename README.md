@@ -2,13 +2,11 @@
 
 Standalone Python engine for text normalization (TN), inverse text normalization (ITN), and multilingual number-to-words conversion.
 
-This repository is the standalone `light_text_process` engine. zh/en TN and ITN
-use first-party native routes, while the full vendored `fun_text_processing`
-backend remains available for multilingual TN/ITN routes that have not yet been
-integrated into first-party code. Product-owned rules live in
-`light_text_process/rules`, runtime adapters live in
-`light_text_process/runtime`, and golden regression cases live in
-`data/rule_cases`.
+This repository is the standalone `light_text_process` engine. Public TN and
+ITN routes use first-party native code, and multilingual number-to-words remains
+dependency-backed through `num2words`. Product-owned rules live in
+`light_text_process/rules`, runtime adapters live in `light_text_process/runtime`,
+and golden regression cases live in `data/rule_cases`.
 
 ## Setup
 
@@ -31,16 +29,12 @@ print(processor.number_to_words("123", "en").output)
 ## Architecture
 
 - `light_text_process/processor.py` exposes the public engine API.
-- `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
+- `light_text_process/rules/` contains owned TN/ITN rule modules.
 - `light_text_process/runtime/` contains runtime adapters and the engine boundary.
-- `third_party/fun_text_processing/` is the temporary preserved grammar backend
-  for routes not yet integrated into first-party code.
-- `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
+- `data/rule_cases/` is the golden regression suite for public TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
-- `scripts/cache_maintenance.py` inspects and maintains project-local grammar
-  caches.
-- `docs/vendor_replacement_roadmap.md` describes the transition from retained
-  vendor baseline to final vendor removal.
+- `scripts/cache_maintenance.py` reports the vendor-free cache policy.
+- `docs/vendor_replacement_roadmap.md` records the completed vendor removal.
 
 ## Validation
 
@@ -55,8 +49,6 @@ print(processor.number_to_words("123", "en").output)
 
 ## Direction
 
-The final target is to replace every current `third_party/fun_text_processing`
-TN/ITN route with first-party `light_text_process` routes. During the
-transition, zh/en use native routes and non-migrated vendor languages continue
-through `fun_text_processing` fallback so existing coverage is not lost.
-num2words remains a separate dependency-backed surface.
+The vendor grammar backend has been removed. Public TN/ITN routes are served by
+first-party `light_text_process` rules, and num2words remains a separate
+dependency-backed surface.

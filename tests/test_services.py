@@ -37,12 +37,12 @@ class ServiceSmokeTests(unittest.TestCase):
         itn = self.processor.inverse_normalize_text(
             "one hundred twenty three",
             "en",
-            ITNOptions(enable_standalone_number=False, enable_0_to_9=False),
+            ITNOptions(),
         )
 
         self.assertEqual(tn.output, "tn:zh:abc")
         self.assertEqual(tn.metadata["engine"], "fake")
-        self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
+        self.assertEqual(itn.output, "itn:en:1:1:one hundred twenty three")
 
     def test_default_chinese_itn_uses_native_route(self) -> None:
         processor = TextProcessor()
@@ -79,15 +79,11 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
         self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_migrated_routes_use_native_engine(self) -> None:
+    def test_default_processor_uses_native_engine(self) -> None:
         processor = TextProcessor()
         engine = processor.text_engine
 
-        self.assertEqual(getattr(getattr(engine, "fallback_engine", None), "name", None), "fun_text_processing")
-        self.assertIn(("tn", "zh"), getattr(engine, "native_routes", set()))
-        self.assertIn(("itn", "en"), getattr(engine, "native_routes", set()))
-        self.assertIn(("tn", "de"), getattr(engine, "native_routes", set()))
-        self.assertIn(("itn", "ja"), getattr(engine, "native_routes", set()))
+        self.assertEqual(engine.name, "light_text_process_native")
 
     def test_vendor_languages_are_preserved_on_public_surface(self) -> None:
         tn = self.processor.normalize_text("123", "de", TNOptions())

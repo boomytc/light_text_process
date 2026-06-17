@@ -13,8 +13,6 @@ Num2WordsMode = Literal["cardinal", "ordinal", "ordinal_num", "year", "currency"
 class TNOptions(BaseModel):
     input_case: InputCase = "cased"
     deterministic: bool = True
-    cache_enabled: bool = True
-    overwrite_cache: bool = False
     whitelist_path: str | None = None
     post_process: bool = True
     punct_pre_process: bool = False
@@ -24,8 +22,6 @@ class TNOptions(BaseModel):
 
 
 class ITNOptions(BaseModel):
-    cache_enabled: bool = True
-    overwrite_cache: bool = False
     enable_standalone_number: bool = True
     enable_0_to_9: bool = True
 
@@ -85,4 +81,3 @@ class BatchResponse(BaseModel):
     success_count: int
     error_count: int
     metadata: dict[str, Any] = Field(default_factory=dict)
-

@@ -1,13 +1,11 @@
 # Light Text Process Vendor Replacement TODO
 
 This file is the root progress index for the full replacement direction:
-`light_text_process` should eventually replace `third_party/fun_text_processing`
-and stop depending on the third-party grammar tree.
+`light_text_process` has replaced `third_party/fun_text_processing` and no
+longer depends on the third-party grammar tree.
 
-The current transition state intentionally keeps `fun_text_processing` as the
-ability baseline while first-party coverage is built and verified route by
-route. Vendor removal is allowed only after every current vendor TN/ITN route is
-covered by owned code with matching public capability.
+The current state is vendor-free: public TN/ITN routes are served by
+first-party native code, and num2words remains dependency-backed.
 
 ## Progress Legend
 
@@ -22,8 +20,7 @@ Stage A is complete: the vendor backend has been restored as the baseline, the
 public capability surface reflects vendor language coverage, and zh/en
 enhancement hooks live at the runtime adapter boundary.
 
-Current work is Stage C0: remove the vendor backend after every public TN/ITN
-route has a first-party owner.
+Current work is Stage C1: validate the vendor-free release state.
 
 ## Phase Index
 
@@ -36,15 +33,14 @@ route has a first-party owner.
 | [x] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity while those routes run first-party by default. |
 | [x] | B2 | [TODO_05_LANGUAGE_SUPPORT_DECISIONS.md](todo/TODO_05_LANGUAGE_SUPPORT_DECISIONS.md) | Define ownership and migration order for every non-zh/en vendor route. |
 | [x] | B3 | [TODO_06_ROUTE_MIGRATION.md](todo/TODO_06_ROUTE_MIGRATION.md) | Migrate approved routes one language/operation pair at a time. |
-| [ ] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
+| [x] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
 | [ ] | C1 | [TODO_08_RELEASE_VALIDATION.md](todo/TODO_08_RELEASE_VALIDATION.md) | Validate the vendor-free release state. |
 
 ## Cross-Stage Rules
 
 - Keep TN, ITN, and num2words as separate task surfaces.
 - Keep first-party rules inside `light_text_process/rules/`.
-- While vendor remains, keep direct `fun_text_processing` imports limited to
-  `light_text_process/runtime/fun_text_processing.py`.
+- Do not reintroduce direct `fun_text_processing` imports.
 - Do not route non-zh/en vendor languages through zh/en helper logic.
 - Do not expose a route as first-party replacement until golden cases,
   differential behavior, and failure modes are covered.
@@ -59,7 +55,7 @@ route has a first-party owner.
 
 ## Validation Gates
 
-Run these while vendor is still present:
+Run these in the vendor-free state:
 
 ```bash
 .venv/bin/python -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
@@ -70,8 +66,7 @@ Run these while vendor is still present:
 .venv/bin/python -c "from light_text_process import TextProcessor; print(TextProcessor().number_to_words('123', 'en').output)"
 ```
 
-After C0 removes the vendor backend, replace vendor cache checks with the
-vendor-removal validators in `todo/TODO_07_VENDOR_REMOVAL.md`.
+Vendor-removal search checks are listed in `todo/TODO_07_VENDOR_REMOVAL.md`.
 
 ## Completion Policy
 

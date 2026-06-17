@@ -5,20 +5,17 @@ from pathlib import Path
 
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-THIRD_PARTY_DIR = PROJECT_DIR / "third_party"
 RUNTIME_DIR = PROJECT_DIR / "runtime"
-GRAMMAR_CACHE_DIR = RUNTIME_DIR / "cache" / "fun_text_processing"
 
 
 def ensure_runtime_paths() -> None:
-    for runtime_path in (PROJECT_DIR, THIRD_PARTY_DIR):
-        runtime_path_text = str(runtime_path)
-        if runtime_path_text not in sys.path:
-            sys.path.insert(0, runtime_path_text)
+    project_dir_text = str(PROJECT_DIR)
+    if project_dir_text not in sys.path:
+        sys.path.insert(0, project_dir_text)
 
 
 def ensure_runtime_dirs() -> None:
-    GRAMMAR_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def resolve_project_path(value: str | None) -> Path | None:

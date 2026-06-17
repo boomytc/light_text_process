@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass
 from time import perf_counter
 
 from light_text_process.capabilities import (
@@ -12,9 +11,7 @@ from light_text_process.capabilities import (
     num2words_languages,
     num2words_modes_for_language,
 )
-from light_text_process.paths import GRAMMAR_CACHE_DIR
-from light_text_process.runtime.base import CompositeTextProcessingEngine, TextProcessingEngine
-from light_text_process.runtime.fun_text_processing import FunTextProcessingEngine
+from light_text_process.runtime.base import TextProcessingEngine
 from light_text_process.runtime.native import NativeTextProcessingEngine
 from light_text_process.runtime.num2words_engine import Num2WordsEngine
 from light_text_process.schemas import (
@@ -27,63 +24,9 @@ from light_text_process.schemas import (
 )
 
 
-@dataclass(frozen=True)
-class GrammarWarmupTask:
-    operation: str
-    language: str
-    expected_cache_files: tuple[str, ...]
-    tn_options: TNOptions | None = None
-    itn_options: ITNOptions | None = None
-
-
-DEFAULT_GRAMMAR_WARMUP_PROFILES = ("zh-default",)
-DEFAULT_NATIVE_ROUTES = {
-    ("tn", "de"),
-    ("tn", "en"),
-    ("tn", "es"),
-    ("tn", "ru"),
-    ("tn", "zh"),
-    ("itn", "de"),
-    ("itn", "en"),
-    ("itn", "es"),
-    ("itn", "fr"),
-    ("itn", "id"),
-    ("itn", "ja"),
-    ("itn", "ko"),
-    ("itn", "pt"),
-    ("itn", "ru"),
-    ("itn", "tl"),
-    ("itn", "vi"),
-    ("itn", "zh"),
-}
-GRAMMAR_WARMUP_PROFILES = {
-    "zh-default": (
-        GrammarWarmupTask(
-            operation="tn",
-            language="zh",
-            tn_options=TNOptions(),
-            expected_cache_files=(
-                "zh_tn_True_deterministic_cased__tokenize.far",
-                "zh_tn_True_deterministic_verbalizer.far",
-            ),
-        ),
-        GrammarWarmupTask(
-            operation="itn",
-            language="zh",
-            itn_options=ITNOptions(),
-            expected_cache_files=("_zh_itn.far",),
-        ),
-    )
-}
-
-
 class TextProcessor:
     def __init__(self, text_engine: TextProcessingEngine | None = None) -> None:
-        self.text_engine = text_engine or CompositeTextProcessingEngine(
-            native_engine=NativeTextProcessingEngine(),
-            fallback_engine=FunTextProcessingEngine(),
-            native_routes=set(DEFAULT_NATIVE_ROUTES),
-        )
+        self.text_engine = text_engine or NativeTextProcessingEngine()
         self.num2words_engine = Num2WordsEngine()
 
     def normalize_text(self, text: str, language: str, options: TNOptions | None = None) -> ProcessResponse:
@@ -192,51 +135,10 @@ class TextProcessor:
             warmed["itn"].append(language)
         return warmed
 
-    def warmup_profiles(self, profile_names: list[str] | tuple[str, ...]) -> dict[str, list[str]]:
-        warmed = {"profiles": [], "tn": [], "itn": []}
-        for profile_name in profile_names:
-            tasks = GRAMMAR_WARMUP_PROFILES.get(profile_name)
-            if tasks is None:
-                supported = ", ".join(sorted(GRAMMAR_WARMUP_PROFILES))
-                raise ValueError(f"unsupported warmup profile: {profile_name} (supported: {supported})")
-            for task in tasks:
-                self._warmup_task(task, warmed)
-            warmed["profiles"].append(profile_name)
-        return warmed
-
-    def _warmup_task(self, task: GrammarWarmupTask, warmed: dict[str, list[str]]) -> None:
-        if task.operation == "tn":
-            _ensure_language(task.language, TN_LANGUAGES, "TN")
-            self.text_engine.warmup_tn(task.language, task.tn_options or TNOptions())
-            warmed["tn"].append(task.language)
-        elif task.operation == "itn":
-            _ensure_language(task.language, ITN_LANGUAGES, "ITN")
-            self.text_engine.warmup_itn(task.language, task.itn_options or ITNOptions())
-            warmed["itn"].append(task.language)
-        else:
-            raise ValueError(f"unsupported warmup operation: {task.operation}")
-
-        if _engine_name(self.text_engine) != NativeTextProcessingEngine.name:
-            _ensure_expected_cache_files(task)
-
 
 def _ensure_language(language: str, supported: dict[str, str], label: str) -> None:
     if language not in supported:
         raise ValueError(f"unsupported {label} language: {language}")
-
-
-def _ensure_expected_cache_files(task: GrammarWarmupTask) -> None:
-    missing = [
-        file_name
-        for file_name in task.expected_cache_files
-        if not (GRAMMAR_CACHE_DIR / file_name).is_file()
-    ]
-    if missing:
-        missing_text = ", ".join(missing)
-        raise RuntimeError(
-            f"grammar cache warmup did not create expected files for "
-            f"{task.operation}:{task.language}: {missing_text}"
-        )
 
 
 def _engine_name(engine: TextProcessingEngine) -> str:

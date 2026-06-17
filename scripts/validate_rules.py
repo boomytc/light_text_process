@@ -76,7 +76,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             print("error: no rule cases selected", file=sys.stderr)
             return 2
         started = perf_counter()
-        results = run_cases(cases, overwrite_cache=args.overwrite_cache, engine=args.engine)
+        results = run_cases(cases, engine=args.engine)
         elapsed = perf_counter() - started
         print_results(results, verbose=args.verbose)
         print_summary(results, elapsed)
@@ -100,11 +100,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--operation", action="append", choices=sorted(SUPPORTED_OPERATIONS))
     parser.add_argument("--category", action="append", help="case category to include")
     parser.add_argument("--case", action="append", dest="case_ids", help="case id to include")
-    parser.add_argument(
-        "--overwrite-cache",
-        action="store_true",
-        help="rebuild fun_text_processing grammar caches while running selected cases",
-    )
     parser.add_argument(
         "--engine",
         choices=("default", "native"),
@@ -211,7 +206,6 @@ def filter_cases(cases: Iterable[RuleCase], args: argparse.Namespace) -> list[Ru
 def run_cases(
     cases: Sequence[RuleCase],
     *,
-    overwrite_cache: bool = False,
     engine: str = "default",
 ) -> list[RuleResult]:
     if engine == "native":
@@ -222,7 +216,7 @@ def run_cases(
         raise ValueError(f"unsupported validation engine: {engine}")
     results: list[RuleResult] = []
     for group_cases in grouped_cases(cases).values():
-        group_results = run_group(service, group_cases, overwrite_cache=overwrite_cache)
+        group_results = run_group(service, group_cases)
         results.extend(group_results)
     result_by_id = {result.case.id: result for result in results}
     return [result_by_id[case.id] for case in cases]
@@ -239,18 +233,14 @@ def grouped_cases(cases: Sequence[RuleCase]) -> dict[tuple[str, str, str], list[
 def run_group(
     service: TextProcessor,
     cases: Sequence[RuleCase],
-    *,
-    overwrite_cache: bool,
 ) -> list[RuleResult]:
     first = cases[0]
     tn_options = TNOptions()
     itn_options = ITNOptions()
     if first.operation == "tn":
         tn_options = TNOptions(**first.options)
-        tn_options.overwrite_cache = overwrite_cache
     else:
         itn_options = ITNOptions(**first.options)
-        itn_options.overwrite_cache = overwrite_cache
 
     try:
         response = service.batch(

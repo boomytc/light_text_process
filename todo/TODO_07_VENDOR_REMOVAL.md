@@ -7,25 +7,33 @@ has an equivalent first-party implementation.
 
 ## Required Work
 
-- [ ] Prove every current vendor TN/ITN route is first-party or dependency-backed
+- [x] Prove every current vendor TN/ITN route is first-party or dependency-backed
       by an accepted non-vendor boundary.
-- [ ] Remove `light_text_process/runtime/fun_text_processing.py`.
-- [ ] Remove `third_party/fun_text_processing/` from the project tree.
-- [ ] Remove `third_party/` path insertion from `light_text_process/paths.py`.
-- [ ] Remove vendor package discovery and package-data entries from
+- [x] Remove `light_text_process/runtime/fun_text_processing.py`.
+- [x] Remove `third_party/fun_text_processing/` from the project tree.
+- [x] Remove `third_party/` path insertion from `light_text_process/paths.py`.
+- [x] Remove vendor package discovery and package-data entries from
       `pyproject.toml`.
-- [ ] Remove vendor-only dependencies such as `pynini`, `joblib`, `tqdm`,
+- [x] Remove vendor-only dependencies such as `pynini`, `joblib`, `tqdm`,
       `PyYAML`, `regex`, and `inflect` when no first-party runtime needs them.
-- [ ] Remove or rewrite `scripts/cache_maintenance.py` so it no longer assumes
+- [x] Remove or rewrite `scripts/cache_maintenance.py` so it no longer assumes
       FAR/FST grammar caches.
-- [ ] Update architecture tests to reject all `fun_text_processing` imports.
-- [ ] Update README, AGENTS, TODO, and release docs to describe the vendor-free
+- [x] Update architecture tests to reject all `fun_text_processing` imports.
+- [x] Update README, AGENTS, TODO, and release docs to describe the vendor-free
       state.
 
 ## Acceptance
 
-- [ ] `rg -n "fun_text_processing|FunTextProcessingEngine" light_text_process scripts tests pyproject.toml`
+- [x] `rg -n "fun_text_processing|FunTextProcessingEngine" light_text_process scripts tests pyproject.toml`
       returns no runtime dependency.
-- [ ] `find third_party -path '*fun_text_processing*' -print` returns no files.
-- [ ] Full validation passes after vendor files and dependencies are removed.
-- [ ] Generated caches and one-off validation artifacts are clean.
+- [x] `find third_party -path '*fun_text_processing*' -print` returns no files.
+- [x] Full validation passes after vendor files and dependencies are removed.
+- [x] Generated caches and one-off validation artifacts are clean.
+
+## Evidence
+
+- `scripts/cache_maintenance.py status` reports `cache_policy: none`.
+- `pyproject.toml` contains only first-party package discovery and active
+  runtime dependencies.
+- `tests/test_architecture_boundaries.py` rejects vendor imports anywhere under
+  `light_text_process/`.
