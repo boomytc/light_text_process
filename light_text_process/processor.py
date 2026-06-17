@@ -14,7 +14,6 @@ from light_text_process.capabilities import (
 )
 from light_text_process.paths import GRAMMAR_CACHE_DIR
 from light_text_process.runtime.base import TextProcessingEngine
-from light_text_process.runtime.fun_text_processing import FunTextProcessingEngine
 from light_text_process.runtime.num2words_engine import Num2WordsEngine
 from light_text_process.schemas import (
     BatchItemResponse,
@@ -59,7 +58,7 @@ GRAMMAR_WARMUP_PROFILES = {
 
 class TextProcessor:
     def __init__(self, text_engine: TextProcessingEngine | None = None) -> None:
-        self.text_engine = text_engine or FunTextProcessingEngine()
+        self.text_engine = text_engine or _default_text_engine()
         self.num2words_engine = Num2WordsEngine()
 
     def normalize_text(self, text: str, language: str, options: TNOptions | None = None) -> ProcessResponse:
@@ -219,6 +218,12 @@ def _engine_name(engine: TextProcessingEngine) -> str:
     if isinstance(last_engine_name, str) and last_engine_name:
         return last_engine_name
     return engine.name
+
+
+def _default_text_engine() -> TextProcessingEngine:
+    from light_text_process.runtime.fun_text_processing import FunTextProcessingEngine
+
+    return FunTextProcessingEngine()
 
 
 def _ensure_num2words_options(language: str, options: Num2WordsOptions) -> None:

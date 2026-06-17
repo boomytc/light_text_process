@@ -22,8 +22,8 @@ Stage A is complete: the vendor backend has been restored as the baseline, the
 public capability surface reflects vendor language coverage, and zh/en
 enhancement hooks live at the runtime adapter boundary.
 
-Next work starts with Stage B1: harden zh/en native parity before moving
-public routes off the vendor backend.
+Next work starts with Stage B2: decide and document the public policy for
+non-zh/en vendor routes before removing the vendor backend.
 
 ## Phase Index
 
@@ -33,7 +33,7 @@ public routes off the vendor backend.
 | [x] | A1 | [TODO_01_PUBLIC_CAPABILITIES.md](todo/TODO_01_PUBLIC_CAPABILITIES.md) | Expose current vendor TN/ITN coverage and visible unsupported failures. |
 | [x] | A2 | [TODO_02_ZH_EN_ENHANCEMENT.md](todo/TODO_02_ZH_EN_ENHANCEMENT.md) | Add zh/en first-party enhancement hooks without dropping vendor routes. |
 | [x] | B0 | [TODO_03_REPLACEMENT_INVENTORY.md](todo/TODO_03_REPLACEMENT_INVENTORY.md) | Build a route-by-route vendor capability and replacement matrix. |
-| [ ] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity before making those routes vendor-free. |
+| [x] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity before making those routes vendor-free. |
 | [ ] | B2 | [TODO_05_LANGUAGE_SUPPORT_DECISIONS.md](todo/TODO_05_LANGUAGE_SUPPORT_DECISIONS.md) | Decide which non-zh/en vendor routes remain public and which are retired. |
 | [ ] | B3 | [TODO_06_ROUTE_MIGRATION.md](todo/TODO_06_ROUTE_MIGRATION.md) | Migrate approved routes one language/operation pair at a time. |
 | [ ] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
