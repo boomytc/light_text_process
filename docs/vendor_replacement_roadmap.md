@@ -22,8 +22,8 @@ public capabilities because they have no first-party owner or golden coverage.
 
 | Operation | Current public languages | Current runtime |
 | --- | --- | --- |
-| TN | en, zh | first-party route policy; temporary backend still present before removal |
-| ITN | en, zh | first-party route policy; temporary backend still present before removal |
+| TN | en, zh | first-party native rules |
+| ITN | en, zh | first-party native rules |
 | num2words | installed `num2words` converter languages | `num2words` |
 
 The non-zh/en vendor TN/ITN routes are explicitly retired from the public
@@ -32,8 +32,7 @@ vendor-only route from surviving as an implicit promise.
 
 ## Runtime Boundary
 
-- While vendor remains, `TextProcessor` uses `FunTextProcessingEngine` by
-  default.
+- `TextProcessor` uses the first-party native engine by default.
 - Direct imports from `fun_text_processing` are allowed only inside
   `light_text_process/runtime/fun_text_processing.py`.
 - `light_text_process/rules/` remains first-party and must not import vendor

@@ -79,13 +79,12 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
 
         self.assertEqual(output, ["Email test at example dot com and IP one nine two dot one six eight dot zero dot one."])
 
-    def test_text_processor_native_engine_does_not_import_vendor_backend(self) -> None:
+    def test_default_text_processor_does_not_import_vendor_backend(self) -> None:
         code = """
 import sys
 from light_text_process.processor import TextProcessor
-from light_text_process.runtime.native import NativeTextProcessingEngine
 
-processor = TextProcessor(text_engine=NativeTextProcessingEngine())
+processor = TextProcessor()
 processor.inverse_normalize_text("电话一三八零零一三八零零零", "zh")
 blocked = [
     name

@@ -44,15 +44,15 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(tn.metadata["engine"], "fake")
         self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
 
-    def test_default_chinese_itn_uses_vendor_enhancement_route(self) -> None:
+    def test_default_chinese_itn_uses_native_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.inverse_normalize_text("二零二六年六月十五日 我有一百二十三元", "zh")
 
         self.assertEqual(response.output, "2026年06月15日 我有123元")
-        self.assertEqual(response.metadata["engine"], "fun_text_processing")
+        self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_default_english_itn_uses_vendor_enhancement_route(self) -> None:
+    def test_default_english_itn_uses_native_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.inverse_normalize_text(
@@ -61,23 +61,23 @@ class ServiceSmokeTests(unittest.TestCase):
         )
 
         self.assertEqual(response.output, "I paid $12.50 on 2026-06-15")
-        self.assertEqual(response.metadata["engine"], "fun_text_processing")
+        self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_default_chinese_tn_uses_vendor_enhancement_route(self) -> None:
+    def test_default_chinese_tn_uses_native_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.normalize_text("今天是 2026年6月15日。", "zh")
 
         self.assertEqual(response.output, "今天是 二零二六年六月十五日。")
-        self.assertEqual(response.metadata["engine"], "fun_text_processing")
+        self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_default_english_tn_uses_vendor_enhancement_route(self) -> None:
+    def test_default_english_tn_uses_native_route(self) -> None:
         processor = TextProcessor()
 
         response = processor.normalize_text("I paid $12.50 on 06/15/2026.", "en")
 
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
-        self.assertEqual(response.metadata["engine"], "fun_text_processing")
+        self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
     def test_retired_vendor_languages_are_not_public_routes(self) -> None:
         retired_tn_languages = {"de", "es", "ru"}
