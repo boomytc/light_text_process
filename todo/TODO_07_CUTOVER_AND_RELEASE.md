@@ -17,38 +17,38 @@ while any runtime path still depends on the vendor backend.
 
 ## Deliverables
 
-- [ ] Default route table for every supported operation and language.
-- [ ] Temporary vendor fallback policy for each non-native or partially native
+- [x] Default route table for every supported operation and language.
+- [x] Temporary vendor fallback policy for each non-native or partially native
       surface.
-- [ ] Dependency cleanup plan for `pynini`, `joblib`, `tqdm`, `regex`, and
+- [x] Dependency cleanup plan for `pynini`, `joblib`, `tqdm`, `regex`, and
       other packages once vendor use changes.
-- [ ] Cache maintenance updates for native and vendor cache types.
-- [ ] Release notes describing native coverage, known limitations, and the
+- [x] Cache maintenance updates for native and vendor cache types.
+- [x] Release notes describing native coverage, known limitations, and the
       remaining work before `fun_text_processing` can be removed.
-- [ ] Final TODO index update.
+- [x] Final TODO index update.
 
 ## Detailed Tasks
 
-- [ ] Mark each language/operation as native, temporary vendor-backed,
+- [x] Mark each language/operation as native, temporary vendor-backed,
       experimental, or unsupported.
-- [ ] Remove vendor package-data entries only after no supported default path
+- [x] Remove vendor package-data entries only after no supported default path
       requires them.
-- [ ] Keep `third_party/fun_text_processing` only as a temporary bridge until
+- [x] Keep `third_party/fun_text_processing` only as a temporary bridge until
       every retained supported surface has passed the agreed acceptance gates or
       the user accepts dropping that surface.
-- [ ] Update README architecture and direction sections.
-- [ ] Update validation docs if dependencies or cache behavior changed.
-- [ ] Confirm no transient `__pycache__`, `.pytest_cache`, generated outputs, or
+- [x] Update README architecture and direction sections.
+- [x] Update validation docs if dependencies or cache behavior changed.
+- [x] Confirm no transient `__pycache__`, `.pytest_cache`, generated outputs, or
       one-off artifacts remain outside ignored `runtime/`.
 
 ## Acceptance Gates
 
-- [ ] Default public API uses native implementations for completed surfaces.
-- [ ] Temporary vendor fallback behavior is explicit and tested.
-- [ ] Packaging includes only required runtime dependencies.
-- [ ] All global validation gates pass.
-- [ ] Root [TODO.md](../TODO.md) marks completed phases accurately.
-- [ ] P8 removal prerequisites are listed before this phase is closed.
+- [x] Default public API uses native implementations for completed surfaces.
+- [x] Temporary vendor fallback behavior is explicit and tested.
+- [x] Packaging includes only required runtime dependencies.
+- [x] All global validation gates pass.
+- [x] Root [TODO.md](../TODO.md) marks completed phases accurately.
+- [x] P8 removal prerequisites are listed before this phase is closed.
 
 ## Validation
 

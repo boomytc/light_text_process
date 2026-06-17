@@ -2,7 +2,10 @@
 
 Standalone Python engine for text normalization (TN), inverse text normalization (ITN), and multilingual number-to-words conversion.
 
-This repository is intended to become the long-term `light_text_process` engine. The current implementation provides an equivalent baseline to the `light_text_process_web` product engine: product-owned rules live in `light_text_process/rules`, the runtime adapter lives in `light_text_process/runtime`, and golden regression cases live in `data/rule_cases`.
+This repository is the standalone `light_text_process` engine. zh/en TN and ITN
+now run through first-party native rules by default: product-owned rules live in
+`light_text_process/rules`, runtime engines live in `light_text_process/runtime`,
+and golden regression cases live in `data/rule_cases`.
 
 ## Setup
 
@@ -26,11 +29,12 @@ print(processor.number_to_words("123", "en").output)
 
 - `light_text_process/processor.py` exposes the public engine API.
 - `light_text_process/rules/` contains owned zh/en TN/ITN supplemental rules.
-- `light_text_process/runtime/` contains runtime adapters.
-- `third_party/fun_text_processing/` is the initial grammar backend used to keep the baseline equivalent while this project grows toward a native replacement.
+- `light_text_process/runtime/` contains native runtime engines and the
+  migration-time engine boundary.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
-- `scripts/cache_maintenance.py` inspects and rebuilds grammar caches under `runtime/cache`.
+- `docs/native_cutover_release_notes.md` describes native route defaults,
+  dependency cleanup, and final removal prerequisites.
 
 ## Validation
 
@@ -44,4 +48,6 @@ print(processor.number_to_words("123", "en").output)
 
 ## Direction
 
-The immediate goal is an equivalent standalone engine. The long-term goal is to progressively replace the vendored `fun_text_processing` backend with first-party Light Text Process implementations while preserving the public API and golden behavior.
+The native cutover is complete for zh/en TN and ITN. num2words remains a
+separate dependency-backed surface, and non-zh/en TN/ITN languages remain
+unsupported until first-party rules and golden cases are added.
