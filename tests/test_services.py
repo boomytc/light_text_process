@@ -86,6 +86,13 @@ class ServiceSmokeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsupported num2words currency for ja: USD"):
             self.processor.number_to_words("1", "ja", Num2WordsOptions(mode="currency", currency="USD"))
 
+    def test_unsupported_tn_and_itn_languages_fail_visibly(self) -> None:
+        with self.assertRaisesRegex(ValueError, "unsupported TN language: ja"):
+            self.processor.normalize_text("123", "ja", TNOptions())
+
+        with self.assertRaisesRegex(ValueError, "unsupported ITN language: ja"):
+            self.processor.inverse_normalize_text("one two three", "ja", ITNOptions())
+
     def test_num2words_batch_keeps_input_errors_per_row(self) -> None:
         response = self.processor.batch(
             "num2words",

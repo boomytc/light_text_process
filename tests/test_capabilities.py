@@ -3,9 +3,14 @@ from __future__ import annotations
 import unittest
 
 from light_text_process.capabilities import build_capabilities
+from light_text_process.capabilities import ITN_LANGUAGES, TN_LANGUAGES
 
 
 class CapabilityTests(unittest.TestCase):
+    def test_tn_and_itn_capabilities_are_validated_languages_only(self) -> None:
+        self.assertEqual(TN_LANGUAGES, {"en": "英语", "zh": "中文"})
+        self.assertEqual(ITN_LANGUAGES, {"en": "英语", "zh": "中文"})
+
     def test_capabilities_include_language_scoped_options(self) -> None:
         capabilities = build_capabilities()
 

@@ -16,37 +16,37 @@ third-party pass-throughs.
 
 ## Deliverables
 
-- [ ] Public capability policy for native, vendor-backed, experimental, and
+- [x] Public capability policy for native, vendor-backed, experimental, and
       unsupported languages.
-- [ ] Decision on whether `num2words` remains a dependency or selected language
+- [x] Decision on whether `num2words` remains a dependency or selected language
       converters become first-party.
-- [ ] Language priority list based on product value and testability.
-- [ ] Golden case template for any newly exposed language.
-- [ ] Documentation of language-specific dependencies and failure behavior.
+- [x] Language priority list based on product value and testability.
+- [x] Golden case template for any newly exposed language.
+- [x] Documentation of language-specific dependencies and failure behavior.
 
 ## Candidate Language Review
 
-- [ ] TN vendor languages: de, en, es, ru, zh.
-- [ ] ITN vendor languages: de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh.
-- [ ] num2words languages exposed by the installed `num2words` converter set.
+- [x] TN vendor languages: de, en, es, ru, zh.
+- [x] ITN vendor languages: de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh.
+- [x] num2words languages exposed by the installed `num2words` converter set.
 
 ## Detailed Tasks
 
-- [ ] Compare vendor language coverage against actual product needs.
-- [ ] Separate language support from runtime availability. A language is not
+- [x] Compare vendor language coverage against actual product needs.
+- [x] Separate language support from runtime availability. A language is not
       native just because vendor data exists.
-- [ ] Define golden case minimums before adding a language to
+- [x] Define golden case minimums before adding a language to
       `TN_LANGUAGES` or `ITN_LANGUAGES`.
-- [ ] Review currency support and mode support for num2words languages.
-- [ ] Add tests that unsupported languages and unsupported num2words modes fail
+- [x] Review currency support and mode support for num2words languages.
+- [x] Add tests that unsupported languages and unsupported num2words modes fail
       visibly.
 
 ## Acceptance Gates
 
-- [ ] Capabilities reflect only validated support.
-- [ ] No language is marked native without golden cases and validation commands.
-- [ ] num2words behavior remains separate from TN and ITN.
-- [ ] Root [TODO.md](../TODO.md) phase status is updated.
+- [x] Capabilities reflect only validated support.
+- [x] No language is marked native without golden cases and validation commands.
+- [x] num2words behavior remains separate from TN and ITN.
+- [x] Root [TODO.md](../TODO.md) phase status is updated.
 
 ## Validation
 
@@ -55,4 +55,3 @@ third-party pass-throughs.
 .venv/bin/python -m unittest tests/test_services.py
 .venv/bin/python -c "from light_text_process import TextProcessor; print(TextProcessor().number_to_words('123', 'en').output)"
 ```
-
