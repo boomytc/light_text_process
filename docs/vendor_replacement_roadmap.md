@@ -1,11 +1,14 @@
 # Vendor Replacement Roadmap
 
-## Final State
+## Final Direction
 
-First-party `light_text_process` code has replaced the temporary vendor grammar
-backend. The package no longer depends on the third-party grammar tree.
-Non-zh/en TN/ITN routes are no longer public capabilities because they have no
-first-party owner or golden coverage.
+The final target is for first-party `light_text_process` code to replace
+`third_party/fun_text_processing`, so the package no longer depends on the
+third-party grammar tree.
+
+During the transition, `fun_text_processing` remains the ability baseline. This
+prevents losing existing multilingual TN/ITN behavior while first-party route
+coverage is built and verified.
 
 ## Stages
 
@@ -19,20 +22,24 @@ first-party owner or golden coverage.
 
 | Operation | Current public languages | Current runtime |
 | --- | --- | --- |
-| TN | en, zh | first-party native rules |
-| ITN | en, zh | first-party native rules |
+| TN | de, en, es, ru, zh | `light_text_process_native` for en/zh; `fun_text_processing` fallback for de/es/ru |
+| ITN | de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh | `light_text_process_native` for en/zh; `fun_text_processing` fallback for the remaining languages |
 | num2words | installed `num2words` converter languages | `num2words` |
 
-The non-zh/en vendor TN/ITN routes are explicitly retired from the public
-surface before vendor removal. This is the breaking change that prevents a
-vendor-only route from surviving as an implicit promise.
+This table is the transition baseline and the replacement target. Each
+non-zh/en route needs first-party ownership, golden coverage, and a migration
+order before vendor removal.
 
 ## Runtime Boundary
 
-- `TextProcessor` uses the first-party native engine by default.
-- `light_text_process/rules/` remains first-party and must not import vendor modules.
-- No runtime path insertion, package discovery, package-data metadata, or cache
-  maintenance logic points at the removed vendor tree.
+- While vendor remains, `TextProcessor` uses native zh/en routes and
+  `FunTextProcessingEngine` fallback for vendor routes that are not yet
+  first-party.
+- Direct imports from `fun_text_processing` are allowed only inside
+  `light_text_process/runtime/fun_text_processing.py`.
+- `light_text_process/rules/` remains first-party and must not import vendor
+  modules.
+- Vendor caches are project-local under ignored `runtime/cache/fun_text_processing/`.
 
 ## Replacement Gates
 
@@ -42,7 +49,8 @@ A route can leave vendor only when:
 - Differential behavior against the vendor baseline is recorded.
 - Intentional product improvements are documented.
 - Unsupported options and malformed inputs fail visibly.
-- Tests prove the route does not import or read removed vendor assets.
+- Tests prove the route does not import or read from `third_party/fun_text_processing`.
 
-The vendor tree can be removed only when every public TN/ITN route is either
-first-party or deliberately retired from capabilities.
+The vendor tree can be removed only when every current vendor TN/ITN route has
+an equivalent first-party implementation and remains covered by public
+capabilities.

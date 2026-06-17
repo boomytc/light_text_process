@@ -22,8 +22,8 @@ more code is migrated.
 
 ## Acceptance
 
-- [x] Every public TN/ITN route has an owner decision placeholder: replace,
-      retire, or defer.
+- [x] Every public TN/ITN route has an owner decision placeholder: replace now
+      or defer until its replacement phase.
 - [x] The matrix distinguishes current vendor support from first-party support.
 - [x] Future migration phases can pick routes from the matrix without guessing
       scope.

@@ -404,7 +404,7 @@ _ZH_TN_COMPACT_DURATION_UNIT_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)(h|min|s
 
 _ZH_TN_DEGREE_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)deg\b", re.IGNORECASE)
 
-_ZH_TN_SYMBOL_TEMPERATURE_RE = re.compile(r"(?<![A-Za-z0-9_.])(\d+(?:\.\d+)?)\s*(°C|℃|°F|℉)(?![A-Za-z])")
+_ZH_TN_SYMBOL_TEMPERATURE_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s*(°C|℃|°F|℉)(?![A-Za-z])")
 
 _ZH_TN_PREFIX_TEMPERATURE_RE = re.compile(r"(摄氏|华氏)\s*(-?\d+(?:\.\d+)?)\s*度")
 
@@ -475,49 +475,13 @@ _ZH_TN_CASED_UNIT_RE = re.compile(
     r"(?<=\d)(KWh|kWh|Mbps|Kbps|GHz|MHz|kHz|KHz|Hz|GB|TB|mL|mmHg|kPa|V|MV|mV|kV|KV)(?![A-Za-z])"
 )
 
-_ZH_TN_POWER_SYMBOL_UNIT_RE = re.compile(
-    r"(?<![A-Za-z0-9_.])(\d+(?:\.\d+)?)(m|cm|mm|km)([²³23])(?![A-Za-z])",
-    re.IGNORECASE,
-)
-
-_ZH_TN_SPOKEN_UNIT_RE = re.compile(
-    r"(?<![A-Za-z0-9_.])(\d+(?:\.\d+)?)(Mbps|Kbps|GiB|MiB|KiB|GB|TB|MB|KB|kWh|KWh|kW|KW|mL|ml|mA|ms|cm|mm|km|kg|mg|g|L|l|V|v)(?![A-Za-z])"
-)
+_ZH_TN_SPOKEN_UNIT_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)(GiB|MiB|KiB|MB|KB|mA|ms|L|l)(?![A-Za-z])")
 
 _ZH_TN_METER_PER_SECOND_RE = re.compile(r"(?<=\d)m/s\b", re.IGNORECASE)
 
 _ZH_TN_ORDINAL_DIGIT_RE = re.compile(r"第\s*(\d{1,8})\s*(世纪|[名届次章节条段课页期])")
 
 _ZH_TN_STANDALONE_ORDINAL_DIGIT_RE = re.compile(r"第\s*(\d{1,8})(?=[,，。；;、\s]|$)")
-
-_ZH_TN_SPACED_YEAR_MONTH_DAY_RE = re.compile(
-    r"(?<!\d)(\d{4})\s+年\s+(\d{1,2})\s+月\s+(\d{1,2})\s+([日号])"
-)
-
-_ZH_TN_COMPACT_WRITTEN_DATE_RE = re.compile(r"(?<!\d)(\d{4})年(\d{1,2})月(\d{1,2})([日号])")
-
-_ZH_TN_UNSIGNED_PERCENT_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s*%")
-
-_ZH_TN_COORDINATE_DEGREE_RE = re.compile(r"(北纬|南纬|东经|西经)(\d+(?:\.\d+)?)°")
-
-_ZH_TN_FRACTION_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s*/\s*(\d+(?:\.\d+)?)(?![\w.])")
-
-_ZH_TN_CONTEXT_RATIO_RE = re.compile(r"((?:比例|比分|分数|score|Score)\s*)(\d+(?:\.\d+)?)\s*:\s*(\d+(?:\.\d+)?)")
-
-_ZH_TN_CONTEXT_CLOCK_TIME_WITH_SECONDS_RE = re.compile(
-    r"((?:时间|会议时间|回访时间|预约时间|通话时间)\s*)(\d{1,2}):([0-5]\d):([0-5]\d)"
-)
-
-_ZH_TN_CONTEXT_WAN_YI_RE = re.compile(
-    r"((?:金额|预算|收入|营收|增长|用户|人数|播放|浏览|下载|销量)\s*)"
-    r"(\d+(?:\.\d+)?)\s*(万|亿)"
-)
-
-_ZH_TN_FOREIGN_CURRENCY_SUFFIX_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s*(美元|欧元|英镑|日元|港元)")
-
-_ZH_TN_WHOLE_YUAN_RE = re.compile(r"(?<![\w.])([+-]?\d+)\s*(元|块)")
-
-_ZH_TN_REMAINING_NUMBER_RE = re.compile(r"(?<![A-Za-z0-9])([+-]?)(\d+(?:\.\d+)?)(?![A-Za-z0-9])")
 
 def _format_zh_number_value(value: str) -> str:
     if "." not in value:
@@ -573,8 +537,7 @@ def _format_zh_under_10000(value: int) -> str:
     return "".join(parts)
 
 def _prepare_zh_tn_input(text: str) -> str:
-    prepared = _replace_zh_tn_spaced_year_month_days(text)
-    prepared = _replace_zh_tn_dot_numeric_dates(prepared)
+    prepared = _replace_zh_tn_dot_numeric_dates(text)
     prepared = _verbalize_zh_ascii_electronic(prepared)
     prepared = _verbalize_zh_tn_structured_tokens(prepared)
     prepared = _replace_zh_tn_clock_time_ranges(prepared)
@@ -631,116 +594,7 @@ def _prepare_zh_tn_input(text: str) -> str:
     prepared = _replace_zh_tn_context_short_hyphen_codes(prepared)
     prepared = _replace_zh_tn_alnum_hyphen_codes(prepared)
     prepared = _replace_zh_tn_numeric_ranges(prepared)
-    prepared = _replace_zh_tn_digit_ordinals(prepared)
-    return _finalize_zh_tn_native_output(prepared)
-
-def _replace_zh_tn_spaced_year_month_days(text: str) -> str:
-    def replace(match: re.Match[str]) -> str:
-        month = int(match.group(2))
-        day = int(match.group(3))
-        if not 1 <= month <= 12 or not 1 <= day <= 31:
-            return match.group(0)
-        return (
-            f"{_format_zh_digit_sequence(match.group(1))} 年 "
-            f"{_format_zh_integer(month)} 月 {_format_zh_digit_sequence(match.group(3))} {match.group(4)}"
-        )
-
-    return _ZH_TN_SPACED_YEAR_MONTH_DAY_RE.sub(replace, text)
-
-def _finalize_zh_tn_native_output(text: str) -> str:
-    finalized = _replace_zh_tn_compact_written_dates(text)
-    finalized = _replace_zh_tn_context_clock_time_with_seconds(finalized)
-    finalized = _replace_zh_tn_coordinate_degrees(finalized)
-    finalized = _replace_zh_tn_context_wan_yi(finalized)
-    finalized = _replace_zh_tn_foreign_currency_suffixes(finalized)
-    finalized = _replace_zh_tn_whole_yuan(finalized)
-    finalized = _replace_zh_tn_unsigned_percents(finalized)
-    finalized = _replace_zh_tn_context_ratios(finalized)
-    finalized = _replace_zh_tn_fractions(finalized)
-    finalized = _replace_zh_tn_remaining_numbers(finalized)
-    return finalized.replace("，", ",").replace("；", ";")
-
-def _replace_zh_tn_compact_written_dates(text: str) -> str:
-    def replace(match: re.Match[str]) -> str:
-        month = int(match.group(2))
-        day = int(match.group(3))
-        if not 1 <= month <= 12 or not 1 <= day <= 31:
-            return match.group(0)
-        return (
-            f"{_format_zh_digit_sequence(match.group(1))}年"
-            f"{_format_zh_integer(month)}月{_format_zh_integer(day)}{match.group(4)}"
-        )
-
-    return _ZH_TN_COMPACT_WRITTEN_DATE_RE.sub(replace, text)
-
-def _replace_zh_tn_context_clock_time_with_seconds(text: str) -> str:
-    def replace(match: re.Match[str]) -> str:
-        hour = int(match.group(2))
-        minute = int(match.group(3))
-        second = int(match.group(4))
-        if hour > 23:
-            return match.group(0)
-        return (
-            f"{match.group(1)}{_format_zh_integer(hour)}点"
-            f"{'零' if minute < 10 else ''}{_format_zh_integer(minute)}分"
-            f"{'零' if second < 10 else ''}{_format_zh_integer(second)}秒"
-        )
-
-    return _ZH_TN_CONTEXT_CLOCK_TIME_WITH_SECONDS_RE.sub(replace, text)
-
-def _replace_zh_tn_coordinate_degrees(text: str) -> str:
-    return _ZH_TN_COORDINATE_DEGREE_RE.sub(
-        lambda match: f"{match.group(1)}{_format_zh_number_value(match.group(2))}度",
-        text,
-    )
-
-def _replace_zh_tn_context_wan_yi(text: str) -> str:
-    return _ZH_TN_CONTEXT_WAN_YI_RE.sub(
-        lambda match: f"{match.group(1)}{_format_zh_number_value(match.group(2))}{match.group(3)}",
-        text,
-    )
-
-def _replace_zh_tn_foreign_currency_suffixes(text: str) -> str:
-    return _ZH_TN_FOREIGN_CURRENCY_SUFFIX_RE.sub(
-        lambda match: f"{_format_zh_number_value(match.group(1))}{match.group(2)}",
-        text,
-    )
-
-def _replace_zh_tn_whole_yuan(text: str) -> str:
-    def replace(match: re.Match[str]) -> str:
-        value = match.group(1)
-        sign = "负" if value.startswith("-") else "正" if value.startswith("+") else ""
-        return f"{sign}{_format_zh_number_value(value.lstrip('+-'))}{match.group(2)}"
-
-    return _ZH_TN_WHOLE_YUAN_RE.sub(replace, text)
-
-def _replace_zh_tn_unsigned_percents(text: str) -> str:
-    return _ZH_TN_UNSIGNED_PERCENT_RE.sub(
-        lambda match: f"百分之{_format_zh_number_value(match.group(1))}",
-        text,
-    )
-
-def _replace_zh_tn_context_ratios(text: str) -> str:
-    return _ZH_TN_CONTEXT_RATIO_RE.sub(
-        lambda match: f"{match.group(1)}{_format_zh_number_value(match.group(2))}比{_format_zh_number_value(match.group(3))}",
-        text,
-    )
-
-def _replace_zh_tn_fractions(text: str) -> str:
-    return _ZH_TN_FRACTION_RE.sub(
-        lambda match: f"{_format_zh_number_value(match.group(2))}分之{_format_zh_number_value(match.group(1))}",
-        text,
-    )
-
-def _replace_zh_tn_remaining_numbers(text: str) -> str:
-    def replace(match: re.Match[str]) -> str:
-        sign = "负" if match.group(1) == "-" else "正" if match.group(1) == "+" else ""
-        value = match.group(2)
-        if "." not in value and len(value) >= 6:
-            return sign + _format_zh_digit_sequence(value)
-        return sign + _format_zh_number_value(value)
-
-    return _ZH_TN_REMAINING_NUMBER_RE.sub(replace, text)
+    return _replace_zh_tn_digit_ordinals(prepared)
 
 def _replace_zh_tn_timezones(text: str) -> str:
     sign_words = {"+": "加", "-": "减"}
@@ -794,12 +648,12 @@ def _replace_zh_tn_quarters(text: str) -> str:
     def replace(match: re.Match[str]) -> str:
         quarter = match.group(1) or match.group(4)
         year = match.group(2) or match.group(3)
-        return f"{_format_zh_digit_sequence(year)}年第{quarter_words[quarter]}季度"
+        return f"{year}年第{quarter_words[quarter]}季度"
 
     return _ZH_TN_QUARTER_RE.sub(replace, text)
 
 def _replace_zh_tn_fiscal_years(text: str) -> str:
-    return _ZH_TN_FISCAL_YEAR_RE.sub(lambda match: f"{_format_zh_digit_sequence(match.group(1))}财年", text)
+    return _ZH_TN_FISCAL_YEAR_RE.sub(r"\1财年", text)
 
 def _verbalize_zh_tn_file_social_tokens(text: str) -> str:
     verbalized = _ZH_TN_FILE_CONTEXT_RE.sub(
@@ -821,7 +675,7 @@ def _verbalize_zh_tn_technical_tokens(text: str) -> str:
         text,
     )
     verbalized = _ZH_TN_IPV6_RE.sub(
-        lambda match: f"{match.group(1).replace('6', '六')}{_verbalize_zh_file_token(match.group(2).upper())}",
+        lambda match: f"{match.group(1)}{_verbalize_zh_file_token(match.group(2).upper())}",
         verbalized,
     )
     verbalized = _ZH_TN_ISBN_RE.sub(
@@ -1247,11 +1101,11 @@ def _normalize_zh_tn_measure_units(text: str) -> str:
     prepared = _verbalize_zh_tn_concentration_units(prepared)
     prepared = _verbalize_zh_tn_pressure_units(prepared)
     prepared = _verbalize_zh_tn_per_power_units(prepared)
-    prepared = _verbalize_zh_tn_power_symbol_units(prepared)
     prepared = _verbalize_zh_tn_electrical_units(prepared)
     prepared = _verbalize_zh_tn_square_meters(prepared)
     prepared = _verbalize_zh_tn_spoken_units(prepared)
-    return _ZH_TN_METER_PER_SECOND_RE.sub("米每秒", prepared)
+    prepared = _ZH_TN_METER_PER_SECOND_RE.sub("米每秒", prepared)
+    return _ZH_TN_CASED_UNIT_RE.sub(lambda match: match.group(1).lower(), prepared)
 
 def _verbalize_zh_tn_bytes_per_second(text: str) -> str:
     unit_map = {
@@ -1465,43 +1319,20 @@ def _verbalize_zh_tn_square_meters(text: str) -> str:
 
 def _verbalize_zh_tn_spoken_units(text: str) -> str:
     unit_map = {
-        "mbps": "兆比特每秒",
-        "kbps": "千比特每秒",
         "gib": "吉比字节",
         "mib": "兆比字节",
         "kib": "千比字节",
-        "gb": "吉字节",
-        "tb": "太字节",
         "mb": "兆字节",
         "kb": "千字节",
-        "kwh": "千瓦时",
-        "kw": "千瓦",
-        "ml": "毫升",
         "ma": "毫安",
         "ms": "毫秒",
-        "cm": "厘米",
-        "mm": "毫米",
-        "km": "千米",
-        "kg": "千克",
-        "mg": "毫克",
-        "g": "克",
         "l": "升",
-        "v": "伏特",
     }
 
     def replace(match: re.Match[str]) -> str:
         return f"{_format_zh_number_value(match.group(1))}{unit_map[match.group(2).lower()]}"
 
     return _ZH_TN_SPOKEN_UNIT_RE.sub(replace, text)
-
-def _verbalize_zh_tn_power_symbol_units(text: str) -> str:
-    unit_map = {"m": "米", "cm": "厘米", "mm": "毫米", "km": "千米"}
-    power_map = {"2": "平方", "²": "平方", "3": "立方", "³": "立方"}
-
-    def replace(match: re.Match[str]) -> str:
-        return f"{_format_zh_number_value(match.group(1))}{power_map[match.group(3)]}{unit_map[match.group(2).lower()]}"
-
-    return _ZH_TN_POWER_SYMBOL_UNIT_RE.sub(replace, text)
 
 def _replace_zh_tn_numeric_ranges(text: str) -> str:
     return _ZH_TN_NUMERIC_RANGE_RE.sub(r"\1到\2", text)

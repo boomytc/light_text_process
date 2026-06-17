@@ -7,18 +7,18 @@ to first-party `light_text_process` rules.
 
 ## Required Work
 
-- [x] Create focused first-party modules for each approved route.
-- [x] Keep TN and ITN migration separate; do not merge rule surfaces.
-- [x] Add route-specific golden cases before implementation changes.
-- [x] Add operation-scoped validators for each migrated language.
-- [x] Switch default routing route by route, not as a broad repository cutover.
-- [x] Keep vendor fallback only for routes that are still explicitly marked
+- [ ] Create focused first-party modules for each approved route.
+- [ ] Keep TN and ITN migration separate; do not merge rule surfaces.
+- [ ] Add route-specific golden cases before implementation changes.
+- [ ] Add operation-scoped validators for each migrated language.
+- [ ] Switch default routing route by route, not as a broad repository cutover.
+- [ ] Keep vendor fallback only for routes that are still explicitly marked
       vendor-backed.
-- [x] Confirm migrated routes do not read vendor TSV/TXT/FAR/FST assets.
+- [ ] Confirm migrated routes do not read vendor TSV/TXT/FAR/FST assets.
 
 ## Acceptance
 
-- [x] Each migrated route passes its golden suite without vendor imports.
-- [x] Each migrated route has documented intentional output differences, if any.
-- [x] Non-migrated routes keep their previous behavior until their own decision
+- [ ] Each migrated route passes its golden suite without vendor imports.
+- [ ] Each migrated route has documented intentional output differences, if any.
+- [ ] Non-migrated routes keep their previous behavior until their own decision
       or migration phase.

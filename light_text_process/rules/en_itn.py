@@ -734,17 +734,8 @@ _EN_ITN_INTEGER_PHRASE = (
 
 _EN_ITN_NUMBER_PHRASE = (
     rf"(?:\d+(?:\.\d+)?|(?:{_EN_ITN_INTEGER_VALUE_WORD})"
-    rf"(?:[\s-]+(?:and[\s-]+)?(?:{_EN_ITN_INTEGER_VALUE_WORD}))*"
-    r"(?:\s+point\s+(?:\d|zero|oh|one|two|three|four|five|six|seven|eight|nine)"
-    r"(?:\s+(?:\d|zero|oh|one|two|three|four|five|six|seven|eight|nine))*)?)"
+    rf"(?:[\s-]+(?:and[\s-]+)?(?:{_EN_ITN_INTEGER_VALUE_WORD}))*)"
 )
-
-_EN_ITN_SIGNED_PERCENT_WORD_RE = re.compile(
-    rf"\b(plus|minus|negative)\s+({_EN_ITN_NUMBER_PHRASE})\s+percent\b",
-    re.IGNORECASE,
-)
-
-_EN_ITN_UNSIGNED_PERCENT_WORD_RE = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+percent\b", re.IGNORECASE)
 
 _EN_ITN_INTEGER_PHRASE_NO_AND = (
     rf"(?:\d+|(?:{_EN_ITN_INTEGER_VALUE_WORD})(?:[\s-]+(?:{_EN_ITN_INTEGER_VALUE_WORD}))*)"
@@ -1005,9 +996,9 @@ _EN_ITN_HEX_COLOR_RE = re.compile(
     re.IGNORECASE,
 )
 
-_EN_ITN_FAHRENHEIT_OUTPUT_RE = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+degrees?\s+fahrenheit\b", re.IGNORECASE)
+_EN_ITN_FAHRENHEIT_OUTPUT_RE = re.compile(r"\b(-?\d+(?:\.\d+)?)\s+degrees?\s+fahrenheit\b", re.IGNORECASE)
 
-_EN_ITN_CELSIUS_OUTPUT_RE = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+degrees?\s+celsius\b", re.IGNORECASE)
+_EN_ITN_CELSIUS_OUTPUT_RE = re.compile(r"\b(-?\d+(?:\.\d+)?)\s+degrees?\s+celsius\b", re.IGNORECASE)
 
 _EN_ITN_SPOKEN_NEGATIVE_TEMPERATURE_RE = re.compile(
     rf"\b(?:minus|negative)\s+({_EN_ITN_NUMBER_PHRASE})\s+(?:degrees?\s+)?(celsius|fahrenheit)\b",
@@ -1033,7 +1024,7 @@ _EN_ITN_AREA_CODE_PHONE_OUTPUT_RE = re.compile(
     re.IGNORECASE,
 )
 
-_EN_ITN_KELVIN_OUTPUT_RE = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+kelvin\b", re.IGNORECASE)
+_EN_ITN_KELVIN_OUTPUT_RE = re.compile(r"\b(-?\d+(?:\.\d+)?)\s+kelvin\b", re.IGNORECASE)
 
 _EN_ITN_PERCENT_POINT_OUTPUT_RE = re.compile(
     rf"\b({_EN_ITN_NUMBER_PHRASE})\s+percentage\s+points?\b",
@@ -1247,7 +1238,7 @@ _EN_ITN_ENGINEERING_OUTPUT_RE = re.compile(
 _EN_ITN_ELECTRICAL_OUTPUT_RE = re.compile(
     rf"\b({_EN_ITN_NUMBER_PHRASE})\s+"
     r"(megaohms?|kiloohms?|ohms?|kilovolts?|millivolts?|milliamperes?|amperes?|"
-    r"milliwatts?|watts?|volts?|microfarads?|nanofarads?|picofarads?)\b",
+    r"milliwatts?|watts?|microfarads?|nanofarads?|picofarads?)\b",
     re.IGNORECASE,
 )
 
@@ -2161,8 +2152,9 @@ def _compact_en_itn_spacing(text: str) -> str:
     compacted = _replace_en_itn_spoken_money(compacted)
     compacted = compact_currency_per_units(compacted)
     compacted = _replace_en_itn_spoken_negative_temperatures(compacted)
-    compacted = _replace_en_itn_temperatures(compacted)
-    compacted = _replace_en_itn_spoken_percents(compacted)
+    compacted = _EN_ITN_CELSIUS_OUTPUT_RE.sub(r"\1°C", compacted)
+    compacted = _EN_ITN_FAHRENHEIT_OUTPUT_RE.sub(r"\1°F", compacted)
+    compacted = _EN_ITN_KELVIN_OUTPUT_RE.sub(r"\1 K", compacted)
     compacted = _EN_ITN_POSITIVE_PERCENT_RE.sub(r"+\1%", compacted)
     compacted = _replace_en_itn_time_seconds(compacted)
     compacted = compact_duration_sequences(compacted)
@@ -2208,7 +2200,6 @@ def _compact_en_itn_spacing(text: str) -> str:
     compacted = _replace_en_itn_spoken_plus_phone_numbers(compacted)
     compacted = _EN_ITN_PHONE_PLUS_OUTPUT_RE.sub(lambda match: match.group(1) + " +", compacted)
     compacted = _replace_en_itn_area_code_phone_numbers(compacted)
-    compacted = _replace_en_itn_native_residuals(compacted)
     return _normalize_en_itn_unit_case(compacted)
 
 def _replace_en_itn_time_seconds(text: str) -> str:
@@ -2217,38 +2208,6 @@ def _replace_en_itn_time_seconds(text: str) -> str:
         return f"{match.group(1)}:{second:02d}"
 
     return _EN_ITN_TIME_SECONDS_OUTPUT_RE.sub(replace, text)
-
-def _replace_en_itn_temperatures(text: str) -> str:
-    def replace_celsius(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(1))
-        return f"{value}°C" if value is not None else match.group(0)
-
-    def replace_fahrenheit(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(1))
-        return f"{value}°F" if value is not None else match.group(0)
-
-    def replace_kelvin(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(1))
-        return f"{value} K" if value is not None else match.group(0)
-
-    compacted = _EN_ITN_CELSIUS_OUTPUT_RE.sub(replace_celsius, text)
-    compacted = _EN_ITN_FAHRENHEIT_OUTPUT_RE.sub(replace_fahrenheit, compacted)
-    return _EN_ITN_KELVIN_OUTPUT_RE.sub(replace_kelvin, compacted)
-
-def _replace_en_itn_spoken_percents(text: str) -> str:
-    def replace_signed(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(2))
-        if value is None:
-            return match.group(0)
-        sign = "+" if match.group(1).lower() == "plus" else "-"
-        return f"{sign}{value}%"
-
-    def replace_unsigned(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(1))
-        return f"{value}%" if value is not None else match.group(0)
-
-    compacted = _EN_ITN_SIGNED_PERCENT_WORD_RE.sub(replace_signed, text)
-    return _EN_ITN_UNSIGNED_PERCENT_WORD_RE.sub(replace_unsigned, compacted)
 
 def _replace_en_itn_spoken_plus_phone_numbers(text: str) -> str:
     digit_values = {
@@ -2297,214 +2256,6 @@ def _replace_en_itn_area_code_phone_numbers(text: str) -> str:
         return f"{match.group(1)}{country}{match.group(4)}-{match.group(5)}-{match.group(6)}"
 
     return _EN_ITN_AREA_CODE_PHONE_OUTPUT_RE.sub(replace, text)
-
-def _replace_en_itn_native_residuals(text: str) -> str:
-    compacted = _restore_en_itn_simple_domains(text)
-    compacted = _restore_en_itn_context_versions(compacted)
-    compacted = _replace_en_itn_residual_times(compacted)
-    compacted = _replace_en_itn_residual_per_mille(compacted)
-    compacted = _replace_en_itn_residual_measure_units(compacted)
-    compacted = _replace_en_itn_residual_phone_numbers(compacted)
-    compacted = _replace_en_itn_residual_money(compacted)
-    compacted = _replace_en_itn_residual_codes(compacted)
-    return re.sub(r"[ \t]*\n[ \t]*", " ", compacted).strip()
-
-def _restore_en_itn_simple_domains(text: str) -> str:
-    return re.sub(
-        r"\b([A-Za-z0-9-]+)\s+dot\s+([A-Za-z]{2,})(?=\s|$)",
-        lambda match: f"{match.group(1).lower()}.{match.group(2).lower()}",
-        text,
-        flags=re.IGNORECASE,
-    )
-
-def _restore_en_itn_context_versions(text: str) -> str:
-    version_re = re.compile(
-        rf"\b((?:version|release|build)\s+v)\s+({_EN_ITN_NUMBER_PHRASE}(?:\s+point\s+{_EN_ITN_NUMBER_PHRASE})+)\b",
-        re.IGNORECASE,
-    )
-
-    def replace(match: re.Match[str]) -> str:
-        parts = [part.strip() for part in re.split(r"\s+point\s+", match.group(2), flags=re.IGNORECASE)]
-        parsed = []
-        for part in parts:
-            value = _parse_en_number_phrase(part)
-            if value is None or "." in value:
-                return match.group(0)
-            parsed.append(value)
-        return f"{match.group(1)} {'.'.join(parsed)}"
-
-    return version_re.sub(replace, text)
-
-def _replace_en_itn_residual_times(text: str) -> str:
-    hour_minute_ampm_re = re.compile(
-        rf"\b({_EN_ITN_HOUR_PHRASE})\s+({_EN_ITN_MINUTE_PHRASE})\s+([ap])\s*m\b",
-        re.IGNORECASE,
-    )
-    hour_ampm_re = re.compile(rf"\b((?:is\s+at|time\s+is|callback\s+time|appointment\s+time)\s+)({_EN_ITN_HOUR_PHRASE})\s+([ap])\s*m\b", re.IGNORECASE)
-    colon_time_re = re.compile(
-        rf"\b(time\s+)({_EN_ITN_HOUR_PHRASE})\s*:\s*({_EN_ITN_MINUTE_PHRASE})\b",
-        re.IGNORECASE,
-    )
-    quarter_to_re = re.compile(rf"\bquarter\s+to\s+({_EN_ITN_HOUR_PHRASE})\b", re.IGNORECASE)
-
-    def replace_hour_minute(match: re.Match[str]) -> str:
-        hour = _parse_en_integer_phrase(match.group(1))
-        minute = _parse_en_clock_minute_phrase(match.group(2))
-        if hour is None or minute is None:
-            return match.group(0)
-        return f"{hour:02d}:{minute:02d} {match.group(3).upper()}M"
-
-    def replace_hour(match: re.Match[str]) -> str:
-        hour = _parse_en_integer_phrase(match.group(2))
-        if hour is None:
-            return match.group(0)
-        return f"{match.group(1)}{hour:02d}:00 {match.group(3).upper()}M"
-
-    def replace_colon(match: re.Match[str]) -> str:
-        hour = _parse_en_integer_phrase(match.group(2))
-        minute = _parse_en_clock_minute_phrase(match.group(3))
-        if hour is None or minute is None:
-            return match.group(0)
-        return f"{match.group(1)}{hour:02d}:{minute:02d}"
-
-    def replace_quarter_to(match: re.Match[str]) -> str:
-        hour = _parse_en_integer_phrase(match.group(1))
-        if hour is None:
-            return match.group(0)
-        return f"{(hour - 1) % 12:02d}:45"
-
-    compacted = hour_minute_ampm_re.sub(replace_hour_minute, text)
-    compacted = hour_ampm_re.sub(replace_hour, compacted)
-    compacted = colon_time_re.sub(replace_colon, compacted)
-    return quarter_to_re.sub(replace_quarter_to, compacted)
-
-def _replace_en_itn_residual_per_mille(text: str) -> str:
-    per_mille_re = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})‰")
-    return per_mille_re.sub(
-        lambda match: f"{_parse_en_number_phrase(match.group(1))}‰"
-        if _parse_en_number_phrase(match.group(1)) is not None
-        else match.group(0),
-        text,
-    )
-
-def _replace_en_itn_residual_measure_units(text: str) -> str:
-    compacted = re.sub(
-        rf"\bpH is ({_EN_ITN_NUMBER_PHRASE})\b",
-        lambda match: f"pH is {_parse_en_number_phrase(match.group(1))}",
-        text,
-        flags=re.IGNORECASE,
-    )
-    compacted = re.sub(r"\b(\d+(?:\.\d+)?e[+-]?\d+)\s+meters?\s+per\s+second\b", r"\1 m/s", compacted, flags=re.IGNORECASE)
-
-    replacements: tuple[tuple[str, str], ...] = (
-        (r"kilograms?\s+per\s+square\s+meter", "kg/m²"),
-        (r"meters?\s+per\s+second", "m/s"),
-        (r"degrees", "degrees"),
-        (r"kilowatts?", "kW"),
-        (r"kilo\s*watt\s+hours?", "kWh"),
-        (r"milliliters?", "mL"),
-        (r"milli\s*amperes?", "mA"),
-        (r"frames?\s+per\s+second", "fps"),
-        (r"kilohertz", "kHz"),
-        (r"feet|foot", "ft"),
-        (r"inches?", "in"),
-        (r"ounces?", "oz"),
-        (r"miles?\s+per\s+hour", "mph"),
-        (r"miles?", "mi"),
-        (r"yards?", "yd"),
-        (r"kilograms?", "kg"),
-        (r"liters?", "L"),
-    )
-    for unit_pattern, symbol in replacements:
-        pattern = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+{unit_pattern}\b", re.IGNORECASE)
-        compacted = pattern.sub(lambda match, unit=symbol: _format_en_itn_number_unit(match, unit), compacted)
-
-    duration_hms_re = re.compile(
-        rf"\b({_EN_ITN_NUMBER_PHRASE})\s+hours?\s+({_EN_ITN_NUMBER_PHRASE})\s+minutes?\s+({_EN_ITN_NUMBER_PHRASE})\s+seconds?\b",
-        re.IGNORECASE,
-    )
-    duration_ms_re = re.compile(
-        rf"\b({_EN_ITN_NUMBER_PHRASE})\s+minutes?\s+({_EN_ITN_NUMBER_PHRASE})\s+seconds?\b",
-        re.IGNORECASE,
-    )
-    duration_hm_re = re.compile(
-        rf"\b({_EN_ITN_NUMBER_PHRASE})\s+hours?\s+({_EN_ITN_NUMBER_PHRASE})\s+minutes?\b",
-        re.IGNORECASE,
-    )
-    compacted = duration_hms_re.sub(
-        lambda match: (
-            f"{_parse_en_number_phrase(match.group(1))} h {_parse_en_number_phrase(match.group(2))} min "
-            f"{_parse_en_number_phrase(match.group(3))} s"
-        ),
-        compacted,
-    )
-    compacted = duration_ms_re.sub(
-        lambda match: f"{_parse_en_number_phrase(match.group(1))}min{_parse_en_number_phrase(match.group(2))}s",
-        compacted,
-    )
-    compacted = duration_hm_re.sub(
-        lambda match: f"{_parse_en_number_phrase(match.group(1))}h{_parse_en_number_phrase(match.group(2))}min",
-        compacted,
-    )
-    compacted = re.sub(r"\barea (\d+(?:\.\d+)?) ft²\b", r"area \1 sq ft", compacted, flags=re.IGNORECASE)
-    return compacted
-
-def _format_en_itn_number_unit(match: re.Match[str], unit: str) -> str:
-    value = _parse_en_number_phrase(match.group(1))
-    if value is not None and "." in value and unit in {"mi", "yd", "ft", "in", "oz"}:
-        return f"{value} {match.group(0).split(maxsplit=1)[1]}"
-    return f"{value} {unit}" if value is not None else match.group(0)
-
-def _replace_en_itn_residual_phone_numbers(text: str) -> str:
-    digit = r"(?:zero|one|two|three|four|five|six|seven|eight|nine|oh|o)"
-    separator = r"(?:\s+|[\s-]*(?:dash|hyphen)[\s-]*|-)"
-    phone_re = re.compile(rf"\b((?:phone|call|tel|mobile|support)\s+)({digit}(?:{separator}{digit}){{9}})(?=\s|$)", re.IGNORECASE)
-    ext_re = re.compile(rf"\bext\s+({digit}(?:\s+{digit}){{0,5}})\b", re.IGNORECASE)
-
-    def replace_phone(match: re.Match[str]) -> str:
-        digits = _parse_en_digit_sequence(match.group(2))
-        if len(digits) != 10:
-            return match.group(0)
-        return f"{match.group(1)}{digits[:3]}-{digits[3:6]}-{digits[6:]}"
-
-    def replace_ext(match: re.Match[str]) -> str:
-        digits = _parse_en_digit_sequence(match.group(1))
-        return f"ext. {digits}" if digits else match.group(0)
-
-    return ext_re.sub(replace_ext, phone_re.sub(replace_phone, text))
-
-def _replace_en_itn_residual_money(text: str) -> str:
-    cents_re = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+cents?\b", re.IGNORECASE)
-    hkd_re = re.compile(rf"\b({_EN_ITN_NUMBER_PHRASE})\s+hong\s+kong\s+dollars?\b", re.IGNORECASE)
-
-    def replace_cents(match: re.Match[str]) -> str:
-        value = _parse_en_integer_phrase(match.group(1))
-        if value is None or not 0 <= value <= 99:
-            return match.group(0)
-        return f"$0.{value:02d}"
-
-    def replace_hkd(match: re.Match[str]) -> str:
-        value = _parse_en_number_phrase(match.group(1))
-        return f"HK${value}" if value is not None else match.group(0)
-
-    return hkd_re.sub(replace_hkd, cents_re.sub(replace_cents, text))
-
-def _replace_en_itn_residual_codes(text: str) -> str:
-    compacted = re.sub(
-        r"([A-Z])\s+underscore\s+((?:zero|one|two|three|four|five|six|seven|eight|nine|oh|o)(?:\s+(?:zero|one|two|three|four|five|six|seven|eight|nine|oh|o))*)",
-        lambda match: f"{match.group(1)}_{_parse_en_digit_sequence(match.group(2))}",
-        text,
-    )
-    return re.sub(
-        r"([A-Z]_)((?:zero|one|two|three|four|five|six|seven|eight|nine|oh|o)(?:\s+(?:zero|one|two|three|four|five|six|seven|eight|nine|oh|o))*)",
-        lambda match: f"{match.group(1)}{_parse_en_digit_sequence(match.group(2))}",
-        compacted,
-    )
-
-def _parse_en_digit_sequence(text: str) -> str:
-    values = {"zero": "0", "oh": "0", "o": "0", "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"}
-    normalized = re.sub(r"\b(?:dash|hyphen)\b", " ", text, flags=re.IGNORECASE)
-    return "".join(values[token.lower()] for token in re.split(r"[\s-]+", normalized.strip()) if token)
 
 def _replace_en_itn_plus_minus(text: str) -> str:
     unit_symbols = {
@@ -2844,7 +2595,6 @@ def _replace_en_itn_electrical_units(text: str) -> str:
         "ohm": "Ω",
         "kilovolt": "kV",
         "millivolt": "mV",
-        "volt": "V",
         "milliampere": "mA",
         "ampere": "A",
         "milliwatt": "mW",
@@ -3239,7 +2989,7 @@ def _parse_en_number_phrase(text: str) -> str | None:
             return None
         digits = []
         for token in fractional_text.split():
-            digit = int(token) if token.isdigit() and len(token) == 1 else _EN_ITN_INTEGER_WORD_VALUES_FULL.get(token)
+            digit = _EN_ITN_INTEGER_WORD_VALUES_FULL.get(token)
             if digit is None or digit > 9:
                 return None
             digits.append(str(digit))

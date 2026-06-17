@@ -869,7 +869,12 @@
     "language": "en",
     "category": "asr-postprocess",
     "input": "phone double five triple zero",
-    "expected": "phone 55 000"
+    "expected": "phone 55 000",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-en-asr-dozen",
@@ -877,7 +882,12 @@
     "language": "en",
     "category": "asr-postprocess",
     "input": "a dozen eggs",
-    "expected": "12 eggs"
+    "expected": "12 eggs",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-en-asr-two-dozen",
@@ -885,6 +895,11 @@
     "language": "en",
     "category": "asr-postprocess",
     "input": "two dozen donuts",
-    "expected": "24 donuts"
+    "expected": "24 donuts",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   }
 ]

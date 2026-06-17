@@ -1,25 +1,26 @@
-# TODO 05: Language Support Decisions
+# TODO 05: Non-Zh/En Route Ownership
 
 ## Objective
 
-Decide the future of every non-zh/en vendor route before removing the vendor
-tree.
+Define ownership, priority, and golden coverage for every non-zh/en vendor
+route so that no existing `fun_text_processing` capability is lost during
+replacement.
 
 ## Required Work
 
-- [x] For each TN route `de`, `es`, and `ru`, decide whether to replace,
-      retire, or defer.
-- [x] For each ITN route `de`, `es`, `fr`, `id`, `ja`, `ko`, `pt`, `ru`, `tl`,
-      and `vi`, decide whether to replace, retire, or defer.
-- [x] If a route will be replaced, define minimal golden coverage and first-party
-      module ownership.
-- [x] If a route will be retired, update capability policy and document the
-      breaking change before removing vendor.
-- [x] Preserve language-specific options only when the route remains public.
+- [ ] For each TN route `de`, `es`, and `ru`, assign first-party module
+      ownership and migration priority.
+- [ ] For each ITN route `de`, `es`, `fr`, `id`, `ja`, `ko`, `pt`, `ru`, `tl`,
+      and `vi`, assign first-party module ownership and migration priority.
+- [ ] Define minimal golden coverage for each route before implementation work.
+- [ ] Preserve language-specific options such as Japanese standalone-number
+      toggles until first-party replacements support them.
+- [ ] Keep all current vendor routes in public capabilities until their
+      first-party replacements are active.
 
 ## Acceptance
 
-- [x] No public route depends on an implicit vendor-only promise.
-- [x] `light_text_process/capabilities.py` matches the accepted future route
-      policy.
-- [x] Unsupported language tests cover every retired route.
+- [ ] No current vendor route is removed from public capabilities as a shortcut.
+- [ ] `light_text_process/capabilities.py` continues to expose all current
+      vendor TN/ITN languages during the transition.
+- [ ] Each route has a concrete first-party migration owner and test plan.

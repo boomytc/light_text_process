@@ -16,7 +16,9 @@ class FakeTextProcessingEngine:
         return [f"tn:{language}:{text}" for text in texts]
 
     def inverse_normalize(self, texts: list[str], language: str, options: ITNOptions) -> list[str]:
-        return [f"itn:{language}:{text}" for text in texts]
+        standalone = int(options.enable_standalone_number)
+        zero_to_nine = int(options.enable_0_to_9)
+        return [f"itn:{language}:{standalone}:{zero_to_nine}:{text}" for text in texts]
 
     def warmup_tn(self, language: str, options: TNOptions) -> None:
         self.warmed.append(("tn", language))
@@ -32,11 +34,15 @@ class ServiceSmokeTests(unittest.TestCase):
 
     def test_tn_and_itn_service_smoke_without_fst_build(self) -> None:
         tn = self.processor.normalize_text("abc", "zh", TNOptions())
-        itn = self.processor.inverse_normalize_text("one hundred twenty three", "en", ITNOptions())
+        itn = self.processor.inverse_normalize_text(
+            "one hundred twenty three",
+            "en",
+            ITNOptions(enable_standalone_number=False, enable_0_to_9=False),
+        )
 
         self.assertEqual(tn.output, "tn:zh:abc")
         self.assertEqual(tn.metadata["engine"], "fake")
-        self.assertEqual(itn.output, "itn:en:one hundred twenty three")
+        self.assertEqual(itn.output, "itn:en:0:0:one hundred twenty three")
 
     def test_default_chinese_itn_uses_native_route(self) -> None:
         processor = TextProcessor()
@@ -73,19 +79,22 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
         self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_retired_vendor_languages_are_not_public_routes(self) -> None:
-        retired_tn_languages = {"de", "es", "ru"}
-        retired_itn_languages = {"de", "es", "fr", "id", "ja", "ko", "pt", "ru", "tl", "vi"}
+    def test_non_zh_en_routes_use_vendor_fallback(self) -> None:
+        processor = TextProcessor()
+        engine = processor.text_engine
 
-        for language in sorted(retired_tn_languages):
-            with self.subTest(operation="tn", language=language):
-                with self.assertRaisesRegex(ValueError, f"unsupported TN language: {language}"):
-                    self.processor.normalize_text("123", language, TNOptions())
+        self.assertEqual(getattr(getattr(engine, "fallback_engine", None), "name", None), "fun_text_processing")
+        self.assertIn(("tn", "zh"), getattr(engine, "native_routes", set()))
+        self.assertIn(("itn", "en"), getattr(engine, "native_routes", set()))
+        self.assertNotIn(("tn", "de"), getattr(engine, "native_routes", set()))
+        self.assertNotIn(("itn", "ja"), getattr(engine, "native_routes", set()))
 
-        for language in sorted(retired_itn_languages):
-            with self.subTest(operation="itn", language=language):
-                with self.assertRaisesRegex(ValueError, f"unsupported ITN language: {language}"):
-                    self.processor.inverse_normalize_text("one two three", language, ITNOptions())
+    def test_vendor_languages_are_preserved_on_public_surface(self) -> None:
+        tn = self.processor.normalize_text("123", "de", TNOptions())
+        itn = self.processor.inverse_normalize_text("ichi ni san", "ja", ITNOptions())
+
+        self.assertEqual(tn.output, "tn:de:123")
+        self.assertEqual(itn.output, "itn:ja:1:1:ichi ni san")
 
     def test_num2words_success_and_unsupported_currency(self) -> None:
         success = self.processor.number_to_words("123", "en", Num2WordsOptions(mode="cardinal"))

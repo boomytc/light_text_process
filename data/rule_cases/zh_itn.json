@@ -917,7 +917,12 @@
     "language": "zh",
     "category": "asr-postprocess",
     "input": "体温三十七度五",
-    "expected": "体温37.5°C"
+    "expected": "体温37.5°C",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-zh-asr-decimal-length",
@@ -925,7 +930,12 @@
     "language": "zh",
     "category": "asr-postprocess",
     "input": "身高一米七五",
-    "expected": "身高1.75m"
+    "expected": "身高1.75m",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-zh-asr-decimal-weight",
@@ -933,7 +943,12 @@
     "language": "zh",
     "category": "asr-postprocess",
     "input": "体重六十五公斤五",
-    "expected": "体重65.5kg"
+    "expected": "体重65.5kg",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-zh-asr-negative-decimal-temp",
@@ -941,7 +956,12 @@
     "language": "zh",
     "category": "asr-postprocess",
     "input": "气温零下五度三",
-    "expected": "气温-5.3°C"
+    "expected": "气温-5.3°C",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
   },
   {
     "id": "itn-zh-asr-tax-code",

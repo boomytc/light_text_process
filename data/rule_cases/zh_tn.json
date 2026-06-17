@@ -5,7 +5,14 @@
     "language": "zh",
     "category": "money",
     "input": "今天是 2026 年 6 月 15 日，我有 123 元。",
-    "expected": "今天是 二零二六 年 六 月 一五 日,我有 一百二十三元。"
+    "expected": "今天是 二零二六 年 六 月 一五 日,我有 一百二十三元。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-compact-date-ri",
@@ -13,7 +20,14 @@
     "language": "zh",
     "category": "date",
     "input": "今天是 2026年6月15日。",
-    "expected": "今天是 二零二六年六月十五日。"
+    "expected": "今天是 二零二六年六月十五日。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-compact-date-hao",
@@ -21,7 +35,14 @@
     "language": "zh",
     "category": "date",
     "input": "今天是 2026年6月15号。",
-    "expected": "今天是 二零二六年六月十五号。"
+    "expected": "今天是 二零二六年六月十五号。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-separated-date",
@@ -29,7 +50,14 @@
     "language": "zh",
     "category": "date",
     "input": "今天是 2026-06-15，另一个日期 2026/6/15。",
-    "expected": "今天是 二零二六年六月十五日,另一个日期 二零二六年六月十五日。"
+    "expected": "今天是 二零二六年六月十五日,另一个日期 二零二六年六月十五日。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-compact-date-context",
@@ -37,7 +65,14 @@
     "language": "zh",
     "category": "date",
     "input": "日期 20260615，版本 202606。",
-    "expected": "日期 二零二六年六月十五日,版本 二零二六零六。"
+    "expected": "日期 二零二六年六月十五日,版本 二零二六零六。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-quarter-fiscal-year",
@@ -45,7 +80,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "Q3 2026收入增长，2026 Q4展望改善，FY2026预算。",
-    "expected": "二零二六年第三季度收入增长,二零二六年第四季度展望改善,二零二六财年预算。"
+    "expected": "二零二六年第三季度收入增长,二零二六年第四季度展望改善,二零二六财年预算。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-units-percent-square-meter-symbol",
@@ -53,7 +95,14 @@
     "language": "zh",
     "category": "measure",
     "input": "室温 23.5℃，湿度 60%，面积 80㎡。",
-    "expected": "室温 二十三点五摄氏度,湿度 百分之六十,面积 八十平方米。"
+    "expected": "室温 二十三点五摄氏度,湿度 百分之六十,面积 八十平方米。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-power-area-units",
@@ -61,7 +110,14 @@
     "language": "zh",
     "category": "measure",
     "input": "面积 80cm²，体积 2m³，密度 5kg/m²。",
-    "expected": "面积 八十平方厘米,体积 二立方米,密度 五千克每平方米。"
+    "expected": "面积 八十平方厘米,体积 二立方米,密度 五千克每平方米。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-medical-science-units",
@@ -69,7 +125,14 @@
     "language": "zh",
     "category": "measure",
     "input": "二氧化碳 400ppm，血糖 5.6mmol/L，胆固醇 90mg/dL，血压 120mmHg，气压 101kPa，剂量 5mg/kg，铅 12ppb。",
-    "expected": "二氧化碳 四百ppm,血糖 五点六毫摩尔每升,胆固醇 九十毫克每分升,血压 一百二十毫米汞柱,气压 一百零一千帕,剂量 五毫克每千克,铅 十二ppb。"
+    "expected": "二氧化碳 四百ppm,血糖 五点六毫摩尔每升,胆固醇 九十毫克每分升,血压 一百二十毫米汞柱,气压 一百零一千帕,剂量 五毫克每千克,铅 十二ppb。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-square-meter-unit-price-nospace",
@@ -93,7 +156,14 @@
     "language": "zh",
     "category": "measure",
     "input": "维生素D 25IU/L，药物 2µg/mL，激素 50ng/mL，样本 20µL。",
-    "expected": "维生素D 二十五国际单位每升,药物 二微克每毫升,激素 五十纳克每毫升,样本 二十微升。"
+    "expected": "维生素D 二十五国际单位每升,药物 二微克每毫升,激素 五十纳克每毫升,样本 二十微升。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-engineering-lab-units",
@@ -101,7 +171,14 @@
     "language": "zh",
     "category": "measure",
     "input": "酸碱度 pH 7.4，噪声 30dB，功率密度 80W/m²，扭矩 5N·m，电池 5000mAh。",
-    "expected": "酸碱度 pH 七点四,噪声 三十分贝,功率密度 八十瓦每平方米,扭矩 五牛米,电池 五千毫安时。"
+    "expected": "酸碱度 pH 七点四,噪声 三十分贝,功率密度 八十瓦每平方米,扭矩 五牛米,电池 五千毫安时。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-electrical-units",
@@ -109,7 +186,14 @@
     "language": "zh",
     "category": "measure",
     "input": "电阻 10Ω，电流 2A，电压 3.3mV，电容 47µF，功率 5W。",
-    "expected": "电阻 十欧姆,电流 二安,电压 三点三毫伏,电容 四十七微法,功率 五瓦。"
+    "expected": "电阻 十欧姆,电流 二安,电压 三点三毫伏,电容 四十七微法,功率 五瓦。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-motion-pressure-units",
@@ -117,7 +201,14 @@
     "language": "zh",
     "category": "measure",
     "input": "力 5N，压强 101Pa，气压 0.1MPa，加速度 9.8m/s²，转速 3000rpm，流量 2L/min。",
-    "expected": "力 五牛顿,压强 一百零一帕,气压 零点一兆帕,加速度 九点八米每二次方秒,转速 三千转每分,流量 二升每分钟。"
+    "expected": "力 五牛顿,压强 一百零一帕,气压 零点一兆帕,加速度 九点八米每二次方秒,转速 三千转每分,流量 二升每分钟。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-resolution-dimension",
@@ -125,7 +216,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "分辨率 1920x1080，尺寸 10×20cm。",
-    "expected": "分辨率 一千九百二十乘一千零八十,尺寸 十乘二十厘米。"
+    "expected": "分辨率 一千九百二十乘一千零八十,尺寸 十乘二十厘米。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-per-mille-standalone-ordinal",
@@ -133,7 +231,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "误差 1‰，利率 3.5‰，排名第21。",
-    "expected": "误差 千分之一,利率 千分之三点五,排名第二十一。"
+    "expected": "误差 千分之一,利率 千分之三点五,排名第二十一。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-signed-percent",
@@ -141,7 +246,14 @@
     "language": "zh",
     "category": "measure",
     "input": "增长 +12%，下降 -3.5%。",
-    "expected": "增长 正百分之十二,下降 负百分之三点五。"
+    "expected": "增长 正百分之十二,下降 负百分之三点五。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-degree-percent-range",
@@ -157,7 +269,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "增长 2pp，误差 1e-5，光速 3×10^8m/s，坐标 北纬39.9° 东经116.4°。",
-    "expected": "增长 二个百分点,误差 一乘以十的负五次方,光速 三乘以十的八次方米每秒,坐标 北纬三十九点九度 东经一百一十六点四度。"
+    "expected": "增长 二个百分点,误差 一乘以十的负五次方,光速 三乘以十的八次方米每秒,坐标 北纬三十九点九度 东经一百一十六点四度。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-finance-basis-wan-yi",
@@ -165,7 +284,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "利率上行 25bp，信用利差扩大 3.5bps，用户 1.2万，营收 3亿元。",
-    "expected": "利率上行 二十五个基点,信用利差扩大 三点五个基点,用户 一点二万,营收 三亿元。"
+    "expected": "利率上行 二十五个基点,信用利差扩大 三点五个基点,用户 一点二万,营收 三亿元。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-square-meter-word",
@@ -173,7 +299,14 @@
     "language": "zh",
     "category": "measure",
     "input": "面积 80平方米。",
-    "expected": "面积 八十平方米。"
+    "expected": "面积 八十平方米。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-symbol-negative-money",
@@ -181,7 +314,14 @@
     "language": "zh",
     "category": "money",
     "input": "金额 ￥123.45，亏损 -123元。",
-    "expected": "金额 人民币一百二十三元四角五分,亏损 负一百二十三元。"
+    "expected": "金额 人民币一百二十三元四角五分,亏损 负一百二十三元。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-foreign-currency-suffix",
@@ -189,7 +329,14 @@
     "language": "zh",
     "category": "money",
     "input": "我有 12.5美元，另有 12欧元。",
-    "expected": "我有 十二点五美元,另有 十二欧元。"
+    "expected": "我有 十二点五美元,另有 十二欧元。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-prefix-currency-code",
@@ -197,7 +344,14 @@
     "language": "zh",
     "category": "money",
     "input": "预算 USD 12.50，成本 EUR 3，人民币 CNY 1,234.00。",
-    "expected": "预算 十二点五美元,成本 三欧元,人民币 一千二百三十四人民币。"
+    "expected": "预算 十二点五美元,成本 三欧元,人民币 一千二百三十四人民币。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-digit-ordinals",
@@ -205,7 +359,14 @@
     "language": "zh",
     "category": "ordinal",
     "input": "第 12 届第3名。",
-    "expected": "第十二届第三名。"
+    "expected": "第十二届第三名。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-range-code-ratio",
@@ -213,7 +374,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "范围 3-5天，编号 A-123，比例 3:2。",
-    "expected": "范围 三到五天,编号 A杠一二三,比例 三比二。"
+    "expected": "范围 三到五天,编号 A杠一二三,比例 三比二。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-fraction-comparison",
@@ -221,7 +389,14 @@
     "language": "zh",
     "category": "math",
     "input": "比例 1/2，完成 3/4，阈值 x>=5，y<=10。",
-    "expected": "比例 二分之一,完成 四分之三,阈值 x大于等于五,y小于等于十。"
+    "expected": "比例 二分之一,完成 四分之三,阈值 x大于等于五,y小于等于十。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-leading-zero-time",
@@ -229,7 +404,14 @@
     "language": "zh",
     "category": "time",
     "input": "时间 07:05 和 23:30。",
-    "expected": "时间 七点零五分 和 二十三点三十分。"
+    "expected": "时间 七点零五分 和 二十三点三十分。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-time-phone-account",
@@ -237,7 +419,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "时间 07:05:09，时长 01:02:03。电话 400-800-1234，账号 6222 1234 5678 9012。",
-    "expected": "时间 七点零五分零九秒,时长 一小时二分钟三秒。电话 四零零杠八零零杠一二三四,账号 六二二二一二三四五六七八九零一二。"
+    "expected": "时间 七点零五分零九秒,时长 一小时二分钟三秒。电话 四零零杠八零零杠一二三四,账号 六二二二一二三四五六七八九零一二。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-business-codes-extension",
@@ -245,7 +434,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "订单号 AB-1234，发票 INV-2026-001，快递单号 SF1234567890，电话 415-555-0123 转45。",
-    "expected": "订单号 AB杠一二三四,发票 INV杠二零二六杠零零一,快递单号 SF一二三四五六七八九零,电话 四一五杠五五五杠零一二三 转四五。"
+    "expected": "订单号 AB杠一二三四,发票 INV杠二零二六杠零零一,快递单号 SF一二三四五六七八九零,电话 四一五杠五五五杠零一二三 转四五。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-identity-vehicle-codes",
@@ -253,7 +449,14 @@
     "language": "zh",
     "category": "identity",
     "input": "车牌 京A12345，护照 E12345678，身份证 11010519900307861X。",
-    "expected": "车牌 京A一二三四五,护照 E一二三四五六七八,身份证 一一零一零五一九九零零三零七八六一X。"
+    "expected": "车牌 京A一二三四五,护照 E一二三四五六七八,身份证 一一零一零五一九九零零三零七八六一X。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-address-postcode-room",
@@ -261,7 +464,14 @@
     "language": "zh",
     "category": "address",
     "input": "地址 北京市朝阳区建国路88号A座1208室，12楼，邮编100080。",
-    "expected": "地址 北京市朝阳区建国路八十八号A座一二零八室,十二楼,邮编一零零零八零。"
+    "expected": "地址 北京市朝阳区建国路八十八号A座一二零八室,十二楼,邮编一零零零八零。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-data-electric-units",
@@ -269,7 +479,14 @@
     "language": "zh",
     "category": "measure",
     "input": "网速 100Mbps，容量 16GB，电压 220V，速度 10m/s，体积 2m³。",
-    "expected": "网速 一百兆比特每秒,容量 十六吉字节,电压 二百二十伏特,速度 十米每秒,体积 二立方米。"
+    "expected": "网速 一百兆比特每秒,容量 十六吉字节,电压 二百二十伏特,速度 十米每秒,体积 二立方米。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-power-storage-units",
@@ -277,7 +494,14 @@
     "language": "zh",
     "category": "measure",
     "input": "功率 3kW，电量 5kWh，容量 512MB，缓存 128KB，流量 500mL，电流 20mA。",
-    "expected": "功率 三千瓦,电量 五千瓦时,容量 五百一十二兆字节,缓存 一百二十八千字节,流量 五百毫升,电流 二十毫安。"
+    "expected": "功率 三千瓦,电量 五千瓦时,容量 五百一十二兆字节,缓存 一百二十八千字节,流量 五百毫升,电流 二十毫安。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-length-volume-liter",
@@ -285,7 +509,14 @@
     "language": "zh",
     "category": "measure",
     "input": "长度 30cm，宽 5mm，距离 2km，重量 3kg，容量 1L。",
-    "expected": "长度 三十厘米,宽 五毫米,距离 二千米,重量 三千克,容量 一升。"
+    "expected": "长度 三十厘米,宽 五毫米,距离 二千米,重量 三千克,容量 一升。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-throughput-latency-binary",
@@ -293,7 +524,14 @@
     "language": "zh",
     "category": "measure",
     "input": "吞吐 120MB/s，帧率 60fps，延迟 12ms，内存 2GiB。",
-    "expected": "吞吐 一百二十兆字节每秒,帧率 六十帧每秒,延迟 十二毫秒,内存 二吉比字节。"
+    "expected": "吞吐 一百二十兆字节每秒,帧率 六十帧每秒,延迟 十二毫秒,内存 二吉比字节。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-duration-angle-frequency",
@@ -301,7 +539,14 @@
     "language": "zh",
     "category": "measure",
     "input": "时长 2h 30min 45s，超时 500ms，角度 90deg，频率 44.1kHz。",
-    "expected": "时长 二小时 三十分钟 四十五秒,超时 五百毫秒,角度 九十度,频率 四十四点一千赫兹。"
+    "expected": "时长 二小时 三十分钟 四十五秒,超时 五百毫秒,角度 九十度,频率 四十四点一千赫兹。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-imperial-units",
@@ -309,7 +554,14 @@
     "language": "zh",
     "category": "measure",
     "input": "身高 6ft，长度 12in，重量 5lb，体积 2oz，距离 3mi，速度 55mph。",
-    "expected": "身高 六英尺,长度 十二英寸,重量 五磅,体积 二盎司,距离 三英里,速度 五十五英里每小时。"
+    "expected": "身高 六英尺,长度 十二英寸,重量 五磅,体积 二盎司,距离 三英里,速度 五十五英里每小时。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-math-expression",
@@ -317,7 +569,14 @@
     "language": "zh",
     "category": "math",
     "input": "公式 3+5=8，10×20=200，20÷4=5。",
-    "expected": "公式 三加五等于八,十乘二十等于二百,二十除以四等于五。"
+    "expected": "公式 三加五等于八,十乘二十等于二百,二十除以四等于五。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-speed-kmh",
@@ -325,7 +584,14 @@
     "language": "zh",
     "category": "measure",
     "input": "速度 80km/h。",
-    "expected": "速度 八十千米每小时。"
+    "expected": "速度 八十千米每小时。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-complex-email-ftp",
@@ -333,7 +599,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "邮箱 user.name+tag@example.co.uk，网址 ftp://files.example.org/a_b。",
-    "expected": "邮箱 user点name加tag艾特example点co点uk,网址 ftp冒号斜杠斜杠files点example点org斜杠a下划线b。"
+    "expected": "邮箱 user点name加tag艾特example点co点uk,网址 ftp冒号斜杠斜杠files点example点org斜杠a下划线b。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-file-path-social",
@@ -341,7 +614,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "文件 report_v2.0.pdf，路径 /data/input-01/test.csv，账号 @light_user，话题 #AI2026。",
-    "expected": "文件 report下划线v二点零点pdf,路径 斜杠data斜杠input杠零一斜杠test点csv,账号 艾特light下划线user,话题 井号AI二零二六。"
+    "expected": "文件 report下划线v二点零点pdf,路径 斜杠data斜杠input杠零一斜杠test点csv,账号 艾特light下划线user,话题 井号AI二零二六。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-nospace-social-no-number",
@@ -357,7 +637,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "链接 https://example.com/a-b?q=hello_world&n=123#top。",
-    "expected": "链接 https冒号斜杠斜杠example点com斜杠a杠b问号q等于hello下划线world与n等于一二三井号top。"
+    "expected": "链接 https冒号斜杠斜杠example点com斜杠a杠b问号q等于hello下划线world与n等于一二三井号top。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-mac-uuid-hex-color",
@@ -365,7 +652,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "MAC AA:BB:CC:DD:EE:FF，UUID 550e8400-e29b-41d4-a716-446655440000，颜色 #FF5733。",
-    "expected": "MAC AA冒号BB冒号CC冒号DD冒号EE冒号FF,UUID 五五零e八四零零杠e二九b杠四一d四杠a七一六杠四四六六五五四四零零零零,颜色 井号FF五七三三。"
+    "expected": "MAC AA冒号BB冒号CC冒号DD冒号EE冒号FF,UUID 五五零e八四零零杠e二九b杠四一d四杠a七一六杠四四六六五五四四零零零零,颜色 井号FF五七三三。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-temperature-fahrenheit-kelvin",
@@ -373,7 +667,14 @@
     "language": "zh",
     "category": "measure",
     "input": "温度 72°F，温差 300K。",
-    "expected": "温度 七十二华氏度,温差 三百开尔文。"
+    "expected": "温度 七十二华氏度,温差 三百开尔文。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-ipv4-port-ipv6",
@@ -381,7 +682,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "服务器 127.0.0.1:8080，IPv6 2001:0db8::1。",
-    "expected": "服务器 一二七点零点零点一冒号八零八零,IPv六 二零零一冒号零DB八冒号冒号一。"
+    "expected": "服务器 一二七点零点零点一冒号八零八零,IPv六 二零零一冒号零DB八冒号冒号一。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-isbn-doi",
@@ -389,7 +697,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "ISBN 978-7-111-12345-6，DOI 10.1000/xyz123。",
-    "expected": "ISBN 九七八杠七杠一一一杠一二三四五杠六,DOI 一零点一零零零斜杠XYZ一二三。"
+    "expected": "ISBN 九七八杠七杠一一一杠一二三四五杠六,DOI 一零点一零零零斜杠XYZ一二三。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-semver-prerelease",
@@ -397,7 +712,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "版本 v2.0.1-beta.3。",
-    "expected": "版本 v二点零点一杠beta点三。"
+    "expected": "版本 v二点零点一杠beta点三。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-http-port-iso-datetime",
@@ -405,7 +727,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "接口返回 HTTP 404，端口 8080，截止到 2026-06-15T14:30:05Z。",
-    "expected": "接口返回 HTTP 四零四,端口 八零八零,截止到 二零二六杠零六杠一五T一四冒号三零冒号零五Z。"
+    "expected": "接口返回 HTTP 四零四,端口 八零八零,截止到 二零二六杠零六杠一五T一四冒号三零冒号零五Z。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-email-url",
@@ -413,7 +742,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "邮箱 test@example.com，网址 https://example.com/a-b。",
-    "expected": "邮箱 test艾特example点com,网址 https冒号斜杠斜杠example点com斜杠a杠b。"
+    "expected": "邮箱 test艾特example点com,网址 https冒号斜杠斜杠example点com斜杠a杠b。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-ipv4",
@@ -421,7 +757,14 @@
     "language": "zh",
     "category": "electronic",
     "input": "IP 192.168.0.1。",
-    "expected": "IP 一九二点一六八点零点一。"
+    "expected": "IP 一九二点一六八点零点一。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-domain-timezone-signed-number",
@@ -429,7 +772,14 @@
     "language": "zh",
     "category": "mixed",
     "input": "访问 www.example.com 和 docs.example.org/path。时区 UTC+8 和 GMT-5，温度 -12，增量 +5。",
-    "expected": "访问 www点example点com 和 docs点example点org斜杠path。时区 UTC加八 和 GMT减五,温度 负十二,增量 正五。"
+    "expected": "访问 www点example点com 和 docs点example点org斜杠path。时区 UTC加八 和 GMT减五,温度 负十二,增量 正五。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false
+    }
   },
   {
     "id": "tn-zh-shortcut-space-datetime-discount",

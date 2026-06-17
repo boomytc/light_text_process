@@ -2,19 +2,32 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, Field
 
 
 Operation = Literal["tn", "itn", "num2words"]
+InputCase = Literal["lower_cased", "cased"]
 Num2WordsMode = Literal["cardinal", "ordinal", "ordinal_num", "year", "currency"]
 
 
 class TNOptions(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    input_case: InputCase = "cased"
+    deterministic: bool = True
+    cache_enabled: bool = True
+    overwrite_cache: bool = False
+    whitelist_path: str | None = None
+    post_process: bool = True
+    punct_pre_process: bool = False
+    punct_post_process: bool = False
+    batch_size: int = Field(default=1, ge=1, le=100)
+    n_jobs: int = Field(default=1, ge=1, le=8)
 
 
 class ITNOptions(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    cache_enabled: bool = True
+    overwrite_cache: bool = False
+    enable_standalone_number: bool = True
+    enable_0_to_9: bool = True
 
 
 class Num2WordsOptions(BaseModel):
@@ -72,3 +85,4 @@ class BatchResponse(BaseModel):
     success_count: int
     error_count: int
     metadata: dict[str, Any] = Field(default_factory=dict)
+

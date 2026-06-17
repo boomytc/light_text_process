@@ -14,6 +14,7 @@
 - `light_text_process/capabilities.py` contains operation and language metadata.
 - `light_text_process/runtime/` contains runtime adapters.
 - `light_text_process/rules/` contains first-party zh/en TN/ITN supplemental rules. Keep new rule helpers in focused language/operation modules.
+- `third_party/fun_text_processing/` is the temporary preserved grammar backend for vendor-supported TN/ITN languages while replacement work progresses.
 - `data/rule_cases/` is the golden regression suite for zh/en TN/ITN behavior.
 - Generated caches and one-off runtime outputs belong under ignored `runtime/`.
 
@@ -21,9 +22,10 @@
 
 - Do not add Web/API/UI code here.
 - Keep TN, ITN, and num2words as separate task surfaces.
-- Keep all runtime code first-party or dependency-backed through accepted package dependencies.
-- Do not add vendor grammar imports, package-data hooks, or third-party runtime path insertion.
-- Missing `num2words`, unsupported language, unsupported mode, malformed input, or bad project-local paths should fail visibly.
+- Keep first-party rules outside `third_party/`.
+- Keep direct `fun_text_processing` imports inside `light_text_process/runtime/fun_text_processing.py`.
+- The final target is to replace `third_party/fun_text_processing` without losing its current TN/ITN language capabilities; do not remove a vendor route as a shortcut for incomplete replacement.
+- Missing `pynini`, missing `num2words`, unsupported language, unsupported mode, malformed input, or bad project-local paths should fail visibly.
 - Do not add compatibility facades for old internal import paths.
 
 ## Validation

@@ -62,7 +62,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             print("error: no rule cases selected", file=sys.stderr)
             return 2
         started = perf_counter()
-        results = run_cases(cases, engine=args.engine)
+        results = run_cases(cases, overwrite_cache=args.overwrite_cache)
         elapsed = perf_counter() - started
         print_results(results, verbose=args.verbose)
         print_summary(results, elapsed)
@@ -86,13 +86,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--operation", action="append", choices=sorted(SUPPORTED_OPERATIONS))
     parser.add_argument("--category", action="append", help="case category to include")
     parser.add_argument("--case", action="append", dest="case_ids", help="case id to include")
-    parser.add_argument("--list", action="store_true", help="list selected cases without running them")
     parser.add_argument(
-        "--engine",
-        choices=("default", "native"),
-        default="default",
-        help="text processing engine to validate (default: default)",
+        "--overwrite-cache",
+        action="store_true",
+        help="rebuild fun_text_processing grammar caches while running selected cases",
     )
+    parser.add_argument("--list", action="store_true", help="list selected cases without running them")
     parser.add_argument("--verbose", action="store_true", help="print passing case outputs too")
     return parser
 
@@ -189,24 +188,14 @@ def filter_cases(cases: Iterable[RuleCase], args: argparse.Namespace) -> list[Ru
     return selected
 
 
-def run_cases(cases: Sequence[RuleCase], *, engine: str = "default") -> list[RuleResult]:
-    service = build_service(engine)
+def run_cases(cases: Sequence[RuleCase], *, overwrite_cache: bool) -> list[RuleResult]:
+    service = TextProcessor()
     results: list[RuleResult] = []
     for group_cases in grouped_cases(cases).values():
-        group_results = run_group(service, group_cases)
+        group_results = run_group(service, group_cases, overwrite_cache=overwrite_cache)
         results.extend(group_results)
     result_by_id = {result.case.id: result for result in results}
     return [result_by_id[case.id] for case in cases]
-
-
-def build_service(engine: str) -> TextProcessor:
-    if engine == "default":
-        return TextProcessor()
-    if engine == "native":
-        from light_text_process.runtime.native import NativeTextProcessingEngine
-
-        return TextProcessor(text_engine=NativeTextProcessingEngine())
-    raise ValueError(f"unsupported engine: {engine}")
 
 
 def grouped_cases(cases: Sequence[RuleCase]) -> dict[tuple[str, str, str], list[RuleCase]]:
@@ -220,14 +209,18 @@ def grouped_cases(cases: Sequence[RuleCase]) -> dict[tuple[str, str, str], list[
 def run_group(
     service: TextProcessor,
     cases: Sequence[RuleCase],
+    *,
+    overwrite_cache: bool,
 ) -> list[RuleResult]:
     first = cases[0]
     tn_options = TNOptions()
     itn_options = ITNOptions()
     if first.operation == "tn":
         tn_options = TNOptions(**first.options)
+        tn_options.overwrite_cache = overwrite_cache
     else:
         itn_options = ITNOptions(**first.options)
+        itn_options.overwrite_cache = overwrite_cache
 
     try:
         response = service.batch(
