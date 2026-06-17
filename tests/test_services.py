@@ -71,6 +71,14 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(response.output, "今天是 二零二六年六月十五日。")
         self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
+    def test_default_english_tn_uses_native_route(self) -> None:
+        processor = TextProcessor()
+
+        response = processor.normalize_text("I paid $12.50 on 06/15/2026.", "en")
+
+        self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
+        self.assertEqual(response.metadata["engine"], "light_text_process_native")
+
     def test_num2words_success_and_unsupported_currency(self) -> None:
         success = self.processor.number_to_words("123", "en", Num2WordsOptions(mode="cardinal"))
         self.assertIn("one hundred", success.output)

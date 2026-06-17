@@ -5,7 +5,7 @@ from functools import lru_cache
 
 from light_text_process.paths import PROJECT_DIR
 from light_text_process.runtime.base import NativeRouteUnsupportedError
-from light_text_process.rules import en_itn, zh_itn, zh_tn
+from light_text_process.rules import en_itn, en_tn, zh_itn, zh_tn
 from light_text_process.schemas import ITNOptions, TNOptions
 
 
@@ -13,6 +13,8 @@ class NativeTextProcessingEngine:
     name = "light_text_process_native"
 
     def normalize(self, texts: list[str], language: str, options: TNOptions) -> list[str]:
+        if language == "en":
+            return [_normalize_en_tn(text) for text in texts]
         if language == "zh":
             return [_normalize_zh_tn(text) for text in texts]
         raise NativeRouteUnsupportedError(f"native TN route is not enabled for language: {language}")
@@ -50,6 +52,13 @@ def _normalize_zh_tn(text: str) -> str:
     if compat is not None:
         return compat
     return zh_tn.prepare_input(text)
+
+
+def _normalize_en_tn(text: str) -> str:
+    compat = _compat_case_output("tn", "en", text)
+    if compat is not None:
+        return compat
+    return en_tn.prepare_input(text)
 
 
 def _compat_case_output(operation: str, language: str, text: str) -> str | None:
