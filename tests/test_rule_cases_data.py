@@ -69,6 +69,25 @@ class RuleCaseDataTests(unittest.TestCase):
 
         self.assertEqual([case.id for case in selected], ["tn-zh-square-meter-word"])
 
+    def test_native_engine_validates_filtered_rule_cases(self) -> None:
+        cases = validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
+        args = validate_rules.build_parser().parse_args(
+            [
+                "--language",
+                "zh",
+                "--operation",
+                "itn",
+                "--engine",
+                "native",
+            ]
+        )
+        selected = validate_rules.filter_cases(cases, args)
+
+        results = validate_rules.run_cases(selected, engine=args.engine)
+
+        self.assertGreater(len(results), 0)
+        self.assertTrue(all(result.passed for result in results))
+
 
 if __name__ == "__main__":
     unittest.main()

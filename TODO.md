@@ -22,8 +22,7 @@ Stage A is complete: the vendor backend has been restored as the baseline, the
 public capability surface reflects vendor language coverage, and zh/en
 enhancement hooks live at the runtime adapter boundary.
 
-Current work is Stage B1/B3: keep zh/en native routes active, harden their
-first-party parity, and migrate every remaining vendor-backed route through
+Current work is Stage B3: migrate every remaining vendor-backed route through
 the first-party owners defined in `docs/route_ownership.md`.
 
 ## Phase Index
@@ -34,7 +33,7 @@ the first-party owners defined in `docs/route_ownership.md`.
 | [x] | A1 | [TODO_01_PUBLIC_CAPABILITIES.md](todo/TODO_01_PUBLIC_CAPABILITIES.md) | Expose current vendor TN/ITN coverage and visible unsupported failures. |
 | [x] | A2 | [TODO_02_ZH_EN_ENHANCEMENT.md](todo/TODO_02_ZH_EN_ENHANCEMENT.md) | Add zh/en first-party enhancement hooks without dropping vendor routes. |
 | [x] | B0 | [TODO_03_REPLACEMENT_INVENTORY.md](todo/TODO_03_REPLACEMENT_INVENTORY.md) | Build a route-by-route vendor capability and replacement matrix. |
-| [~] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity while those routes run first-party by default. |
+| [x] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity while those routes run first-party by default. |
 | [x] | B2 | [TODO_05_LANGUAGE_SUPPORT_DECISIONS.md](todo/TODO_05_LANGUAGE_SUPPORT_DECISIONS.md) | Define ownership and migration order for every non-zh/en vendor route. |
 | [ ] | B3 | [TODO_06_ROUTE_MIGRATION.md](todo/TODO_06_ROUTE_MIGRATION.md) | Migrate approved routes one language/operation pair at a time. |
 | [ ] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |

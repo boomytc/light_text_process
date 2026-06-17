@@ -1,10 +1,16 @@
 from __future__ import annotations
 
+from pathlib import Path
+import subprocess
+import sys
 import unittest
 
 from light_text_process.runtime.base import CompositeTextProcessingEngine, NativeRouteUnsupportedError
 from light_text_process.runtime.native import NativeTextProcessingEngine
 from light_text_process.schemas import ITNOptions, TNOptions
+
+
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 
 class RuntimeEngineBoundaryTests(unittest.TestCase):
@@ -72,6 +78,36 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
         output = engine.normalize(["Email test@example.com and IP 192.168.0.1."], "en", TNOptions())
 
         self.assertEqual(output, ["Email test at example dot com and IP one nine two dot one six eight dot zero dot one."])
+
+    def test_native_engine_does_not_import_vendor_backend(self) -> None:
+        code = """
+import sys
+from light_text_process.runtime.native import NativeTextProcessingEngine
+from light_text_process.schemas import ITNOptions
+
+engine = NativeTextProcessingEngine()
+engine.inverse_normalize(["电话一三八零零一三八零零零"], "zh", ITNOptions())
+vendor_module = "_".join(("fun", "text", "processing"))
+runtime_module = ".".join(("light_text_process", "runtime", vendor_module))
+blocked = [
+    name
+    for name in sys.modules
+    if name == runtime_module
+    or name == vendor_module
+    or name.startswith(f"{vendor_module}.")
+]
+print(blocked)
+"""
+
+        result = subprocess.run(
+            [sys.executable, "-c", code],
+            cwd=PROJECT_DIR,
+            capture_output=True,
+            check=True,
+            text=True,
+        )
+
+        self.assertEqual(result.stdout.strip(), "[]")
 
 
 if __name__ == "__main__":

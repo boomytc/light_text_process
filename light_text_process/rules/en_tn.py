@@ -247,12 +247,12 @@ _EN_TN_ADDRESS_ABBREVIATION_REPLACEMENTS = (
 )
 
 _EN_TN_PREFIX_CURRENCY_RE = re.compile(
-    r"\b(USD|EUR|GBP|CNY|RMB|JPY|HKD)\s+(-?\d[\d,]*(?:\.\d+)?)\b",
+    r"\b(USD|EUR|GBP|CNY|RMB|JPY|HKD)\s+(-?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)\b",
     re.IGNORECASE,
 )
 
 _EN_TN_SUFFIX_CURRENCY_RE = re.compile(
-    r"\b(-?\d[\d,]*(?:\.\d+)?)\s*(USD|EUR|GBP|CNY|RMB|JPY|HKD)\b",
+    r"\b(-?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)\s*(USD|EUR|GBP|CNY|RMB|JPY|HKD)\b",
     re.IGNORECASE,
 )
 
@@ -426,6 +426,11 @@ _EN_TN_PER_POWER_UNIT_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s*(kg|g|lb|W)/m([²³2
 
 _EN_TN_SQUARE_METER_SYMBOL_RE = re.compile(r"(?<![\w.])(\d[\d,]*(?:\.\d+)?)\s*(?:㎡|m²)(?![A-Za-z])")
 
+_EN_TN_POWER_SYMBOL_UNIT_RE = re.compile(
+    r"(?<![\w.])(\d[\d,]*(?:\.\d+)?)\s*(m|cm|mm|km|yd|ft|in)([²³23])\b",
+    re.IGNORECASE,
+)
+
 _EN_TN_SQUARE_UNIT_WORD_RE = re.compile(
     r"\b(\d[\d,]*(?:\.\d+)?)\s*"
     r"(?:sq\.?\s*(m|meter|meters|km|kilometer|kilometers|cm|centimeter|centimeters|"
@@ -447,7 +452,7 @@ _EN_TN_BASIS_POINT_RE = re.compile(r"\b(\d+(?:\.\d+)?)\s*bps?\b", re.IGNORECASE)
 
 _EN_TN_DIMENSION_RE = re.compile(
     r"\b(\d+(?:\.\d+)?)\s*[xX×]\s*(\d+(?:\.\d+)?)"
-    r"(?=\s*(?:cm|mm|km|m|in|ft|px|$|[,.;:!?]))",
+    r"\s*(cm|mm|km|m|in|ft|px)?(?=$|[,.;:!?\s])",
     re.IGNORECASE,
 )
 
@@ -476,7 +481,7 @@ _EN_TN_CONTEXT_ABBREVIATED_NUMBER_RE = re.compile(
 _EN_TN_SIMPLE_UNIT_RE = re.compile(
     r"\b(\d+(?:\.\d+)?)\s*(GiB|gib|MiB|mib|KiB|kib|kWh|KWh|kW|KW|GHz|MHz|kHz|KHz|Hz|GB|gb|TB|tb|MB|mb|KB|kb|"
     r"MPa|mpa|Pa|pa|"
-    r"mmHg|MMHG|mmhg|kPa|KPA|kpa|ppm|ppb|mL|ml|mA|ms|cm|mm|km|kg|mg|g|L|l|V|v|K|m)\b"
+    r"mmHg|MMHG|mmhg|kPa|KPA|kpa|ppm|ppb|mL|ml|mA|ms|cm|mm|km|kg|mg|g|L|l|V|v|K|yd|m)\b"
 )
 
 _EN_TN_NUMERIC_RANGE_RE = re.compile(
@@ -514,6 +519,43 @@ _EN_TN_EXTENSION_RE = re.compile(r"\b(?:ext\.?|extension)\s*(\d{1,6})\b", re.IGN
 
 _EN_TN_NUMBER_ABBREVIATION_RE = re.compile(r"\bNo\.\s*(\d+)\b")
 
+_EN_TN_SIMPLE_URL_RE = re.compile(r"\b(?:https?|ftp)://[A-Za-z0-9._~:/?#@!$&'()*+,;=%-]+")
+
+_EN_TN_EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+
+_EN_TN_IPV4_RE = re.compile(r"(?<![A-Za-z0-9.])(?:\d{1,3}\.){3}\d{1,3}(?![A-Za-z0-9])")
+
+_EN_TN_AIRLINE_CODE_RE = re.compile(r"\b([A-Z]{2})(\d{2,4})\b")
+
+_EN_TN_SYMBOL_MONEY_AMOUNT_RE = re.compile(
+    r"(?<!\w)(-)?(HK\$|[$€£¥])\s*((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+)
+
+_EN_TN_NEGATIVE_PERCENT_RE = re.compile(r"(?<!\w)-\s*(\d+(?:\.\d+)?)\s*%")
+
+_EN_TN_UNSIGNED_PERCENT_RE = re.compile(r"(?<!\w)(\d+(?:\.\d+)?)\s*%")
+
+_EN_TN_SYMBOL_TEMPERATURE_RE = re.compile(r"(?<![\w.])([-+]?\d+(?:\.\d+)?)\s*(°C|℃|C|°F|℉|F)(?![A-Za-z])")
+
+_EN_TN_FRACTION_RE = re.compile(r"\b(\d+)\s*/\s*(\d+)\b")
+
+_EN_TN_PHONE_PLUS_RE = re.compile(r"\b((?:call|phone|tel|mobile|hotline|support)\s+)\+(\d{1,3})\s+(\d{7,})\b", re.IGNORECASE)
+
+_EN_TN_ISO_DATE_RE = re.compile(r"\b(\d{4})[-/](\d{1,2})[-/](\d{1,2})\b")
+
+_EN_TN_MONTH_DATE_YEAR_RE = re.compile(
+    r"\b(January|February|March|April|May|June|July|August|September|October|November|December|"
+    r"january|february|march|april|may|june|july|august|september|october|november|december)\s+"
+    r"(\d{1,2}|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|"
+    r"eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth|nineteenth|"
+    r"twentieth|twenty first|twenty second|twenty third|twenty fourth|twenty fifth|twenty sixth|"
+    r"twenty seventh|twenty eighth|twenty ninth|thirtieth|thirty first)\s+(\d{4})\b"
+)
+
+_EN_TN_REMAINING_NUMBER_RE = re.compile(
+    r"(?<![A-Za-z0-9])([+-]?)((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)(?![A-Za-z0-9])"
+)
+
 def _expand_en_tn_address_abbreviations(text: str) -> str:
     expanded = text
     for pattern, replacement in _EN_TN_ADDRESS_ABBREVIATION_REPLACEMENTS:
@@ -545,7 +587,10 @@ def _prepare_en_tn_input(text: str) -> str:
     prepared = _verbalize_en_tn_clock_times(prepared)
     prepared = _verbalize_en_tn_shortcuts(prepared)
     prepared = _verbalize_en_tn_complex_urls(prepared)
+    prepared = _verbalize_en_tn_simple_urls(prepared)
+    prepared = _verbalize_en_tn_emails(prepared)
     prepared = _verbalize_en_tn_technical_tokens(prepared)
+    prepared = _verbalize_en_tn_ipv4_addresses(prepared)
     prepared = _verbalize_en_tn_file_tokens(prepared)
     prepared = _verbalize_en_tn_social_tokens(prepared)
     prepared = _expand_en_tn_address_abbreviations(prepared)
@@ -566,6 +611,7 @@ def _prepare_en_tn_input(text: str) -> str:
     prepared = _verbalize_en_tn_context_hash_numbers(prepared)
     prepared = _verbalize_en_tn_context_number_labels(prepared)
     prepared = _verbalize_en_tn_number_abbreviations(prepared)
+    prepared = _verbalize_en_tn_airline_codes(prepared)
     prepared = verbalize_page_abbreviations(prepared)
     prepared = verbalize_numeric_ordinal_ranges(prepared, format_ordinal=_format_en_ordinal_value)
     prepared = verbalize_numeric_ordinals(prepared, format_ordinal=_format_en_ordinal_value)
@@ -579,7 +625,8 @@ def _prepare_en_tn_input(text: str) -> str:
     prepared = _verbalize_en_tn_dimensions(prepared)
     prepared = verbalize_compact_duration_sequences(prepared)
     prepared = _verbalize_en_tn_measure_units(prepared)
-    return _space_en_tn_letter_decimal_versions(prepared)
+    prepared = _space_en_tn_letter_decimal_versions(prepared)
+    return _verbalize_en_tn_remaining_numbers(prepared)
 
 def _replace_en_tn_prefix_currency_codes(text: str) -> str:
     symbol_map = {"usd": "$", "eur": "€", "gbp": "£", "cny": "¥", "rmb": "¥", "jpy": "¥", "hkd": "HK$"}
@@ -680,7 +727,7 @@ def _replace_en_tn_numeric_dates(text: str) -> str:
             year = normalize_year(match.group(6))
         if not 1 <= month <= 12 or not 1 <= day <= 31:
             return match.group(0)
-        return f"{month_names[month]} {day} {year}"
+        return f"{month_names[month].lower()} {day} {year}"
 
     return _EN_TN_NUMERIC_DATE_RE.sub(replace, text)
 
@@ -706,12 +753,15 @@ def _verbalize_en_tn_quarters(text: str) -> str:
     def replace(match: re.Match[str]) -> str:
         quarter = match.group(1) or match.group(4)
         year = match.group(2) or match.group(3)
-        return f"{ordinal_words[quarter]} quarter {year}"
+        return f"{ordinal_words[quarter]} quarter {_format_en_year_value(int(year))}"
 
     return _EN_TN_QUARTER_RE.sub(replace, text)
 
 def _verbalize_en_tn_fiscal_years(text: str) -> str:
-    return _EN_TN_FISCAL_YEAR_RE.sub(r"fiscal year \1", text)
+    return _EN_TN_FISCAL_YEAR_RE.sub(
+        lambda match: f"fiscal year {_format_en_year_value(int(match.group(1)))}",
+        text,
+    )
 
 def _verbalize_en_tn_file_tokens(text: str) -> str:
     return _EN_TN_FILE_CONTEXT_RE.sub(
@@ -721,6 +771,12 @@ def _verbalize_en_tn_file_tokens(text: str) -> str:
 
 def _verbalize_en_tn_complex_urls(text: str) -> str:
     return _EN_TN_COMPLEX_URL_RE.sub(lambda match: _verbalize_en_url_token(match.group(0)), text)
+
+def _verbalize_en_tn_simple_urls(text: str) -> str:
+    return _EN_TN_SIMPLE_URL_RE.sub(lambda match: _verbalize_en_url_token(match.group(0)), text)
+
+def _verbalize_en_tn_emails(text: str) -> str:
+    return _EN_TN_EMAIL_RE.sub(lambda match: _verbalize_en_email_token(match.group(0)), text)
 
 def _verbalize_en_tn_structured_tokens(text: str) -> str:
     prepared = _EN_TN_ISO_DATETIME_RE.sub(lambda match: _verbalize_en_electronic_token(match.group(1)), text)
@@ -816,10 +872,14 @@ def _verbalize_en_shortcut_token(token: str) -> str:
     return token.upper()
 
 def _verbalize_en_url_token(token: str) -> str:
+    trailing = ""
+    while token and token[-1] in ".,;:!?":
+        trailing = token[-1] + trailing
+        token = token[:-1]
     match = re.match(r"^(https?|ftp)://(.+)$", token, re.IGNORECASE)
     if not match:
-        return _verbalize_en_electronic_token(token)
-    return f"{match.group(1).upper()} colon slash slash {_verbalize_en_url_remainder(match.group(2))}"
+        return _verbalize_en_electronic_token(token) + trailing
+    return f"{match.group(1).upper()} colon slash slash {_verbalize_en_url_remainder(match.group(2))}{trailing}"
 
 def _verbalize_en_url_remainder(token: str) -> str:
     digit_words = {
@@ -860,13 +920,28 @@ def _verbalize_en_url_remainder(token: str) -> str:
             start = index
             while index < len(token) and token[index].isalpha():
                 index += 1
-            parts.append(token[start:index])
+            run = token[start:index]
+            in_path = "/" in token[:start] and "?" not in token and "#" not in token
+            if in_path and len(run) <= 2:
+                parts.append(run.upper())
+            else:
+                parts.append(run)
             continue
         word = symbol_words.get(char)
         if word is not None:
             parts.append(word)
         index += 1
     return " ".join(parts)
+
+def _verbalize_en_email_token(token: str) -> str:
+    local, domain = token.split("@", 1)
+    return f"{_verbalize_en_email_part(local)} at {_verbalize_en_email_part(domain)}"
+
+def _verbalize_en_email_part(token: str) -> str:
+    output = token
+    for source, target in ((".", " dot "), ("_", " underscore "), ("-", " dash "), ("+", " plus ")):
+        output = output.replace(source, target)
+    return re.sub(r"\s+", " ", output).strip()
 
 def _verbalize_en_tn_semver_tokens(text: str) -> str:
     return _EN_TN_SEMVER_RE.sub(lambda match: _verbalize_en_version_token(match.group(1)), text)
@@ -916,7 +991,7 @@ def _verbalize_en_tn_technical_tokens(text: str) -> str:
         text,
     )
     prepared = _EN_TN_IPV6_RE.sub(
-        lambda match: f"{match.group(1)}{_verbalize_en_electronic_token(match.group(2).upper())}",
+        lambda match: f"{match.group(1).replace('6', ' six')}{_verbalize_en_electronic_token(match.group(2).upper())}",
         prepared,
     )
     prepared = _EN_TN_ISBN_RE.sub(
@@ -1021,6 +1096,25 @@ def _verbalize_en_ipv4_port(endpoint: str) -> str:
     port_words = " ".join(digit_words[char] for char in port)
     return f"{address_words} colon {port_words}"
 
+def _verbalize_en_tn_ipv4_addresses(text: str) -> str:
+    digit_words = {
+        "0": "zero",
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+    }
+
+    def replace(match: re.Match[str]) -> str:
+        return " dot ".join(" ".join(digit_words[char] for char in octet) for octet in match.group(0).split("."))
+
+    return _EN_TN_IPV4_RE.sub(replace, text)
+
 def _verbalize_en_tn_zip_codes(text: str) -> str:
     digit_words = {
         "0": "zero",
@@ -1038,7 +1132,7 @@ def _verbalize_en_tn_zip_codes(text: str) -> str:
     def replace(match: re.Match[str]) -> str:
         primary = " ".join(digit_words[char] for char in match.group(2))
         suffix = f" dash {' '.join(digit_words[char] for char in match.group(3))}" if match.group(3) else ""
-        return f"{match.group(1)}{primary}{suffix}"
+        return f"{match.group(1).lower()}{primary}{suffix}"
 
     return _EN_TN_ZIP_CODE_RE.sub(replace, text)
 
@@ -1152,12 +1246,18 @@ def _verbalize_en_tn_coordinates(text: str) -> str:
     direction_words = {"n": "north", "s": "south", "e": "east", "w": "west"}
 
     def replace(match: re.Match[str]) -> str:
-        return f"{match.group(1)} degrees {direction_words[match.group(2).lower()]}"
+        return f"{_format_en_coordinate_value(match.group(1))} degrees {direction_words[match.group(2).lower()]}"
 
     return _EN_TN_COORDINATE_RE.sub(replace, text)
 
 def _verbalize_en_tn_context_hash_numbers(text: str) -> str:
-    return _EN_TN_CONTEXT_HASH_NUMBER_RE.sub(r"\1number \2", text)
+    def replace(match: re.Match[str]) -> str:
+        value = match.group(2)
+        if len(value) >= 4:
+            return f"{match.group(1)}number {_verbalize_en_digit_sequence(value)}"
+        return f"{match.group(1)}number {value}"
+
+    return _EN_TN_CONTEXT_HASH_NUMBER_RE.sub(replace, text)
 
 def _verbalize_en_tn_context_number_labels(text: str) -> str:
     label_words = {
@@ -1252,6 +1352,9 @@ def _verbalize_en_tn_extensions(text: str) -> str:
 def _verbalize_en_tn_number_abbreviations(text: str) -> str:
     return _EN_TN_NUMBER_ABBREVIATION_RE.sub(r"number \1", text)
 
+def _verbalize_en_tn_airline_codes(text: str) -> str:
+    return _EN_TN_AIRLINE_CODE_RE.sub(lambda match: f"{match.group(1)} {_format_en_code_number_value(match.group(2))}", text)
+
 def _verbalize_en_tn_comparisons(text: str) -> str:
     operator_words = {
         "!=": "not equal to",
@@ -1315,7 +1418,13 @@ def _verbalize_en_tn_numeric_ratios(text: str) -> str:
     return _EN_TN_NUMERIC_RATIO_RE.sub(r"\1\2 to \3", text)
 
 def _verbalize_en_tn_dimensions(text: str) -> str:
-    return _EN_TN_DIMENSION_RE.sub(r"\1 by \2", text)
+    return _EN_TN_DIMENSION_RE.sub(
+        lambda match: (
+            f"{_format_en_dimension_value(match.group(1))} by {_format_en_dimension_value(match.group(2))}"
+            f"{f' {_en_tn_unit_label(match.group(2), match.group(3))}' if match.group(3) else ''}"
+        ),
+        text,
+    )
 
 def _verbalize_en_tn_dotted_versions(text: str) -> str:
     prepared = _EN_TN_CONTEXT_DOTTED_VERSION_RE.sub(
@@ -1335,6 +1444,7 @@ def _verbalize_en_tn_measure_units(text: str) -> str:
     prepared = _verbalize_en_tn_context_abbreviated_numbers(prepared)
     prepared = _verbalize_en_tn_square_unit_words(prepared)
     prepared = _verbalize_en_tn_square_meter_symbols(prepared)
+    prepared = _verbalize_en_tn_power_symbol_units(prepared)
     prepared = _verbalize_en_tn_basis_points(prepared)
     prepared = _verbalize_en_tn_science_ratio_units(prepared)
     prepared = _verbalize_en_tn_micro_simple_units(prepared)
@@ -1381,6 +1491,25 @@ def _verbalize_en_tn_square_meter_symbols(text: str) -> str:
         return f"{value} {_en_unit_word(value, 'square meter')}"
 
     return _EN_TN_SQUARE_METER_SYMBOL_RE.sub(replace, text)
+
+def _verbalize_en_tn_power_symbol_units(text: str) -> str:
+    unit_words = {
+        "m": "meter",
+        "cm": "centimeter",
+        "mm": "millimeter",
+        "km": "kilometer",
+        "yd": "yard",
+        "ft": "foot",
+        "in": "inch",
+    }
+    power_words = {"2": "square", "²": "square", "3": "cubic", "³": "cubic"}
+
+    def replace(match: re.Match[str]) -> str:
+        value = _normalize_decimal_text(match.group(1).replace(",", ""))
+        unit = f"{power_words[match.group(3)]} {unit_words[match.group(2).lower()]}"
+        return f"{value} {_en_unit_word(value, unit)}"
+
+    return _EN_TN_POWER_SYMBOL_UNIT_RE.sub(replace, text)
 
 def _verbalize_en_tn_square_unit_words(text: str) -> str:
     def replace(match: re.Match[str]) -> str:
@@ -1672,6 +1801,261 @@ def _en_unit_word(value: str, singular: str) -> str:
         return singular
     irregular_plurals = {"foot": "feet", "inch": "inches"}
     return irregular_plurals.get(singular, f"{singular}s")
+
+def _verbalize_en_tn_remaining_numbers(text: str) -> str:
+    prepared = _verbalize_en_tn_phone_plus_numbers(text)
+    prepared = _verbalize_en_tn_iso_dates(prepared)
+    prepared = _verbalize_en_tn_month_date_years(prepared)
+    prepared = _verbalize_en_tn_symbol_money_amounts(prepared)
+    prepared = _verbalize_en_tn_symbol_temperatures(prepared)
+    prepared = _verbalize_en_tn_fractions(prepared)
+    prepared = _EN_TN_NEGATIVE_PERCENT_RE.sub(
+        lambda match: f"minus {_format_en_number_value(match.group(1))} percent",
+        prepared,
+    )
+    prepared = _EN_TN_UNSIGNED_PERCENT_RE.sub(
+        lambda match: f"{_format_en_number_value(match.group(1))} percent",
+        prepared,
+    )
+    return _EN_TN_REMAINING_NUMBER_RE.sub(_replace_en_tn_remaining_number, prepared)
+
+def _verbalize_en_tn_phone_plus_numbers(text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        country = _format_en_integer_value(int(match.group(2)))
+        number = _verbalize_en_digit_sequence(match.group(3))
+        return f"{match.group(1)}plus {country} {number}"
+
+    return _EN_TN_PHONE_PLUS_RE.sub(replace, text)
+
+def _verbalize_en_tn_iso_dates(text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        year = int(match.group(1))
+        month = int(match.group(2))
+        day = int(match.group(3))
+        if not 1 <= month <= 12 or not 1 <= day <= 31:
+            return match.group(0)
+        return f"{_en_month_name(month).lower()} {_format_en_ordinal_value(day)} {_format_en_year_value(year)}"
+
+    return _EN_TN_ISO_DATE_RE.sub(replace, text)
+
+def _verbalize_en_tn_month_date_years(text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        raw_day = match.group(2)
+        day = _format_en_ordinal_value(int(raw_day)) if raw_day.isdigit() else raw_day
+        if day is None:
+            return match.group(0)
+        return f"{match.group(1)} {day} {_format_en_year_value(int(match.group(3)))}"
+
+    return _EN_TN_MONTH_DATE_YEAR_RE.sub(replace, text)
+
+def _verbalize_en_tn_symbol_money_amounts(text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        sign = "minus " if match.group(1) else ""
+        return sign + _format_en_money_amount(match.group(2), match.group(3))
+
+    return _EN_TN_SYMBOL_MONEY_AMOUNT_RE.sub(replace, text)
+
+def _verbalize_en_tn_symbol_temperatures(text: str) -> str:
+    unit_words = {
+        "°c": "degrees Celsius",
+        "℃": "degrees Celsius",
+        "c": "degrees Celsius",
+        "°f": "degrees Fahrenheit",
+        "℉": "degrees Fahrenheit",
+        "f": "degrees Fahrenheit",
+    }
+
+    def replace(match: re.Match[str]) -> str:
+        return f"{_format_en_number_value(match.group(1))} {unit_words[match.group(2).lower()]}"
+
+    return _EN_TN_SYMBOL_TEMPERATURE_RE.sub(replace, text)
+
+def _verbalize_en_tn_fractions(text: str) -> str:
+    denominator_words = {
+        2: ("half", "halves"),
+        3: ("third", "thirds"),
+        4: ("quarter", "quarters"),
+        5: ("fifth", "fifths"),
+        6: ("sixth", "sixths"),
+        7: ("seventh", "sevenths"),
+        8: ("eighth", "eighths"),
+        9: ("ninth", "ninths"),
+        10: ("tenth", "tenths"),
+    }
+
+    def replace(match: re.Match[str]) -> str:
+        numerator = int(match.group(1))
+        denominator = int(match.group(2))
+        words = denominator_words.get(denominator)
+        if words is None:
+            return match.group(0)
+        unit = words[0] if numerator == 1 else words[1]
+        return f"{_format_en_integer_value(numerator)} {unit}"
+
+    return _EN_TN_FRACTION_RE.sub(replace, text)
+
+def _replace_en_tn_remaining_number(match: re.Match[str]) -> str:
+    sign = match.group(1)
+    value = match.group(2)
+    prefix = "minus " if sign == "-" else "plus " if sign == "+" else ""
+    return prefix + _format_en_number_value(value)
+
+def _format_en_money_amount(symbol: str, amount: str) -> str:
+    currency_words = {
+        "$": ("dollar", "cent"),
+        "€": ("euro", "cent"),
+        "£": ("pound", "pence"),
+        "¥": ("yen", ""),
+        "HK$": ("Hong Kong dollar", "cent"),
+    }
+    major_unit, minor_unit = currency_words[symbol]
+    normalized = amount.replace(",", "")
+    integer_text, _, fraction_text = normalized.partition(".")
+    major = int(integer_text or "0")
+    major_words = f"{_format_en_integer_value(major)} {_plural_en_currency_unit(major, major_unit)}"
+    if not fraction_text or not minor_unit:
+        return major_words
+    fraction = (fraction_text + "00")[:2]
+    minor = int(fraction)
+    if minor == 0:
+        return major_words
+    return f"{major_words} {_format_en_integer_value(minor)} {_plural_en_currency_unit(minor, minor_unit)}"
+
+def _plural_en_currency_unit(value: int, singular: str) -> str:
+    if singular == "yen":
+        return "yen"
+    if value == 1:
+        return singular
+    if singular == "pence":
+        return "pence"
+    return f"{singular}s"
+
+def _format_en_number_value(value: str) -> str:
+    normalized = value.replace(",", "")
+    if "." not in normalized:
+        return _format_en_integer_value(int(normalized))
+    integer_text, fraction_text = normalized.split(".", 1)
+    integer = _format_en_integer_value(int(integer_text or "0"))
+    digit_words = {
+        "0": "zero",
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+    }
+    fraction = " ".join(digit_words[char] for char in fraction_text)
+    return f"{integer} point {fraction}"
+
+def _verbalize_en_digit_sequence(value: str) -> str:
+    digit_words = {
+        "0": "zero",
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+    }
+    return " ".join(digit_words[char] for char in value)
+
+def _format_en_coordinate_value(value: str) -> str:
+    normalized = value.replace(",", "")
+    integer_text, dot, fraction_text = normalized.partition(".")
+    integer = int(integer_text)
+    if 100 <= integer <= 199:
+        integer_words = f"one {_format_en_under_100(integer - 100)}"
+    else:
+        integer_words = _format_en_integer_value(integer)
+    if not dot:
+        return integer_words
+    digit_words = {
+        "0": "zero",
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+    }
+    return f"{integer_words} point {' '.join(digit_words[char] for char in fraction_text)}"
+
+def _format_en_dimension_value(value: str) -> str:
+    normalized = value.replace(",", "")
+    if "." in normalized:
+        return _format_en_number_value(normalized)
+    integer = int(normalized)
+    if 1000 <= integer <= 9999:
+        high, low = divmod(integer, 100)
+        if low == 0:
+            return f"{_format_en_under_100(high)} hundred"
+        return f"{_format_en_under_100(high)} {_format_en_under_100(low)}"
+    return _format_en_integer_value(integer)
+
+def _format_en_year_value(value: int) -> str:
+    if 1900 <= value <= 2099:
+        high, low = divmod(value, 100)
+        if low == 0:
+            return f"{_format_en_under_100(high)} hundred"
+        return f"{_format_en_under_100(high)} {_format_en_under_100(low)}"
+    return _format_en_integer_value(value)
+
+def _format_en_integer_value(value: int) -> str:
+    if value < 0:
+        return f"minus {_format_en_integer_value(-value)}"
+    if value < 100:
+        return _format_en_under_100(value)
+    if value < 1000:
+        hundreds, remainder = divmod(value, 100)
+        output = f"{_format_en_under_100(hundreds)} hundred"
+        if remainder:
+            output += f" and {_format_en_under_100(remainder)}"
+        return output
+    if value < 1_000_000:
+        thousands, remainder = divmod(value, 1000)
+        output = f"{_format_en_integer_value(thousands)} thousand"
+        if remainder:
+            output += f" {_format_en_integer_value(remainder)}"
+        return output
+    millions, remainder = divmod(value, 1_000_000)
+    output = f"{_format_en_integer_value(millions)} million"
+    if remainder:
+        output += f" {_format_en_integer_value(remainder)}"
+    return output
+
+def _format_en_code_number_value(value: str) -> str:
+    number = int(value)
+    if 100 <= number <= 999:
+        hundreds, remainder = divmod(number, 100)
+        if remainder:
+            return f"{_format_en_under_100(hundreds)} hundred {_format_en_under_100(remainder)}"
+    return _format_en_integer_value(number)
+
+def _en_month_name(month: int) -> str:
+    return {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December",
+    }[month]
 
 def _format_en_under_100(value: int) -> str:
     ones = {

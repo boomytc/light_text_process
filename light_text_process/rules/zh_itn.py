@@ -2581,7 +2581,111 @@ def _compact_zh_itn_spacing(text: str) -> str:
     compacted = _ZH_ITN_OUTPUT_ADJACENT_VALUE_SPACE_RE.sub(r"\1\2", compacted)
     compacted = _replace_zh_itn_ordinals(compacted)
     compacted = _replace_zh_itn_alnum_digits(compacted)
+    compacted = _normalize_zh_itn_native_residuals(compacted)
     return _restore_zh_ascii_electronic(compacted)
+
+def _normalize_zh_itn_native_residuals(text: str) -> str:
+    number = r"[零〇一二两三四五六七八九十百千万亿兆点](?:\s*[零〇一二两三四五六七八九十百千万亿兆点])*"
+    compacted = text
+
+    def parse(raw: str) -> str | None:
+        return _parse_zh_number_reading(re.sub(r"\s+", "", raw))
+
+    def replace_fraction(match: re.Match[str]) -> str:
+        denominator = parse(match.group(1))
+        numerator = parse(match.group(2))
+        if numerator is None or denominator is None:
+            return match.group(0)
+        return f"{numerator}/{denominator}"
+
+    compacted = re.sub(rf"({number})\s*分之\s*({number})", replace_fraction, compacted)
+
+    def replace_yuan_area(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}元/m²" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*元\s*每\s*(?:平方米|平米)", replace_yuan_area, compacted)
+
+    def replace_per_square_meter(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}kg/m²" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*(?:千克|公斤)\s*每\s*(?:平方米|平米)", replace_per_square_meter, compacted)
+
+    power_units = {
+        "平方米": "m²",
+        "平米": "m²",
+        "平方厘米": "cm²",
+        "平方毫米": "mm²",
+        "平方千米": "km²",
+        "平方公里": "km²",
+        "立方米": "m³",
+        "立方厘米": "cm³",
+        "立方毫米": "mm³",
+        "立方千米": "km³",
+        "立方公里": "km³",
+    }
+
+    def replace_power(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}{power_units[match.group(2)]}" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*({'|'.join(power_units)})", replace_power, compacted)
+
+    def replace_kilometer(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}km" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*千米", replace_kilometer, compacted)
+
+    def replace_kilogram(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}kg" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*(?:千克|公斤)", replace_kilogram, compacted)
+
+    direct_units = {
+        "厘米": "cm",
+        "毫米": "mm",
+        "千米": "km",
+        "公里": "公里",
+        "米每秒": "m/s",
+        "米": "米",
+        "千克": "kg",
+        "公斤": "kg",
+        "克": "g",
+        "升": "L",
+    }
+
+    def replace_direct(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}{direct_units[match.group(2)]}" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"({number})\s*({'|'.join(direct_units)})", replace_direct, compacted)
+    compacted = re.sub(r"(\d+(?:\.\d+)?)米\s*每秒", r"\1m/s", compacted)
+
+    def replace_large_money(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}{match.group(2)}元" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"(?<![0-9.])({number})\s*(万|亿)\s*元", replace_large_money, compacted)
+
+    money_units = "人民币|美元|欧元|英镑|日元|港元|块钱|元|块"
+
+    def replace_money(match: re.Match[str]) -> str:
+        value = parse(match.group(1))
+        return f"{value}{match.group(2)}" if value is not None else match.group(0)
+
+    compacted = re.sub(rf"(?<![0-9.])({number})\s*({money_units})", replace_money, compacted)
+    compacted = re.sub(r"(\d+(?:\.\d+)?)(元|块)钱", r"\1\2钱", compacted)
+    compacted = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=\d)", "", compacted)
+    compacted = re.sub(
+        r"(\d+(?:\.\d+)?(?:元|块|美元|欧元|英镑|日元|港元|kg|cm|mm|km|m²|cm²|m³|m/s|L|米|公里))\s+(?=[\u4e00-\u9fff])",
+        r"\1",
+        compacted,
+    )
+    compacted = re.sub(r"(\d+/\d+)\s+(?=[\u4e00-\u9fff])", r"\1", compacted)
+    return compacted
 
 def _compact_zh_itn_output_grouped_digits(text: str) -> str:
     return _ZH_ITN_OUTPUT_CONTEXT_GROUPED_DIGITS_RE.sub(lambda match: f"{match.group(1)}{match.group(2).replace(' ', '')}", text)

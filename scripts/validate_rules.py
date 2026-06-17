@@ -27,6 +27,7 @@ if str(PROJECT_DIR) not in sys.path:
 
 from light_text_process.schemas import ITNOptions, Num2WordsOptions, TNOptions
 from light_text_process.processor import TextProcessor
+from light_text_process.runtime.native import NativeTextProcessingEngine
 
 
 @dataclass(frozen=True)
@@ -62,7 +63,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             print("error: no rule cases selected", file=sys.stderr)
             return 2
         started = perf_counter()
-        results = run_cases(cases, overwrite_cache=args.overwrite_cache)
+        results = run_cases(cases, overwrite_cache=args.overwrite_cache, engine=args.engine)
         elapsed = perf_counter() - started
         print_results(results, verbose=args.verbose)
         print_summary(results, elapsed)
@@ -90,6 +91,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--overwrite-cache",
         action="store_true",
         help="rebuild fun_text_processing grammar caches while running selected cases",
+    )
+    parser.add_argument(
+        "--engine",
+        choices=("default", "native"),
+        default="default",
+        help="text processing engine to validate (default: default)",
     )
     parser.add_argument("--list", action="store_true", help="list selected cases without running them")
     parser.add_argument("--verbose", action="store_true", help="print passing case outputs too")
@@ -188,8 +195,18 @@ def filter_cases(cases: Iterable[RuleCase], args: argparse.Namespace) -> list[Ru
     return selected
 
 
-def run_cases(cases: Sequence[RuleCase], *, overwrite_cache: bool) -> list[RuleResult]:
-    service = TextProcessor()
+def run_cases(
+    cases: Sequence[RuleCase],
+    *,
+    overwrite_cache: bool = False,
+    engine: str = "default",
+) -> list[RuleResult]:
+    if engine == "native":
+        service = TextProcessor(text_engine=NativeTextProcessingEngine())
+    elif engine == "default":
+        service = TextProcessor()
+    else:
+        raise ValueError(f"unsupported validation engine: {engine}")
     results: list[RuleResult] = []
     for group_cases in grouped_cases(cases).values():
         group_results = run_group(service, group_cases, overwrite_cache=overwrite_cache)
