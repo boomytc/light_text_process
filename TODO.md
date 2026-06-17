@@ -20,9 +20,9 @@ does not import, package, install, or require `fun_text_processing`.
 
 ## Current Phase
 
-`P3` is the current implementation phase. Chinese ITN now defaults to the native
-route; remaining native route work must preserve the public API and golden
-behavior defined in `docs/native_migration_inventory.md`.
+`P4` is the current implementation phase. Chinese and English ITN now default to
+the native route; remaining TN route work must preserve the public API and
+golden behavior defined in `docs/native_migration_inventory.md`.
 
 ## Phase Index
 
@@ -31,8 +31,8 @@ behavior defined in `docs/native_migration_inventory.md`.
 | [x] | P0 | [TODO_00_BASELINE_AND_SCOPE.md](todo/TODO_00_BASELINE_AND_SCOPE.md) | Freeze the baseline, inventory vendor capabilities, and define migration gates. |
 | [x] | P1 | [TODO_01_ENGINE_ABSTRACTION.md](todo/TODO_01_ENGINE_ABSTRACTION.md) | Add a native-ready runtime boundary without changing `TextProcessor` callers. |
 | [x] | P2 | [TODO_02_ZH_ITN_NATIVE.md](todo/TODO_02_ZH_ITN_NATIVE.md) | Migrate Chinese ITN categories first because they are high-value for ASR output. |
-| [~] | P3 | [TODO_03_EN_ITN_NATIVE.md](todo/TODO_03_EN_ITN_NATIVE.md) | Migrate English ITN with ASR-friendly post-processing and ambiguity controls. |
-| [ ] | P4 | [TODO_04_ZH_TN_NATIVE.md](todo/TODO_04_ZH_TN_NATIVE.md) | Migrate Chinese TN while preserving deterministic readout behavior. |
+| [x] | P3 | [TODO_03_EN_ITN_NATIVE.md](todo/TODO_03_EN_ITN_NATIVE.md) | Migrate English ITN with ASR-friendly post-processing and ambiguity controls. |
+| [~] | P4 | [TODO_04_ZH_TN_NATIVE.md](todo/TODO_04_ZH_TN_NATIVE.md) | Migrate Chinese TN while preserving deterministic readout behavior. |
 | [ ] | P5 | [TODO_05_EN_TN_NATIVE.md](todo/TODO_05_EN_TN_NATIVE.md) | Migrate English TN categories and keep casing/punctuation options compatible. |
 | [ ] | P6 | [TODO_06_NUM2WORDS_AND_MULTILINGUAL.md](todo/TODO_06_NUM2WORDS_AND_MULTILINGUAL.md) | Decide which num2words and non-zh/en language surfaces become first-party. |
 | [ ] | P7 | [TODO_07_CUTOVER_AND_RELEASE.md](todo/TODO_07_CUTOVER_AND_RELEASE.md) | Cut over validated native defaults and prepare release documentation. |

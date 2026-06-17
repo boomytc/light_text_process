@@ -69,7 +69,7 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
             engine.normalize(["abc"], "zh", TNOptions())
 
         with self.assertRaisesRegex(NativeRouteUnsupportedError, "native ITN route is not enabled"):
-            engine.inverse_normalize(["abc"], "en", ITNOptions())
+            engine.inverse_normalize(["abc"], "ja", ITNOptions())
 
     def test_native_chinese_itn_route_runs_without_vendor_import(self) -> None:
         engine = NativeTextProcessingEngine()
@@ -77,6 +77,13 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
         output = engine.inverse_normalize(["电话一三八零零一三八零零零"], "zh", ITNOptions())
 
         self.assertEqual(output, ["电话13800138000"])
+
+    def test_native_english_itn_route_runs_without_vendor_import(self) -> None:
+        engine = NativeTextProcessingEngine()
+
+        output = engine.inverse_normalize(["email t e s t at example dot com"], "en", ITNOptions())
+
+        self.assertEqual(output, ["email test@example.com"])
 
     def test_itn_overwrite_clears_process_cache(self) -> None:
         class FakeInverseNormalizer:

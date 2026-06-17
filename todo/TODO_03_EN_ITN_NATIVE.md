@@ -15,39 +15,39 @@ the migration pattern.
 
 ## Deliverables
 
-- [ ] English number parser that handles cardinal, ordinal, decimal, and digit
+- [x] English number parser that handles cardinal, ordinal, decimal, and digit
       sequence modes.
-- [ ] Native English ITN pipeline with ordered category passes.
-- [ ] Tests for ambiguity-sensitive expressions.
-- [ ] Differential comparison against vendor output.
-- [ ] Golden cases expanded before each migrated category is enabled.
+- [x] Native English ITN pipeline with ordered category passes.
+- [x] Tests for ambiguity-sensitive expressions.
+- [x] Differential comparison against vendor output.
+- [x] Golden cases expanded before each migrated category is enabled.
 
 ## Suggested Category Order
 
-- [ ] Number, decimal, ordinal, and digit sequence parsing.
-- [ ] Date and time, including month-name and numeric date variants.
-- [ ] Money, fractions, percentages, ratings, and durations.
-- [ ] Measures, data sizes, and rates.
-- [ ] Electronic strings and identifiers.
-- [ ] Punctuation, quotes, and ASR cleanup.
+- [x] Number, decimal, ordinal, and digit sequence parsing.
+- [x] Date and time, including month-name and numeric date variants.
+- [x] Money, fractions, percentages, ratings, and durations.
+- [x] Measures, data sizes, and rates.
+- [x] Electronic strings and identifiers.
+- [x] Punctuation, quotes, and ASR cleanup.
 
 ## Detailed Tasks
 
-- [ ] Reuse `light_text_process/rules/en_dates.py` where it already captures
+- [x] Reuse `light_text_process/rules/en_dates.py` where it already captures
       accepted product behavior.
-- [ ] Keep strict parsing and context-sensitive parsing separate.
-- [ ] Handle `oh/o/zero`, hyphenated number words, `and`, multipliers such as
+- [x] Keep strict parsing and context-sensitive parsing separate.
+- [x] Handle `oh/o/zero`, hyphenated number words, `and`, multipliers such as
       `double`, and colloquial money forms.
-- [ ] Add negative cases for ordinary prose that should not normalize.
-- [ ] Preserve existing casing and punctuation finalization expectations.
+- [x] Add negative cases for ordinary prose that should not normalize.
+- [x] Preserve existing casing and punctuation finalization expectations.
 
 ## Acceptance Gates
 
-- [ ] All `en/itn` golden cases pass with the native route.
-- [ ] Differential comparison shows no unexplained regressions against vendor.
-- [ ] Engine metadata correctly reports the native route when selected.
-- [ ] Vendor fallback remains available until cutover.
-- [ ] Root [TODO.md](../TODO.md) phase status is updated.
+- [x] All `en/itn` golden cases pass with the native route.
+- [x] Differential comparison shows no unexplained regressions against vendor.
+- [x] Engine metadata correctly reports the native route when selected.
+- [x] Vendor fallback remains available until cutover.
+- [x] Root [TODO.md](../TODO.md) phase status is updated.
 
 ## Validation
 
@@ -56,4 +56,3 @@ the migration pattern.
 .venv/bin/python -m unittest tests/test_en_itn_rule_helpers.py
 .venv/bin/python -m unittest discover -s tests
 ```
-

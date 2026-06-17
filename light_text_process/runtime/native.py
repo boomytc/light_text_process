@@ -5,7 +5,7 @@ from functools import lru_cache
 
 from light_text_process.paths import PROJECT_DIR
 from light_text_process.runtime.base import NativeRouteUnsupportedError
-from light_text_process.rules import zh_itn
+from light_text_process.rules import en_itn, zh_itn
 from light_text_process.schemas import ITNOptions, TNOptions
 
 
@@ -16,6 +16,8 @@ class NativeTextProcessingEngine:
         raise NativeRouteUnsupportedError(f"native TN route is not enabled for language: {language}")
 
     def inverse_normalize(self, texts: list[str], language: str, options: ITNOptions) -> list[str]:
+        if language == "en":
+            return [_normalize_en_itn(text) for text in texts]
         if language == "zh":
             return [_normalize_zh_itn(text) for text in texts]
         raise NativeRouteUnsupportedError(f"native ITN route is not enabled for language: {language}")
@@ -32,6 +34,13 @@ def _normalize_zh_itn(text: str) -> str:
     if compat is not None:
         return compat
     return zh_itn.finalize_outputs([zh_itn.prepare_input(text)])[0]
+
+
+def _normalize_en_itn(text: str) -> str:
+    compat = _compat_case_output("itn", "en", text)
+    if compat is not None:
+        return compat
+    return en_itn.finalize_outputs([en_itn.prepare_input(text)])[0]
 
 
 def _compat_case_output(operation: str, language: str, text: str) -> str | None:
