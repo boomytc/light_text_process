@@ -16,3 +16,14 @@
 
 - FAR/FST grammar caches are no longer used.
 - `scripts/cache_maintenance.py status` reports `cache_policy: none`.
+
+## Final Validation
+
+- TOML parse passed for `pyproject.toml`.
+- `compileall` passed for `light_text_process`, `scripts`, and `tests`.
+- Unit tests passed: 43 tests.
+- Rule validation passed: 389/389 cases.
+- Vendor-removal searches found no runtime dependency or vendor tree.
+- Public TN routes remain `de`, `en`, `es`, `ru`, and `zh`.
+- Public ITN routes remain `de`, `en`, `es`, `fr`, `id`, `ja`, `ko`, `pt`,
+  `ru`, `tl`, `vi`, and `zh`.

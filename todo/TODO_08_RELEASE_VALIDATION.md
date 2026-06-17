@@ -6,19 +6,28 @@ Validate the final vendor-free release state.
 
 ## Required Work
 
-- [ ] Run the full basic validation command set from `AGENTS.md`, adjusted for
+- [x] Run the full basic validation command set from `AGENTS.md`, adjusted for
       the vendor-free cache policy.
-- [ ] Confirm `pyproject.toml` has no vendor package discovery, vendor package
+- [x] Confirm `pyproject.toml` has no vendor package discovery, vendor package
       data, or vendor-only dependencies.
-- [ ] Confirm public capabilities still list every replacement-target route,
+- [x] Confirm public capabilities still list every replacement-target route,
       with each TN/ITN route served by first-party runtime code.
-- [ ] Confirm generated cache files stay under ignored runtime directories or no
+- [x] Confirm generated cache files stay under ignored runtime directories or no
       longer exist.
-- [ ] Update release notes with route migration status, capability preservation
+- [x] Update release notes with route migration status, capability preservation
       evidence, dependency changes, and customer-visible behavior changes.
 
 ## Acceptance
 
-- [ ] Unit tests, rule validation, and num2words smoke test pass.
-- [ ] Vendor-removal search checks pass.
-- [ ] `git status --short` shows no accidental generated runtime artifacts.
+- [x] Unit tests, rule validation, and num2words smoke test pass.
+- [x] Vendor-removal search checks pass.
+- [x] `git status --short` shows no accidental generated runtime artifacts.
+
+## Evidence
+
+- Unit tests: 43 passed.
+- Rule validation: 389 passed, 0 failed.
+- Cache policy: `cache_policy: none`.
+- num2words smoke: `one hundred and twenty-three`.
+- Public capabilities: TN `de,en,es,ru,zh`; ITN
+  `de,en,es,fr,id,ja,ko,pt,ru,tl,vi,zh`.
