@@ -1,0 +1,905 @@
+[
+  {
+    "id": "itn-en-money-date",
+    "operation": "itn",
+    "language": "en",
+    "category": "money",
+    "input": "I paid twelve dollars and fifty cents on june fifteenth twenty twenty six",
+    "expected": "I paid $12.50 on 2026-06-15"
+  },
+  {
+    "id": "itn-en-pound-pence",
+    "operation": "itn",
+    "language": "en",
+    "category": "money",
+    "input": "I paid twelve pounds and fifty pence",
+    "expected": "I paid £12.50"
+  },
+  {
+    "id": "itn-en-separated-date",
+    "operation": "itn",
+    "language": "en",
+    "category": "date",
+    "input": "the date is twenty twenty six dash zero six dash fifteen and two thousand twenty six slash six slash fifteen",
+    "expected": "the date is 2026-06-15 and 2026/06/15"
+  },
+  {
+    "id": "itn-en-negative-currency",
+    "operation": "itn",
+    "language": "en",
+    "category": "money",
+    "input": "I paid minus twelve dollars and fifty cents and negative three euros and five cents",
+    "expected": "I paid -$12.50 and -€3.05"
+  },
+  {
+    "id": "itn-en-url",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "url h t t p s colon slash slash example dot com slash a dash b",
+    "expected": "url https://example.com/a-b"
+  },
+  {
+    "id": "itn-en-email",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "email t e s t at example dot com",
+    "expected": "email test@example.com"
+  },
+  {
+    "id": "itn-en-complex-email",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "contact user dot name plus tag at example dot co dot uk",
+    "expected": "contact user.name+tag@example.co.uk"
+  },
+  {
+    "id": "itn-en-domain-email-user",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "visit example dot com email a dot b at example dot com user at light underscore user",
+    "expected": "visit example.com email a.b@example.com user @light_user"
+  },
+  {
+    "id": "itn-en-domain-timezone",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "visit w w w dot example dot com and docs dot example dot org slash path timezone UTC plus eight and GMT minus five",
+    "expected": "visit www.example.com and docs.example.org/path timezone UTC+8 and GMT-5"
+  },
+  {
+    "id": "itn-en-dotted-version",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "version v two point zero point one",
+    "expected": "version v 2.0.1"
+  },
+  {
+    "id": "itn-en-quarter-fiscal-year",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "q two twenty twenty six revenue grew q three two thousand twenty six outlook improved fiscal year twenty twenty six budget is ready",
+    "expected": "Q2 2026 revenue grew Q3 2026 outlook improved FY2026 budget is ready"
+  },
+  {
+    "id": "itn-en-time-oh-five",
+    "operation": "itn",
+    "language": "en",
+    "category": "time",
+    "input": "meet at seven oh five and eleven thirty pm",
+    "expected": "meet at 07:05 and 11:30 PM"
+  },
+  {
+    "id": "itn-en-time-percent-multiplier",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "meet at seven oh five oh nine and discount twenty percent minus five percent and eight x growth",
+    "expected": "meet at 07:05:09 and discount 20% -5% and 8x growth"
+  },
+  {
+    "id": "itn-en-fraction-comparison-multiplier",
+    "operation": "itn",
+    "language": "en",
+    "category": "math",
+    "input": "the ratio is one half and progress is three quarters x greater than or equal to five and y less than or equal to ten growth is three x and speed is two point five x",
+    "expected": "the ratio is 1/2 and progress is 3/4 x>=5 and y<=10 growth is 3x and speed is 2.5x"
+  },
+  {
+    "id": "itn-en-temperature-percent",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "it is twenty three point five degrees celsius and sixty percent",
+    "expected": "it is 23.5°C and 60%"
+  },
+  {
+    "id": "itn-en-per-mille",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "error one per mille rate three point five per mille probability zero point zero five percent",
+    "expected": "error 1‰ rate 3.5‰ probability 0.05%"
+  },
+  {
+    "id": "itn-en-data-electric-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "speed one hundred megabits per second size sixteen gigabytes voltage two hundred twenty volts",
+    "expected": "speed 100 Mbps size 16 GB voltage 220 V"
+  },
+  {
+    "id": "itn-en-power-area-abbreviated-count",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "area is eighty square meters volume is two cubic meters density is five kilograms per square meter users three point five k",
+    "expected": "area is 80 m² volume is 2 m³ density is 5 kg/m² users 3.5K"
+  },
+  {
+    "id": "itn-en-medical-science-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "gas is four hundred parts per million glucose is five point six millimoles per liter cholesterol is ninety milligrams per deciliter blood pressure is one hundred twenty millimeters of mercury pressure is one hundred one kilopascals dose is five milligrams per kilogram lead is twelve parts per billion",
+    "expected": "gas is 400 ppm glucose is 5.6 mmol/L cholesterol is 90 mg/dL blood pressure is 120 mmHg pressure is 101 kPa dose is 5 mg/kg lead is 12 ppb"
+  },
+  {
+    "id": "itn-en-square-meter-unit-price",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "area is eighty square meters rent is twelve dollars per square meter volume is three cubic meters",
+    "expected": "area is 80 m² rent is $12/m² volume is 3 m³"
+  },
+  {
+    "id": "itn-en-micro-lab-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "vitamin d is twenty five international units per liter drug is two micrograms per milliliter hormone is fifty nanograms per milliliter sample is twenty microliters",
+    "expected": "vitamin d is 25 IU/L drug is 2 µg/mL hormone is 50 ng/mL sample is 20 µL"
+  },
+  {
+    "id": "itn-en-engineering-lab-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "the p h is seven point four noise is thirty decibels irradiance is eighty watts per square meter torque is five newton meters battery is five thousand milliampere hours",
+    "expected": "the pH is 7.4 noise is 30 dB irradiance is 80 W/m² torque is 5 N·m battery is 5000 mAh"
+  },
+  {
+    "id": "itn-en-electrical-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "resistance is ten ohms current is two amperes voltage is three point three millivolts capacitance is forty seven microfarads power is five watts",
+    "expected": "resistance is 10 Ω current is 2 A voltage is 3.3 mV capacitance is 47 µF power is 5 W"
+  },
+  {
+    "id": "itn-en-motion-pressure-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "force is five newtons pressure is one hundred and one pascals stress is zero point one megapascals acceleration is nine point eight meters per second squared speed is three thousand revolutions per minute flow is two liters per minute",
+    "expected": "force is 5 N pressure is 101 Pa stress is 0.1 MPa acceleration is 9.8 m/s² speed is 3000 rpm flow is 2 L/min"
+  },
+  {
+    "id": "itn-en-resolution-dimension",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "resolution is one thousand nine hundred twenty by one thousand eighty size is ten by twenty centimeters",
+    "expected": "resolution is 1920x1080 size is 10x20cm"
+  },
+  {
+    "id": "itn-en-liter-ratio-range",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "capacity one liter ratio is three to two range three to five days",
+    "expected": "capacity 1 L ratio is 3:2 range 3-5 days"
+  },
+  {
+    "id": "itn-en-power-storage-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "power three kilowatts energy five kilowatt hours storage five hundred twelve megabytes cache one hundred twenty eight kilobytes volume five hundred milliliters current twenty milliamperes",
+    "expected": "power 3 kW energy 5 kWh storage 512 MB cache 128 KB volume 500 mL current 20 mA"
+  },
+  {
+    "id": "itn-en-negative-measure",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "negative twelve point five percent negative three point five degrees celsius",
+    "expected": "-12.5% -3.5°C"
+  },
+  {
+    "id": "itn-en-signed-percent-power-context",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "growth plus twelve percent decline minus three point five percent area twelve square centimeters volume four cubic centimeters capacity three point five liters chapter twelve page three number five",
+    "expected": "growth +12% decline -3.5% area 12 cm² volume 4 cm³ capacity 3.5 L chapter 12 page 3 number 5"
+  },
+  {
+    "id": "itn-en-finance-basis-abbreviated-values",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "rate rose twenty five basis points spread widened three point five basis points users one point two m revenue three b",
+    "expected": "rate rose 25 bps spread widened 3.5 bps users 1.2M revenue 3B"
+  },
+  {
+    "id": "itn-en-percent-point-scientific-coordinate",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "growth is two percentage points error is one times ten to the minus five speed is three times ten to the eight meters per second coordinate is thirty nine point nine degrees north one hundred sixteen point four degrees east",
+    "expected": "growth is 2 pp error is 1e-5 speed is 3e8 m/s coordinate is 39.9°N 116.4°E"
+  },
+  {
+    "id": "itn-en-throughput-latency-binary",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "throughput one hundred twenty megabytes per second frame rate sixty frames per second latency twelve milliseconds memory two gibibytes",
+    "expected": "throughput 120 MB/s frame rate 60 fps latency 12 ms memory 2 GiB"
+  },
+  {
+    "id": "itn-en-duration-angle-frequency",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "duration two hours thirty minutes forty five seconds timeout five hundred milliseconds angle ninety degrees frequency forty four point one kilohertz sample rate forty eight kilohertz",
+    "expected": "duration 2 h 30 min 45 s timeout 500 ms angle 90 degrees frequency 44.1 kHz sample rate 48 kHz"
+  },
+  {
+    "id": "itn-en-imperial-units",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "height six feet length twelve inches weight five pounds volume two ounces distance three miles speed fifty five miles per hour",
+    "expected": "height 6 ft length 12 in weight 5 lb volume 2 oz distance 3 mi speed 55 mph"
+  },
+  {
+    "id": "itn-en-common-fractions",
+    "operation": "itn",
+    "language": "en",
+    "category": "fraction",
+    "input": "ratio one half and three quarters probability one eighth",
+    "expected": "ratio 1/2 and 3/4 probability 1/8"
+  },
+  {
+    "id": "itn-en-math-expression",
+    "operation": "itn",
+    "language": "en",
+    "category": "math",
+    "input": "formula three plus five equals eight and twenty divided by four equals five",
+    "expected": "formula 3+5=8 and 20/4=5"
+  },
+  {
+    "id": "itn-en-ftp-url",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "url f t p colon slash slash files dot example dot org slash a underscore b",
+    "expected": "url ftp://files.example.org/a_b"
+  },
+  {
+    "id": "itn-en-file-path-social",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "file report underscore v two point zero dot p d f path slash data slash input dash zero one slash test dot c s v handle at light underscore user hashtag hash A I two zero two six",
+    "expected": "file report_v2.0.pdf path /data/input-01/test.csv handle @light_user hashtag #AI2026"
+  },
+  {
+    "id": "itn-en-url-query-fragment",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "link h t t p s colon slash slash example dot com slash a dash b question mark q equals hello underscore world ampersand n equals one two three hash top",
+    "expected": "link https://example.com/a-b?q=hello_world&n=123#top"
+  },
+  {
+    "id": "itn-en-mac-uuid-hex-color",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "MAC A A colon B B colon C C colon D D colon E E colon F F UUID five five zero e eight four zero zero dash e two nine b dash four one d four dash a seven one six dash four four six six five five four four zero zero zero zero color hash F F five seven three three",
+    "expected": "MAC AA:BB:CC:DD:EE:FF UUID 550e8400-e29b-41d4-a716-446655440000 color #FF5733"
+  },
+  {
+    "id": "itn-en-temperature-fahrenheit-kelvin",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "it is seventy two degrees fahrenheit and three hundred kelvin",
+    "expected": "it is 72°F and 300 K"
+  },
+  {
+    "id": "itn-en-ipv4-port-ipv6",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "server one two seven dot zero dot zero dot one colon eight zero eight zero and ipv6 two zero zero one colon zero d b eight colon colon one",
+    "expected": "server 127.0.0.1:8080 and ipv6 2001:0db8::1"
+  },
+  {
+    "id": "itn-en-isbn-doi",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "ISBN nine seven eight dash one dash four zero two eight dash nine four six two dash six DOI one zero point one zero zero zero slash x y z one two three",
+    "expected": "ISBN 978-1-4028-9462-6 DOI 10.1000/xyz123"
+  },
+  {
+    "id": "itn-en-semver-prerelease",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "version v two point zero point one dash beta point three",
+    "expected": "version v2.0.1-beta.3"
+  },
+  {
+    "id": "itn-en-http-port-iso-datetime",
+    "operation": "itn",
+    "language": "en",
+    "category": "electronic",
+    "input": "the api returned HTTP four zero four port eight zero eight zero deadline two zero two six dash zero six dash one five T one four colon three zero colon zero five Z",
+    "expected": "the api returned HTTP 404 port 8080 deadline 2026-06-15T14:30:05Z"
+  },
+  {
+    "id": "itn-en-measure-phone",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the package weighs three kilograms call four one five five five five zero one two three",
+    "expected": "the package weighs 3 kg call 415-555-0123"
+  },
+  {
+    "id": "itn-en-business-codes-extension",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "order A B dash one two three four invoice I N V dash two zero two six dash zero zero one tracking S F one two three four five six seven eight nine zero phone four one five dash five five five dash zero one two three extension four five",
+    "expected": "order AB-1234 invoice INV-2026-001 tracking SF1234567890 phone 415-555-0123 ext. 45"
+  },
+  {
+    "id": "itn-en-identity-vehicle-codes",
+    "operation": "itn",
+    "language": "en",
+    "category": "identity",
+    "input": "license plate A B C dash one two three vin one H G C M eight two six three three A zero zero four three five two passport E one two three four five six seven eight",
+    "expected": "license plate ABC-123 vin 1HGCM82633A004352 passport E12345678"
+  },
+  {
+    "id": "itn-en-address-zip-room",
+    "operation": "itn",
+    "language": "en",
+    "category": "address",
+    "input": "room one two zero eight suite three zero five apartment five B floor twelve level three zip one zero zero zero one dash one two three four",
+    "expected": "room 1208 suite 305 apartment 5B floor 12 level 3 zip 10001-1234"
+  },
+  {
+    "id": "itn-en-shortcut-space-datetime",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "press control plus C then command plus shift plus P and alt plus F four deadline two zero two six dash zero six dash one five one four colon three zero colon zero five",
+    "expected": "press Ctrl+C then Cmd+Shift+P and Alt+F4 deadline 2026-06-15 14:30:05"
+  },
+  {
+    "id": "itn-en-clock-plusminus-approx",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "meeting at fourteen thirty tolerance plus or minus zero point five millimeters x approximately equal to five",
+    "expected": "meeting at 14:30 tolerance ±0.5 mm x≈5"
+  },
+  {
+    "id": "itn-en-month-date-context-money",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the event is january second twenty twenty six chapter one figure three price one thousand two hundred thirty four dollars and fifty six cents",
+    "expected": "the event is 2026-01-02 chapter 1 figure 3 price $1234.56"
+  },
+  {
+    "id": "itn-en-time-range",
+    "operation": "itn",
+    "language": "en",
+    "category": "time",
+    "input": "office hours nine to six thirty meeting fourteen thirty to fifteen forty five",
+    "expected": "office hours 09:00-18:30 meeting 14:30-15:45"
+  },
+  {
+    "id": "itn-en-hour-only-business-hours",
+    "operation": "itn",
+    "language": "en",
+    "category": "time",
+    "input": "business hours nine to eighteen",
+    "expected": "business hours 09:00-18:00"
+  },
+  {
+    "id": "itn-en-room-seat-gate-parking-code",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "room two oh one room A twelve seat B three gate C zero eight parking C dash zero eight",
+    "expected": "room 201 room A12 seat B3 gate C08 parking C-08"
+  },
+  {
+    "id": "itn-en-day-month-date-currency-percent-money-unit-ranges",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the deadline is fifteenth of june twenty twenty six range ten to twenty percent price ten to twenty dollars weight five to ten kilograms budget twelve usd cost three eur",
+    "expected": "the deadline is 2026-06-15 range 10-20% price $10-$20 weight 5-10 kg budget $12 cost €3"
+  },
+  {
+    "id": "itn-en-celsius-temperature-symbol",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "it is twenty three point five degrees celsius and negative three point five degrees celsius",
+    "expected": "it is 23.5°C and -3.5°C"
+  },
+  {
+    "id": "itn-en-temperature-yard-money",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "temperature twenty three degrees celsius temp minus five degrees fahrenheit area eighty square yards distance five yards price twelve dollars and fifty cents fee ninety nine cents",
+    "expected": "temperature 23°C temp -5°F area 80 yd² distance 5 yd price $12.50 fee $0.99"
+  },
+  {
+    "id": "itn-en-score-time-phone-plus",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the date is june fifteenth twenty twenty six time is nine oh five a m score three to two call plus eight six one three eight zero zero one three eight zero zero zero",
+    "expected": "the date is 2026-06-15 time is 09:05 AM score 3:2 call +8613800138000"
+  },
+  {
+    "id": "itn-en-room-hkd-am-pm",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "room b dash twelve oh eight meet at three thirty p m price seven hong kong dollars",
+    "expected": "room B-1208 meet at 03:30 PM price HK$7"
+  },
+  {
+    "id": "itn-en-area-code-phone",
+    "operation": "itn",
+    "language": "en",
+    "category": "telephone",
+    "input": "call area code four one five five five five zero one two three extension four five and call plus one area code two one two five five five seven eight nine zero",
+    "expected": "call 415-555-0123 ext. 45 and call +1 212-555-7890"
+  },
+  {
+    "id": "itn-en-toll-free-phone",
+    "operation": "itn",
+    "language": "en",
+    "category": "telephone",
+    "input": "call one eight hundred five five five zero one two three extension nine",
+    "expected": "call 1-800-555-0123 ext. 9"
+  },
+  {
+    "id": "itn-en-data-size-decimal-version",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the file is one point five megabytes and two gigabytes version three point ten is ready",
+    "expected": "the file is 1.5 MB and 2 GB version 3.10 is ready"
+  },
+  {
+    "id": "itn-en-file-download-network-rate",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "file one point five gigabytes download one hundred twenty megabytes per second network one hundred megabits per second",
+    "expected": "file 1.5 GB download 120 MB/s network 100 Mbps"
+  },
+  {
+    "id": "itn-en-negative-temperature-context-version",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "the temp is negative three celsius and negative five fahrenheit version three point ten point four build twenty twenty six point zero six",
+    "expected": "the temp is -3°C and -5°F version 3.10.4 build 2026.06"
+  },
+  {
+    "id": "itn-en-spoken-date-square-feet",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "deadline six fifteen twenty twenty six lot twelve hundred square feet",
+    "expected": "deadline 2026-06-15 lot 1200 ft²"
+  },
+  {
+    "id": "itn-en-colloquial-quarter-times",
+    "operation": "itn",
+    "language": "en",
+    "category": "time",
+    "input": "meeting at a quarter past three and a quarter to four",
+    "expected": "meeting at 03:15 and 03:45"
+  },
+  {
+    "id": "itn-en-half-quantities",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "duration one and a half hours distance two and a half miles",
+    "expected": "duration 1.5 hours distance 2.5 miles"
+  },
+  {
+    "id": "itn-en-named-times",
+    "operation": "itn",
+    "language": "en",
+    "category": "time",
+    "input": "meet at noon and leave at midnight",
+    "expected": "meet at 12:00 and leave at 00:00"
+  },
+  {
+    "id": "itn-en-rating-weekday-range",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "rating four point eight out of five score nine out of ten open monday to friday",
+    "expected": "rating 4.8/5 score 9/10 open monday-friday"
+  },
+  {
+    "id": "itn-en-unit-price-support-phone",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "unit price twelve dollars and fifty cents per kilogram fee three dollars per hour support one eight hundred five five five zero one two three extension four five",
+    "expected": "unit price $12.50/kg fee $3/h support 1-800-555-0123 ext. 45"
+  },
+  {
+    "id": "itn-en-duration-promotion",
+    "operation": "itn",
+    "language": "en",
+    "category": "mixed",
+    "input": "duration one hour thirty minutes wait two minutes thirty seconds save twenty percent off buy two get one free",
+    "expected": "duration 1h30min wait 2min30s save 20% off buy 2 get 1 free"
+  },
+  {
+    "id": "itn-en-temperature-range",
+    "operation": "itn",
+    "language": "en",
+    "category": "measure",
+    "input": "temperature twenty to thirty degrees celsius body temperature thirty six point five to thirty seven point two degrees celsius",
+    "expected": "temperature 20-30°C body temperature 36.5-37.2°C"
+  },
+  {
+    "id": "itn-en-spoken-ordinals",
+    "operation": "itn",
+    "language": "en",
+    "category": "ordinal",
+    "input": "twenty first century third floor twelfth grade first place",
+    "expected": "21st century 3rd floor 12th grade 1st place"
+  },
+  {
+    "id": "itn-en-cardinal-month-name-dates",
+    "operation": "itn",
+    "language": "en",
+    "category": "date",
+    "input": "the meeting is june fifteen twenty twenty six and jun sixteen twenty twenty six",
+    "expected": "the meeting is 2026-06-15 and 2026-06-16"
+  },
+  {
+    "id": "itn-en-spoken-dotted-date-context",
+    "operation": "itn",
+    "language": "en",
+    "category": "date",
+    "input": "date twenty twenty six dot zero six dot fifteen deadline twenty twenty six dot six dot five due date twenty twenty six dot oh five dot o nine",
+    "expected": "date 2026.06.15 deadline 2026.06.05 due date 2026.05.09"
+  },
+  {
+    "id": "itn-en-ordinal-range",
+    "operation": "itn",
+    "language": "en",
+    "category": "ordinal",
+    "input": "rank first to third floors second to fifth",
+    "expected": "rank 1st-3rd floors 2nd-5th"
+  },
+  {
+    "id": "itn-en-asr-money-area",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "I paid one dollar and zero five cents and three dollars five cents area eighty square feet ninety square meters",
+    "expected": "I paid $1.05 and $3.05 area 80 sq ft 90 m²"
+  },
+  {
+    "id": "itn-en-asr-spoken-punctuation",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "hello comma what time is it question mark thanks period",
+    "expected": "hello, what time is it? thanks."
+  },
+  {
+    "id": "itn-en-asr-spoken-brackets-quotes",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "please note open parenthesis urgent close parenthesis meeting at nine AM period he said quote ship it unquote period",
+    "expected": "please note (urgent) meeting at nine AM. he said \"ship it\"."
+  },
+  {
+    "id": "itn-en-asr-bucks-fillers",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "um I paid twelve bucks and fifty cents\nuh meeting is at three pm you know",
+    "expected": "I paid $12.50 meeting is at 03:00 PM"
+  },
+  {
+    "id": "itn-en-asr-buck-minor",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "I have one buck zero five and two bucks fifty",
+    "expected": "I have $1.05 and $2.50"
+  },
+  {
+    "id": "itn-en-asr-invoice-year-code",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "invoice I N V dash twenty twenty six dash zero zero one",
+    "expected": "invoice INV-2026-001"
+  },
+  {
+    "id": "itn-en-asr-building-room-code",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "apartment five b building two unit three room five zero two",
+    "expected": "apartment 5B building 2 unit 3 room 502"
+  },
+  {
+    "id": "itn-en-asr-spoken-date-the",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "meeting on the fifteenth of june twenty twenty six and due on june the fifteenth twenty twenty six",
+    "expected": "meeting on 2026-06-15 and due on 2026-06-15"
+  },
+  {
+    "id": "itn-en-asr-daypart-clock-time",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "appointment at three thirty in the afternoon check by nine zero five in the morning and after seven thirty in the evening",
+    "expected": "appointment at 03:30 PM check by 09:05 AM and after 07:30 PM"
+  },
+  {
+    "id": "itn-en-asr-spoken-slash-date-colon-time",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "date twenty twenty six slash zero six slash fifteen time fourteen colon thirty",
+    "expected": "date 2026/06/15 time 14:30"
+  },
+  {
+    "id": "itn-en-asr-ext-abbrev",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "phone four one five dash five five five dash zero one two three ext zero zero seven",
+    "expected": "phone 415-555-0123 ext. 007"
+  },
+  {
+    "id": "itn-en-asr-parameter-token",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "parameter q equals hello underscore world ticket X underscore one two three",
+    "expected": "parameter q=hello_world ticket X_123"
+  },
+  {
+    "id": "itn-en-asr-dotted-date-callback-time",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "date twenty twenty six point zero six point fifteen callback time fourteen thirty",
+    "expected": "date 2026.06.15 callback time 14:30"
+  },
+  {
+    "id": "itn-en-asr-issue-priority-code",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "issue id Q one two three priority P one",
+    "expected": "issue id Q123 priority P1"
+  },
+  {
+    "id": "itn-en-asr-phone-number-last-four",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "phone number four one five five five five zero one two three last four zero one two three",
+    "expected": "phone number 415-555-0123 last four 0123"
+  },
+  {
+    "id": "itn-en-asr-case-number-phone",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "case number A B C one two three phone four one five five five five zero one two three",
+    "expected": "case number ABC123 phone 415-555-0123"
+  },
+  {
+    "id": "itn-en-asr-relative-quarter-times",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "meeting at a quarter past three and reminder at a quarter to four",
+    "expected": "meeting at 03:15 and reminder at 03:45"
+  },
+  {
+    "id": "itn-en-asr-relative-half-time",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "call at half past nine and callback time quarter past ten",
+    "expected": "call at 09:30 and callback time 10:15"
+  },
+  {
+    "id": "itn-en-asr-line-break-command",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "title colon customer info new line phone number four one five five five five zero one two three",
+    "expected": "title: customer info\nphone number 415-555-0123"
+  },
+  {
+    "id": "itn-en-asr-slash-dash-status",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "status colon pending dash waiting slash review",
+    "expected": "status: pending-waiting/review"
+  },
+  {
+    "id": "itn-en-asr-at-hash-underscore-equals",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "account john at sign example underscore corp hash sign vip parameter q equals sign hello",
+    "expected": "account john@example_corp#vip parameter q=hello"
+  },
+  {
+    "id": "itn-en-asr-parameter-equals-sign",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "parameter q equals sign hello",
+    "expected": "parameter q=hello"
+  },
+  {
+    "id": "itn-en-asr-password-symbols",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "password A plus sign B minus sign C asterisk D percent sign code A ampersand B",
+    "expected": "password A+B-C*D% code A&B"
+  },
+  {
+    "id": "itn-en-asr-check-cross-status",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "verified check mark failed cross mark status pending",
+    "expected": "verified✓failed×status pending"
+  },
+  {
+    "id": "itn-en-asr-tab-blank-line-layout",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "name tab character John new line notes blank line done",
+    "expected": "name\tJohn\nnotes\n\ndone"
+  },
+  {
+    "id": "itn-en-asr-brace-angle-template",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "template open brace name colon John close brace tag left angle bracket vip right angle bracket",
+    "expected": "template{name: John}tag<vip>"
+  },
+  {
+    "id": "itn-en-asr-backslash-pipe-tilde",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "windows C colon backslash Users backslash test regex A pipe B tilde tmp",
+    "expected": "windows C:\\Users\\test regex A|B~tmp"
+  },
+  {
+    "id": "itn-en-asr-bullet-list",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "bullet point check ID new line bullet point confirm phone",
+    "expected": "- check ID\n- confirm phone"
+  },
+  {
+    "id": "itn-en-asr-heading-layout",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "heading one meeting notes new line heading level two action items new line bullet point confirm phone",
+    "expected": "# meeting notes\n## action items\n- confirm phone"
+  },
+  {
+    "id": "itn-en-asr-numbered-list",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "number one confirm ID new line number two confirm phone",
+    "expected": "1. confirm ID\n2. confirm phone"
+  },
+  {
+    "id": "itn-en-asr-bold-code-layout",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "bold start urgent case bold end new line code start status_code code end",
+    "expected": "**urgent case**\n`status_code`"
+  },
+  {
+    "id": "itn-en-asr-double-triple",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "phone double five triple zero",
+    "expected": "phone 55 000",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
+  },
+  {
+    "id": "itn-en-asr-dozen",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "a dozen eggs",
+    "expected": "12 eggs",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
+  },
+  {
+    "id": "itn-en-asr-two-dozen",
+    "operation": "itn",
+    "language": "en",
+    "category": "asr-postprocess",
+    "input": "two dozen donuts",
+    "expected": "24 donuts",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true,
+      "overwrite_cache": false
+    }
+  }
+]
