@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-vi-digit-sequence",
+    "operation": "itn",
+    "language": "vi",
+    "category": "cardinal",
+    "input": "mot hai ba",
+    "expected": "123"
+  }
+]

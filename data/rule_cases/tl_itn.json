@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-tl-digit-sequence",
+    "operation": "itn",
+    "language": "tl",
+    "category": "cardinal",
+    "input": "isa dalawa tatlo",
+    "expected": "123"
+  }
+]

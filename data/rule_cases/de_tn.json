@@ -1,0 +1,10 @@
+[
+  {
+    "id": "tn-de-money-date-time-email-id",
+    "operation": "tn",
+    "language": "de",
+    "category": "mixed",
+    "input": "Kontakt test@example.com kostet €45.50 am 2026-06-15 um 07:30, ID 123.",
+    "expected": "Kontakt test at example dot com kostet fünfundvierzig Euro fünfzig Cent am zweitausendsechsundzwanzig Jahr sechs Monat fünfzehn Tag um sieben Uhr dreißig Minuten, ID einhundertdreiundzwanzig."
+  }
+]

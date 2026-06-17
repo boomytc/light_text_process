@@ -42,14 +42,14 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
         self.assertEqual(engine.normalize(["123"], "zh", TNOptions()), ["fallback:tn:zh:123"])
         self.assertEqual(engine.last_engine_name, "fallback")
 
-    def test_native_skeleton_fails_visibly_for_unenabled_routes(self) -> None:
+    def test_native_engine_fails_visibly_for_unenabled_routes(self) -> None:
         engine = NativeTextProcessingEngine()
 
         with self.assertRaisesRegex(NativeRouteUnsupportedError, "native TN route is not enabled"):
             engine.normalize(["abc"], "ja", TNOptions())
 
         with self.assertRaisesRegex(NativeRouteUnsupportedError, "native ITN route is not enabled"):
-            engine.inverse_normalize(["abc"], "ja", ITNOptions())
+            engine.inverse_normalize(["abc"], "xx", ITNOptions())
 
     def test_native_chinese_itn_route_runs_without_vendor_import(self) -> None:
         engine = NativeTextProcessingEngine()

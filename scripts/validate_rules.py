@@ -14,12 +14,25 @@ from typing import Any
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CASES_DIR = PROJECT_DIR / "data" / "rule_cases"
 CASE_FILES = (
+    ("de_itn.json", "de", "itn"),
+    ("de_tn.json", "de", "tn"),
     ("en_tn.json", "en", "tn"),
     ("en_itn.json", "en", "itn"),
+    ("es_itn.json", "es", "itn"),
+    ("es_tn.json", "es", "tn"),
+    ("fr_itn.json", "fr", "itn"),
+    ("id_itn.json", "id", "itn"),
+    ("ja_itn.json", "ja", "itn"),
+    ("ko_itn.json", "ko", "itn"),
+    ("pt_itn.json", "pt", "itn"),
+    ("ru_itn.json", "ru", "itn"),
+    ("ru_tn.json", "ru", "tn"),
+    ("tl_itn.json", "tl", "itn"),
+    ("vi_itn.json", "vi", "itn"),
     ("zh_tn.json", "zh", "tn"),
     ("zh_itn.json", "zh", "itn"),
 )
-SUPPORTED_LANGUAGES = {"zh", "en"}
+SUPPORTED_LANGUAGES = {"de", "en", "es", "fr", "id", "ja", "ko", "pt", "ru", "tl", "vi", "zh"}
 SUPPORTED_OPERATIONS = {"tn", "itn"}
 
 if str(PROJECT_DIR) not in sys.path:

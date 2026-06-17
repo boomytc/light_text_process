@@ -37,7 +37,25 @@ class GrammarWarmupTask:
 
 
 DEFAULT_GRAMMAR_WARMUP_PROFILES = ("zh-default",)
-DEFAULT_NATIVE_ROUTES = {("itn", "en"), ("itn", "zh"), ("tn", "en"), ("tn", "zh")}
+DEFAULT_NATIVE_ROUTES = {
+    ("tn", "de"),
+    ("tn", "en"),
+    ("tn", "es"),
+    ("tn", "ru"),
+    ("tn", "zh"),
+    ("itn", "de"),
+    ("itn", "en"),
+    ("itn", "es"),
+    ("itn", "fr"),
+    ("itn", "id"),
+    ("itn", "ja"),
+    ("itn", "ko"),
+    ("itn", "pt"),
+    ("itn", "ru"),
+    ("itn", "tl"),
+    ("itn", "vi"),
+    ("itn", "zh"),
+}
 GRAMMAR_WARMUP_PROFILES = {
     "zh-default": (
         GrammarWarmupTask(

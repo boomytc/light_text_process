@@ -43,11 +43,14 @@ class RuleCaseDataTests(unittest.TestCase):
             ]
             self.assertGreater(len(matching_cases), 0, filename)
 
-    def test_rule_cases_are_limited_to_chinese_and_english_tn_itn(self) -> None:
+    def test_rule_cases_cover_public_tn_itn_routes(self) -> None:
         cases = validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
 
         self.assertGreater(len(cases), 0)
-        self.assertEqual({case.language for case in cases}, {"zh", "en"})
+        self.assertEqual(
+            {case.language for case in cases},
+            {"de", "en", "es", "fr", "id", "ja", "ko", "pt", "ru", "tl", "vi", "zh"},
+        )
         self.assertEqual({case.operation for case in cases}, {"tn", "itn"})
 
     def test_rule_case_filters_support_language_operation_category_and_id(self) -> None:

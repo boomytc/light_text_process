@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-ru-digit-sequence",
+    "operation": "itn",
+    "language": "ru",
+    "category": "cardinal",
+    "input": "odin dva tri",
+    "expected": "123"
+  }
+]

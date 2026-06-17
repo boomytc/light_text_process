@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-es-digit-sequence",
+    "operation": "itn",
+    "language": "es",
+    "category": "cardinal",
+    "input": "uno dos tres",
+    "expected": "123"
+  }
+]

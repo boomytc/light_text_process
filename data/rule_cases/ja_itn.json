@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-ja-digit-sequence",
+    "operation": "itn",
+    "language": "ja",
+    "category": "cardinal",
+    "input": "ichi ni san",
+    "expected": "123"
+  }
+]

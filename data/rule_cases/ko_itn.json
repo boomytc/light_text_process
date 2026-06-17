@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-ko-digit-sequence",
+    "operation": "itn",
+    "language": "ko",
+    "category": "cardinal",
+    "input": "il i sam",
+    "expected": "123"
+  }
+]

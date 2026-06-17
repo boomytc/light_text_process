@@ -79,15 +79,15 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(response.output, "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.")
         self.assertEqual(response.metadata["engine"], "light_text_process_native")
 
-    def test_non_zh_en_routes_use_vendor_fallback(self) -> None:
+    def test_migrated_routes_use_native_engine(self) -> None:
         processor = TextProcessor()
         engine = processor.text_engine
 
         self.assertEqual(getattr(getattr(engine, "fallback_engine", None), "name", None), "fun_text_processing")
         self.assertIn(("tn", "zh"), getattr(engine, "native_routes", set()))
         self.assertIn(("itn", "en"), getattr(engine, "native_routes", set()))
-        self.assertNotIn(("tn", "de"), getattr(engine, "native_routes", set()))
-        self.assertNotIn(("itn", "ja"), getattr(engine, "native_routes", set()))
+        self.assertIn(("tn", "de"), getattr(engine, "native_routes", set()))
+        self.assertIn(("itn", "ja"), getattr(engine, "native_routes", set()))
 
     def test_vendor_languages_are_preserved_on_public_surface(self) -> None:
         tn = self.processor.normalize_text("123", "de", TNOptions())

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "tn-ru-money-date-time-email-id",
+    "operation": "tn",
+    "language": "ru",
+    "category": "mixed",
+    "input": "Контакт test@example.com стоит €45.50 на 2026-06-15 в 07:30, ID 123.",
+    "expected": "Контакт test at example dot com стоит сорок пять евро пятьдесят центов на две тысячи двадцать шесть год шесть месяц пятнадцать день в семь часов тридцать минут, ID сто двадцать три."
+  }
+]

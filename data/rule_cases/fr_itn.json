@@ -1,0 +1,10 @@
+[
+  {
+    "id": "itn-fr-digit-sequence",
+    "operation": "itn",
+    "language": "fr",
+    "category": "cardinal",
+    "input": "un deux trois",
+    "expected": "123"
+  }
+]

@@ -22,8 +22,8 @@ coverage is built and verified.
 
 | Operation | Current public languages | Current runtime |
 | --- | --- | --- |
-| TN | de, en, es, ru, zh | `light_text_process_native` for en/zh; `fun_text_processing` fallback for de/es/ru |
-| ITN | de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh | `light_text_process_native` for en/zh; `fun_text_processing` fallback for the remaining languages |
+| TN | de, en, es, ru, zh | `light_text_process_native` |
+| ITN | de, en, es, fr, id, ja, ko, pt, ru, tl, vi, zh | `light_text_process_native` |
 | num2words | installed `num2words` converter languages | `num2words` |
 
 This table is the transition baseline and the replacement target. Each
@@ -32,9 +32,9 @@ assigned in `docs/route_ownership.md`.
 
 ## Runtime Boundary
 
-- While vendor remains, `TextProcessor` uses native zh/en routes and
-  `FunTextProcessingEngine` fallback for vendor routes that are not yet
-  first-party.
+- While vendor remains, `TextProcessor` uses native routes for every public
+  TN/ITN language; the vendor adapter is retained only until C0 removes the
+  obsolete backend files and metadata.
 - Direct imports from `fun_text_processing` are allowed only inside
   `light_text_process/runtime/fun_text_processing.py`.
 - `light_text_process/rules/` remains first-party and must not import vendor
