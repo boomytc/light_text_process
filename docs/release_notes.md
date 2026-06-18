@@ -32,6 +32,13 @@ Strict comparison command:
 Latest strict result: 705 total cases, 76 `match`, 629 reviewed
 `accepted-improvement`, and no `regression` or `unsupported-gap`.
 
+This is complete replacement coverage for the public route/category surface,
+not bit-for-bit vendor parity. `match` means the first-party output still
+matches the preserved oracle, while `accepted-improvement` means the native
+`expected` output is the reviewed release contract for that case. External
+claims should describe the result as vendor-free replacement coverage instead
+of vendor-identical output coverage.
+
 Reviewed improvements are recorded in the golden cases with explicit
 `expected`, `oracle_status: accepted-improvement`, and `oracle_note` fields.
 The notes cover deterministic first-party formatting, product-token restoration,

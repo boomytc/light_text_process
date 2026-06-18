@@ -15,7 +15,7 @@
     "input": "preis zwölf komma fünf",
     "expected": "preis 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/decimal delta: native expected 'preis 12.5' is the release contract; vendor oracle returned 'preis 12,5'."
   },
   {
     "id": "itn-de-date-phrase",
@@ -25,7 +25,7 @@
     "input": "datum fünfzehn sechs zwei null zwei sechs",
     "expected": "datum 2026-06-15",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/date delta: native expected 'datum 2026-06-15' is the release contract; vendor oracle returned 'datum 1506 zwei null zwei sechs'."
   },
   {
     "id": "itn-de-time-phrase",
@@ -35,7 +35,7 @@
     "input": "uhrzeit sieben dreißig",
     "expected": "uhrzeit 07:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/time delta: native expected 'uhrzeit 07:30' is the release contract; vendor oracle returned 'uhrzeit sieben 30'."
   },
   {
     "id": "itn-de-money-phrase",
@@ -45,7 +45,7 @@
     "input": "euro zwölf fünfzig",
     "expected": "€12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/money delta: native expected '€12.50' is the release contract; vendor oracle returned 'euro 1250'."
   },
   {
     "id": "itn-de-measure-phrase",
@@ -63,7 +63,7 @@
     "input": "telefon eins zwei drei vier",
     "expected": "telefon 1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/telephone delta: native expected 'telefon 1234' is the release contract; vendor oracle returned 'telefon eins zwei drei vier'."
   },
   {
     "id": "itn-de-email-phrase",
@@ -73,7 +73,7 @@
     "input": "test at example punkt de",
     "expected": "test@example.de",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/electronic delta: native expected 'test@example.de' is the release contract; vendor oracle returned 'test at example .de'."
   },
   {
     "id": "itn-de-fraction-phrase",
@@ -91,7 +91,7 @@
     "input": "erste",
     "expected": "1.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/ordinal delta: native expected '1.' is the release contract; vendor oracle returned 'erste'."
   },
   {
     "id": "itn-de-whitelist-phrase",
@@ -101,7 +101,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-de-negative-ordinary-text",
@@ -127,7 +127,7 @@
     "input": "Preis zwölf komma fünf",
     "expected": "Preis 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/decimal delta: native expected 'Preis 12.5' is the release contract; vendor oracle returned 'Preis 12,5'."
   },
   {
     "id": "itn-de-date-digit-year",
@@ -137,7 +137,7 @@
     "input": "datum fünf sechs zwei null zwei sechs",
     "expected": "datum 2026-06-05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/date delta: native expected 'datum 2026-06-05' is the release contract; vendor oracle returned 'datum fünf sechs zwei null zwei sechs'."
   },
   {
     "id": "itn-de-time-minute-digit",
@@ -147,7 +147,7 @@
     "input": "uhrzeit sieben fünf",
     "expected": "uhrzeit 07:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/time delta: native expected 'uhrzeit 07:05' is the release contract; vendor oracle returned 'uhrzeit sieben fünf'."
   },
   {
     "id": "itn-de-money-euro-cents",
@@ -157,7 +157,7 @@
     "input": "euro zwölf fünfzig",
     "expected": "€12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/money delta: native expected '€12.50' is the release contract; vendor oracle returned 'euro 1250'."
   },
   {
     "id": "itn-de-measure-kilogram-variant",
@@ -175,7 +175,7 @@
     "input": "telefon eins zwei drei vier fünf",
     "expected": "telefon 12345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/telephone delta: native expected 'telefon 12345' is the release contract; vendor oracle returned 'telefon eins zwei drei vier fünf'."
   },
   {
     "id": "itn-de-email-subdomain",
@@ -185,7 +185,7 @@
     "input": "first last at example dot de",
     "expected": "firstlast@example.de",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/electronic delta: native expected 'firstlast@example.de' is the release contract; vendor oracle returned 'first last at example dot de'."
   },
   {
     "id": "itn-de-fraction-half-variant",
@@ -203,7 +203,7 @@
     "input": "zweite",
     "expected": "2.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/de/ordinal delta: native expected '2.' is the release contract; vendor oracle returned 'zweite'."
   },
   {
     "id": "itn-de-whitelist-openai-variant",
@@ -213,7 +213,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/de/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-de-negative-punctuation",

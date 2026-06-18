@@ -15,7 +15,7 @@
     "input": "Precio 12.5",
     "expected": "Precio doce punto cinco",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/decimal delta: native expected 'Precio doce punto cinco' is the release contract; vendor oracle returned 'Precio doce y cinco'."
   },
   {
     "id": "tn-es-date-iso",
@@ -25,7 +25,7 @@
     "input": "Fecha 2026-06-15",
     "expected": "Fecha dos mil veintiséis año seis mes quince día",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/date delta: native expected 'Fecha dos mil veintiséis año seis mes quince día' is the release contract; vendor oracle returned 'Fecha quince de junio de dos mil veintiséis'."
   },
   {
     "id": "tn-es-time-clock",
@@ -35,7 +35,7 @@
     "input": "Hora 07:30",
     "expected": "Hora siete horas treinta minutos",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/time delta: native expected 'Hora siete horas treinta minutos' is the release contract; vendor oracle returned 'Hora siete y media'."
   },
   {
     "id": "tn-es-money-euro",
@@ -45,7 +45,7 @@
     "input": "Coste €12.50",
     "expected": "Coste doce euros cincuenta céntimos",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/money delta: native expected 'Coste doce euros cincuenta céntimos' is the release contract; vendor oracle returned 'Coste doce euros . cincuenta'."
   },
   {
     "id": "tn-es-measure-kg",
@@ -63,7 +63,7 @@
     "input": "teléfono +34 91 123456",
     "expected": "teléfono más tres cuatro nueve uno uno dos tres cuatro cinco seis",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/es/telephone delta: native expected 'teléfono más tres cuatro nueve uno uno dos tres cuatro cinco seis' is the release contract; vendor oracle returned 'teléfono +34 noventa y un ciento veintitrés mil cuatrocientos cincuenta y seis'."
   },
   {
     "id": "tn-es-email",
@@ -73,7 +73,7 @@
     "input": "Correo test@example.es",
     "expected": "Correo test at example dot es",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/es/electronic delta: native expected 'Correo test at example dot es' is the release contract; vendor oracle returned 'Correo t e s t arroba e x a m p l e punto es'."
   },
   {
     "id": "tn-es-fraction-simple",
@@ -83,7 +83,7 @@
     "input": "Parte 1/2",
     "expected": "Parte uno sobre dos",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/fraction delta: native expected 'Parte uno sobre dos' is the release contract; vendor oracle returned 'Parte medio'."
   },
   {
     "id": "tn-es-ordinal-simple",
@@ -93,7 +93,7 @@
     "input": "Rango 1º",
     "expected": "Rango primero.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/ordinal delta: native expected 'Rango primero.' is the release contract; vendor oracle returned 'Rango primero'."
   },
   {
     "id": "tn-es-whitelist-product",
@@ -130,7 +130,7 @@
     "input": "Precio 3,75",
     "expected": "Precio tres punto siete cinco",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/decimal delta: native expected 'Precio tres punto siete cinco' is the release contract; vendor oracle returned 'Precio tres coma setenta y cinco'."
   },
   {
     "id": "tn-es-date-single-digit",
@@ -140,7 +140,7 @@
     "input": "Fecha 2026-6-5",
     "expected": "Fecha dos mil veintiséis año seis mes cinco día",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/date delta: native expected 'Fecha dos mil veintiséis año seis mes cinco día' is the release contract; vendor oracle returned 'Fecha cinco de junio de dos mil veintiséis'."
   },
   {
     "id": "tn-es-time-leading-minute",
@@ -150,7 +150,7 @@
     "input": "Hora 7:05",
     "expected": "Hora siete horas cinco minutos",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/time delta: native expected 'Hora siete horas cinco minutos' is the release contract; vendor oracle returned 'Hora siete y cinco'."
   },
   {
     "id": "tn-es-money-dollar-and-euro",
@@ -160,7 +160,7 @@
     "input": "Costo $3.05 y €12",
     "expected": "Costo tres dólares cinco centavos y doce euros",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/money delta: native expected 'Costo tres dólares cinco centavos y doce euros' is the release contract; vendor oracle returned 'Costo $3.05 y doce euros'."
   },
   {
     "id": "tn-es-measure-distance-length",
@@ -170,7 +170,7 @@
     "input": "Distancia 3.5 km y 2 m",
     "expected": "Distancia tres punto cinco kilómetros y dos metros",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/measure delta: native expected 'Distancia tres punto cinco kilómetros y dos metros' is the release contract; vendor oracle returned 'Distancia tres . cinco kilómetros y dos metros'."
   },
   {
     "id": "tn-es-telephone-hyphenated",
@@ -180,7 +180,7 @@
     "input": "Teléfono +34-91-12345",
     "expected": "Teléfono más tres cuatro nueve uno uno dos tres cuatro cinco",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/es/telephone delta: native expected 'Teléfono más tres cuatro nueve uno uno dos tres cuatro cinco' is the release contract; vendor oracle returned 'Teléfono +34-91-12345'."
   },
   {
     "id": "tn-es-email-subdomain",
@@ -190,7 +190,7 @@
     "input": "Correo first.last-test@example.es",
     "expected": "Correo first dot last dash test at example dot es",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/es/electronic delta: native expected 'Correo first dot last dash test at example dot es' is the release contract; vendor oracle returned 'Correo f i r s t punto l a s t guión t e s t arroba e x a m p l e punto es'."
   },
   {
     "id": "tn-es-fraction-three-fourths",
@@ -200,7 +200,7 @@
     "input": "Parte 3/4",
     "expected": "Parte tres sobre cuatro",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/fraction delta: native expected 'Parte tres sobre cuatro' is the release contract; vendor oracle returned 'Parte tres cuartos'."
   },
   {
     "id": "tn-es-ordinal-second",
@@ -210,7 +210,7 @@
     "input": "Rango 2.",
     "expected": "Rango segundo.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/es/ordinal delta: native expected 'Rango segundo.' is the release contract; vendor oracle returned 'Rango dos .'."
   },
   {
     "id": "tn-es-whitelist-lighttts",
@@ -239,7 +239,7 @@
     "input": "Valor (12).",
     "expected": "Valor (doce).",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/es/punctuation delta: native expected 'Valor (doce).' is the release contract; vendor oracle returned 'Valor ( doce ).'."
   },
   {
     "id": "tn-es-product-version",

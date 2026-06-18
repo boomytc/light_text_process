@@ -44,7 +44,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/money delta: native expected 'Budget twelve dollars fifty cents, cost three euros, yen one hundred yen.' is the release contract; vendor oracle returned 'Budget USD twelve point five zero, cost EUR three, yen JPY one hundred.'."
   },
   {
     "id": "tn-en-flight-time",
@@ -76,7 +76,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'second quarter twenty twenty six revenue grew. third quarter twenty twenty si...' is the release contract; vendor oracle returned 'Q two twenty twenty six revenue grew. twenty twenty six Q three outlook impro...'."
   },
   {
     "id": "tn-en-version-decimal",
@@ -93,7 +93,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Version v two point zero build V ten point three.' is the release contract; vendor oracle returned 'Version v two. zero build V ten. three.'."
   },
   {
     "id": "tn-en-dotted-version",
@@ -110,7 +110,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Version two point zero point one and v two point zero point one.' is the release contract; vendor oracle returned 'Version two. zero point one and v two. zero point one.'."
   },
   {
     "id": "tn-en-negative-currency",
@@ -127,7 +127,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/money delta: native expected 'I paid minus twelve dollars fifty cents and minus three euros five cents.' is the release contract; vendor oracle returned 'I paid - twelve dollars fifty cents and - three euros five cents.'."
   },
   {
     "id": "tn-en-number-abbreviation",
@@ -144,7 +144,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/ordinal delta: native expected 'number five is ready.' is the release contract; vendor oracle returned 'No. five is ready.'."
   },
   {
     "id": "tn-en-page-abbreviations",
@@ -154,7 +154,7 @@
     "input": "Room 201, Ch. 12, p. 2, pp. 3-5, No. 5.",
     "expected": "Room two zero one, chapter twelve, page two, pages three to five, number five.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/ordinal delta: native expected 'Room two zero one, chapter twelve, page two, pages three to five, number five.' is the release contract; vendor oracle returned 'Room two hundred and one, Ch. twelve, p. two, pp. three - five, No. five.'."
   },
   {
     "id": "tn-en-signed-percent-hash-number",
@@ -171,7 +171,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Growth plus twelve percent, decline minus three point five percent. Item numb...' is the release contract; vendor oracle returned 'Growth plus twelve percent sign, decline minus three point five percent. Item...'."
   },
   {
     "id": "tn-en-finance-basis-abbreviated-values",
@@ -188,7 +188,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Rate rose twenty five basis points, spread widened three point five basis poi...' is the release contract; vendor oracle returned 'Rate rose twenty five bp, spread widened three. five bps, users one. two M, r...'."
   },
   {
     "id": "tn-en-percent-point-scientific-coordinate",
@@ -205,7 +205,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Growth is two percentage points, error is one times ten to the minus five, sp...' is the release contract; vendor oracle returned 'Growth is two pp, error is one e-five, speed is three x ten circumflex eight ...'."
   },
   {
     "id": "tn-en-url",
@@ -222,7 +222,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'URL HTTPS colon slash slash example dot com slash A dash B.' is the release contract; vendor oracle returned 'URL HTTPS semicolon slash slash example dot com slash A dash B.'."
   },
   {
     "id": "tn-en-email-ip",
@@ -254,7 +254,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Account six two two two one two three four five six seven eight nine zero one...' is the release contract; vendor oracle returned 'Account six thousand two hundred and twenty two twelve thirty four five thous...'."
   },
   {
     "id": "tn-en-business-codes-extension",
@@ -271,7 +271,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Order A B dash one two three four, invoice I N V dash two zero two six dash z...' is the release contract; vendor oracle returned 'Order AB-one thousand two hundred thirty four, invoice INV-two thousand twent...'."
   },
   {
     "id": "tn-en-identity-vehicle-codes",
@@ -288,7 +288,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/identity delta: native expected 'License plate A B C dash one two three, VIN one H G C M eight two six three t...' is the release contract; vendor oracle returned 'License plate ABC-one hundred twenty three, VIN one HGCM eighty two thousand ...'."
   },
   {
     "id": "tn-en-file-path-social",
@@ -298,7 +298,7 @@
     "input": "File report_v2.0.pdf, path /data/input-01/test.csv, handle @light_user, hashtag #AI2026.",
     "expected": "File report underscore v two point zero dot p d f, path slash data slash input dash zero one slash test dot c s v, handle at light underscore user, hashtag hash A I two zero two six.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party TN intentionally verbalizes file paths, social handles, and hashtags as product tokens.",
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'File report underscore v two point zero dot p d f, path slash data slash inpu...' is the release contract; vendor oracle returned 'File report underscore v two. zero. PDF, path slash data slash input-zero one...'.",
     "options": {
       "input_case": "cased",
       "deterministic": true,
@@ -322,7 +322,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Link HTTPS colon slash slash example dot com slash a dash b question mark q e...' is the release contract; vendor oracle returned 'Link HTTPS semicolon slash slash example dot com slash A dash B? q equal sign...'."
   },
   {
     "id": "tn-en-mac-uuid-hex-color",
@@ -339,7 +339,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'MAC A A colon B B colon C C colon D D colon E E colon F F, UUID five five zer...' is the release contract; vendor oracle returned 'MAC AA:BB:CC:DD:EE:FF, UUID five hundred fifty e eight thousand four hundred-...'."
   },
   {
     "id": "tn-en-temperature-fahrenheit-kelvin",
@@ -356,7 +356,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'It is seventy two degrees Fahrenheit and three hundred kelvin.' is the release contract; vendor oracle returned 'It is seventy two degrees Fahrenheit and three hundred K.'."
   },
   {
     "id": "tn-en-ipv4-port-ipv6",
@@ -373,7 +373,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Server one two seven dot zero dot zero dot one colon eight zero eight zero an...' is the release contract; vendor oracle returned 'Server one two seven dot zero dot zero dot one: eight thousand and eighty and...'."
   },
   {
     "id": "tn-en-isbn-doi",
@@ -390,7 +390,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'ISBN nine seven eight dash one dash four zero two eight dash nine four six tw...' is the release contract; vendor oracle returned 'ISBN nine hundred seventy eight-one-four thousand twenty eight-nine thousand ...'."
   },
   {
     "id": "tn-en-semver-prerelease",
@@ -407,7 +407,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Version v two point zero point one dash beta point three.' is the release contract; vendor oracle returned 'Version v two. zero point one beta. three.'."
   },
   {
     "id": "tn-en-http-port-iso-datetime",
@@ -424,7 +424,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'The API returned HTTP four zero four, port eight zero eight zero, deadline tw...' is the release contract; vendor oracle returned 'The API returned HTTP four hundred and four, port eight thousand and eighty, ...'."
   },
   {
     "id": "tn-en-address-zip-room",
@@ -441,7 +441,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/address delta: native expected 'Room one two zero eight, suite three zero five, apartment five B, zip one zer...' is the release contract; vendor oracle returned 'Room twelve oh eight, Ste. three hundred and five, Apartment five B, zip one ...'."
   },
   {
     "id": "tn-en-power-area-abbreviated-count",
@@ -458,7 +458,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Area is eighty square meters, volume is two cubic meters, density is five kil...' is the release contract; vendor oracle returned 'Area is eighty square meters, volume is two cubic meters, density is five kil...'."
   },
   {
     "id": "tn-en-medical-science-units",
@@ -475,7 +475,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Gas is four hundred parts per million, glucose is five point six millimoles p...' is the release contract; vendor oracle returned 'Gas is four hundred ppm, glucose is five. six mmol slash L, cholesterol is ni...'."
   },
   {
     "id": "tn-en-square-meter-unit-price",
@@ -485,7 +485,7 @@
     "input": "Area is 80 m², rent is $12/m², volume is 3 m³.",
     "expected": "Area is eighty square meters, rent is twelve dollars per square meter, volume is three cubic meters.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Area is eighty square meters, rent is twelve dollars per square meter, volume...' is the release contract; vendor oracle returned 'Area is eighty square meters, rent is $12/m², volume is three cubic meters.'."
   },
   {
     "id": "tn-en-micro-lab-units",
@@ -502,7 +502,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Vitamin D is twenty five international units per liter, drug is two microgram...' is the release contract; vendor oracle returned 'Vitamin D is twenty five IU slash L, drug is 2µg/mL, hormone is fifty ng slas...'."
   },
   {
     "id": "tn-en-engineering-lab-units",
@@ -519,7 +519,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'The pH is seven point four, noise is thirty decibels, irradiance is eighty wa...' is the release contract; vendor oracle returned 'The pH is seven point four, noise is thirty dB, irradiance is 80W/m², torque ...'."
   },
   {
     "id": "tn-en-electrical-units",
@@ -536,7 +536,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Resistance is ten ohms, current is two amperes, voltage is three point three ...' is the release contract; vendor oracle returned 'Resistance is 10Ω, current is two A, voltage is three. three mV, capacitance ...'."
   },
   {
     "id": "tn-en-motion-pressure-units",
@@ -553,7 +553,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Force is five newtons, pressure is one hundred and one pascals, stress is zer...' is the release contract; vendor oracle returned 'Force is five N, pressure is one hundred and one pascals, stress is zero poin...'."
   },
   {
     "id": "tn-en-resolution-dimension",
@@ -570,7 +570,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Resolution is nineteen twenty by ten eighty, size is ten by twenty centimeters.' is the release contract; vendor oracle returned 'Resolution is one thousand nine hundred twenty x one thousand eighty, size is...'."
   },
   {
     "id": "tn-en-si-data-units",
@@ -587,7 +587,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Distance five meters, speed ten meters per second, size sixteen gigabytes, vo...' is the release contract; vendor oracle returned 'Distance five M, speed ten M per S, size sixteen GB, voltage two hundred twen...'."
   },
   {
     "id": "tn-en-length-liter-units",
@@ -604,7 +604,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Length thirty centimeters, width five millimeters, distance two kilometers, w...' is the release contract; vendor oracle returned 'Length thirty centimeters, width five MM, distance two kilometers, weight thr...'."
   },
   {
     "id": "tn-en-throughput-latency-binary",
@@ -621,7 +621,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Throughput one hundred and twenty megabytes per second, frame rate sixty fram...' is the release contract; vendor oracle returned 'Throughput one hundred and twenty MB per S, frame rate sixty fps, latency twe...'."
   },
   {
     "id": "tn-en-duration-angle-frequency",
@@ -638,7 +638,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Duration two hours thirty minutes forty five seconds, timeout five hundred mi...' is the release contract; vendor oracle returned 'Duration two H thirty minutes forty five S, timeout five hundred MS. Angle ni...'."
   },
   {
     "id": "tn-en-imperial-units",
@@ -655,7 +655,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Height six feet, length twelve inches, weight five pounds, volume two ounces,...' is the release contract; vendor oracle returned 'Height six feet, length twelve in, weight five pounds, volume two ounces, dis...'."
   },
   {
     "id": "tn-en-power-storage-units",
@@ -672,7 +672,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Power three kilowatts, energy five kilowatt hours, storage five hundred and t...' is the release contract; vendor oracle returned 'Power three kilowatts, energy five kWh, storage five hundred and twelve MB, c...'."
   },
   {
     "id": "tn-en-ratio-range-math",
@@ -689,7 +689,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/math delta: native expected 'The ratio is three to two and the range is three to five days. Formula three ...' is the release contract; vendor oracle returned 'The ratio is three: two and the range is three - five days. Formula three plu...'."
   },
   {
     "id": "tn-en-fraction-comparison",
@@ -706,7 +706,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/math delta: native expected 'The ratio is one half and progress is three quarters. x greater than or equal...' is the release contract; vendor oracle returned 'The ratio is one half and progress is three quarters. x> equal sign five and ...'."
   },
   {
     "id": "tn-en-plus-phone",
@@ -723,7 +723,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/telephone delta: native expected 'Call plus one four one five five five five zero one two three.' is the release contract; vendor oracle returned 'Call plus one, four one five, five five five, zero one two three.'."
   },
   {
     "id": "tn-en-speed-kmh",
@@ -740,7 +740,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Speed is eighty kilometers per hour.' is the release contract; vendor oracle returned 'Speed is eighty kilometers per H.'."
   },
   {
     "id": "tn-en-ftp-url",
@@ -757,7 +757,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/electronic delta: native expected 'Contact FTP colon slash slash files dot example dot org slash A underscore B.' is the release contract; vendor oracle returned 'Contact FTP: slash/files. example dot org slash A underscore B dot'."
   },
   {
     "id": "tn-en-domain-timezone",
@@ -774,7 +774,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Visit www dot example dot com and docs dot example dot org slash path. Timezo...' is the release contract; vendor oracle returned 'Visit WWW dot example dot com and docs dot example dot org slash PATH dot Tim...'."
   },
   {
     "id": "tn-en-temperature-percent",
@@ -799,7 +799,7 @@
     "input": "Temperature 36.5C ±2C, humidity 40%-60%.",
     "expected": "Temperature thirty six point five degrees Celsius plus or minus two degrees Celsius, humidity forty to sixty percent.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Temperature thirty six point five degrees Celsius plus or minus two degrees C...' is the release contract; vendor oracle returned 'Temperature thirty six. five C ±2C, humidity forty percent sign-sixty percent...'."
   },
   {
     "id": "tn-en-per-mille",
@@ -816,7 +816,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Error one per mille, rate three point five per mille, probability zero point ...' is the release contract; vendor oracle returned 'Error one‰, rate three point five‰, probability zero point zero five percent.'."
   },
   {
     "id": "tn-en-measure-phone",
@@ -833,7 +833,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'The package weighs three kilograms. Call four one five five five five zero on...' is the release contract; vendor oracle returned 'The package weighs three kilograms. Call four one five, five five five, zero ...'."
   },
   {
     "id": "tn-en-shortcut-space-datetime",
@@ -843,7 +843,7 @@
     "input": "Press Ctrl+C, then Cmd+Shift+P and Alt+F4. Deadline 2026-06-15 14:30:05.",
     "expected": "Press control plus C, then command plus shift plus P and alt plus F four. Deadline two zero two six dash zero six dash one five one four colon three zero colon zero five.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Press control plus C, then command plus shift plus P and alt plus F four. Dea...' is the release contract; vendor oracle returned 'Press Ctrl plus C, then Cmd plus Shift plus P and Alt plus F four. Deadline j...'."
   },
   {
     "id": "tn-en-not-equal-comparison",
@@ -853,7 +853,7 @@
     "input": "x!=5 and y≠10.",
     "expected": "x not equal to five and y not equal to ten.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/math delta: native expected 'x not equal to five and y not equal to ten.' is the release contract; vendor oracle returned 'x! equal sign five and y≠10.'."
   },
   {
     "id": "tn-en-clock-plusminus-approx",
@@ -863,7 +863,7 @@
     "input": "Meeting at 14:30. Tolerance ±0.5mm. x≈5.",
     "expected": "Meeting at fourteen thirty. Tolerance plus or minus zero point five millimeters. x approximately equal to five.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Meeting at fourteen thirty. Tolerance plus or minus zero point five millimete...' is the release contract; vendor oracle returned 'Meeting at fourteen thirty. Tolerance ±0. five MM. x≈5.'."
   },
   {
     "id": "tn-en-numeric-date-context-area-money",
@@ -873,7 +873,7 @@
     "input": "The event is on 1/2/2026. Ch. 1, Fig. 3. Area 80㎡, price $1,234.56.",
     "expected": "The event is on january second twenty twenty six. chapter one, figure three. Area eighty square meters, price one thousand two hundred and thirty four dollars fifty six cents.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'The event is on january second twenty twenty six. chapter one, figure three. ...' is the release contract; vendor oracle returned 'The event is on january second twenty twenty six. Ch. one, Fig. three. Area 8...'."
   },
   {
     "id": "tn-en-time-range",
@@ -883,7 +883,7 @@
     "input": "Office hours 09:00-18:30, meeting 14:30~15:45.",
     "expected": "Office hours nine o'clock to eighteen thirty, meeting fourteen thirty to fifteen forty five.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/time delta: native expected 'Office hours nine o'clock to eighteen thirty, meeting fourteen thirty to fift...' is the release contract; vendor oracle returned 'Office hours nine o'clock to eighteen thirty, meeting fourteen: thirty tilde ...'."
   },
   {
     "id": "tn-en-suffix-currency-percent-money-unit-ranges",
@@ -893,7 +893,7 @@
     "input": "Budget 12 USD, cost 3 EUR. Range 10%-20%, price $10-$20, weight 5-10kg.",
     "expected": "Budget twelve dollars, cost three euros. Range ten to twenty percent, price ten to twenty dollars, weight five to ten kilograms.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Budget twelve dollars, cost three euros. Range ten to twenty percent, price t...' is the release contract; vendor oracle returned 'Budget twelve USD, cost three EUR. Range ten percent sign-twenty percent sign...'."
   },
   {
     "id": "tn-en-square-unit-words",
@@ -903,7 +903,7 @@
     "input": "Area 80 sq m, lot 2 sq km, room 120 sq ft.",
     "expected": "Area eighty square meters, lot two square kilometers, room one hundred and twenty square feet.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Area eighty square meters, lot two square kilometers, room one hundred and tw...' is the release contract; vendor oracle returned 'Area eighty SQ m, lot two SQ KM, room one hundred and twenty square feet.'."
   },
   {
     "id": "tn-en-context-temperature-yard-money",
@@ -913,7 +913,7 @@
     "input": "Temperature 23C, temp -5F, area 80 sq yd, distance 5 yd. Price 12.50 dollars.",
     "expected": "Temperature twenty three degrees Celsius, temp minus five degrees Fahrenheit, area eighty square yards, distance five yards. Price twelve dollars fifty cents.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Temperature twenty three degrees Celsius, temp minus five degrees Fahrenheit,...' is the release contract; vendor oracle returned 'Temperature twenty three C, temp - five F, area eighty SQ YD, distance five y...'."
   },
   {
     "id": "tn-en-score-phone-plus",
@@ -923,7 +923,7 @@
     "input": "Score 3:2. The ratio is 1:2. Call +86 13800138000.",
     "expected": "Score three to two. The ratio is one to two. Call plus eighty six one three eight zero zero one three eight zero zero zero.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Score three to two. The ratio is one to two. Call plus eighty six one three e...' is the release contract; vendor oracle returned 'Score three: two. The ratio is one: two. Call plus eighty six one three eight...'."
   },
   {
     "id": "tn-en-room-hkd-am-pm",
@@ -933,7 +933,7 @@
     "input": "Room B-1208. Price HK$7. Meet at 3:30 p.m. Price.",
     "expected": "Room B dash one two zero eight. Price seven Hong Kong dollars. Meet at three thirty PM. Price.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Room B dash one two zero eight. Price seven Hong Kong dollars. Meet at three ...' is the release contract; vendor oracle returned 'Room B-one thousand two hundred eight. Price HK dollar seven. Meet at three t...'."
   },
   {
     "id": "tn-en-model-code",
@@ -943,7 +943,7 @@
     "input": "Model X-200.",
     "expected": "Model X dash two zero zero.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/identity delta: native expected 'Model X dash two zero zero.' is the release contract; vendor oracle returned 'Model X-two hundred.'."
   },
   {
     "id": "tn-en-toll-free-phone",
@@ -953,7 +953,7 @@
     "input": "Call 1-800-555-0123, ext 9.",
     "expected": "Call one eight hundred five five five zero one two three, extension nine.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/telephone delta: native expected 'Call one eight hundred five five five zero one two three, extension nine.' is the release contract; vendor oracle returned 'Call one, eight hundred, five five five, zero one two three, ext nine.'."
   },
   {
     "id": "tn-en-context-temperature-is",
@@ -963,7 +963,7 @@
     "input": "The temp is -3C. Temperature is 72F.",
     "expected": "The temp is minus three degrees Celsius. Temperature is seventy two degrees Fahrenheit.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'The temp is minus three degrees Celsius. Temperature is seventy two degrees F...' is the release contract; vendor oracle returned 'The temp is - three C. Temperature is seventy two F.'."
   },
   {
     "id": "tn-en-ampm-time-range",
@@ -981,7 +981,7 @@
     "input": "Temperature -3°C, feels like -5F.",
     "expected": "Temperature minus three degrees Celsius, feels like minus five degrees Fahrenheit.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/temperature delta: native expected 'Temperature minus three degrees Celsius, feels like minus five degrees Fahren...' is the release contract; vendor oracle returned 'Temperature minus three degrees Celsius, feels like - five F.'."
   },
   {
     "id": "tn-en-rating-weekday-range",
@@ -991,7 +991,7 @@
     "input": "Rating 4.8/5, score 9/10. Open Mon-Fri.",
     "expected": "Rating four point eight out of five, score nine out of ten. Open Monday to Friday.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Rating four point eight out of five, score nine out of ten. Open Monday to Fr...' is the release contract; vendor oracle returned 'Rating four. eight fifths, score nine tenths. Open Mon-Fri.'."
   },
   {
     "id": "tn-en-unit-price-phone-order",
@@ -1001,7 +1001,7 @@
     "input": "Unit price $12.50/kg, fee $3/hour. Support 1-800-555-0123, order #12345.",
     "expected": "Unit price twelve dollars fifty cents per kilogram, fee three dollars per hour. Support one eight hundred five five five zero one two three, order number one two three four five.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed tn/en/mixed delta: native expected 'Unit price twelve dollars fifty cents per kilogram, fee three dollars per hou...' is the release contract; vendor oracle returned 'Unit price twelve dollars. fifty per kilogram, fee dollar three slash hour. S...'."
   },
   {
     "id": "tn-en-iso-date-range",
@@ -1011,7 +1011,7 @@
     "input": "Valid 2026-06-15 - 2026-06-20.",
     "expected": "Valid june fifteenth twenty twenty six to june twentieth twenty twenty six.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/date delta: native expected 'Valid june fifteenth twenty twenty six to june twentieth twenty twenty six.' is the release contract; vendor oracle returned 'Valid june fifteenth twenty twenty six - june twentieth twenty twenty six.'."
   },
   {
     "id": "tn-en-compact-duration-sequences",
@@ -1021,7 +1021,7 @@
     "input": "Duration 1h30min, wait 2min30s.",
     "expected": "Duration one hour thirty minutes, wait two minutes thirty seconds.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/time delta: native expected 'Duration one hour thirty minutes, wait two minutes thirty seconds.' is the release contract; vendor oracle returned 'Duration one h thirty min, wait two min thirty s.'."
   },
   {
     "id": "tn-en-temperature-range",
@@ -1031,7 +1031,7 @@
     "input": "Temperature 20-30C, body temperature 36.5-37.2°C.",
     "expected": "Temperature twenty to thirty degrees Celsius, body temperature thirty six point five to thirty seven point two degrees Celsius.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/measure delta: native expected 'Temperature twenty to thirty degrees Celsius, body temperature thirty six poi...' is the release contract; vendor oracle returned 'Temperature twenty-thirty C, body temperature thirty six point five - thirty ...'."
   },
   {
     "id": "tn-en-numeric-ordinals",
@@ -1049,7 +1049,7 @@
     "input": "The meeting is June 15, 2026 and Jun. 16, 2026.",
     "expected": "The meeting is June fifteenth twenty twenty six and June sixteenth twenty twenty six.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/date delta: native expected 'The meeting is June fifteenth twenty twenty six and June sixteenth twenty twe...' is the release contract; vendor oracle returned 'The meeting is june fifteenth, twenty twenty six and june sixteenth, twenty t...'."
   },
   {
     "id": "tn-en-dotted-date-context",
@@ -1059,7 +1059,7 @@
     "input": "Date 2026.06.15, deadline 2026.6.5.",
     "expected": "Date June fifteenth twenty twenty six, deadline June fifth twenty twenty six.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/date delta: native expected 'Date June fifteenth twenty twenty six, deadline June fifth twenty twenty six.' is the release contract; vendor oracle returned 'Date june fifteenth twenty twenty six, deadline june fifth twenty twenty six.'."
   },
   {
     "id": "tn-en-ordinal-range",
@@ -1069,6 +1069,6 @@
     "input": "Rank 1st-3rd, floors 2nd-5th.",
     "expected": "Rank first to third, floors second to fifth.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed tn/en/ordinal delta: native expected 'Rank first to third, floors second to fifth.' is the release contract; vendor oracle returned 'Rank one st-three rd, floors two nd-five th.'."
   }
 ]

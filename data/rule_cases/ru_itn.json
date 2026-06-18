@@ -7,7 +7,7 @@
     "input": "счет двенадцать",
     "expected": "счет 12",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/cardinal delta: native expected 'счет 12' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-decimal-phrase",
@@ -17,7 +17,7 @@
     "input": "цена двенадцать запятая пять",
     "expected": "цена 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/decimal delta: native expected 'цена 12.5' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-date-phrase",
@@ -27,7 +27,7 @@
     "input": "дата пятнадцать шесть два ноль два шесть",
     "expected": "дата 2026-06-15",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/date delta: native expected 'дата 2026-06-15' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-time-phrase",
@@ -37,7 +37,7 @@
     "input": "время семь тридцать",
     "expected": "время 07:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/time delta: native expected 'время 07:30' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-money-phrase",
@@ -47,7 +47,7 @@
     "input": "евро двенадцать пятьдесят",
     "expected": "€12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/money delta: native expected '€12.50' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-measure-phrase",
@@ -57,7 +57,7 @@
     "input": "двенадцать килограмм",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/measure delta: native expected '12 kg' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-telephone-phrase",
@@ -67,7 +67,7 @@
     "input": "телефон один два три четыре",
     "expected": "телефон 1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/telephone delta: native expected 'телефон 1234' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-email-phrase",
@@ -77,7 +77,7 @@
     "input": "test at example точка ru",
     "expected": "test@example.ru",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/electronic delta: native expected 'test@example.ru' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-fraction-phrase",
@@ -87,7 +87,7 @@
     "input": "одна вторая",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/fraction delta: native expected '1/2' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-ordinal-phrase",
@@ -97,7 +97,7 @@
     "input": "первый",
     "expected": "1-й",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/ordinal delta: native expected '1-й' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-whitelist-phrase",
@@ -107,7 +107,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-negative-ordinary-text",
@@ -117,7 +117,7 @@
     "input": "этот текст без изменений",
     "expected": "этот текст без изменений",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/negative delta: native expected 'этот текст без изменений' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-cardinal-twenty-one",
@@ -127,7 +127,7 @@
     "input": "код двадцать один",
     "expected": "код 21",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/cardinal delta: native expected 'код 21' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-decimal-comma-variant",
@@ -137,7 +137,7 @@
     "input": "цена двенадцать запятая пять",
     "expected": "цена 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/decimal delta: native expected 'цена 12.5' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-date-digit-year",
@@ -147,7 +147,7 @@
     "input": "дата пять шесть два ноль два шесть",
     "expected": "дата 2026-06-05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/date delta: native expected 'дата 2026-06-05' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-time-minute-digit",
@@ -157,7 +157,7 @@
     "input": "время семь пять",
     "expected": "время 07:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/time delta: native expected 'время 07:05' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-money-euro-cents",
@@ -167,7 +167,7 @@
     "input": "евро двенадцать пятьдесят",
     "expected": "€12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/money delta: native expected '€12.50' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-measure-kilogram-variant",
@@ -177,7 +177,7 @@
     "input": "двенадцать килограмм",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/measure delta: native expected '12 kg' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-telephone-digit-sequence",
@@ -187,7 +187,7 @@
     "input": "телефон один два три четыре пять",
     "expected": "телефон 12345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/telephone delta: native expected 'телефон 12345' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-email-subdomain",
@@ -197,7 +197,7 @@
     "input": "first last at example точка ru",
     "expected": "firstlast@example.ru",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/electronic delta: native expected 'firstlast@example.ru' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-fraction-half-variant",
@@ -207,7 +207,7 @@
     "input": "одна вторая",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/fraction delta: native expected '1/2' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-ordinal-second",
@@ -217,7 +217,7 @@
     "input": "второй",
     "expected": "2-й",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/ordinal delta: native expected '2-й' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-whitelist-openai-variant",
@@ -227,7 +227,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "itn-ru-negative-punctuation",
@@ -237,6 +237,6 @@
     "input": "эта фраза остается обычной",
     "expected": "эта фраза остается обычной",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed itn/ru/negative delta: native expected 'эта фраза остается обычной' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   }
 ]

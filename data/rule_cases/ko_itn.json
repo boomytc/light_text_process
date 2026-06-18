@@ -7,7 +7,7 @@
     "input": "sip i",
     "expected": "12",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/cardinal delta: native expected '12' is the release contract; vendor oracle returned 'sip i'."
   },
   {
     "id": "itn-ko-decimal-phrase",
@@ -17,7 +17,7 @@
     "input": "gagyeok sip i jeom o",
     "expected": "gagyeok 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/decimal delta: native expected 'gagyeok 12.5' is the release contract; vendor oracle returned 'gagyeok sip i jeom o'."
   },
   {
     "id": "itn-ko-date-phrase",
@@ -27,7 +27,7 @@
     "input": "naljja sibo yuk i gong i yuk",
     "expected": "naljja 2026-06-15",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/date delta: native expected 'naljja 2026-06-15' is the release contract; vendor oracle returned 'naljja sibo yuk i gong i yuk'."
   },
   {
     "id": "itn-ko-time-phrase",
@@ -37,7 +37,7 @@
     "input": "sigan chil samsip",
     "expected": "sigan 07:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/time delta: native expected 'sigan 07:30' is the release contract; vendor oracle returned 'sigan chil samsip'."
   },
   {
     "id": "itn-ko-money-phrase",
@@ -47,7 +47,7 @@
     "input": "won sip i osip",
     "expected": "₩12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/money delta: native expected '₩12.50' is the release contract; vendor oracle returned 'won sip i osip'."
   },
   {
     "id": "itn-ko-measure-phrase",
@@ -57,7 +57,7 @@
     "input": "sip i killogeuraem",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'sip i killogeuraem'."
   },
   {
     "id": "itn-ko-telephone-phrase",
@@ -67,7 +67,7 @@
     "input": "jeonhwa il i sam sa",
     "expected": "jeonhwa 1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/telephone delta: native expected 'jeonhwa 1234' is the release contract; vendor oracle returned 'jeonhwa il i sam sa'."
   },
   {
     "id": "itn-ko-email-phrase",
@@ -77,7 +77,7 @@
     "input": "test at example dot kr",
     "expected": "test@example.kr",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/electronic delta: native expected 'test@example.kr' is the release contract; vendor oracle returned 'test at example dot kr'."
   },
   {
     "id": "itn-ko-fraction-phrase",
@@ -87,7 +87,7 @@
     "input": "i bun ui il",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'i bun ui il'."
   },
   {
     "id": "itn-ko-ordinal-phrase",
@@ -97,7 +97,7 @@
     "input": "cheot beonjjae",
     "expected": "1번째",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/ordinal delta: native expected '1번째' is the release contract; vendor oracle returned 'cheot beonjjae'."
   },
   {
     "id": "itn-ko-char-preserved",
@@ -115,7 +115,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-ko-negative-ordinary-text",
@@ -133,7 +133,7 @@
     "input": "code isibil",
     "expected": "code 21",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/cardinal delta: native expected 'code 21' is the release contract; vendor oracle returned 'code isibil'."
   },
   {
     "id": "itn-ko-decimal-point-variant",
@@ -143,7 +143,7 @@
     "input": "gagyeok sip i jeom o",
     "expected": "gagyeok 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/decimal delta: native expected 'gagyeok 12.5' is the release contract; vendor oracle returned 'gagyeok sip i jeom o'."
   },
   {
     "id": "itn-ko-date-digit-year",
@@ -153,7 +153,7 @@
     "input": "naljja o yuk i yeong i yuk",
     "expected": "naljja 2026-06-05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/date delta: native expected 'naljja 2026-06-05' is the release contract; vendor oracle returned 'naljja o yuk i yeong i yuk'."
   },
   {
     "id": "itn-ko-time-minute-digit",
@@ -163,7 +163,7 @@
     "input": "sigan chil o",
     "expected": "sigan 07:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/time delta: native expected 'sigan 07:05' is the release contract; vendor oracle returned 'sigan chil o'."
   },
   {
     "id": "itn-ko-money-won-cents",
@@ -173,7 +173,7 @@
     "input": "won sip i osip",
     "expected": "₩12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/money delta: native expected '₩12.50' is the release contract; vendor oracle returned 'won sip i osip'."
   },
   {
     "id": "itn-ko-measure-kilogram-variant",
@@ -183,7 +183,7 @@
     "input": "sip i killogeuraem",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'sip i killogeuraem'."
   },
   {
     "id": "itn-ko-telephone-digit-sequence",
@@ -193,7 +193,7 @@
     "input": "jeonhwa il i sam sa o",
     "expected": "jeonhwa 12345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/telephone delta: native expected 'jeonhwa 12345' is the release contract; vendor oracle returned 'jeonhwa il i sam sa o'."
   },
   {
     "id": "itn-ko-email-subdomain",
@@ -203,7 +203,7 @@
     "input": "first last at example dot kr",
     "expected": "firstlast@example.kr",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/electronic delta: native expected 'firstlast@example.kr' is the release contract; vendor oracle returned 'first last at example dot kr'."
   },
   {
     "id": "itn-ko-fraction-half-variant",
@@ -213,7 +213,7 @@
     "input": "i bun ui il",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'i bun ui il'."
   },
   {
     "id": "itn-ko-ordinal-second",
@@ -223,7 +223,7 @@
     "input": "du beonjjae",
     "expected": "2번째",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ko/ordinal delta: native expected '2번째' is the release contract; vendor oracle returned 'du beonjjae'."
   },
   {
     "id": "itn-ko-whitelist-openai-variant",
@@ -233,7 +233,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ko/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-ko-negative-punctuation",

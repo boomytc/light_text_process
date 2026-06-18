@@ -32,6 +32,11 @@ The current golden suite has 705 cases. Latest strict oracle comparison:
 76 `match`, 629 reviewed `accepted-improvement`, and no `regression` or
 `unsupported-gap`.
 
+The 629 `accepted-improvement` cases are reviewed first-party deltas rather
+than bit-for-bit vendor parity. They count toward replacement coverage because
+the golden `expected` output is the native release contract for those public
+routes.
+
 ## TN Coverage
 
 | Route | Owner module | Coverage status |
@@ -67,7 +72,8 @@ The current golden suite has 705 cases. Latest strict oracle comparison:
   still runs focused subsets for route/category triage.
 - `scripts/fun_text_processing_oracle.py compare --strict` fails
   `regression` and `unsupported-gap`; reviewed `accepted-improvement` cases are
-  allowed by strict mode. The release command uses
+  allowed by strict mode when the case carries an explicit `expected` output
+  and `oracle_note` explaining the route/category delta. The release command uses
   `--oracle-timeout-seconds 10` so slow preserved vendor grammars become
   auditable report entries instead of blocking indefinitely.
 - Complete replacement requires a clean validation pass and no runtime

@@ -14,7 +14,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/money delta: native expected '今天是 二零二六 年 六 月 一五 日,我有 一百二十三元。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-compact-date-ri",
@@ -31,7 +31,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/date delta: native expected '今天是 二零二六年六月十五日。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-compact-date-hao",
@@ -48,7 +48,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/date delta: native expected '今天是 二零二六年六月十五号。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-separated-date",
@@ -65,7 +65,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/date delta: native expected '今天是 二零二六年六月十五日,另一个日期 二零二六年六月十五日。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-compact-date-context",
@@ -82,7 +82,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/date delta: native expected '日期 二零二六年六月十五日,版本 二零二六零六。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-quarter-fiscal-year",
@@ -99,7 +99,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '二零二六年第三季度收入增长,二零二六年第四季度展望改善,二零二六财年预算。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-units-percent-square-meter-symbol",
@@ -116,7 +116,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '室温 二十三点五摄氏度,湿度 百分之六十,面积 八十平方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-power-area-units",
@@ -133,7 +133,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '面积 八十平方厘米,体积 二立方米,密度 五千克每平方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-medical-science-units",
@@ -150,7 +150,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '二氧化碳 四百ppm,血糖 五点六毫摩尔每升,胆固醇 九十毫克每分升,血压 一百二十毫米汞柱,气压 一百零一千帕,剂量 五毫克每千克,铅 十二ppb。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-square-meter-unit-price-nospace",
@@ -160,7 +160,7 @@
     "input": "房间面积80㎡，租金12元/㎡，体积3m³。",
     "expected": "房间面积八十平方米,租金十二元每平方米,体积三立方米。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '房间面积八十平方米,租金十二元每平方米,体积三立方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-per-cubic-meter-nospace",
@@ -170,7 +170,7 @@
     "input": "密度5kg/m³，面密度5kg/m²。",
     "expected": "密度五千克每立方米,面密度五千克每平方米。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '密度五千克每立方米,面密度五千克每平方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-micro-lab-units",
@@ -187,7 +187,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '维生素D 二十五国际单位每升,药物 二微克每毫升,激素 五十纳克每毫升,样本 二十微升。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-engineering-lab-units",
@@ -204,7 +204,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '酸碱度 pH 七点四,噪声 三十分贝,功率密度 八十瓦每平方米,扭矩 五牛米,电池 五千毫安时。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-electrical-units",
@@ -221,7 +221,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '电阻 十欧姆,电流 二安,电压 三点三毫伏,电容 四十七微法,功率 五瓦。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-motion-pressure-units",
@@ -238,7 +238,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '力 五牛顿,压强 一百零一帕,气压 零点一兆帕,加速度 九点八米每二次方秒,转速 三千转每分,流量 二升每分钟。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-resolution-dimension",
@@ -255,7 +255,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '分辨率 一千九百二十乘一千零八十,尺寸 十乘二十厘米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-per-mille-standalone-ordinal",
@@ -272,7 +272,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '误差 千分之一,利率 千分之三点五,排名第二十一。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-signed-percent",
@@ -289,7 +289,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '增长 正百分之十二,下降 负百分之三点五。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-degree-percent-range",
@@ -299,7 +299,7 @@
     "input": "体温36.5度，温差±2度，湿度40%-60%。",
     "expected": "体温三十六点五度,温差正负二度,湿度百分之四十到百分之六十。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '体温三十六点五度,温差正负二度,湿度百分之四十到百分之六十。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-percent-point-scientific-coordinate",
@@ -316,7 +316,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '增长 二个百分点,误差 一乘以十的负五次方,光速 三乘以十的八次方米每秒,坐标 北纬三十九点九度 东经一百一十六点四度。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-finance-basis-wan-yi",
@@ -333,7 +333,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '利率上行 二十五个基点,信用利差扩大 三点五个基点,用户 一点二万,营收 三亿元。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-square-meter-word",
@@ -350,7 +350,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '面积 八十平方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-symbol-negative-money",
@@ -367,7 +367,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/money delta: native expected '金额 人民币一百二十三元四角五分,亏损 负一百二十三元。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-foreign-currency-suffix",
@@ -384,7 +384,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/money delta: native expected '我有 十二点五美元,另有 十二欧元。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-prefix-currency-code",
@@ -401,7 +401,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/money delta: native expected '预算 十二点五美元,成本 三欧元,人民币 一千二百三十四人民币。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-digit-ordinals",
@@ -418,7 +418,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/ordinal delta: native expected '第十二届第三名。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-range-code-ratio",
@@ -435,7 +435,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '范围 三到五天,编号 A杠一二三,比例 三比二。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-fraction-comparison",
@@ -452,7 +452,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/math delta: native expected '比例 二分之一,完成 四分之三,阈值 x大于等于五,y小于等于十。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-leading-zero-time",
@@ -469,7 +469,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/time delta: native expected '时间 七点零五分 和 二十三点三十分。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-time-phone-account",
@@ -486,7 +486,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '时间 七点零五分零九秒,时长 一小时二分钟三秒。电话 四零零杠八零零杠一二三四,账号 六二二二一二三四五六七八九零一二。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-business-codes-extension",
@@ -503,7 +503,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '订单号 AB杠一二三四,发票 INV杠二零二六杠零零一,快递单号 SF一二三四五六七八九零,电话 四一五杠五五五杠零一二三 转四五。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-identity-vehicle-codes",
@@ -520,7 +520,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/identity delta: native expected '车牌 京A一二三四五,护照 E一二三四五六七八,身份证 一一零一零五一九九零零三零七八六一X。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-address-postcode-room",
@@ -537,7 +537,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/address delta: native expected '地址 北京市朝阳区建国路八十八号A座一二零八室,十二楼,邮编一零零零八零。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-data-electric-units",
@@ -554,7 +554,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '网速 一百兆比特每秒,容量 十六吉字节,电压 二百二十伏特,速度 十米每秒,体积 二立方米。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-power-storage-units",
@@ -571,7 +571,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '功率 三千瓦,电量 五千瓦时,容量 五百一十二兆字节,缓存 一百二十八千字节,流量 五百毫升,电流 二十毫安。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-length-volume-liter",
@@ -588,7 +588,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '长度 三十厘米,宽 五毫米,距离 二千米,重量 三千克,容量 一升。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-throughput-latency-binary",
@@ -605,7 +605,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '吞吐 一百二十兆字节每秒,帧率 六十帧每秒,延迟 十二毫秒,内存 二吉比字节。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-duration-angle-frequency",
@@ -622,7 +622,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '时长 二小时 三十分钟 四十五秒,超时 五百毫秒,角度 九十度,频率 四十四点一千赫兹。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-imperial-units",
@@ -639,7 +639,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '身高 六英尺,长度 十二英寸,重量 五磅,体积 二盎司,距离 三英里,速度 五十五英里每小时。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-math-expression",
@@ -656,7 +656,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/math delta: native expected '公式 三加五等于八,十乘二十等于二百,二十除以四等于五。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-speed-kmh",
@@ -673,7 +673,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '速度 八十千米每小时。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-complex-email-ftp",
@@ -690,7 +690,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '邮箱 user点name加tag艾特example点co点uk,网址 ftp冒号斜杠斜杠files点example点org斜杠a下划线b。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-file-path-social",
@@ -700,7 +700,7 @@
     "input": "文件 report_v2.0.pdf，路径 /data/input-01/test.csv，账号 @light_user，话题 #AI2026。",
     "expected": "文件 report下划线v二点零点pdf,路径 斜杠data斜杠input杠零一斜杠test点csv,账号 艾特light下划线user,话题 井号AI二零二六。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party TN intentionally verbalizes file paths, social handles, and hashtags as product tokens.",
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '文件 report下划线v二点零点pdf,路径 斜杠data斜杠input杠零一斜杠test点csv,账号 艾特light下划线user,话题 井号AI二...' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate.",
     "options": {
       "input_case": "cased",
       "deterministic": true,
@@ -717,7 +717,7 @@
     "input": "编号No.5，账号@light_user，话题#AI2026。",
     "expected": "编号五,账号艾特light下划线user,话题井号AI二零二六。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '编号五,账号艾特light下划线user,话题井号AI二零二六。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-url-query-fragment",
@@ -734,7 +734,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '链接 https冒号斜杠斜杠example点com斜杠a杠b问号q等于hello下划线world与n等于一二三井号top。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-mac-uuid-hex-color",
@@ -751,7 +751,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected 'MAC AA冒号BB冒号CC冒号DD冒号EE冒号FF,UUID 五五零e八四零零杠e二九b杠四一d四杠a七一六杠四四六六五五四四零零零零,颜色 井号FF五...' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-temperature-fahrenheit-kelvin",
@@ -768,7 +768,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '温度 七十二华氏度,温差 三百开尔文。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-ipv4-port-ipv6",
@@ -785,7 +785,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '服务器 一二七点零点零点一冒号八零八零,IPv六 二零零一冒号零DB八冒号冒号一。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-isbn-doi",
@@ -802,7 +802,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected 'ISBN 九七八杠七杠一一一杠一二三四五杠六,DOI 一零点一零零零斜杠XYZ一二三。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-semver-prerelease",
@@ -819,7 +819,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '版本 v二点零点一杠beta点三。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-http-port-iso-datetime",
@@ -836,7 +836,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '接口返回 HTTP 四零四,端口 八零八零,截止到 二零二六杠零六杠一五T一四冒号三零冒号零五Z。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-email-url",
@@ -853,7 +853,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected '邮箱 test艾特example点com,网址 https冒号斜杠斜杠example点com斜杠a杠b。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-ipv4",
@@ -870,7 +870,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/electronic delta: native expected 'IP 一九二点一六八点零点一。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-domain-timezone-signed-number",
@@ -887,7 +887,7 @@
       "punct_post_process": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '访问 www点example点com 和 docs点example点org斜杠path。时区 UTC加八 和 GMT减五,温度 负十二,增量 正五。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-shortcut-space-datetime-discount",
@@ -897,7 +897,7 @@
     "input": "按 Ctrl+C，再按 Cmd+Shift+P。时间 2026-06-15 14:30:05。优惠 8折。",
     "expected": "按 Ctrl加C,再按 Cmd加Shift加P。时间 二零二六杠零六杠一五 一四冒号三零冒号零五。优惠 八折。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '按 Ctrl加C,再按 Cmd加Shift加P。时间 二零二六杠零六杠一五 一四冒号三零冒号零五。优惠 八折。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-not-equal-comparison",
@@ -907,7 +907,7 @@
     "input": "阈值 x!=5，y≠10。",
     "expected": "阈值 x不等于五,y不等于十。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/math delta: native expected '阈值 x不等于五,y不等于十。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-clock-plusminus-approx",
@@ -917,7 +917,7 @@
     "input": "会议 14:30 开始，误差 ±0.5mm，x≈5。",
     "expected": "会议 十四点三十分 开始,误差 正负零点五毫米,x约等于五。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '会议 十四点三十分 开始,误差 正负零点五毫米,x约等于五。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-time-range-yuan-symbol-symbolic",
@@ -927,7 +927,7 @@
     "input": "营业时间 09:00-18:30，会议 14:30~15:45。我有¥123.45，a!=b。",
     "expected": "营业时间 九点整到十八点三十分,会议 十四点三十分到十五点四十五分。我有一百二十三元四角五分,a不等于b。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '营业时间 九点整到十八点三十分,会议 十四点三十分到十五点四十五分。我有一百二十三元四角五分,a不等于b。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-quantity-year-month",
@@ -937,7 +937,7 @@
     "input": "他今年 5岁，买了 3件商品，来了 12人。日期 2026-06。",
     "expected": "他今年 五岁,买了 三件商品,来了 十二人。日期 二零二六年六月。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '他今年 五岁,买了 三件商品,来了 十二人。日期 二零二六年六月。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-symbol-foreign-money-phone-plus",
@@ -947,7 +947,7 @@
     "input": "我有 $123.45、€50、£6、HK$7。电话 +86 13800138000。",
     "expected": "我有 一百二十三点四五美元、五十欧元、六英镑、七港元。电话 加八六 一三八零零一三八零零零。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '我有 一百二十三点四五美元、五十欧元、六英镑、七港元。电话 加八六 一三八零零一三八零零零。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-dot-date-blood-pressure",
@@ -957,7 +957,7 @@
     "input": "日期 2026.06.15，血压 120/80mmHg。",
     "expected": "日期 二零二六年六月十五日,血压 一百二十杠八十毫米汞柱。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '日期 二零二六年六月十五日,血压 一百二十杠八十毫米汞柱。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-customer-phone-mobile",
@@ -967,7 +967,7 @@
     "input": "客服电话 010-12345678，手机号 138 0013 8000。",
     "expected": "客服电话 零一零杠一二三四五六七八,手机号 一三八零零一三八零零零。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/telephone delta: native expected '客服电话 零一零杠一二三四五六七八,手机号 一三八零零一三八零零零。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-yuan-per-area-prefix-temperature",
@@ -977,7 +977,7 @@
     "input": "售价 12.5万元，单价 3.5元/㎡，面积80平方米。体温36.5℃，摄氏23度，华氏72度。",
     "expected": "售价 十二点五万元,单价 三点五元每平方米,面积八十平方米。体温三十六点五摄氏度,摄氏二十三度,华氏七十二度。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '售价 十二点五万元,单价 三点五元每平方米,面积八十平方米。体温三十六点五摄氏度,摄氏二十三度,华氏七十二度。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-parking-door-code",
@@ -987,7 +987,7 @@
     "input": "地址 朝阳区12号楼3单元502室，车位B2-123，门牌8-1。",
     "expected": "地址 朝阳区十二号楼三单元五零二室,车位B二杠一二三,门牌八杠一。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/address delta: native expected '地址 朝阳区十二号楼三单元五零二室,车位B二杠一二三,门牌八杠一。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-promotion-score-stock",
@@ -997,7 +997,7 @@
     "input": "订单满100减20，买1送1，评分4.8分，库存0件。",
     "expected": "订单满一百减二十,买一送一,评分四点八分,库存零件。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '订单满一百减二十,买一送一,评分四点八分,库存零件。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-signed-symbol-temperature",
@@ -1007,7 +1007,7 @@
     "input": "室温 -3℃，体感 -5°C，温差 ±2℃。",
     "expected": "室温 负三摄氏度,体感 负五摄氏度,温差 正负二摄氏度。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/temperature delta: native expected '室温 负三摄氏度,体感 负五摄氏度,温差 正负二摄氏度。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-rating-price-speed",
@@ -1017,7 +1017,7 @@
     "input": "评分 4.8/5，得分 9/10。价格 12.5元/斤，速度 80公里/小时。",
     "expected": "评分四点八分满分五分,得分九分满分十分。价格 十二点五元每斤,速度 八十公里每小时。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '评分四点八分满分五分,得分九分满分十分。价格 十二点五元每斤,速度 八十公里每小时。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-weekday-date-range",
@@ -1027,7 +1027,7 @@
     "input": "周一-周五营业。有效期 2026年6月15日-2026年6月20日。",
     "expected": "周一到周五营业。有效期 二零二六年六月十五日到二零二六年六月二十日。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/mixed delta: native expected '周一到周五营业。有效期 二零二六年六月十五日到二零二六年六月二十日。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-temperature-range",
@@ -1037,7 +1037,7 @@
     "input": "温度 20-30℃，气温 -5-5°F。",
     "expected": "温度 二十到三十摄氏度,气温 负五到五华氏度。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/measure delta: native expected '温度 二十到三十摄氏度,气温 负五到五华氏度。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-century-ordinal",
@@ -1047,7 +1047,7 @@
     "input": "第21世纪，第3层，第12页，第1名。",
     "expected": "第二十一世纪,第三层,第十二页,第一名。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/ordinal delta: native expected '第二十一世纪,第三层,第十二页,第一名。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   },
   {
     "id": "tn-zh-decimal-yuan-subunits",
@@ -1057,6 +1057,6 @@
     "input": "人民币123.45元，价格12.5元，找零0.05元。",
     "expected": "人民币一百二十三元四角五分,价格十二元五角,找零五分。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/zh/money delta: native expected '人民币一百二十三元四角五分,价格十二元五角,找零五分。' is the release contract; vendor oracle hit 'oracle call exceeded 10s' within the 10s gate."
   }
 ]

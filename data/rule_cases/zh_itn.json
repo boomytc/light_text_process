@@ -7,7 +7,7 @@
     "input": "二零二六年六月十五日 我有一百二十三元",
     "expected": "2026年06月15日 我有123元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '2026年06月15日 我有123元' is the release contract; vendor oracle returned '2026年06月15日 我有一百二十三元'."
   },
   {
     "id": "itn-zh-multiple-yuan-amounts",
@@ -17,7 +17,7 @@
     "input": "我有五十元和一百二十三元钱",
     "expected": "我有50元和123元钱",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '我有50元和123元钱' is the release contract; vendor oracle returned '我有五十元和一百二十三元钱'."
   },
   {
     "id": "itn-zh-negative-foreign-money",
@@ -27,7 +27,7 @@
     "input": "我有负一百二十三元亏损负十二点五美元",
     "expected": "我有-123元亏损-12.5美元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '我有-123元亏损-12.5美元' is the release contract; vendor oracle returned '我有负一百二十三元亏损负十二点五美元'."
   },
   {
     "id": "itn-zh-kuai-money",
@@ -37,7 +37,7 @@
     "input": "我有五十块钱",
     "expected": "我有50块钱",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '我有50块钱' is the release contract; vendor oracle returned '我有五十块钱'."
   },
   {
     "id": "itn-zh-temperature-percent",
@@ -47,7 +47,7 @@
     "input": "室温负三点五摄氏度湿度百分之十二点五",
     "expected": "室温-3.5°C湿度12.5%",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '室温-3.5°C湿度12.5%' is the release contract; vendor oracle returned '室温负三点五摄氏度湿度百分之十二点五'."
   },
   {
     "id": "itn-zh-context-decimal-percent",
@@ -57,7 +57,7 @@
     "input": "增长率百分之十二点五折扣百分之五十",
     "expected": "增长率12.5%折扣50%",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '增长率12.5%折扣50%' is the release contract; vendor oracle returned '增长率百分之十二点五折扣百分之五十'."
   },
   {
     "id": "itn-zh-per-mille-monthday-ordinal-code",
@@ -67,7 +67,7 @@
     "input": "误差千分之一利率千分之三点五明天六月十六日排名第二十一编号XJ杠二零二六杠零六",
     "expected": "误差1‰利率3.5‰明天06月16日排名第21编号XJ-2026-06",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '误差1‰利率3.5‰明天06月16日排名第21编号XJ-2026-06' is the release contract; vendor oracle returned '误差千分之一利率千分之三点五明天六月十六日排名第二十一编号XJ杠二零二六杠零六'."
   },
   {
     "id": "itn-zh-area-weight",
@@ -77,7 +77,7 @@
     "input": "面积一百二十平方米重量三千克",
     "expected": "面积120m²重量3kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '面积120m²重量3kg' is the release contract; vendor oracle returned '面积一百二十平方米重量三千克'."
   },
   {
     "id": "itn-zh-power-area-wan-yi",
@@ -87,7 +87,7 @@
     "input": "面积八十平方厘米体积二立方米密度五千克每平方米金额一点二万元预算三亿元增长二点五万",
     "expected": "面积80cm²体积2m³密度5kg/m²金额1.2万元 预算3亿元 增长2.5万",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '面积80cm²体积2m³密度5kg/m²金额1.2万元 预算3亿元 增长2.5万' is the release contract; vendor oracle returned '面积八十平方厘米体积二立方米密度五千克每平方米金额一点二万元预算三亿元增长二点五万'."
   },
   {
     "id": "itn-zh-medical-science-units",
@@ -97,7 +97,7 @@
     "input": "二氧化碳四百ppm血糖五点六毫摩尔每升胆固醇九十毫克每分升血压一百二十毫米汞柱气压一百零一千帕剂量五毫克每千克铅十二ppb",
     "expected": "二氧化碳400ppm血糖5.6mmol/L胆固醇90mg/dL血压120mmHg气压101kPa剂量5mg/kg铅12ppb",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '二氧化碳400ppm血糖5.6mmol/L胆固醇90mg/dL血压120mmHg气压101kPa剂量5mg/kg铅12ppb' is the release contract; vendor oracle returned '二氧化碳四百ppm血糖五点六毫摩尔每升胆固醇九十毫克每分升血压一百二十毫米汞柱气压一百零一千帕剂量五毫克每千克铅十二ppb'."
   },
   {
     "id": "itn-zh-micro-lab-units",
@@ -107,7 +107,7 @@
     "input": "维生素D二十五国际单位每升药物二微克每毫升激素五十纳克每毫升样本二十微升",
     "expected": "维生素D25IU/L药物2µg/mL激素50ng/mL样本20µL",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '维生素D25IU/L药物2µg/mL激素50ng/mL样本20µL' is the release contract; vendor oracle returned '维生素D二十五国际单位每升药物二微克每毫升激素五十纳克每毫升样本二十微升'."
   },
   {
     "id": "itn-zh-engineering-lab-units",
@@ -117,7 +117,7 @@
     "input": "酸碱度pH七点四噪声三十分贝功率密度八十瓦每平方米扭矩五牛米电池五千毫安时",
     "expected": "酸碱度pH7.4噪声30dB功率密度80W/m²扭矩5N·m电池5000mAh",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '酸碱度pH7.4噪声30dB功率密度80W/m²扭矩5N·m电池5000mAh' is the release contract; vendor oracle returned '酸碱度pH七点四噪声三十分贝功率密度八十瓦每平方米扭矩五牛米电池五千毫安时'."
   },
   {
     "id": "itn-zh-electrical-units",
@@ -127,7 +127,7 @@
     "input": "电阻十欧姆电流二安电压三点三毫伏电容四十七微法功率五瓦",
     "expected": "电阻10Ω电流2A电压3.3mV电容47µF功率5W",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '电阻10Ω电流2A电压3.3mV电容47µF功率5W' is the release contract; vendor oracle returned '电阻十欧姆电流二安电压三点三毫伏电容四十七微法功率五瓦'."
   },
   {
     "id": "itn-zh-motion-pressure-units",
@@ -137,7 +137,7 @@
     "input": "力五牛顿压强一百零一帕气压零点一兆帕加速度九点八米每二次方秒转速三千转每分流量二升每分钟",
     "expected": "力5N压强101Pa气压0.1MPa加速度9.8m/s²转速3000rpm流量2L/min",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '力5N压强101Pa气压0.1MPa加速度9.8m/s²转速3000rpm流量2L/min' is the release contract; vendor oracle returned '力五牛顿压强一百零一帕气压零点一兆帕加速度九点八米每二次方秒转速三千转每分流量二升每分钟'."
   },
   {
     "id": "itn-zh-resolution-dimension",
@@ -147,7 +147,7 @@
     "input": "分辨率一千九百二十乘一千零八十尺寸十乘二十厘米",
     "expected": "分辨率1920x1080尺寸10x20cm",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '分辨率1920x1080尺寸10x20cm' is the release contract; vendor oracle returned '分辨率一千九百二十乘一千零八十尺寸十乘二十厘米'."
   },
   {
     "id": "itn-zh-pingmi-speed",
@@ -157,7 +157,7 @@
     "input": "面积九十平米速度八十千米每小时",
     "expected": "面积90m²速度80km/h",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '面积90m²速度80km/h' is the release contract; vendor oracle returned '面积九十平米速度八十千米每小时'."
   },
   {
     "id": "itn-zh-date-time-phone",
@@ -167,7 +167,7 @@
     "input": "今天是二零二六年六月十五日会议在七点三十分开始电话一三五零一二三四五六七",
     "expected": "今天是2026年06月15日 会议在07:30开始电话13501234567",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '今天是2026年06月15日 会议在07:30开始电话13501234567' is the release contract; vendor oracle returned '今天是二零二六年六月十五日会议在七点三十分开始电话一三五零一二三四五六七'."
   },
   {
     "id": "itn-zh-time-phone-account-discount",
@@ -177,7 +177,7 @@
     "input": "会议七点零五分零九秒开始，电话四零零杠八零零杠一二三四，账号六二二二一二三四五六七八九零一二，八折概率百分之零点零五",
     "expected": "会议07:05:09开始，电话400-800-1234，账号6222123456789012，8折概率0.05%",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '会议07:05:09开始，电话400-800-1234，账号6222123456789012，8折概率0.05%' is the release contract; vendor oracle returned '会议七点零五分零九秒开始，电话四零零杠八零零杠一二三四，账号六二二二一二三四五六七八九零一二，八折概率百分之零点零五'."
   },
   {
     "id": "itn-zh-business-codes-extension",
@@ -187,7 +187,7 @@
     "input": "订单号A B杠一二三四发票INV杠二零二六杠零零一快递单号SF一二三四五六七八九零电话四一五杠五五五杠零一二三转四五",
     "expected": "订单号AB-1234发票INV-2026-001快递单号SF1234567890电话415-555-0123转45",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '订单号AB-1234发票INV-2026-001快递单号SF1234567890电话415-555-0123转45' is the release contract; vendor oracle returned '订单号A B杠一二三四发票INV杠二零二六杠零零一快递单号SF一二三四五六七八九零电话四一五杠五五五杠零一二三转四五'."
   },
   {
     "id": "itn-zh-identity-vehicle-codes",
@@ -197,7 +197,7 @@
     "input": "车牌京A一二三四五护照E一二三四五六七八身份证一一零一零五一九九零零三零七八六一X",
     "expected": "车牌京A12345护照E12345678身份证11010519900307861X",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/identity delta: native expected '车牌京A12345护照E12345678身份证11010519900307861X' is the release contract; vendor oracle returned '车牌京A一二三四五护照E一二三四五六七八身份证一一零一零五一九九零零三零七八六一X'."
   },
   {
     "id": "itn-zh-address-postcode-room",
@@ -207,7 +207,7 @@
     "input": "地址北京市朝阳区建国路八十八号A座一二零八室十二楼邮编一零零零八零",
     "expected": "地址北京市朝阳区建国路88号A座1208室12楼邮编100080",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/address delta: native expected '地址北京市朝阳区建国路88号A座1208室12楼邮编100080' is the release contract; vendor oracle returned '地址北京市朝阳区建国路八十八号A座一二零八室十二楼邮编一零零零八零'."
   },
   {
     "id": "itn-zh-separated-date-context",
@@ -217,7 +217,7 @@
     "input": "日期二零二六杠零六杠十五版本二零二六杠零六",
     "expected": "日期2026-06-15版本二零二六杠零六",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/date delta: native expected '日期2026-06-15版本二零二六杠零六' is the release contract; vendor oracle returned '日期二零二六杠零六杠十五版本二零二六杠零六'."
   },
   {
     "id": "itn-zh-compact-date-context",
@@ -227,7 +227,7 @@
     "input": "日期二零二六零六一五版本二零二六零六",
     "expected": "日期2026-06-15版本二零二六零六",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/date delta: native expected '日期2026-06-15版本二零二六零六' is the release contract; vendor oracle returned '日期二零二六零六一五版本二零二六零六'."
   },
   {
     "id": "itn-zh-quarter-fiscal-year",
@@ -237,7 +237,7 @@
     "input": "二零二六年第二季度收入增长第三季度二零二六展望改善财年二零二六预算",
     "expected": "2026Q2收入增长2026Q3展望改善FY2026预算",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '2026Q2收入增长2026Q3展望改善FY2026预算' is the release contract; vendor oracle returned '二零二六年第二季度收入增长第三季度二零二六展望改善财年二零二六预算'."
   },
   {
     "id": "itn-zh-code-ratio-range",
@@ -247,7 +247,7 @@
     "input": "编号A杠一二三比例三比二范围三到五天",
     "expected": "编号A-123比例3:2范围3-5天",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '编号A-123比例3:2范围3-5天' is the release contract; vendor oracle returned '编号A杠一二三比例三比二范围三到五天'."
   },
   {
     "id": "itn-zh-fraction-comparison-multiplier",
@@ -257,7 +257,7 @@
     "input": "比例二分之一完成四分之三阈值x大于等于五y小于等于十增长三倍速度二点五倍",
     "expected": "比例1/2完成3/4阈值x>=5y<=10增长3倍速度2.5倍",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/math delta: native expected '比例1/2完成3/4阈值x>=5y<=10增长3倍速度2.5倍' is the release contract; vendor oracle returned '比例二分之一完成四分之三阈值x大于等于五y小于等于十增长三倍速度二点五倍'."
   },
   {
     "id": "itn-zh-exact-hour",
@@ -267,7 +267,7 @@
     "input": "会议七点整开始十二点整结束",
     "expected": "会议07:00开始12:00结束",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '会议07:00开始12:00结束' is the release contract; vendor oracle returned '会议七点整开始十二点整结束'."
   },
   {
     "id": "itn-zh-data-electric-units",
@@ -277,7 +277,7 @@
     "input": "网速一百兆比特每秒容量十六吉字节电压二百二十伏特",
     "expected": "网速100Mbps容量16GB电压220V",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '网速100Mbps容量16GB电压220V' is the release contract; vendor oracle returned '网速一百兆比特每秒容量十六吉字节电压二百二十伏特'."
   },
   {
     "id": "itn-zh-power-frequency-units",
@@ -287,7 +287,7 @@
     "input": "功率三千瓦电量五千瓦时频率六十赫兹转速三百转每分",
     "expected": "功率3kW电量5kWh频率60Hz转速300rpm",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '功率3kW电量5kWh频率60Hz转速300rpm' is the release contract; vendor oracle returned '功率三千瓦电量五千瓦时频率六十赫兹转速三百转每分'."
   },
   {
     "id": "itn-zh-storage-current-units",
@@ -297,7 +297,7 @@
     "input": "容量五百一十二兆字节缓存一百二十八千字节流量五百毫升电流二十毫安",
     "expected": "容量512MB缓存128KB流量500mL电流20mA",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '容量512MB缓存128KB流量500mL电流20mA' is the release contract; vendor oracle returned '容量五百一十二兆字节缓存一百二十八千字节流量五百毫升电流二十毫安'."
   },
   {
     "id": "itn-zh-speed-volume",
@@ -307,7 +307,7 @@
     "input": "距离五米速度十米每秒体积二立方米",
     "expected": "距离5米速度10m/s体积2m³",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '距离5米速度10m/s体积2m³' is the release contract; vendor oracle returned '距离五米速度十米每秒体积二立方米'."
   },
   {
     "id": "itn-zh-length-liter-postcode",
@@ -317,7 +317,7 @@
     "input": "长度三十厘米宽五毫米距离二千米重量三千克容量一升邮编一零零零八零",
     "expected": "长度30cm宽5mm距离2km重量3kg容量1L邮编100080",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '长度30cm宽5mm距离2km重量3kg容量1L邮编100080' is the release contract; vendor oracle returned '长度三十厘米宽五毫米距离二千米重量三千克容量一升邮编一零零零八零'."
   },
   {
     "id": "itn-zh-throughput-latency-binary",
@@ -327,7 +327,7 @@
     "input": "吞吐一百二十兆字节每秒帧率六十帧每秒延迟十二毫秒内存二吉比字节",
     "expected": "吞吐120MB/s帧率60fps延迟12ms内存2GiB",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '吞吐120MB/s帧率60fps延迟12ms内存2GiB' is the release contract; vendor oracle returned '吞吐一百二十兆字节每秒帧率六十帧每秒延迟十二毫秒内存二吉比字节'."
   },
   {
     "id": "itn-zh-duration-angle-frequency",
@@ -337,7 +337,7 @@
     "input": "时长两小时三十分钟四十五秒超时五百毫秒角度九十度频率四十四点一千赫兹采样率四十八千赫兹",
     "expected": "时长2h30min45s超时500ms角度90°频率44.1kHz采样率48kHz",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '时长2h30min45s超时500ms角度90°频率44.1kHz采样率48kHz' is the release contract; vendor oracle returned '时长两小时三十分钟四十五秒超时五百毫秒角度九十度频率四十四点一千赫兹采样率四十八千赫兹'."
   },
   {
     "id": "itn-zh-imperial-units",
@@ -347,7 +347,7 @@
     "input": "身高六英尺长度十二英寸重量五磅体积二盎司距离三英里速度五十五英里每小时",
     "expected": "身高6ft长度12in重量5lb体积2oz距离3mi速度55mph",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '身高6ft长度12in重量5lb体积2oz距离3mi速度55mph' is the release contract; vendor oracle returned '身高六英尺长度十二英寸重量五磅体积二盎司距离三英里速度五十五英里每小时'."
   },
   {
     "id": "itn-zh-math-expression",
@@ -357,7 +357,7 @@
     "input": "公式三加五等于八，十乘二十等于二百，二十除以四等于五",
     "expected": "公式3+5=8，10×20=200，20÷4=5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/math delta: native expected '公式3+5=8，10×20=200，20÷4=5' is the release contract; vendor oracle returned '公式三加五等于八，十乘二十等于二百，二十除以四等于五'."
   },
   {
     "id": "itn-zh-negative-percent-temperature",
@@ -367,7 +367,7 @@
     "input": "负百分之十二点五负三点五摄氏度",
     "expected": "-12.5%-3.5°C",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '-12.5%-3.5°C' is the release contract; vendor oracle returned '负百分之十二点五负三点五摄氏度'."
   },
   {
     "id": "itn-zh-signed-percent",
@@ -377,7 +377,7 @@
     "input": "增长正百分之十二下降负百分之三点五",
     "expected": "增长+12%下降-3.5%",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '增长+12%下降-3.5%' is the release contract; vendor oracle returned '增长正百分之十二下降负百分之三点五'."
   },
   {
     "id": "itn-zh-percent-point-scientific-coordinate",
@@ -387,7 +387,7 @@
     "input": "增长二个百分点误差一乘以十的负五次方光速三乘以十的八次方米每秒坐标北纬三十九点九度东经一百一十六点四度",
     "expected": "增长2pp误差1e-5光速3e8m/s坐标北纬39.9°东经116.4°",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '增长2pp误差1e-5光速3e8m/s坐标北纬39.9°东经116.4°' is the release contract; vendor oracle returned '增长二个百分点误差一乘以十的负五次方光速三乘以十的八次方米每秒坐标北纬三十九点九度东经一百一十六点四度'."
   },
   {
     "id": "itn-zh-finance-basis-wan-yi",
@@ -397,7 +397,7 @@
     "input": "利率上行二十五个基点信用利差扩大三点五个基点用户一点二万营收三亿元",
     "expected": "利率上行25bp信用利差扩大3.5bp用户1.2万营收3亿元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '利率上行25bp信用利差扩大3.5bp用户1.2万营收3亿元' is the release contract; vendor oracle returned '利率上行二十五个基点信用利差扩大三点五个基点用户一点二万营收三亿元'."
   },
   {
     "id": "itn-zh-foreign-currency-suffix",
@@ -407,7 +407,7 @@
     "input": "我有十二美元十二点五欧元一百二十三人民币",
     "expected": "我有12美元12.5欧元123人民币",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '我有12美元12.5欧元123人民币' is the release contract; vendor oracle returned '我有十二美元十二点五欧元一百二十三人民币'."
   },
   {
     "id": "itn-zh-foreign-currency-list",
@@ -417,7 +417,7 @@
     "input": "我有十二英镑三十四日元五十六港元",
     "expected": "我有12英镑34日元56港元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '我有12英镑34日元56港元' is the release contract; vendor oracle returned '我有十二英镑三十四日元五十六港元'."
   },
   {
     "id": "itn-zh-ordinal-and-alnum",
@@ -427,7 +427,7 @@
     "input": "第十二届会议第三名编号A一二三B编号ABC一二三",
     "expected": "第12届会议第3名编号A123B编号ABC123",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '第12届会议第3名编号A123B编号ABC123' is the release contract; vendor oracle returned '第十二届会议第三名编号A一二三B编号ABC一二三'."
   },
   {
     "id": "itn-zh-fraction-embedded",
@@ -437,7 +437,7 @@
     "input": "比例二分之一分数四分之三",
     "expected": "比例1/2分数3/4",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/fraction delta: native expected '比例1/2分数3/4' is the release contract; vendor oracle returned '比例二分之一分数四分之三'."
   },
   {
     "id": "itn-zh-email-url",
@@ -447,7 +447,7 @@
     "input": "邮箱test艾特example点com网址https冒号斜杠斜杠example点com斜杠a杠b",
     "expected": "邮箱test@example.com网址https://example.com/a-b",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '邮箱test@example.com网址https://example.com/a-b' is the release contract; vendor oracle returned '邮箱test艾特example点com网址https冒号斜杠斜杠example点com斜杠a杠b'."
   },
   {
     "id": "itn-zh-complex-email-ftp",
@@ -457,7 +457,7 @@
     "input": "邮箱user点name加tag艾特example点co点uk网址ftp冒号斜杠斜杠files点example点org斜杠a下划线b",
     "expected": "邮箱user.name+tag@example.co.uk网址ftp://files.example.org/a_b",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '邮箱user.name+tag@example.co.uk网址ftp://files.example.org/a_b' is the release contract; vendor oracle returned '邮箱user点name加tag艾特example点co点uk网址ftp冒号斜杠斜杠files点example点org斜杠a下划线b'."
   },
   {
     "id": "itn-zh-file-path-social",
@@ -467,7 +467,7 @@
     "input": "文件report下划线v二点零点pdf路径斜杠data斜杠input杠零一斜杠test点csv账号艾特light下划线user话题井号AI二零二六",
     "expected": "文件report_v2.0.pdf路径/data/input-01/test.csv账号@light_user话题#AI2026",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party ITN intentionally restores file paths, handles, and hashtags as product tokens."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '文件report_v2.0.pdf路径/data/input-01/test.csv账号@light_user话题#AI2026' is the release contract; vendor oracle returned '文件report下划线v二点零点pdf路径斜杠data斜杠input杠零一斜杠test点csv账号艾特light下划线user话题井号AI二零二六'."
   },
   {
     "id": "itn-zh-url-query-fragment",
@@ -477,7 +477,7 @@
     "input": "链接https冒号斜杠斜杠example点com斜杠a杠b问号q等于hello下划线world与n等于一二三井号top",
     "expected": "链接https://example.com/a-b?q=hello_world&n=123#top",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '链接https://example.com/a-b?q=hello_world&n=123#top' is the release contract; vendor oracle returned '链接https冒号斜杠斜杠example点com斜杠a杠b问号q等于hello下划线world与n等于一二三井号top'."
   },
   {
     "id": "itn-zh-mac-uuid-hex-color",
@@ -487,7 +487,7 @@
     "input": "MAC AA冒号BB冒号CC冒号DD冒号EE冒号FFUUID五五零e八四零零杠e二九b杠四一d四杠a七一六杠四四六六五五四四零零零零颜色井号FF五七三三",
     "expected": "MAC AA:BB:CC:DD:EE:FFUUID550e8400-e29b-41d4-a716-446655440000颜色#FF5733",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected 'MAC AA:BB:CC:DD:EE:FFUUID550e8400-e29b-41d4-a716-446655440000颜色#FF5733' is the release contract; vendor oracle returned 'MAC AA冒号BB冒号CC冒号DD冒号EE冒号FFUUID五五零e八四零零杠e二九b杠四一d四杠a七一六杠四四六六五五四四零零零零颜色井号FF五七三三'."
   },
   {
     "id": "itn-zh-temperature-fahrenheit-kelvin",
@@ -497,7 +497,7 @@
     "input": "温度七十二华氏度，温差三百开尔文",
     "expected": "温度72°F，温差300K",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '温度72°F，温差300K' is the release contract; vendor oracle returned '温度七十二华氏度，温差三百开尔文'."
   },
   {
     "id": "itn-zh-ipv4-port-ipv6",
@@ -507,7 +507,7 @@
     "input": "服务器一二七点零点零点一冒号八零八零，IPv6二零零一冒号零db八冒号冒号一",
     "expected": "服务器127.0.0.1:8080，IPv62001:0dB8::1",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '服务器127.0.0.1:8080，IPv62001:0dB8::1' is the release contract; vendor oracle returned '服务器一二七点零点零点一冒号八零八零，IPv6二零零一冒号零db八冒号冒号一'."
   },
   {
     "id": "itn-zh-isbn-doi",
@@ -517,7 +517,7 @@
     "input": "ISBN 九七八杠七杠一一一杠一二三四五杠六，DOI 一零点一零零零斜杠xyz一二三",
     "expected": "ISBN 978-7-111-12345-6，DOI 10.1000/xyz123",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected 'ISBN 978-7-111-12345-6，DOI 10.1000/xyz123' is the release contract; vendor oracle returned 'ISBN 九七八杠七杠一一一杠一二三四五杠六，DOI 一零点一零零零斜杠xyz一二三'."
   },
   {
     "id": "itn-zh-semver-prerelease",
@@ -527,7 +527,7 @@
     "input": "版本v二点零点一杠beta点三",
     "expected": "版本v2.0.1-beta.3",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '版本v2.0.1-beta.3' is the release contract; vendor oracle returned '版本v二点零点一杠beta点三'."
   },
   {
     "id": "itn-zh-http-port-iso-datetime",
@@ -537,7 +537,7 @@
     "input": "接口返回HTTP四零四端口八零八零截止到二零二六杠零六杠一五T一四冒号三零冒号零五Z",
     "expected": "接口返回HTTP404端口8080截止到2026-06-15T14:30:05Z",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/electronic delta: native expected '接口返回HTTP404端口8080截止到2026-06-15T14:30:05Z' is the release contract; vendor oracle returned '接口返回HTTP四零四端口八零八零截止到二零二六杠零六杠一五T一四冒号三零冒号零五Z'."
   },
   {
     "id": "itn-zh-domain-timezone-signed-number",
@@ -547,7 +547,7 @@
     "input": "访问www点example点com和docs点example点org斜杠path时区UTC加八和GMT减五温度负十二增量正五",
     "expected": "访问www.example.com和docs.example.org/path时区UTC+8和GMT-5温度-12增量+5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '访问www.example.com和docs.example.org/path时区UTC+8和GMT-5温度-12增量+5' is the release contract; vendor oracle returned '访问www点example点com和docs点example点org斜杠path时区UTC加八和GMT减五温度负十二增量正五'."
   },
   {
     "id": "itn-zh-shortcut-space-datetime",
@@ -557,7 +557,7 @@
     "input": "按Ctrl加C再按Cmd加Shift加P时间二零二六杠零六杠一五一四冒号三零冒号零五",
     "expected": "按Ctrl+C再按Cmd+Shift+P时间2026-06-15 14:30:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '按Ctrl+C再按Cmd+Shift+P时间2026-06-15 14:30:05' is the release contract; vendor oracle returned '按Ctrl加C再按Cmd加Shift加P时间二零二六杠零六杠一五一四冒号三零冒号零五'."
   },
   {
     "id": "itn-zh-spoken-space-datetime",
@@ -567,7 +567,7 @@
     "input": "截止二零二六杠零六杠一五十四点三十分零五秒",
     "expected": "截止2026-06-15 14:30:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '截止2026-06-15 14:30:05' is the release contract; vendor oracle returned '截止二零二六杠零六杠一五十四点三十分零五秒'."
   },
   {
     "id": "itn-zh-clock-plusminus-approx",
@@ -577,7 +577,7 @@
     "input": "会议十四点三十分开始误差正负零点五毫米x约等于五",
     "expected": "会议14:30开始误差±0.5mmx≈5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '会议14:30开始误差±0.5mmx≈5' is the release contract; vendor oracle returned '会议十四点三十分开始误差正负零点五毫米x约等于五'."
   },
   {
     "id": "itn-zh-time-range-money-subunits-symbolic",
@@ -587,7 +587,7 @@
     "input": "营业时间九点到十八点三十分会议十四点三十分到十五点四十五分我有一百二十三元四角五分a不等于b",
     "expected": "营业时间09:00-18:30会议14:30-15:45我有123.45元a!=b",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '营业时间09:00-18:30会议14:30-15:45我有123.45元a!=b' is the release contract; vendor oracle returned '营业时间九点到十八点三十分会议十四点三十分到十五点四十五分我有一百二十三元四角五分a不等于b'."
   },
   {
     "id": "itn-zh-quantity-money-percent-weight-ranges",
@@ -597,7 +597,7 @@
     "input": "他今年五岁买了三件商品来了十二人价格十元到二十元比例百分之十到百分之二十重量五到十千克",
     "expected": "他今年5岁买了3件商品来了12人价格10-20元比例10-20%重量5-10kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '他今年5岁买了3件商品来了12人价格10-20元比例10-20%重量5-10kg' is the release contract; vendor oracle returned '他今年五岁买了三件商品来了十二人价格十元到二十元比例百分之十到百分之二十重量五到十千克'."
   },
   {
     "id": "itn-zh-area-volume-landline-weekday-time",
@@ -607,7 +607,7 @@
     "input": "面积八十平方米体积三立方米土地二平方公里电话一三八零零一三八零零零座机零一零杠一二三四五六七八周三八点零五分开会",
     "expected": "面积80m²体积3m³土地2km²电话13800138000座机010-12345678周三08:05开会",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '面积80m²体积3m³土地2km²电话13800138000座机010-12345678周三08:05开会' is the release contract; vendor oracle returned '面积八十平方米体积三立方米土地二平方公里电话一三八零零一三八零零零座机零一零杠一二三四五六七八周三八点零五分开会'."
   },
   {
     "id": "itn-zh-foreign-subunit-phone-plus",
@@ -617,7 +617,7 @@
     "input": "我有一百二十三美元四十五美分电话加八六一三八零零一三八零零零",
     "expected": "我有123.45美元电话+8613800138000",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '我有123.45美元电话+8613800138000' is the release contract; vendor oracle returned '我有一百二十三美元四十五美分电话加八六一三八零零一三八零零零'."
   },
   {
     "id": "itn-zh-date-jiaofen-blood-pressure",
@@ -627,7 +627,7 @@
     "input": "日期二零二六年六月十五号金额一百二十三元四角五分余额九角九分血压一百二十杠八十毫米汞柱",
     "expected": "日期2026年06月15日 金额123.45元余额0.99元血压120/80mmHg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '日期2026年06月15日 金额123.45元余额0.99元血压120/80mmHg' is the release contract; vendor oracle returned '日期二零二六年六月十五号金额一百二十三元四角五分余额九角九分血压一百二十杠八十毫米汞柱'."
   },
   {
     "id": "itn-zh-money-bare-fen",
@@ -637,7 +637,7 @@
     "input": "价格一千二百三十四块五毛六余额五分",
     "expected": "价格1234.56元余额0.05元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '价格1234.56元余额0.05元' is the release contract; vendor oracle returned '价格一千二百三十四块五毛六余额五分'."
   },
   {
     "id": "itn-zh-yuan-per-area-prefix-temperature",
@@ -647,7 +647,7 @@
     "input": "售价十二点五万元单价三点五元每平方米面积八十平方米，体温三十六点五摄氏度，摄氏二十三度，华氏七十二度",
     "expected": "售价12.5万元 单价3.5元/m²面积80m²，体温36.5°C，23°C，72°F",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '售价12.5万元 单价3.5元/m²面积80m²，体温36.5°C，23°C，72°F' is the release contract; vendor oracle returned '售价十二点五万元单价三点五元每平方米面积八十平方米，体温三十六点五摄氏度，摄氏二十三度，华氏七十二度'."
   },
   {
     "id": "itn-zh-daypart-time-range",
@@ -657,7 +657,7 @@
     "input": "上午九点到下午六点营业晚上八点到九点维护",
     "expected": "09:00-18:00营业20:00-21:00维护",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '09:00-18:00营业20:00-21:00维护' is the release contract; vendor oracle returned '上午九点到下午六点营业晚上八点到九点维护'."
   },
   {
     "id": "itn-zh-parking-door-code",
@@ -667,7 +667,7 @@
     "input": "地址朝阳区十二号楼三单元五零二室车位B二杠一二三门牌八杠一",
     "expected": "地址朝阳区12号楼3单元502室车位B2-123门牌8-1",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/address delta: native expected '地址朝阳区12号楼3单元502室车位B2-123门牌8-1' is the release contract; vendor oracle returned '地址朝阳区十二号楼三单元五零二室车位B二杠一二三门牌八杠一'."
   },
   {
     "id": "itn-zh-dotted-version-context-code",
@@ -677,7 +677,7 @@
     "input": "版本三点十点四构建二零二六点零六编号NO十二",
     "expected": "版本3.10.4构建2026.06编号NO12",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '版本3.10.4构建2026.06编号NO12' is the release contract; vendor oracle returned '版本三点十点四构建二零二六点零六编号NO十二'."
   },
   {
     "id": "itn-zh-promotion-score-stock",
@@ -687,7 +687,7 @@
     "input": "订单满一百减二十买一送一评分四点八分库存零件",
     "expected": "订单满100减20买1送1评分4.8分库存0件",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '订单满100减20买1送1评分4.8分库存0件' is the release contract; vendor oracle returned '订单满一百减二十买一送一评分四点八分库存零件'."
   },
   {
     "id": "itn-zh-colloquial-daypart-times",
@@ -697,7 +697,7 @@
     "input": "上午九点半开会下午三点一刻提醒晚上八点三刻结束",
     "expected": "09:30开会15:15提醒20:45结束",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '09:30开会15:15提醒20:45结束' is the release contract; vendor oracle returned '上午九点半开会下午三点一刻提醒晚上八点三刻结束'."
   },
   {
     "id": "itn-zh-half-quantities",
@@ -707,7 +707,7 @@
     "input": "时长一个半小时距离两公里半重量三千克半",
     "expected": "时长1.5h距离2.5公里重量3.5kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '时长1.5h距离2.5公里重量3.5kg' is the release contract; vendor oracle returned '时长一个半小时距离两公里半重量三千克半'."
   },
   {
     "id": "itn-zh-colloquial-money-subunits",
@@ -717,7 +717,7 @@
     "input": "价格三块五押金五毛余额五分钱",
     "expected": "价格3.5元押金0.5元余额0.05元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '价格3.5元押金0.5元余额0.05元' is the release contract; vendor oracle returned '价格三块五押金五毛余额五分钱'."
   },
   {
     "id": "itn-zh-colloquial-large-money",
@@ -727,7 +727,7 @@
     "input": "预算一万二收入三亿五营收二十万八",
     "expected": "预算1.2万元 收入3.5亿元 营收20.8万元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '预算1.2万元 收入3.5亿元 营收20.8万元' is the release contract; vendor oracle returned '预算一万二收入三亿五营收二十万八'."
   },
   {
     "id": "itn-zh-exact-money",
@@ -737,7 +737,7 @@
     "input": "金额一百二十三元整预算五十块整",
     "expected": "金额123元预算50元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '金额123元预算50元' is the release contract; vendor oracle returned '金额一百二十三元整预算五十块整'."
   },
   {
     "id": "itn-zh-century-ranking",
@@ -747,7 +747,7 @@
     "input": "第二十一世纪第三名",
     "expected": "21世纪第3名",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/ordinal delta: native expected '21世纪第3名' is the release contract; vendor oracle returned '第二十一世纪第三名'."
   },
   {
     "id": "itn-zh-daypart-standalone-times",
@@ -757,7 +757,7 @@
     "input": "下午三点开会晚上八点零五分维护早上七点出发",
     "expected": "15:00开会20:05维护07:00出发",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '15:00开会20:05维护07:00出发' is the release contract; vendor oracle returned '下午三点开会晚上八点零五分维护早上七点出发'."
   },
   {
     "id": "itn-zh-zero-below-temperature",
@@ -767,7 +767,7 @@
     "input": "室温零下三度体感零下五摄氏度",
     "expected": "室温-3°C体感-5°C",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/temperature delta: native expected '室温-3°C体感-5°C' is the release contract; vendor oracle returned '室温零下三度体感零下五摄氏度'."
   },
   {
     "id": "itn-zh-rating-price-speed",
@@ -777,7 +777,7 @@
     "input": "评分四点八分满分五分得分九分满分十分价格十二点五元每斤速度八十公里每小时",
     "expected": "评分4.8/5得分9/10价格12.5元/斤速度80km/h",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '评分4.8/5得分9/10价格12.5元/斤速度80km/h' is the release contract; vendor oracle returned '评分四点八分满分五分得分九分满分十分价格十二点五元每斤速度八十公里每小时'."
   },
   {
     "id": "itn-zh-customer-service-phone",
@@ -787,7 +787,7 @@
     "input": "客服四零零杠八零零杠一二三四电话零一零杠一二三四五六七八",
     "expected": "客服400-800-1234电话010-12345678",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/phone delta: native expected '客服400-800-1234电话010-12345678' is the release contract; vendor oracle returned '客服四零零杠八零零杠一二三四电话零一零杠一二三四五六七八'."
   },
   {
     "id": "itn-zh-weekday-date-range",
@@ -797,7 +797,7 @@
     "input": "周一到周五营业有效期二零二六年六月十五日到二零二六年六月二十日",
     "expected": "周一-周五营业有效期2026年06月15日-2026年06月20日",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/mixed delta: native expected '周一-周五营业有效期2026年06月15日-2026年06月20日' is the release contract; vendor oracle returned '周一到周五营业有效期二零二六年六月十五日到二零二六年六月二十日'."
   },
   {
     "id": "itn-zh-short-minute-duration",
@@ -807,7 +807,7 @@
     "input": "耗时一小时三十分钟等待两分三十秒冷却五百毫秒",
     "expected": "耗时1h30min等待2min30s冷却500ms",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/time delta: native expected '耗时1h30min等待2min30s冷却500ms' is the release contract; vendor oracle returned '耗时一小时三十分钟等待两分三十秒冷却五百毫秒'."
   },
   {
     "id": "itn-zh-file-download-network-rate",
@@ -817,7 +817,7 @@
     "input": "文件一点五GB下载一百二十兆字节每秒网速一百兆比特每秒",
     "expected": "文件1.5GB下载120MB/s网速100Mbps",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '文件1.5GB下载120MB/s网速100Mbps' is the release contract; vendor oracle returned '文件一点五GB下载一百二十兆字节每秒网速一百兆比特每秒'."
   },
   {
     "id": "itn-zh-yao-digit-strings",
@@ -827,7 +827,7 @@
     "input": "手机号幺三八零零幺三八零零零账号六二二二幺二三四五六七八九零幺二电话加八六幺三八零零幺三八零零零转幺二三",
     "expected": "手机号13800138000账号6222123456789012电话+8613800138000转123",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/phone delta: native expected '手机号13800138000账号6222123456789012电话+8613800138000转123' is the release contract; vendor oracle returned '手机号幺三八零零幺三八零零零账号六二二二幺二三四五六七八九零幺二电话加八六幺三八零零幺三八零零零转幺二三'."
   },
   {
     "id": "itn-zh-shorthand-percent-temperature-range",
@@ -837,7 +837,7 @@
     "input": "比例百分之二十到三十温度二十到三十度室温二十到三十摄氏度",
     "expected": "比例20-30%温度20-30°C室温20-30°C",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '比例20-30%温度20-30°C室温20-30°C' is the release contract; vendor oracle returned '比例百分之二十到三十温度二十到三十度室温二十到三十摄氏度'."
   },
   {
     "id": "itn-zh-negative-temperature-range",
@@ -847,7 +847,7 @@
     "input": "气温负五到五度室温零下五到五摄氏度华氏零下五度",
     "expected": "气温-5-5°C室温-5-5°C-5°F",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/measure delta: native expected '气温-5-5°C室温-5-5°C-5°F' is the release contract; vendor oracle returned '气温负五到五度室温零下五到五摄氏度华氏零下五度'."
   },
   {
     "id": "itn-zh-zero-fen-money",
@@ -857,7 +857,7 @@
     "input": "价格十二元零五分找零五分",
     "expected": "价格12.05元找零0.05元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/zh/money delta: native expected '价格12.05元找零0.05元' is the release contract; vendor oracle returned '价格十二元零五分找零五分'."
   },
   {
     "id": "itn-zh-asr-spoken-punctuation",
@@ -867,7 +867,7 @@
     "input": "你好逗号请问今天几点问号谢谢句号",
     "expected": "你好，请问今天几点？谢谢。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '你好，请问今天几点？谢谢。' is the release contract; vendor oracle returned '你好逗号请问今天几点问号谢谢句号'."
   },
   {
     "id": "itn-zh-asr-spoken-brackets-quotes",
@@ -877,7 +877,7 @@
     "input": "请记录左括号紧急右括号明天上午九点开会句号他说左引号马上处理右引号句号",
     "expected": "请记录（紧急）明天09:00开会。他说“马上处理”。",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '请记录（紧急）明天09:00开会。他说“马上处理”。' is the release contract; vendor oracle returned '请记录左括号紧急右括号明天上午九点开会句号他说左引号马上处理右引号句号'."
   },
   {
     "id": "itn-zh-asr-colloquial-money-fillers",
@@ -887,7 +887,7 @@
     "input": "嗯我有一块零五然后押金两毛五",
     "expected": "我有1.05元然后押金0.25元",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '我有1.05元然后押金0.25元' is the release contract; vendor oracle returned '嗯我有一块零五然后押金两毛五'."
   },
   {
     "id": "itn-zh-asr-edge-fillers-phone-time",
@@ -897,7 +897,7 @@
     "input": "呃电话幺三八零零幺三八零零零哈\n就是明天下午三点开会啊",
     "expected": "电话13800138000明天15:00开会",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '电话13800138000明天15:00开会' is the release contract; vendor oracle returned '呃电话幺三八零零幺三八零零零哈 就是明天下午三点开会啊'."
   },
   {
     "id": "itn-zh-asr-meeting-room-code",
@@ -907,7 +907,7 @@
     "input": "房间号A一二零八座位B零三会议室三零五",
     "expected": "房间号A1208座位B03会议室305",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '房间号A1208座位B03会议室305' is the release contract; vendor oracle returned '房间号A一二零八座位B零三会议室三零五'."
   },
   {
     "id": "itn-zh-asr-agent-extension",
@@ -917,7 +917,7 @@
     "input": "工号一二三四坐席A零八分机零零七",
     "expected": "工号1234坐席A08分机007",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '工号1234坐席A08分机007' is the release contract; vendor oracle returned '工号一二三四坐席A零八分机零零七'."
   },
   {
     "id": "itn-zh-asr-spoken-slash-date-colon-time",
@@ -927,7 +927,7 @@
     "input": "日期二零二六斜杠零六斜杠十五时间一四冒号三零",
     "expected": "日期2026/06/15时间14:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '日期2026/06/15时间14:30' is the release contract; vendor oracle returned '日期二零二六斜杠零六斜杠十五时间一四冒号三零'."
   },
   {
     "id": "itn-zh-asr-context-hash-code",
@@ -937,7 +937,7 @@
     "input": "工单号A B C井号一二三四",
     "expected": "工单号ABC#1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '工单号ABC#1234' is the release contract; vendor oracle returned '工单号A B C井号一二三四'."
   },
   {
     "id": "itn-zh-asr-underscore-code-parameter",
@@ -947,7 +947,7 @@
     "input": "工单X下划线一二三参数q等于hello下划线world",
     "expected": "工单X_123参数q=hello_world",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '工单X_123参数q=hello_world' is the release contract; vendor oracle returned '工单X下划线一二三参数q等于hello下划线world'."
   },
   {
     "id": "itn-zh-asr-dotted-date-callback-time",
@@ -957,7 +957,7 @@
     "input": "日期二零二六点零六点十五回访时间一四点三十分",
     "expected": "日期2026.06.15回访时间14:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '日期2026.06.15回访时间14:30' is the release contract; vendor oracle returned '日期二零二六点零六点十五回访时间一四点三十分'."
   },
   {
     "id": "itn-zh-asr-colon-code-middle-brackets",
@@ -967,7 +967,7 @@
     "input": "订单编号A B C冒号一二三四客服说左中括号重要右中括号请回电",
     "expected": "订单编号ABC:1234客服说【重要】请回电",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '订单编号ABC:1234客服说【重要】请回电' is the release contract; vendor oracle returned '订单编号A B C冒号一二三四客服说左中括号重要右中括号请回电'."
   },
   {
     "id": "itn-zh-asr-yao-phone-last-four",
@@ -977,7 +977,7 @@
     "input": "手机号幺三八零零幺三八零零零尾号幺二三四",
     "expected": "手机号13800138000尾号1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '手机号13800138000尾号1234' is the release contract; vendor oracle returned '手机号幺三八零零幺三八零零零尾号幺二三四'."
   },
   {
     "id": "itn-zh-asr-agent-extension-room-yao",
@@ -987,7 +987,7 @@
     "input": "工号幺二三四分机幺零七房间幺二零八",
     "expected": "工号1234分机107房间1208",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '工号1234分机107房间1208' is the release contract; vendor oracle returned '工号幺二三四分机幺零七房间幺二零八'."
   },
   {
     "id": "itn-zh-asr-hyphen-phone-yao",
@@ -997,7 +997,7 @@
     "input": "客服电话四零零杠八零零杠幺二三四",
     "expected": "客服电话400-800-1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '客服电话400-800-1234' is the release contract; vendor oracle returned '客服电话四零零杠八零零杠幺二三四'."
   },
   {
     "id": "itn-zh-asr-line-break-command",
@@ -1007,7 +1007,7 @@
     "input": "标题冒号客户信息换行手机号幺三八零零幺三八零零零",
     "expected": "标题：客户信息\n手机号13800138000",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '标题：客户信息 手机号13800138000' is the release contract; vendor oracle returned '标题冒号客户信息换行手机号幺三八零零幺三八零零零'."
   },
   {
     "id": "itn-zh-asr-format-symbols",
@@ -1017,7 +1017,7 @@
     "input": "文件名左书名号测试右书名号空格路径斜杠data斜杠input省略号",
     "expected": "文件名《测试》 路径/data/input……",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '文件名《测试》 路径/data/input……' is the release contract; vendor oracle returned '文件名左书名号测试右书名号空格路径斜杠data斜杠input省略号'."
   },
   {
     "id": "itn-zh-asr-dash-status-note",
@@ -1027,7 +1027,7 @@
     "input": "备注冒号需要复核破折号金额异常",
     "expected": "备注：需要复核—金额异常",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '备注：需要复核—金额异常' is the release contract; vendor oracle returned '备注冒号需要复核破折号金额异常'."
   },
   {
     "id": "itn-zh-asr-at-hash-underscore-equals",
@@ -1037,7 +1037,7 @@
     "input": "账号小明艾特example下划线corp井号vip参数q等号hello",
     "expected": "账号小明@example_corp#vip参数q=hello",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '账号小明@example_corp#vip参数q=hello' is the release contract; vendor oracle returned '账号小明艾特example下划线corp井号vip参数q等号hello'."
   },
   {
     "id": "itn-zh-asr-password-symbols",
@@ -1047,7 +1047,7 @@
     "input": "密码A加号B减号C星号D百分号",
     "expected": "密码A+B-C*D%",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '密码A+B-C*D%' is the release contract; vendor oracle returned '密码A加号B减号C星号D百分号'."
   },
   {
     "id": "itn-zh-asr-check-cross-status",
@@ -1057,7 +1057,7 @@
     "input": "核验通过对勾未通过叉号备注待复核",
     "expected": "核验通过✓未通过×备注待复核",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '核验通过✓未通过×备注待复核' is the release contract; vendor oracle returned '核验通过对勾未通过叉号备注待复核'."
   },
   {
     "id": "itn-zh-asr-tab-blank-line-layout",
@@ -1067,7 +1067,7 @@
     "input": "姓名制表符张三换行备注空行完成",
     "expected": "姓名\t张三\n备注\n\n完成",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '姓名 张三 备注 完成' is the release contract; vendor oracle returned '姓名制表符张三换行备注空行完成'."
   },
   {
     "id": "itn-zh-asr-brace-angle-template",
@@ -1077,7 +1077,7 @@
     "input": "模板左大括号name冒号张三右大括号标签左尖括号vip右尖括号",
     "expected": "模板{name：张三}标签<vip>",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '模板{name：张三}标签<vip>' is the release contract; vendor oracle returned '模板左大括号name冒号张三右大括号标签左尖括号vip右尖括号'."
   },
   {
     "id": "itn-zh-asr-backslash-pipe-tilde",
@@ -1087,7 +1087,7 @@
     "input": "路径C冒号反斜杠Users反斜杠test正则A竖线B波浪号tmp",
     "expected": "路径C:\\Users\\test正则A|B~tmp",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '路径C:\\Users\\test正则A|B~tmp' is the release contract; vendor oracle returned '路径C冒号反斜杠Users反斜杠test正则A竖线B波浪号tmp'."
   },
   {
     "id": "itn-zh-asr-bullet-list",
@@ -1097,7 +1097,7 @@
     "input": "项目符号检查身份证换行项目符号确认手机号",
     "expected": "- 检查身份证\n- 确认手机号",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '- 检查身份证 - 确认手机号' is the release contract; vendor oracle returned '项目符号检查身份证换行项目符号确认手机号'."
   },
   {
     "id": "itn-zh-asr-heading-layout",
@@ -1107,7 +1107,7 @@
     "input": "一级标题会议纪要换行二级标题待办事项换行项目符号确认手机号",
     "expected": "# 会议纪要\n## 待办事项\n- 确认手机号",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '# 会议纪要 ## 待办事项 - 确认手机号' is the release contract; vendor oracle returned '一级标题会议纪要换行二级标题待办事项换行项目符号确认手机号'."
   },
   {
     "id": "itn-zh-asr-numbered-list",
@@ -1117,7 +1117,7 @@
     "input": "编号一确认身份换行编号二确认手机号",
     "expected": "1. 确认身份\n2. 确认手机号",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '1. 确认身份 2. 确认手机号' is the release contract; vendor oracle returned '编号一确认身份换行编号二确认手机号'."
   },
   {
     "id": "itn-zh-asr-bold-code-layout",
@@ -1127,7 +1127,7 @@
     "input": "加粗开始重要客户加粗结束换行代码开始status_code代码结束",
     "expected": "**重要客户**\n`status_code`",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '**重要客户** `status_code`' is the release contract; vendor oracle returned '加粗开始重要客户加粗结束换行代码开始status_code代码结束'."
   },
   {
     "id": "itn-zh-asr-grouped-bank-card",
@@ -1137,7 +1137,7 @@
     "input": "银行卡六二二二空格一二三四空格五六七八空格九零一二",
     "expected": "银行卡6222123456789012",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '银行卡6222123456789012' is the release contract; vendor oracle returned '银行卡六二二二空格一二三四空格五六七八空格九零一二'."
   },
   {
     "id": "itn-zh-asr-decimal-temperature",
@@ -1152,7 +1152,7 @@
       "overwrite_cache": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '体温37.5°C' is the release contract; vendor oracle returned '体温三十七度五'."
   },
   {
     "id": "itn-zh-asr-decimal-length",
@@ -1167,7 +1167,7 @@
       "overwrite_cache": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '身高1.75m' is the release contract; vendor oracle returned '身高一米七五'."
   },
   {
     "id": "itn-zh-asr-decimal-weight",
@@ -1182,7 +1182,7 @@
       "overwrite_cache": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '体重65.5kg' is the release contract; vendor oracle returned '体重六十五公斤五'."
   },
   {
     "id": "itn-zh-asr-negative-decimal-temp",
@@ -1197,7 +1197,7 @@
       "overwrite_cache": false
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '气温-5.3°C' is the release contract; vendor oracle returned '气温零下五度三'."
   },
   {
     "id": "itn-zh-asr-tax-code",
@@ -1207,6 +1207,6 @@
     "input": "统一社会信用代码九一一一零一零五M A零零零一二三四五",
     "expected": "统一社会信用代码91110105MA00012345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/zh/asr-postprocess delta: native expected '统一社会信用代码91110105MA00012345' is the release contract; vendor oracle returned '统一社会信用代码九一一一零一零五M A零零零一二三四五'."
   }
 ]

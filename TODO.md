@@ -8,7 +8,7 @@ vendor-free architecture.
 
 This is a capability coverage plan, not a compatibility-layer plan.
 
-## Current Baseline
+## Baseline and Final State
 
 - Runtime package dependencies are intentionally small: `num2words` and
   `pydantic`.
@@ -18,7 +18,9 @@ This is a capability coverage plan, not a compatibility-layer plan.
 - Current public TN routes: `de`, `en`, `es`, `ru`, `zh`.
 - Current public ITN routes: `de`, `en`, `es`, `fr`, `id`, `ja`, `ko`, `pt`,
   `ru`, `tl`, `vi`, `zh`.
-- Current golden case suite has 550 cases under `data/rule_cases/`.
+- Initial TODO baseline estimated 550 golden cases; C0 inventory confirmed 538
+  actual cases, and the completed replacement gate now covers 705 cases under
+  `data/rule_cases/`.
 - Existing validation tools include `scripts/validate_rules.py`,
   `scripts/fun_text_processing_oracle.py`, and `scripts/cache_maintenance.py`.
 

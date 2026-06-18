@@ -7,7 +7,7 @@
     "input": "ju ni",
     "expected": "12",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/cardinal delta: native expected '12' is the release contract; vendor oracle returned 'juni'."
   },
   {
     "id": "itn-ja-decimal-phrase",
@@ -17,7 +17,7 @@
     "input": "kakaku ju ni ten go",
     "expected": "kakaku 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/decimal delta: native expected 'kakaku 12.5' is the release contract; vendor oracle returned 'kakakujunitengo'."
   },
   {
     "id": "itn-ja-date-phrase",
@@ -27,7 +27,7 @@
     "input": "hiduke ju go roku ni zero ni roku",
     "expected": "hiduke 2026-06-15",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/date delta: native expected 'hiduke 2026-06-15' is the release contract; vendor oracle returned 'hidukejugorokunizeroniroku'."
   },
   {
     "id": "itn-ja-time-phrase",
@@ -37,7 +37,7 @@
     "input": "jikan nana sanju",
     "expected": "jikan 07:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/time delta: native expected 'jikan 07:30' is the release contract; vendor oracle returned 'jikannanasanju'."
   },
   {
     "id": "itn-ja-money-phrase",
@@ -47,7 +47,7 @@
     "input": "en ju ni goju",
     "expected": "¥12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/money delta: native expected '¥12.50' is the release contract; vendor oracle returned 'enjunigoju'."
   },
   {
     "id": "itn-ja-measure-phrase",
@@ -57,7 +57,7 @@
     "input": "ju ni kiroguramu",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'junikiroguramu'."
   },
   {
     "id": "itn-ja-telephone-phrase",
@@ -67,7 +67,7 @@
     "input": "denwa ichi ni san yon",
     "expected": "denwa 1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/telephone delta: native expected 'denwa 1234' is the release contract; vendor oracle returned 'denwaichinisanyon'."
   },
   {
     "id": "itn-ja-email-phrase",
@@ -77,7 +77,7 @@
     "input": "test at example dot jp",
     "expected": "test@example.jp",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/electronic delta: native expected 'test@example.jp' is the release contract; vendor oracle returned 'testatexampledotjp'."
   },
   {
     "id": "itn-ja-fraction-phrase",
@@ -87,7 +87,7 @@
     "input": "ni bun no ichi",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'nibunnoichi'."
   },
   {
     "id": "itn-ja-ordinal-phrase",
@@ -97,7 +97,7 @@
     "input": "dai ichi",
     "expected": "第1",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/ordinal delta: native expected '第1' is the release contract; vendor oracle returned 'daiichi'."
   },
   {
     "id": "itn-ja-name-preserved",
@@ -107,7 +107,7 @@
     "input": "namae yamada taro",
     "expected": "namae yamada taro",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/name delta: native expected 'namae yamada taro' is the release contract; vendor oracle returned 'namaeyamadataro'."
   },
   {
     "id": "itn-ja-whitelist-phrase",
@@ -117,7 +117,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'openai'."
   },
   {
     "id": "itn-ja-standalone-digit-enabled",
@@ -127,7 +127,7 @@
     "input": "ichi",
     "expected": "1",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/option delta: native expected '1' is the release contract; vendor oracle returned 'ichi'."
   },
   {
     "id": "itn-ja-standalone-number-disabled",
@@ -159,7 +159,7 @@
     "input": "kono bun wa sono mama",
     "expected": "kono bun wa sono mama",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because ordinary text preservation is explicitly owned by the native route."
+    "oracle_note": "Reviewed itn/ja/negative delta: native expected 'kono bun wa sono mama' is the release contract; vendor oracle returned 'konobunwasonomama'."
   },
   {
     "id": "itn-ja-cardinal-twenty-one",
@@ -169,7 +169,7 @@
     "input": "code niju ichi",
     "expected": "code 21",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/cardinal delta: native expected 'code 21' is the release contract; vendor oracle returned 'codenijuichi'."
   },
   {
     "id": "itn-ja-decimal-point-variant",
@@ -179,7 +179,7 @@
     "input": "kakaku ju ni ten go",
     "expected": "kakaku 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/decimal delta: native expected 'kakaku 12.5' is the release contract; vendor oracle returned 'kakakujunitengo'."
   },
   {
     "id": "itn-ja-date-digit-year",
@@ -189,7 +189,7 @@
     "input": "hiduke go roku ni zero ni roku",
     "expected": "hiduke 2026-06-05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/date delta: native expected 'hiduke 2026-06-05' is the release contract; vendor oracle returned 'hidukegorokunizeroniroku'."
   },
   {
     "id": "itn-ja-time-minute-digit",
@@ -199,7 +199,7 @@
     "input": "jikan nana go",
     "expected": "jikan 07:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/time delta: native expected 'jikan 07:05' is the release contract; vendor oracle returned 'jikannanago'."
   },
   {
     "id": "itn-ja-money-yen-cents",
@@ -209,7 +209,7 @@
     "input": "yen ju ni goju",
     "expected": "¥12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/money delta: native expected '¥12.50' is the release contract; vendor oracle returned 'yenjunigoju'."
   },
   {
     "id": "itn-ja-measure-kilogram-variant",
@@ -219,7 +219,7 @@
     "input": "ju ni kiroguramu",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'junikiroguramu'."
   },
   {
     "id": "itn-ja-telephone-digit-sequence",
@@ -229,7 +229,7 @@
     "input": "denwa ichi ni san yon go",
     "expected": "denwa 12345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/telephone delta: native expected 'denwa 12345' is the release contract; vendor oracle returned 'denwaichinisanyongo'."
   },
   {
     "id": "itn-ja-email-subdomain",
@@ -239,7 +239,7 @@
     "input": "first last at example dot jp",
     "expected": "firstlast@example.jp",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/electronic delta: native expected 'firstlast@example.jp' is the release contract; vendor oracle returned 'firstlastatexampledotjp'."
   },
   {
     "id": "itn-ja-fraction-half-variant",
@@ -249,7 +249,7 @@
     "input": "ni bun no ichi",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'nibunnoichi'."
   },
   {
     "id": "itn-ja-ordinal-second",
@@ -259,7 +259,7 @@
     "input": "dai ni",
     "expected": "第2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/ja/ordinal delta: native expected '第2' is the release contract; vendor oracle returned 'daini'."
   },
   {
     "id": "itn-ja-whitelist-openai-variant",
@@ -269,7 +269,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'openai'."
   },
   {
     "id": "itn-ja-negative-punctuation",
@@ -279,7 +279,7 @@
     "input": "kono bun wa sono mama",
     "expected": "kono bun wa sono mama",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because ordinary text preservation is explicitly owned by the native route."
+    "oracle_note": "Reviewed itn/ja/negative delta: native expected 'kono bun wa sono mama' is the release contract; vendor oracle returned 'konobunwasonomama'."
   },
   {
     "id": "itn-ja-name-preserved-variant",
@@ -289,6 +289,6 @@
     "input": "tanaka sama",
     "expected": "tanaka sama",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/ja/name delta: native expected 'tanaka sama' is the release contract; vendor oracle returned 'tanakasama'."
   }
 ]

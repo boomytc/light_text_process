@@ -7,7 +7,7 @@
     "input": "hoa don muoi hai",
     "expected": "hoa don 12",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/cardinal delta: native expected 'hoa don 12' is the release contract; vendor oracle returned 'hoa don muoi hai'."
   },
   {
     "id": "itn-vi-decimal-phrase",
@@ -17,7 +17,7 @@
     "input": "gia muoi hai phay nam",
     "expected": "gia 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/decimal delta: native expected 'gia 12.5' is the release contract; vendor oracle returned 'gia muoi hai phay nam'."
   },
   {
     "id": "itn-vi-date-phrase",
@@ -27,7 +27,7 @@
     "input": "ngay muoi lam sau hai khong hai sau",
     "expected": "ngay 2026-06-15",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/date delta: native expected 'ngay 2026-06-15' is the release contract; vendor oracle returned 'ngay muoi lam sau hai khong hai sau'."
   },
   {
     "id": "itn-vi-time-phrase",
@@ -37,7 +37,7 @@
     "input": "gio bay ba muoi",
     "expected": "gio 07:30",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/time delta: native expected 'gio 07:30' is the release contract; vendor oracle returned 'gio bay ba muoi'."
   },
   {
     "id": "itn-vi-money-phrase",
@@ -47,7 +47,7 @@
     "input": "dong muoi hai nam muoi",
     "expected": "₫12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/money delta: native expected '₫12.50' is the release contract; vendor oracle returned 'dong muoi hai nam muoi'."
   },
   {
     "id": "itn-vi-measure-phrase",
@@ -57,7 +57,7 @@
     "input": "muoi hai kilogam",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'muoi hai kilogam'."
   },
   {
     "id": "itn-vi-telephone-phrase",
@@ -67,7 +67,7 @@
     "input": "dien thoai mot hai ba bon",
     "expected": "dien thoai 1234",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/telephone delta: native expected 'dien thoai 1234' is the release contract; vendor oracle returned 'dien thoai mot 23 bon'."
   },
   {
     "id": "itn-vi-email-phrase",
@@ -77,7 +77,7 @@
     "input": "test at example dot vn",
     "expected": "test@example.vn",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/electronic delta: native expected 'test@example.vn' is the release contract; vendor oracle returned 'test at example dot vn'."
   },
   {
     "id": "itn-vi-fraction-phrase",
@@ -87,7 +87,7 @@
     "input": "mot phan hai",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'mot phan hai'."
   },
   {
     "id": "itn-vi-ordinal-phrase",
@@ -97,7 +97,7 @@
     "input": "thu nhat",
     "expected": "1.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/ordinal delta: native expected '1.' is the release contract; vendor oracle returned 'thu nhat'."
   },
   {
     "id": "itn-vi-whitelist-phrase",
@@ -107,7 +107,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-vi-negative-ordinary-text",
@@ -125,7 +125,7 @@
     "input": "ma hai muoi mot",
     "expected": "ma 21",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/cardinal delta: native expected 'ma 21' is the release contract; vendor oracle returned 'ma hai muoi mot'."
   },
   {
     "id": "itn-vi-decimal-point-variant",
@@ -135,7 +135,7 @@
     "input": "gia muoi hai phay nam",
     "expected": "gia 12.5",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/decimal delta: native expected 'gia 12.5' is the release contract; vendor oracle returned 'gia muoi hai phay nam'."
   },
   {
     "id": "itn-vi-date-digit-year",
@@ -145,7 +145,7 @@
     "input": "ngay nam sau hai khong hai sau",
     "expected": "ngay 2026-06-05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/date delta: native expected 'ngay 2026-06-05' is the release contract; vendor oracle returned 'ngay nam sau hai khong hai sau'."
   },
   {
     "id": "itn-vi-time-minute-digit",
@@ -155,7 +155,7 @@
     "input": "gio bay nam",
     "expected": "gio 07:05",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/time delta: native expected 'gio 07:05' is the release contract; vendor oracle returned 'gio bay nam'."
   },
   {
     "id": "itn-vi-money-dong-cents",
@@ -165,7 +165,7 @@
     "input": "dong muoi hai nam muoi",
     "expected": "₫12.50",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/money delta: native expected '₫12.50' is the release contract; vendor oracle returned 'dong muoi hai nam muoi'."
   },
   {
     "id": "itn-vi-measure-kilogam-variant",
@@ -175,7 +175,7 @@
     "input": "muoi hai kilogam",
     "expected": "12 kg",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/measure delta: native expected '12 kg' is the release contract; vendor oracle returned 'muoi hai kilogam'."
   },
   {
     "id": "itn-vi-telephone-digit-sequence",
@@ -185,7 +185,7 @@
     "input": "dien thoai mot hai ba bon nam",
     "expected": "dien thoai 12345",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/telephone delta: native expected 'dien thoai 12345' is the release contract; vendor oracle returned 'dien thoai mot 23 bon nam'."
   },
   {
     "id": "itn-vi-email-subdomain",
@@ -195,7 +195,7 @@
     "input": "first last at example dot vn",
     "expected": "firstlast@example.vn",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/electronic delta: native expected 'firstlast@example.vn' is the release contract; vendor oracle returned 'first last at example dot vn'."
   },
   {
     "id": "itn-vi-fraction-half-variant",
@@ -205,7 +205,7 @@
     "input": "mot phan hai",
     "expected": "1/2",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/fraction delta: native expected '1/2' is the release contract; vendor oracle returned 'mot phan hai'."
   },
   {
     "id": "itn-vi-ordinal-second",
@@ -215,7 +215,7 @@
     "input": "thu hai",
     "expected": "2.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+    "oracle_note": "Reviewed itn/vi/ordinal delta: native expected '2.' is the release contract; vendor oracle returned 'thu hai'."
   },
   {
     "id": "itn-vi-whitelist-openai-variant",
@@ -225,7 +225,7 @@
     "input": "open ai",
     "expected": "OpenAI",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/whitelist delta: native expected 'OpenAI' is the release contract; vendor oracle returned 'open ai'."
   },
   {
     "id": "itn-vi-negative-punctuation",
@@ -243,6 +243,6 @@
     "input": "open ai mot hai ba",
     "expected": "OpenAI 123",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+    "oracle_note": "Reviewed itn/vi/asr-postprocess delta: native expected 'OpenAI 123' is the release contract; vendor oracle returned 'open ai mot 23'."
   }
 ]

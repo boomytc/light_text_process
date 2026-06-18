@@ -7,7 +7,7 @@
     "input": "ID 123",
     "expected": "ID сто двадцать три",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/cardinal delta: native expected 'ID сто двадцать три' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-decimal-number",
@@ -17,7 +17,7 @@
     "input": "Цена 12.5",
     "expected": "Цена двенадцать целых пять десятых",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/decimal delta: native expected 'Цена двенадцать целых пять десятых' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-date-iso",
@@ -27,7 +27,7 @@
     "input": "Дата 2026-06-15",
     "expected": "Дата две тысячи двадцать шесть год шесть месяц пятнадцать день",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/date delta: native expected 'Дата две тысячи двадцать шесть год шесть месяц пятнадцать день' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-time-clock",
@@ -37,7 +37,7 @@
     "input": "Время 07:30",
     "expected": "Время семь часов тридцать минут",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/time delta: native expected 'Время семь часов тридцать минут' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-money-euro",
@@ -47,7 +47,7 @@
     "input": "Стоимость €12.50",
     "expected": "Стоимость двенадцать евро пятьдесят центов",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/money delta: native expected 'Стоимость двенадцать евро пятьдесят центов' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-measure-kg",
@@ -57,7 +57,7 @@
     "input": "Вес 12 kg",
     "expected": "Вес двенадцать килограмм",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/measure delta: native expected 'Вес двенадцать килограмм' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-telephone-number",
@@ -67,7 +67,7 @@
     "input": "телефон +7 495 123456",
     "expected": "телефон плюс семь четыре девять пять один два три четыре пять шесть",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/telephone delta: native expected 'телефон плюс семь четыре девять пять один два три четыре пять шесть' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-email",
@@ -77,7 +77,7 @@
     "input": "Почта test@example.ru",
     "expected": "Почта test at example dot ru",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/electronic delta: native expected 'Почта test at example dot ru' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-fraction-simple",
@@ -87,7 +87,7 @@
     "input": "Доля 1/2",
     "expected": "Доля один из два",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/fraction delta: native expected 'Доля один из два' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-ordinal-simple",
@@ -97,7 +97,7 @@
     "input": "Ранг 1.",
     "expected": "Ранг первый",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/ordinal delta: native expected 'Ранг первый' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-whitelist-product",
@@ -110,7 +110,7 @@
       "whitelist_path": "data/whitelists/product_terms.tsv"
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/whitelist delta: native expected 'Продукт OpenAI' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-negative-ordinary-text",
@@ -120,7 +120,7 @@
     "input": "Этот текст без изменений.",
     "expected": "Этот текст без изменений.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/negative delta: native expected 'Этот текст без изменений.' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-cardinal-negative-large",
@@ -130,7 +130,7 @@
     "input": "ID -42 и 1000",
     "expected": "ID минус сорок два и одна тысяча",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/cardinal delta: native expected 'ID минус сорок два и одна тысяча' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-decimal-comma",
@@ -140,7 +140,7 @@
     "input": "Цена 3,75",
     "expected": "Цена три целых семьдесят пять сотых",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/decimal delta: native expected 'Цена три целых семьдесят пять сотых' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-date-single-digit",
@@ -150,7 +150,7 @@
     "input": "Дата 2026-6-5",
     "expected": "Дата две тысячи двадцать шесть год шесть месяц пять день",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/date delta: native expected 'Дата две тысячи двадцать шесть год шесть месяц пять день' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-time-leading-minute",
@@ -160,7 +160,7 @@
     "input": "Время 7:05",
     "expected": "Время семь часов пять минут",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/time delta: native expected 'Время семь часов пять минут' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-money-dollar-and-euro",
@@ -170,7 +170,7 @@
     "input": "Стоимость $3.05 и €12",
     "expected": "Стоимость три долларов пять центов и двенадцать евро",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/money delta: native expected 'Стоимость три долларов пять центов и двенадцать евро' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-measure-distance-length",
@@ -180,7 +180,7 @@
     "input": "Длина 3.5 km и 2 m",
     "expected": "Длина три целых пять десятых километров и два метров",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/measure delta: native expected 'Длина три целых пять десятых километров и два метров' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-telephone-hyphenated",
@@ -190,7 +190,7 @@
     "input": "Телефон +7-495-12345",
     "expected": "Телефон плюс семь четыре девять пять один два три четыре пять",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/telephone delta: native expected 'Телефон плюс семь четыре девять пять один два три четыре пять' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-email-subdomain",
@@ -200,7 +200,7 @@
     "input": "Почта first.last-test@example.ru",
     "expected": "Почта first dot last dash test at example dot ru",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/electronic delta: native expected 'Почта first dot last dash test at example dot ru' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-fraction-three-fourths",
@@ -210,7 +210,7 @@
     "input": "Доля 3/4",
     "expected": "Доля три из четыре",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/fraction delta: native expected 'Доля три из четыре' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-ordinal-second",
@@ -220,7 +220,7 @@
     "input": "Ранг 2.",
     "expected": "Ранг второй",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/ordinal delta: native expected 'Ранг второй' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-whitelist-lighttts",
@@ -233,7 +233,7 @@
       "whitelist_path": "data/whitelists/product_terms.tsv"
     },
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/whitelist delta: native expected 'Продукт LightTTS' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-negative-punctuation",
@@ -243,7 +243,7 @@
     "input": "Эта фраза остается обычной.",
     "expected": "Эта фраза остается обычной.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/negative delta: native expected 'Эта фраза остается обычной.' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-boundary-parentheses",
@@ -253,7 +253,7 @@
     "input": "Значение (12).",
     "expected": "Значение (двенадцать).",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/punctuation delta: native expected 'Значение (двенадцать).' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   },
   {
     "id": "tn-ru-product-version",
@@ -263,6 +263,6 @@
     "input": "Модель X100 v2.0 готова.",
     "expected": "Модель X100 v2.0 готова.",
     "oracle_status": "accepted-improvement",
-    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+    "oracle_note": "Reviewed tn/ru/mixed delta: native expected 'Модель X100 v2.0 готова.' is the release contract; vendor oracle hit 'Ru TN only supports non-deterministic cases and produces multiple normalizati...' within the 10s gate."
   }
 ]
