@@ -1,11 +1,22 @@
-# Light Text Process Vendor Replacement TODO
+# Full fun_text_processing Coverage TODO
 
-This file is the root progress index for the full replacement direction:
-`light_text_process` has replaced `third_party/fun_text_processing` and no
-longer depends on the third-party grammar tree.
+This is the active TODO index for making `light_text_process` fully cover the
+behavioral surface previously provided by `fun_text_processing`.
 
-The current state is vendor-free: public TN/ITN routes are served by
-first-party native code, and num2words remains dependency-backed.
+The target is not just matching public language names. Completion requires
+route-level and category-level coverage for the former TN and ITN grammars, plus
+the existing first-party zh/en improvements.
+
+## Active Directory
+
+All active TODO files live under:
+
+```text
+todo/full_fun_text_processing_coverage/
+```
+
+Completed vendor-removal TODO files have been removed from the active TODO
+surface.
 
 ## Progress Legend
 
@@ -16,67 +27,53 @@ first-party native code, and num2words remains dependency-backed.
 
 ## Current Phase
 
-Stage A is complete: the vendor backend has been restored as the baseline, the
-public capability surface reflects vendor language coverage, and zh/en
-enhancement hooks live at the runtime adapter boundary.
-
-Current work is complete: the vendor-free release state is validated.
+Current work is P0/P1: establish a measurable coverage baseline and a
+non-runtime oracle for `fun_text_processing` behavior. No route should be called
+fully covered until it has category coverage, regression cases, and comparison
+evidence.
 
 ## Phase Index
 
-| Status | Stage | File | Purpose |
+| Status | Phase | File | Purpose |
 | --- | --- | --- | --- |
-| [x] | A0 | [TODO_00_VENDOR_BASELINE.md](todo/TODO_00_VENDOR_BASELINE.md) | Restore vendor as the temporary ability baseline. |
-| [x] | A1 | [TODO_01_PUBLIC_CAPABILITIES.md](todo/TODO_01_PUBLIC_CAPABILITIES.md) | Expose current vendor TN/ITN coverage and visible unsupported failures. |
-| [x] | A2 | [TODO_02_ZH_EN_ENHANCEMENT.md](todo/TODO_02_ZH_EN_ENHANCEMENT.md) | Add zh/en first-party enhancement hooks without dropping vendor routes. |
-| [x] | B0 | [TODO_03_REPLACEMENT_INVENTORY.md](todo/TODO_03_REPLACEMENT_INVENTORY.md) | Build a route-by-route vendor capability and replacement matrix. |
-| [x] | B1 | [TODO_04_ZH_EN_NATIVE_PARITY.md](todo/TODO_04_ZH_EN_NATIVE_PARITY.md) | Harden zh/en native parity while those routes run first-party by default. |
-| [x] | B2 | [TODO_05_LANGUAGE_SUPPORT_DECISIONS.md](todo/TODO_05_LANGUAGE_SUPPORT_DECISIONS.md) | Define ownership and migration order for every non-zh/en vendor route. |
-| [x] | B3 | [TODO_06_ROUTE_MIGRATION.md](todo/TODO_06_ROUTE_MIGRATION.md) | Migrate approved routes one language/operation pair at a time. |
-| [x] | C0 | [TODO_07_VENDOR_REMOVAL.md](todo/TODO_07_VENDOR_REMOVAL.md) | Remove `third_party/fun_text_processing` after all gates pass. |
-| [x] | C1 | [TODO_08_RELEASE_VALIDATION.md](todo/TODO_08_RELEASE_VALIDATION.md) | Validate the vendor-free release state. |
+| [~] | P0 | [TODO_00_COVERAGE_BASELINE.md](todo/full_fun_text_processing_coverage/TODO_00_COVERAGE_BASELINE.md) | Define the full route/category coverage target. |
+| [ ] | P1 | [TODO_01_ORACLE_AND_DIFF.md](todo/full_fun_text_processing_coverage/TODO_01_ORACLE_AND_DIFF.md) | Build a safe comparison oracle for former vendor behavior. |
+| [ ] | P2 | [TODO_02_ROUTE_CATEGORY_PARITY.md](todo/full_fun_text_processing_coverage/TODO_02_ROUTE_CATEGORY_PARITY.md) | Close parity gaps route by route and category by category. |
+| [ ] | P3 | [TODO_03_ZH_EN_SUPERSET.md](todo/full_fun_text_processing_coverage/TODO_03_ZH_EN_SUPERSET.md) | Preserve and expand the stronger zh/en TN/ITN behavior. |
+| [ ] | P4 | [TODO_04_MULTILINGUAL_PARITY.md](todo/full_fun_text_processing_coverage/TODO_04_MULTILINGUAL_PARITY.md) | Bring non-zh/en routes up to the former vendor surface. |
+| [ ] | P5 | [TODO_05_RELEASE_GATES.md](todo/full_fun_text_processing_coverage/TODO_05_RELEASE_GATES.md) | Prove full coverage before claiming completion. |
 
-## Cross-Stage Rules
+## Coverage Scope
 
-- Keep TN, ITN, and num2words as separate task surfaces.
-- Keep first-party rules inside `light_text_process/rules/`.
-- Do not reintroduce direct `fun_text_processing` imports.
-- Do not route non-zh/en vendor languages through zh/en helper logic.
-- Do not expose a route as first-party replacement until golden cases,
-  differential behavior, and failure modes are covered.
-- All current vendor TN/ITN routes remain public until their first-party
-  replacements are ready.
-- Do not treat removal of a vendor-only route as completion of replacement work.
-- Keep runtime path resolution project-local. Do not introduce absolute model,
-  data, cache, or whitelist paths.
-- Do not add Web/API/UI code to this repository.
-- Missing dependencies, unsupported languages, unsupported modes, malformed
-  input, and invalid project-local paths should fail visibly.
+The coverage target includes these former vendor public routes:
 
-## Validation Gates
+- TN: `de`, `en`, `es`, `ru`, `zh`
+- ITN: `de`, `en`, `es`, `fr`, `id`, `ja`, `ko`, `pt`, `ru`, `tl`, `vi`, `zh`
 
-Run these in the vendor-free state:
+The category target includes the applicable former grammar categories:
+cardinal, ordinal, decimal, date, time, money, measure, telephone, electronic,
+fraction, range, roman, whitelist, word, punctuation, and language-specific
+character or name handling.
 
-```bash
-.venv/bin/python -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"
-.venv/bin/python -m compileall -q light_text_process scripts tests
-.venv/bin/python -m unittest discover -s tests
-.venv/bin/python scripts/cache_maintenance.py status
-.venv/bin/python scripts/validate_rules.py
-.venv/bin/python -c "from light_text_process import TextProcessor; print(TextProcessor().number_to_words('123', 'en').output)"
-```
+## Non-Negotiable Rules
 
-Vendor-removal search checks are listed in `todo/TODO_07_VENDOR_REMOVAL.md`.
+- Keep runtime code first-party and project-local.
+- Do not reintroduce `fun_text_processing` as a runtime dependency or import.
+- Do not use a language route name as proof of capability coverage.
+- Do not mark a route complete until its former vendor categories are covered
+  or explicitly documented as intentional first-party product differences.
+- Keep TN, ITN, and num2words separate.
+- Preserve current zh/en improvements while closing former vendor parity gaps.
+- Keep unsupported language, unsupported mode, malformed input, and invalid
+  project-local path failures visible.
 
-## Completion Policy
+## Completion Definition
 
-A phase is complete only when:
+Full coverage is complete only when:
 
-- Its detailed TODO file has all required checklist items checked.
-- Public API behavior remains compatible; route removal is not a replacement
-  strategy and requires a separate explicit scope decision.
-- Golden rule cases pass for every affected language and operation.
-- Differential results against the vendor baseline are either matching or
-  documented as intentional product improvements.
-- Generated caches and one-off validation artifacts are removed or kept under
-  ignored `runtime/`.
+- Every former public TN/ITN route has category-level first-party coverage.
+- Golden cases cover each route/category pair with positive and negative cases.
+- Differential reports compare current output against the former vendor oracle.
+- Intentional zh/en product improvements are documented as accepted deltas.
+- Non-zh/en routes cover more than simple digit-sequence smoke cases.
+- Validation passes with no runtime dependency on `fun_text_processing`.
