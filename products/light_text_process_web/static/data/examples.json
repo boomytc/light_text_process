@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "id": "tn-zh-date",
+    "operation": "tn",
+    "language": "zh",
+    "title": "中文日期读法",
+    "scenario": "书面文本转读法",
+    "input": "今天是 2026 年 6 月 15 日。",
+    "expected": "今天是 二零二六 年 六 月 一五 日。",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "whitelist_path": null,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false,
+      "batch_size": 1,
+      "n_jobs": 1
+    }
+  },
+  {
+    "id": "tn-en-money-date",
+    "operation": "tn",
+    "language": "en",
+    "title": "英文金额与日期读法",
+    "scenario": "英文金额和日期",
+    "input": "I paid $12.50 on 06/15/2026.",
+    "expected": "I paid twelve dollars fifty cents on june fifteenth twenty twenty six.",
+    "options": {
+      "input_case": "cased",
+      "deterministic": true,
+      "whitelist_path": null,
+      "post_process": true,
+      "punct_pre_process": false,
+      "punct_post_process": false,
+      "batch_size": 1,
+      "n_jobs": 1
+    }
+  },
+  {
+    "id": "itn-zh-date-money",
+    "operation": "itn",
+    "language": "zh",
+    "title": "中文日期金额还原",
+    "scenario": "读法文本转书面格式",
+    "input": "二零二六年六月十五日 我有一百二十三元",
+    "expected": "2026年06月15日 我有123元",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true
+    }
+  },
+  {
+    "id": "itn-en-money-date",
+    "operation": "itn",
+    "language": "en",
+    "title": "英文金额日期还原",
+    "scenario": "英文读法转书面文本",
+    "input": "I paid twelve dollars and fifty cents on june fifteenth twenty twenty six",
+    "expected": "I paid $12.50 on 2026-06-15",
+    "options": {
+      "enable_standalone_number": true,
+      "enable_0_to_9": true
+    }
+  },
+  {
+    "id": "num2words-en-cardinal",
+    "operation": "num2words",
+    "language": "en",
+    "title": "英文基数词",
+    "scenario": "数字读法生成",
+    "input": "12345",
+    "expected": "twelve thousand, three hundred and forty-five",
+    "options": {
+      "mode": "cardinal",
+      "currency": null
+    }
+  },
+  {
+    "id": "num2words-fr-cardinal",
+    "operation": "num2words",
+    "language": "fr",
+    "title": "法语基数词",
+    "scenario": "多语言数字读法",
+    "input": "1234",
+    "expected": "mille deux cent trente-quatre",
+    "options": {
+      "mode": "cardinal",
+      "currency": null
+    }
+  }
+]

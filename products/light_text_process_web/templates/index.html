@@ -9,19 +9,230 @@
   <script type="module" src="/static/js/app.js?v={{ asset_version }}"></script>
 </head>
 <body>
+  <script>
+    window.__LIGHT_TEXT_PROCESSING_BOOT__ = {
+      capabilities: {{ capabilities | tojson }},
+      assetVersion: {{ asset_version | tojson }}
+    };
+  </script>
+
   <main class="app-shell">
     <header class="topbar">
-      <div>
+      <div class="topbar-title">
         <p class="eyebrow">Text Processing Product</p>
         <h1>Light Text Process</h1>
         <p class="topbar-subtitle">文本转读法、读法转文本和数字转外语词</p>
       </div>
-      <span id="status-chip" class="status-chip">就绪</span>
+      <div class="topbar-actions">
+        <nav class="view-tabs" role="tablist" aria-label="页面">
+          <button id="view-process-tab" class="view-tab active" type="button" data-view="process" role="tab" aria-selected="true" aria-controls="process-view">处理</button>
+          <button id="view-examples-tab" class="view-tab" type="button" data-view="examples" role="tab" aria-selected="false" aria-controls="examples-view">示例</button>
+          <button id="view-api-tab" class="view-tab" type="button" data-view="api" role="tab" aria-selected="false" aria-controls="api-view">API</button>
+        </nav>
+        <span id="status-chip" class="status-chip">就绪</span>
+      </div>
     </header>
-    <section class="panel">
-      <h2>产品壳已创建</h2>
-      <p class="muted">API 和前端交互将在后续阶段接入。</p>
+
+    <section class="workspace">
+      <div id="process-view" class="view-panel" role="tabpanel" aria-labelledby="view-process-tab">
+        <section class="panel params-panel">
+          <div class="panel-head">
+            <h2>任务与参数</h2>
+          </div>
+          <div class="settings-grid">
+            <label class="field">
+              <span>任务类型</span>
+              <select id="operation-select" class="control">
+                <option value="tn">文本转读法 (TN)</option>
+                <option value="itn">读法转文本 (ITN)</option>
+                <option value="num2words">数字转外语词 (num2words)</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>语言</span>
+              <select id="language-select" class="control"></select>
+            </label>
+            <p id="operation-help" class="muted compact-copy">选择要执行的文本处理方向。</p>
+          </div>
+
+          <details id="advanced-options" class="advanced-options">
+            <summary>
+              <span>高级参数</span>
+              <small>按任务显示可用选项</small>
+            </summary>
+            <div id="tn-options" class="option-panel">
+              <label class="field">
+                <span>输入大小写</span>
+                <select id="input-case-select" class="control">
+                  <option value="cased">保留原大小写</option>
+                  <option value="lower_cased">按小写处理</option>
+                </select>
+              </label>
+              <label class="checkbox-line"><input id="tn-deterministic" type="checkbox" checked> 稳定输出</label>
+              <label class="checkbox-line"><input id="tn-post-process" type="checkbox" checked> 标准后处理</label>
+              <label class="checkbox-line"><input id="tn-punct-pre" type="checkbox"> 输入标点预处理</label>
+              <label class="checkbox-line"><input id="tn-punct-post" type="checkbox"> 输出标点恢复</label>
+              <label class="field">
+                <span>每批条数</span>
+                <input id="tn-batch-size" class="control" type="number" min="1" max="100" step="1" value="1" inputmode="numeric">
+              </label>
+              <label class="field">
+                <span>并发任务数</span>
+                <input id="tn-n-jobs" class="control" type="number" min="1" max="8" step="1" value="1" inputmode="numeric">
+              </label>
+              <label class="field field-wide">
+                <span>自定义白名单文件</span>
+                <input id="tn-whitelist" class="control" type="text" placeholder="data/whitelists/product_terms.tsv">
+              </label>
+            </div>
+
+            <div id="itn-options" class="option-panel hidden">
+              <label id="itn-standalone-number-field" class="checkbox-line"><input id="itn-standalone-number" type="checkbox" checked> 处理独立数字</label>
+              <label id="itn-zero-to-nine-field" class="checkbox-line"><input id="itn-zero-to-nine" type="checkbox" checked> 处理 0 到 9</label>
+            </div>
+
+            <div id="num2words-options" class="option-panel hidden">
+              <label class="field">
+                <span>转换模式</span>
+                <select id="num2words-mode" class="control"></select>
+              </label>
+              <label id="currency-field" class="field hidden">
+                <span>货币</span>
+                <select id="num2words-currency" class="control"></select>
+              </label>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel tool-panel">
+          <div class="panel-head">
+            <h2 id="process-tool-title">文本处理</h2>
+            <div class="button-row">
+              <button id="clear-btn" class="btn btn-secondary" type="button">清空</button>
+              <button id="sample-btn" class="btn btn-secondary" type="button">示例</button>
+              <button id="run-btn" class="btn btn-primary" type="button">执行</button>
+            </div>
+          </div>
+          <div class="process-grid">
+            <label class="text-box">
+              <span id="input-label">输入</span>
+              <small id="input-hint" class="field-hint">每行一条；单条直接输入一行。</small>
+              <textarea id="process-input" spellcheck="false"></textarea>
+            </label>
+            <label class="text-box">
+              <span>输出</span>
+              <small class="field-hint">按输入行顺序显示结果。</small>
+              <textarea id="process-output" readonly spellcheck="false"></textarea>
+            </label>
+          </div>
+          <div class="result-bar">
+            <div id="process-meta" class="meta-line" aria-live="polite">等待处理</div>
+            <div class="button-row">
+              <button id="copy-output-btn" class="btn btn-secondary" type="button" disabled>复制输出</button>
+              <button id="copy-tsv-btn" class="btn btn-secondary" type="button" disabled>复制 TSV</button>
+            </div>
+          </div>
+          <details id="result-detail" class="result-detail hidden">
+            <summary>
+              <span>处理明细</span>
+              <small id="result-summary">暂无结果</small>
+            </summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>行</th>
+                    <th>输入</th>
+                    <th>输出</th>
+                    <th>错误</th>
+                  </tr>
+                </thead>
+                <tbody id="result-table">
+                  <tr><td colspan="4" class="empty-cell">暂无结果</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+      </div>
+
+      <div id="examples-view" class="view-panel hidden" role="tabpanel" aria-labelledby="view-examples-tab">
+        <section class="panel examples-panel">
+          <div class="panel-head">
+            <h2>示例与效果</h2>
+            <div class="example-filter" role="group" aria-label="示例类型">
+              <button class="filter-btn active" type="button" data-example-filter="all" aria-pressed="true">全部</button>
+              <button class="filter-btn" type="button" data-example-filter="tn" aria-pressed="false">TN</button>
+              <button class="filter-btn" type="button" data-example-filter="itn" aria-pressed="false">ITN</button>
+              <button class="filter-btn" type="button" data-example-filter="num2words" aria-pressed="false">num2words</button>
+            </div>
+          </div>
+          <div id="example-list" class="example-list" aria-live="polite"></div>
+        </section>
+
+        <section id="capability-panel" class="panel capability-panel">
+          {% include "partials/capabilities.html" %}
+        </section>
+      </div>
+
+      <div id="api-view" class="view-panel hidden" role="tabpanel" aria-labelledby="view-api-tab">
+        <section class="panel api-panel">
+          <div class="panel-head">
+            <h2>API 调用</h2>
+            <div class="button-row">
+              <button id="api-sample-btn" class="btn btn-secondary" type="button">生成示例</button>
+              <button id="api-import-btn" class="btn btn-secondary" type="button">从处理导入</button>
+              <button id="api-copy-request-btn" class="btn btn-secondary" type="button">复制请求</button>
+              <button id="api-copy-curl-btn" class="btn btn-secondary" type="button">复制 curl</button>
+              <button id="api-run-btn" class="btn btn-primary" type="button">执行调用</button>
+            </div>
+          </div>
+
+          <div class="api-config-row">
+            <label class="field">
+              <span>调用接口</span>
+              <select id="api-operation-select" class="control">
+                <option value="tn">POST /api/v1/tn</option>
+                <option value="itn">POST /api/v1/itn</option>
+                <option value="num2words">POST /api/v1/num2words</option>
+                <option value="batch">POST /api/v1/batch</option>
+                <option value="capabilities">GET /api/v1/capabilities</option>
+              </select>
+            </label>
+            <div class="api-endpoint">
+              <span>接口地址</span>
+              <code id="api-endpoint-text">POST /api/v1/tn</code>
+            </div>
+          </div>
+
+          <div class="api-grid">
+            <section class="api-section">
+              <div class="api-section-head">
+                <h3>请求 JSON</h3>
+              </div>
+              <textarea id="api-request-json" class="api-code api-request-editor" spellcheck="false"></textarea>
+            </section>
+            <section class="api-section">
+              <div class="api-section-head">
+                <h3>curl</h3>
+              </div>
+              <pre id="api-curl-command" class="api-code" aria-live="polite"></pre>
+            </section>
+          </div>
+
+          <section class="api-section api-response-section">
+            <div class="api-section-head">
+              <h3>响应 JSON</h3>
+              <button id="api-clear-response-btn" class="btn btn-secondary" type="button">清空响应</button>
+            </div>
+            <pre id="api-response-json" class="api-code api-response-code" aria-live="polite">等待执行</pre>
+            <div id="api-meta" class="meta-line" aria-live="polite">未发送请求</div>
+          </section>
+        </section>
+      </div>
     </section>
   </main>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 </body>
 </html>
