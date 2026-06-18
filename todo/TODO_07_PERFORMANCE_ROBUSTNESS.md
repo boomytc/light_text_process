@@ -7,17 +7,17 @@ bringing back vendor grammar caches.
 
 ## Tasks
 
-- [ ] Add a lightweight benchmark script or documented command for route-level
+- [x] Add a lightweight benchmark script or documented command for route-level
   batch performance.
-- [ ] Measure high-priority `zh` and `en` TN/ITN routes on representative batch
+- [x] Measure high-priority `zh` and `en` TN/ITN routes on representative batch
   sizes.
-- [ ] Measure multilingual routes after C4 and C5 coverage work.
-- [ ] Add long-input tests for routes with complex regex processing.
-- [ ] Add malformed-input and mixed-script tests for public routes.
-- [ ] Check that ordinary-text negative cases remain fast and unchanged.
-- [ ] Review regex patterns for accidental catastrophic backtracking.
-- [ ] Confirm service batch fallback does not hide system-level failures.
-- [ ] Record acceptable performance thresholds in docs only after measurement.
+- [x] Measure multilingual routes after C4 and C5 coverage work.
+- [x] Add long-input tests for routes with complex regex processing.
+- [x] Add malformed-input and mixed-script tests for public routes.
+- [x] Check that ordinary-text negative cases remain fast and unchanged.
+- [x] Review regex patterns for accidental catastrophic backtracking.
+- [x] Confirm service batch fallback does not hide system-level failures.
+- [x] Record acceptable performance thresholds in docs only after measurement.
 
 ## Validation
 

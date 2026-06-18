@@ -95,6 +95,27 @@ print(blocked)
 
         self.assertEqual(result.stdout.strip(), "[]")
 
+    def test_long_ordinary_text_stays_unchanged_on_multilingual_routes(self) -> None:
+        engine = NativeTextProcessingEngine()
+        text = "Dieser Satz bleibt normal, bitte. " * 200
+
+        output = engine.normalize([text], "de", TNOptions())
+
+        self.assertEqual(output, [text])
+
+    def test_mixed_script_product_text_is_not_over_normalized(self) -> None:
+        engine = NativeTextProcessingEngine()
+
+        output = engine.normalize(["Modell Δ-版本 v2.0 @user bleibt."], "de", TNOptions())
+
+        self.assertEqual(output, ["Modell Δ-版本 v2.0 @user bleibt."])
+
+    def test_malformed_project_local_path_fails_visibly(self) -> None:
+        engine = NativeTextProcessingEngine()
+
+        with self.assertRaisesRegex(ValueError, "whitelist file does not exist"):
+            engine.normalize(["Produkt Open A I"], "es", TNOptions(whitelist_path="data/does-not-exist.tsv"))
+
 
 if __name__ == "__main__":
     unittest.main()
