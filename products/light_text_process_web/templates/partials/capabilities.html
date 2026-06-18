@@ -1,2 +1,17 @@
 <h2>能力</h2>
-<p class="muted">能力数据由 /api/v1/capabilities 提供。</p>
+<div class="capability-list">
+  {% for key, item in capabilities.operations.items() %}
+  <div class="capability-row">
+    <div>
+      <strong>{{ item.display_label or item.label }}</strong>
+      <span>{{ item.description }}</span>
+      <small>{{ item.label }}</small>
+    </div>
+    <em>
+      {% if item.languages %}
+      {{ item.languages | length }} 种语言
+      {% endif %}
+    </em>
+  </div>
+  {% endfor %}
+</div>

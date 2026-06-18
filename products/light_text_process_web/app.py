@@ -9,6 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from api.routes import router
+from light_text_process.capabilities import build_capabilities
 from product_paths import STATIC_DIR, TEMPLATES_DIR
 
 
@@ -27,6 +28,7 @@ def create_app() -> FastAPI:
             name="index.html",
             context={
                 "product_name": "Light Text Process",
+                "capabilities": build_capabilities(),
                 "asset_version": _asset_version(),
             },
         )
