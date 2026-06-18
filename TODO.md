@@ -37,7 +37,7 @@ evidence.
 | Status | Phase | File | Purpose |
 | --- | --- | --- | --- |
 | [~] | P0 | [TODO_00_COVERAGE_BASELINE.md](todo/full_fun_text_processing_coverage/TODO_00_COVERAGE_BASELINE.md) | Define the full route/category coverage target. |
-| [ ] | P1 | [TODO_01_ORACLE_AND_DIFF.md](todo/full_fun_text_processing_coverage/TODO_01_ORACLE_AND_DIFF.md) | Build a safe comparison oracle for former vendor behavior. |
+| [~] | P1 | [TODO_01_ORACLE_AND_DIFF.md](todo/full_fun_text_processing_coverage/TODO_01_ORACLE_AND_DIFF.md) | Build a safe comparison oracle for former vendor behavior. |
 | [ ] | P2 | [TODO_02_ROUTE_CATEGORY_PARITY.md](todo/full_fun_text_processing_coverage/TODO_02_ROUTE_CATEGORY_PARITY.md) | Close parity gaps route by route and category by category. |
 | [ ] | P3 | [TODO_03_ZH_EN_SUPERSET.md](todo/full_fun_text_processing_coverage/TODO_03_ZH_EN_SUPERSET.md) | Preserve and expand the stronger zh/en TN/ITN behavior. |
 | [ ] | P4 | [TODO_04_MULTILINGUAL_PARITY.md](todo/full_fun_text_processing_coverage/TODO_04_MULTILINGUAL_PARITY.md) | Bring non-zh/en routes up to the former vendor surface. |
@@ -59,6 +59,8 @@ character or name handling.
 
 - Keep runtime code first-party and project-local.
 - Do not reintroduce `fun_text_processing` as a runtime dependency or import.
+- Use `scripts/fun_text_processing_oracle.py` for isolated reference checks;
+  pass the external reference path explicitly with `--reference`.
 - Do not use a language route name as proof of capability coverage.
 - Do not mark a route complete until its former vendor categories are covered
   or explicitly documented as intentional first-party product differences.
