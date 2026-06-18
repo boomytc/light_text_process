@@ -49,6 +49,25 @@ class HttpSurfaceTests(unittest.TestCase):
         self.assertEqual(en.status_code, 200)
         self.assertEqual(en.json()["operation"], "tn")
 
+    def test_multilingual_tn_routes_after_expansion(self) -> None:
+        de = request(
+            self.app,
+            "POST",
+            "/api/v1/tn",
+            {"text": "Preis 3,75", "language": "de"},
+        )
+        ru = request(
+            self.app,
+            "POST",
+            "/api/v1/tn",
+            {"text": "Телефон +7-495-12345", "language": "ru"},
+        )
+
+        self.assertEqual(de.status_code, 200)
+        self.assertEqual(de.json()["output"], "Preis drei Komma sieben fünf")
+        self.assertEqual(ru.status_code, 200)
+        self.assertEqual(ru.json()["output"], "Телефон плюс семь четыре девять пять один два три четыре пять")
+
     def test_itn_zh_and_en(self) -> None:
         zh = request(
             self.app,
@@ -70,6 +89,25 @@ class HttpSurfaceTests(unittest.TestCase):
         self.assertEqual(zh.json()["operation"], "itn")
         self.assertEqual(en.status_code, 200)
         self.assertEqual(en.json()["operation"], "itn")
+
+    def test_multilingual_itn_routes_after_expansion(self) -> None:
+        ja = request(
+            self.app,
+            "POST",
+            "/api/v1/itn",
+            {"text": "denwa ichi ni san yon go", "language": "ja"},
+        )
+        vi = request(
+            self.app,
+            "POST",
+            "/api/v1/itn",
+            {"text": "open ai mot hai ba", "language": "vi"},
+        )
+
+        self.assertEqual(ja.status_code, 200)
+        self.assertEqual(ja.json()["output"], "denwa 12345")
+        self.assertEqual(vi.status_code, 200)
+        self.assertEqual(vi.json()["output"], "OpenAI 123")
 
     def test_num2words(self) -> None:
         response = request(

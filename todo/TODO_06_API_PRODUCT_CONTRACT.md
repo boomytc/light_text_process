@@ -8,20 +8,20 @@ product.
 
 ## Tasks
 
-- [ ] Keep `products/light_text_process_web` as a thin product shell over root
+- [x] Keep `products/light_text_process_web` as a thin product shell over root
   `TextProcessor`.
-- [ ] Keep request and response models aligned with `light_text_process.schemas`.
-- [ ] Keep capability metadata aligned with `light_text_process.capabilities`.
-- [ ] Ensure removed vendor cache controls are not present in public Web/API
+- [x] Keep request and response models aligned with `light_text_process.schemas`.
+- [x] Keep capability metadata aligned with `light_text_process.capabilities`.
+- [x] Ensure removed vendor cache controls are not present in public Web/API
   options.
-- [ ] Ensure batch behavior reports row-level input errors but surfaces system
+- [x] Ensure batch behavior reports row-level input errors but surfaces system
   errors visibly.
-- [ ] Ensure examples in `products/light_text_process_web/static/data/examples.json`
+- [x] Ensure examples in `products/light_text_process_web/static/data/examples.json`
   track real engine outputs.
-- [ ] Keep `num2words` as a separate operation, not as an implicit TN/ITN
+- [x] Keep `num2words` as a separate operation, not as an implicit TN/ITN
   fallback.
-- [ ] Add API tests whenever schema or capability metadata changes.
-- [ ] Add product smoke checks for high-priority routes after engine coverage is
+- [x] Add API tests whenever schema or capability metadata changes.
+- [x] Add product smoke checks for high-priority routes after engine coverage is
   expanded.
 
 ## Validation
