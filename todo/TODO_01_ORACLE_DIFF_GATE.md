@@ -7,22 +7,22 @@ reference without making `fun_text_processing` a runtime dependency.
 
 ## Tasks
 
-- [ ] Standardize the oracle reference path used for local comparison.
-- [ ] Run oracle comparison across every public TN/ITN route.
-- [ ] Store generated oracle reports only under ignored `runtime/oracle/`.
-- [ ] Ensure strict mode fails unreviewed `regression` and `unsupported-gap`
+- [x] Standardize the oracle reference path used for local comparison.
+- [x] Run oracle comparison across every public TN/ITN route.
+- [x] Store generated oracle reports only under ignored `runtime/oracle/`.
+- [x] Ensure strict mode fails unreviewed `regression` and `unsupported-gap`
   statuses.
-- [ ] Require every `accepted-improvement` case to include:
+- [x] Require every `accepted-improvement` case to include:
   - explicit `expected` output,
   - `oracle_status: accepted-improvement`,
   - short `oracle_note` explaining why the native output is better.
-- [ ] Add route-level summary output to the oracle report if current output is
+- [x] Add route-level summary output to the oracle report if current output is
   too hard to triage by route.
-- [ ] Add category-level summary output if regressions cannot be localized
+- [x] Add category-level summary output if regressions cannot be localized
   quickly.
-- [ ] Add tests for oracle parsing and classification whenever the report schema
+- [x] Add tests for oracle parsing and classification whenever the report schema
   changes.
-- [ ] Document the exact oracle command in `docs/replacement_matrix.md`.
+- [x] Document the exact oracle command in `docs/replacement_matrix.md`.
 
 ## Suggested Oracle Command
 

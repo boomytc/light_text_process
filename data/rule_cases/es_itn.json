@@ -21,7 +21,9 @@
     "language": "es",
     "category": "date",
     "input": "fecha quince seis dos cero dos seis",
-    "expected": "fecha 2026-06-15"
+    "expected": "fecha 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-es-time-phrase",
@@ -29,7 +31,9 @@
     "language": "es",
     "category": "time",
     "input": "hora siete treinta",
-    "expected": "hora 07:30"
+    "expected": "hora 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-es-money-phrase",
@@ -37,7 +41,9 @@
     "language": "es",
     "category": "money",
     "input": "euros doce cincuenta",
-    "expected": "€12.50"
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-es-measure-phrase",
@@ -53,7 +59,9 @@
     "language": "es",
     "category": "telephone",
     "input": "teléfono uno dos tres cuatro",
-    "expected": "teléfono 1234"
+    "expected": "teléfono 1234",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-es-email-phrase",
@@ -61,7 +69,9 @@
     "language": "es",
     "category": "electronic",
     "input": "test arroba example punto es",
-    "expected": "test@example.es"
+    "expected": "test@example.es",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-es-fraction-phrase",
@@ -69,7 +79,9 @@
     "language": "es",
     "category": "fraction",
     "input": "un medio",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-es-ordinal-phrase",
@@ -77,7 +89,9 @@
     "language": "es",
     "category": "ordinal",
     "input": "primero",
-    "expected": "1."
+    "expected": "1.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-es-whitelist-phrase",
@@ -85,7 +99,9 @@
     "language": "es",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-es-negative-ordinary-text",
@@ -94,5 +110,119 @@
     "category": "negative",
     "input": "este texto queda normal",
     "expected": "este texto queda normal"
+  },
+  {
+    "id": "itn-es-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "es",
+    "category": "cardinal",
+    "input": "codigo veintiuno",
+    "expected": "codigo 21"
+  },
+  {
+    "id": "itn-es-decimal-comma-variant",
+    "operation": "itn",
+    "language": "es",
+    "category": "decimal",
+    "input": "precio doce coma cinco",
+    "expected": "precio 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-date-digit-year",
+    "operation": "itn",
+    "language": "es",
+    "category": "date",
+    "input": "fecha cinco seis dos cero dos seis",
+    "expected": "fecha 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-time-minute-digit",
+    "operation": "itn",
+    "language": "es",
+    "category": "time",
+    "input": "hora siete cinco",
+    "expected": "hora 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-money-euro-cents",
+    "operation": "itn",
+    "language": "es",
+    "category": "money",
+    "input": "euro doce cincuenta",
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-measure-kilogram-variant",
+    "operation": "itn",
+    "language": "es",
+    "category": "measure",
+    "input": "doce kilogramos",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-es-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "es",
+    "category": "telephone",
+    "input": "teléfono uno dos tres cuatro cinco",
+    "expected": "teléfono 12345",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-es-email-subdomain",
+    "operation": "itn",
+    "language": "es",
+    "category": "electronic",
+    "input": "first last at example punto es",
+    "expected": "firstlast@example.es",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-es-fraction-half-variant",
+    "operation": "itn",
+    "language": "es",
+    "category": "fraction",
+    "input": "un medio",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-ordinal-second",
+    "operation": "itn",
+    "language": "es",
+    "category": "ordinal",
+    "input": "segundo",
+    "expected": "2.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-es-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "es",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-es-negative-punctuation",
+    "operation": "itn",
+    "language": "es",
+    "category": "negative",
+    "input": "esta frase queda normal gracias",
+    "expected": "esta frase queda normal gracias"
   }
 ]

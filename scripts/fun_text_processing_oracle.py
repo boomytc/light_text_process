@@ -5,6 +5,7 @@ import contextlib
 import importlib
 import io
 import json
+import signal
 import sys
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import asdict, dataclass
@@ -45,6 +46,10 @@ class OracleCase:
 class EngineOutput:
     output: str | None
     error: str | None
+
+
+class OracleTimeoutError(TimeoutError):
+    pass
 
 
 @dataclass(frozen=True)
@@ -202,6 +207,12 @@ def build_parser() -> argparse.ArgumentParser:
     compare_parser.add_argument("--category", action="append")
     compare_parser.add_argument("--case", action="append", dest="case_ids")
     compare_parser.add_argument(
+        "--oracle-timeout-seconds",
+        type=float,
+        default=0,
+        help="per route/options oracle call timeout; 0 disables timeout",
+    )
+    compare_parser.add_argument(
         "--strict",
         action="store_true",
         help="return non-zero when any comparison does not match",
@@ -227,7 +238,8 @@ def add_reference_args(parser: argparse.ArgumentParser) -> None:
 
 def run_oracle(args: argparse.Namespace) -> int:
     options = parse_options_json(args.options_json)
-    oracle = FunTextProcessingOracle(args.reference, args.cache_dir)
+    cache_dir = _validate_runtime_oracle_path(args.cache_dir, "cache-dir")
+    oracle = FunTextProcessingOracle(args.reference, cache_dir)
     outputs = oracle.process(args.operation, args.language, args.text, options)
     payload = {
         "operation": args.operation,
@@ -246,16 +258,22 @@ def compare(args: argparse.Namespace) -> int:
     if not cases:
         raise ValueError("no cases selected")
 
-    oracle = FunTextProcessingOracle(args.reference, args.cache_dir)
+    output = _validate_runtime_oracle_path(args.output, "output")
+    cache_dir = _validate_runtime_oracle_path(args.cache_dir, "cache-dir")
+    oracle = FunTextProcessingOracle(args.reference, cache_dir)
     started = perf_counter()
-    comparisons = compare_cases(cases, oracle)
+    comparisons = compare_cases(
+        cases,
+        oracle,
+        oracle_timeout_seconds=args.oracle_timeout_seconds,
+    )
     elapsed = perf_counter() - started
     report = build_report(args.reference, comparisons, elapsed)
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print_comparison_summary(comparisons, elapsed, args.output, verbose=args.verbose)
+    print_comparison_summary(comparisons, elapsed, output, verbose=args.verbose)
     if args.strict and any(comparison.status in STRICT_FAILURE_STATUSES for comparison in comparisons):
         return 1
     return 0
@@ -315,6 +333,15 @@ def parse_case(raw_case: Any, case_file: Path, index: int) -> OracleCase:
     expected = raw_case.get("expected")
     if expected is not None and not isinstance(expected, str):
         raise ValueError(f"{case_file} case {values['id']} expected must be a string when present")
+    if oracle_status == "accepted-improvement":
+        if expected is None:
+            raise ValueError(
+                f"{case_file} case {values['id']} accepted-improvement requires expected output"
+            )
+        if oracle_note is None:
+            raise ValueError(
+                f"{case_file} case {values['id']} accepted-improvement requires oracle_note"
+            )
     return OracleCase(
         id=values["id"],
         operation=values["operation"],
@@ -348,33 +375,51 @@ def filter_cases(cases: Iterable[OracleCase], args: argparse.Namespace) -> list[
     return selected
 
 
-def compare_cases(cases: Sequence[OracleCase], oracle: FunTextProcessingOracle) -> list[Comparison]:
+def compare_cases(
+    cases: Sequence[OracleCase],
+    oracle: FunTextProcessingOracle,
+    *,
+    oracle_timeout_seconds: float = 0,
+) -> list[Comparison]:
     current = TextProcessor()
     comparisons: list[Comparison] = []
-    for case in cases:
-        current_output = run_current_case(current, case)
-        oracle_output = run_oracle_case(oracle, case)
-        status = classify(
-            current_output,
-            oracle_output,
-            expected=case.expected,
-            reviewed_status=case.oracle_status,
+    for group_cases in grouped_cases(cases).values():
+        current_outputs = [run_current_case(current, case) for case in group_cases]
+        oracle_outputs = run_oracle_group(
+            oracle,
+            group_cases,
+            timeout_seconds=oracle_timeout_seconds,
         )
-        comparisons.append(
-            Comparison(
-                id=case.id,
-                operation=case.operation,
-                language=case.language,
-                category=case.category,
-                input=case.input,
+        for case, current_output, oracle_output in zip(group_cases, current_outputs, oracle_outputs, strict=True):
+            status = classify(
+                current_output,
+                oracle_output,
                 expected=case.expected,
-                current=current_output,
-                oracle=oracle_output,
-                status=status,
-                note=case.oracle_note,
+                reviewed_status=case.oracle_status,
             )
-        )
+            comparisons.append(
+                Comparison(
+                    id=case.id,
+                    operation=case.operation,
+                    language=case.language,
+                    category=case.category,
+                    input=case.input,
+                    expected=case.expected,
+                    current=current_output,
+                    oracle=oracle_output,
+                    status=status,
+                    note=case.oracle_note,
+                )
+            )
     return comparisons
+
+
+def grouped_cases(cases: Sequence[OracleCase]) -> dict[tuple[str, str, str], list[OracleCase]]:
+    groups: dict[tuple[str, str, str], list[OracleCase]] = {}
+    for case in cases:
+        options_key = json.dumps(case.options, sort_keys=True, ensure_ascii=False)
+        groups.setdefault((case.operation, case.language, options_key), []).append(case)
+    return groups
 
 
 def run_current_case(processor: TextProcessor, case: OracleCase) -> EngineOutput:
@@ -388,12 +433,46 @@ def run_current_case(processor: TextProcessor, case: OracleCase) -> EngineOutput
         return EngineOutput(output=None, error=str(exc) or exc.__class__.__name__)
 
 
-def run_oracle_case(oracle: FunTextProcessingOracle, case: OracleCase) -> EngineOutput:
+def run_oracle_case(
+    oracle: FunTextProcessingOracle,
+    case: OracleCase,
+    *,
+    timeout_seconds: float = 0,
+) -> EngineOutput:
     try:
-        output = oracle.process(case.operation, case.language, [case.input], case.options)[0]
+        with _oracle_timeout(timeout_seconds):
+            output = oracle.process(case.operation, case.language, [case.input], case.options)[0]
         return EngineOutput(output=output, error=None)
     except Exception as exc:
         return EngineOutput(output=None, error=str(exc) or exc.__class__.__name__)
+
+
+def run_oracle_group(
+    oracle: FunTextProcessingOracle,
+    cases: Sequence[OracleCase],
+    *,
+    timeout_seconds: float = 0,
+) -> list[EngineOutput]:
+    first = cases[0]
+    try:
+        with _oracle_timeout(timeout_seconds):
+            outputs = oracle.process(
+                first.operation,
+                first.language,
+                [case.input for case in cases],
+                first.options,
+            )
+        if len(outputs) != len(cases):
+            raise ValueError(f"oracle output count mismatch: expected {len(cases)}, got {len(outputs)}")
+        return [EngineOutput(output=output, error=None) for output in outputs]
+    except OracleTimeoutError as exc:
+        error = str(exc) or exc.__class__.__name__
+        return [EngineOutput(output=None, error=error) for _case in cases]
+    except Exception:
+        return [
+            run_oracle_case(oracle, case, timeout_seconds=timeout_seconds)
+            for case in cases
+        ]
 
 
 def classify(
@@ -406,12 +485,12 @@ def classify(
     if current.error:
         return _reviewed_or_default(reviewed_status, "unsupported-gap")
     if oracle.error:
-        if expected is not None and current.output == expected:
+        if reviewed_status == "accepted-improvement" and expected is not None and current.output == expected:
             return _reviewed_or_default(reviewed_status, "accepted-improvement")
         return _reviewed_or_default(reviewed_status, "regression")
     if current.output == oracle.output:
         return "match"
-    if expected is not None and current.output == expected:
+    if reviewed_status == "accepted-improvement" and expected is not None and current.output == expected:
         return _reviewed_or_default(reviewed_status, "accepted-improvement")
     return _reviewed_or_default(reviewed_status, "regression")
 
@@ -433,8 +512,28 @@ def build_report(reference: Path, comparisons: Sequence[Comparison], elapsed: fl
             "total": len(comparisons),
             "status_counts": dict(sorted(status_counts.items())),
         },
+        "route_summary": summarize_comparisons(comparisons, ("operation", "language")),
+        "category_summary": summarize_comparisons(comparisons, ("operation", "language", "category")),
         "comparisons": [comparison_to_dict(comparison) for comparison in comparisons],
     }
+
+
+def summarize_comparisons(comparisons: Sequence[Comparison], fields: tuple[str, ...]) -> list[dict[str, Any]]:
+    grouped: dict[tuple[str, ...], dict[str, int]] = {}
+    totals: dict[tuple[str, ...], int] = {}
+    for comparison in comparisons:
+        key = tuple(str(getattr(comparison, field)) for field in fields)
+        grouped.setdefault(key, {})
+        grouped[key][comparison.status] = grouped[key].get(comparison.status, 0) + 1
+        totals[key] = totals.get(key, 0) + 1
+
+    summary = []
+    for key in sorted(grouped):
+        row = {field: value for field, value in zip(fields, key, strict=True)}
+        row["total"] = totals[key]
+        row["status_counts"] = dict(sorted(grouped[key].items()))
+        summary.append(row)
+    return summary
 
 
 def comparison_to_dict(comparison: Comparison) -> dict[str, Any]:
@@ -461,6 +560,11 @@ def print_comparison_summary(
                 print(f"  note:    {comparison.note}")
     summary = ", ".join(f"{key}={value}" for key, value in sorted(counts.items()))
     print(f"summary: total={len(comparisons)}, {summary}, elapsed={elapsed:.3f}s")
+    print("routes:")
+    for row in summarize_comparisons(comparisons, ("operation", "language")):
+        route = f"{row['operation']}/{row['language']}"
+        route_counts = ", ".join(f"{key}={value}" for key, value in row["status_counts"].items())
+        print(f"  {route}: total={row['total']}, {route_counts}")
     print(f"report: {output}")
 
 
@@ -487,6 +591,35 @@ def _validate_reference(reference: Path) -> Path:
         if not (resolved / relative).is_file():
             raise ValueError(f"reference path is missing {relative}: {reference}")
     return resolved
+
+
+def _validate_runtime_oracle_path(path: Path, label: str) -> Path:
+    resolved = path.expanduser().resolve()
+    oracle_dir = (PROJECT_DIR / "runtime" / "oracle").resolve()
+    try:
+        resolved.relative_to(oracle_dir)
+    except ValueError as exc:
+        raise ValueError(f"{label} must stay under {oracle_dir}: {path}") from exc
+    return resolved
+
+
+@contextlib.contextmanager
+def _oracle_timeout(seconds: float):
+    if seconds <= 0:
+        yield
+        return
+
+    def handle_timeout(_signum: int, _frame: Any) -> None:
+        raise OracleTimeoutError(f"oracle call exceeded {seconds:g}s")
+
+    previous_handler = signal.getsignal(signal.SIGALRM)
+    signal.signal(signal.SIGALRM, handle_timeout)
+    signal.setitimer(signal.ITIMER_REAL, seconds)
+    try:
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, previous_handler)
 
 
 def _resolve_project_file(raw_path: str) -> Path:

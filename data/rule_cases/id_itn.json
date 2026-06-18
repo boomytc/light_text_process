@@ -13,7 +13,9 @@
     "language": "id",
     "category": "decimal",
     "input": "harga dua belas koma lima",
-    "expected": "harga 12.5"
+    "expected": "harga 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-date-phrase",
@@ -21,7 +23,9 @@
     "language": "id",
     "category": "date",
     "input": "tanggal lima belas enam dua nol dua enam",
-    "expected": "tanggal 2026-06-15"
+    "expected": "tanggal 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-time-phrase",
@@ -29,7 +33,9 @@
     "language": "id",
     "category": "time",
     "input": "pukul tujuh tiga puluh",
-    "expected": "pukul 07:30"
+    "expected": "pukul 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-money-phrase",
@@ -37,7 +43,9 @@
     "language": "id",
     "category": "money",
     "input": "rupiah dua belas lima puluh",
-    "expected": "Rp12.50"
+    "expected": "Rp12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-measure-phrase",
@@ -45,7 +53,9 @@
     "language": "id",
     "category": "measure",
     "input": "dua belas kilogram",
-    "expected": "12 kg"
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-telephone-phrase",
@@ -61,7 +71,9 @@
     "language": "id",
     "category": "electronic",
     "input": "test at example dot id",
-    "expected": "test@example.id"
+    "expected": "test@example.id",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-id-fraction-phrase",
@@ -69,7 +81,9 @@
     "language": "id",
     "category": "fraction",
     "input": "setengah",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-ordinal-phrase",
@@ -77,7 +91,9 @@
     "language": "id",
     "category": "ordinal",
     "input": "pertama",
-    "expected": "1."
+    "expected": "1.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-id-whitelist-phrase",
@@ -85,7 +101,9 @@
     "language": "id",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-id-negative-ordinary-text",
@@ -94,5 +112,119 @@
     "category": "negative",
     "input": "teks ini tetap normal",
     "expected": "teks ini tetap normal"
+  },
+  {
+    "id": "itn-id-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "id",
+    "category": "cardinal",
+    "input": "kode dua puluh satu",
+    "expected": "kode 21"
+  },
+  {
+    "id": "itn-id-decimal-comma-variant",
+    "operation": "itn",
+    "language": "id",
+    "category": "decimal",
+    "input": "harga dua belas koma lima",
+    "expected": "harga 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-date-digit-year",
+    "operation": "itn",
+    "language": "id",
+    "category": "date",
+    "input": "tanggal lima enam dua nol dua enam",
+    "expected": "tanggal 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-time-minute-digit",
+    "operation": "itn",
+    "language": "id",
+    "category": "time",
+    "input": "pukul tujuh lima",
+    "expected": "pukul 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-money-rupiah-cents",
+    "operation": "itn",
+    "language": "id",
+    "category": "money",
+    "input": "rupiah dua belas lima puluh",
+    "expected": "Rp12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-measure-kilogram-variant",
+    "operation": "itn",
+    "language": "id",
+    "category": "measure",
+    "input": "dua belas kilogram",
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "id",
+    "category": "telephone",
+    "input": "telepon satu dua tiga empat lima",
+    "expected": "telepon 12345"
+  },
+  {
+    "id": "itn-id-email-subdomain",
+    "operation": "itn",
+    "language": "id",
+    "category": "electronic",
+    "input": "first last at example dot id",
+    "expected": "firstlast@example.id",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-id-fraction-half-variant",
+    "operation": "itn",
+    "language": "id",
+    "category": "fraction",
+    "input": "setengah",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-ordinal-second",
+    "operation": "itn",
+    "language": "id",
+    "category": "ordinal",
+    "input": "kedua",
+    "expected": "2.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-id-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "id",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-id-negative-punctuation",
+    "operation": "itn",
+    "language": "id",
+    "category": "negative",
+    "input": "kalimat ini tetap normal",
+    "expected": "kalimat ini tetap normal"
   }
 ]

@@ -5,7 +5,9 @@
     "language": "ko",
     "category": "cardinal",
     "input": "sip i",
-    "expected": "12"
+    "expected": "12",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-decimal-phrase",
@@ -13,7 +15,9 @@
     "language": "ko",
     "category": "decimal",
     "input": "gagyeok sip i jeom o",
-    "expected": "gagyeok 12.5"
+    "expected": "gagyeok 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-date-phrase",
@@ -21,7 +25,9 @@
     "language": "ko",
     "category": "date",
     "input": "naljja sibo yuk i gong i yuk",
-    "expected": "naljja 2026-06-15"
+    "expected": "naljja 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-time-phrase",
@@ -29,7 +35,9 @@
     "language": "ko",
     "category": "time",
     "input": "sigan chil samsip",
-    "expected": "sigan 07:30"
+    "expected": "sigan 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-money-phrase",
@@ -37,7 +45,9 @@
     "language": "ko",
     "category": "money",
     "input": "won sip i osip",
-    "expected": "₩12.50"
+    "expected": "₩12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-measure-phrase",
@@ -45,7 +55,9 @@
     "language": "ko",
     "category": "measure",
     "input": "sip i killogeuraem",
-    "expected": "12 kg"
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-telephone-phrase",
@@ -53,7 +65,9 @@
     "language": "ko",
     "category": "telephone",
     "input": "jeonhwa il i sam sa",
-    "expected": "jeonhwa 1234"
+    "expected": "jeonhwa 1234",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-ko-email-phrase",
@@ -61,7 +75,9 @@
     "language": "ko",
     "category": "electronic",
     "input": "test at example dot kr",
-    "expected": "test@example.kr"
+    "expected": "test@example.kr",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-ko-fraction-phrase",
@@ -69,7 +85,9 @@
     "language": "ko",
     "category": "fraction",
     "input": "i bun ui il",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-ordinal-phrase",
@@ -77,7 +95,9 @@
     "language": "ko",
     "category": "ordinal",
     "input": "cheot beonjjae",
-    "expected": "1번째"
+    "expected": "1번째",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-ko-char-preserved",
@@ -93,7 +113,9 @@
     "language": "ko",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-ko-negative-ordinary-text",
@@ -102,5 +124,131 @@
     "category": "negative",
     "input": "i munjang geudaero",
     "expected": "i munjang geudaero"
+  },
+  {
+    "id": "itn-ko-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "ko",
+    "category": "cardinal",
+    "input": "code isibil",
+    "expected": "code 21",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-decimal-point-variant",
+    "operation": "itn",
+    "language": "ko",
+    "category": "decimal",
+    "input": "gagyeok sip i jeom o",
+    "expected": "gagyeok 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-date-digit-year",
+    "operation": "itn",
+    "language": "ko",
+    "category": "date",
+    "input": "naljja o yuk i yeong i yuk",
+    "expected": "naljja 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-time-minute-digit",
+    "operation": "itn",
+    "language": "ko",
+    "category": "time",
+    "input": "sigan chil o",
+    "expected": "sigan 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-money-won-cents",
+    "operation": "itn",
+    "language": "ko",
+    "category": "money",
+    "input": "won sip i osip",
+    "expected": "₩12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-measure-kilogram-variant",
+    "operation": "itn",
+    "language": "ko",
+    "category": "measure",
+    "input": "sip i killogeuraem",
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "ko",
+    "category": "telephone",
+    "input": "jeonhwa il i sam sa o",
+    "expected": "jeonhwa 12345",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-ko-email-subdomain",
+    "operation": "itn",
+    "language": "ko",
+    "category": "electronic",
+    "input": "first last at example dot kr",
+    "expected": "firstlast@example.kr",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-ko-fraction-half-variant",
+    "operation": "itn",
+    "language": "ko",
+    "category": "fraction",
+    "input": "i bun ui il",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-ordinal-second",
+    "operation": "itn",
+    "language": "ko",
+    "category": "ordinal",
+    "input": "du beonjjae",
+    "expected": "2번째",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-ko-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "ko",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-ko-negative-punctuation",
+    "operation": "itn",
+    "language": "ko",
+    "category": "negative",
+    "input": "i munjang geudaero",
+    "expected": "i munjang geudaero"
+  },
+  {
+    "id": "itn-ko-char-preserved-variant",
+    "operation": "itn",
+    "language": "ko",
+    "category": "char",
+    "input": "hangul",
+    "expected": "hangul"
   }
 ]

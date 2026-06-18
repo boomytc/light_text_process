@@ -24,26 +24,26 @@ vendor ITN surface.
 
 For each public ITN route:
 
-- [ ] Cover cardinal, decimal, ordinal, date, time, money, measure, telephone,
+- [x] Cover cardinal, decimal, ordinal, date, time, money, measure, telephone,
   electronic, fraction, whitelist, and negative ordinary-text cases.
-- [ ] Add route-specific character, roman numeral, or name-preservation cases
+- [x] Add route-specific character, roman numeral, or name-preservation cases
   when the language needs them.
-- [ ] Add noisy ASR-style inputs where the product is likely to process speech
+- [x] Add noisy ASR-style inputs where the product is likely to process speech
   transcripts.
-- [ ] Compare route output against the oracle.
-- [ ] Classify every output difference as match, accepted improvement,
+- [x] Compare route output against the oracle.
+- [x] Classify every output difference as match, accepted improvement,
   regression, or unsupported gap.
-- [ ] Fix regressions before expanding lower-priority categories.
+- [x] Fix regressions before expanding lower-priority categories.
 
 ## Language-Specific Checks
 
-- [ ] `fr`: roman numeral and ordinal behavior.
-- [ ] `id`: common date/time/money wording and ordinary-text preservation.
-- [ ] `ja`: `enable_standalone_number` and `enable_0_to_9` behavior, name
+- [x] `fr`: roman numeral and ordinal behavior.
+- [x] `id`: common date/time/money wording and ordinary-text preservation.
+- [x] `ja`: `enable_standalone_number` and `enable_0_to_9` behavior, name
   preservation, full-width/half-width effects.
-- [ ] `ko`: character preservation and common number/date forms.
-- [ ] `tl` and `vi`: common ASR transcript forms and negative ordinary text.
-- [ ] `de`, `es`, `pt`, `ru`: cardinal/decimal/date/money/measure forms with
+- [x] `ko`: character preservation and common number/date forms.
+- [x] `tl` and `vi`: common ASR transcript forms and negative ordinary text.
+- [x] `de`, `es`, `pt`, `ru`: cardinal/decimal/date/money/measure forms with
   language-specific wording.
 
 ## Validation

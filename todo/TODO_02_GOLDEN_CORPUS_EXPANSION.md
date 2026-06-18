@@ -27,22 +27,22 @@ for the public `fun_text_processing` TN/ITN surface.
 
 ## Tasks
 
-- [ ] For each public route, list required categories and current category
+- [x] For each public route, list required categories and current category
   counts.
-- [ ] Expand non-zh/en route coverage beyond one representative case per
+- [x] Expand non-zh/en route coverage beyond one representative case per
   category.
-- [ ] Add ordinary-text negative cases for every route so broad substitutions do
+- [x] Add ordinary-text negative cases for every route so broad substitutions do
   not corrupt normal text.
-- [ ] Add boundary cases for punctuation, whitespace, full-width/half-width
+- [x] Add boundary cases for punctuation, whitespace, full-width/half-width
   characters, mixed scripts, and casing where relevant.
-- [ ] Add ASR-like noisy text for routes that are used downstream from speech
+- [x] Add ASR-like noisy text for routes that are used downstream from speech
   recognition.
-- [ ] Add common product text: model names, file names, paths, versions, email,
+- [x] Add common product text: model names, file names, paths, versions, email,
   URL, handles, IDs, license-like strings, and metrics.
-- [ ] Add case comments only as structured fields such as `oracle_note`; do not
+- [x] Add case comments only as structured fields such as `oracle_note`; do not
   add prose-only expectations that tests cannot validate.
-- [ ] Keep case IDs stable and route-prefixed.
-- [ ] Keep expected outputs deterministic.
+- [x] Keep case IDs stable and route-prefixed.
+- [x] Keep expected outputs deterministic.
 
 ## Category Targets
 

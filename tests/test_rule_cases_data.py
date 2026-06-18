@@ -81,7 +81,7 @@ class RuleCaseDataTests(unittest.TestCase):
         cases = [
             case
             for case in validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
-            if case.id != "itn-de-money-phrase"
+            if not (case.operation == "itn" and case.language == "de" and case.category == "money")
         ]
 
         with self.assertRaisesRegex(ValueError, "itn/de: missing categories money"):

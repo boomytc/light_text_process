@@ -64,13 +64,26 @@ class OracleClassificationTests(unittest.TestCase):
 
         self.assertEqual(status, "accepted-improvement")
 
-    def test_golden_expected_diff_is_accepted_improvement(self) -> None:
+    def test_reviewed_golden_expected_diff_is_accepted_improvement(self) -> None:
+        current = oracle_module.EngineOutput(output="better", error=None)
+        oracle = oracle_module.EngineOutput(output="old", error=None)
+
+        status = oracle_module.classify(
+            current,
+            oracle,
+            expected="better",
+            reviewed_status="accepted-improvement",
+        )
+
+        self.assertEqual(status, "accepted-improvement")
+
+    def test_expected_without_reviewed_status_is_regression(self) -> None:
         current = oracle_module.EngineOutput(output="better", error=None)
         oracle = oracle_module.EngineOutput(output="old", error=None)
 
         status = oracle_module.classify(current, oracle, expected="better")
 
-        self.assertEqual(status, "accepted-improvement")
+        self.assertEqual(status, "regression")
 
     def test_current_output_that_misses_golden_expected_is_regression(self) -> None:
         current = oracle_module.EngineOutput(output="unexpected", error=None)
@@ -79,6 +92,77 @@ class OracleClassificationTests(unittest.TestCase):
         status = oracle_module.classify(current, oracle, expected="better")
 
         self.assertEqual(status, "regression")
+
+    def test_accepted_improvement_case_requires_expected_output(self) -> None:
+        raw_case = {
+            "id": "case-1",
+            "operation": "tn",
+            "language": "en",
+            "category": "electronic",
+            "input": "path /tmp/a",
+            "oracle_status": "accepted-improvement",
+            "oracle_note": "native output is reviewed as better",
+        }
+
+        with self.assertRaisesRegex(ValueError, "requires expected output"):
+            oracle_module.parse_case(raw_case, Path("cases.json"), 1)
+
+    def test_accepted_improvement_case_requires_note(self) -> None:
+        raw_case = {
+            "id": "case-1",
+            "operation": "tn",
+            "language": "en",
+            "category": "electronic",
+            "input": "path /tmp/a",
+            "expected": "path slash tmp slash a",
+            "oracle_status": "accepted-improvement",
+        }
+
+        with self.assertRaisesRegex(ValueError, "requires oracle_note"):
+            oracle_module.parse_case(raw_case, Path("cases.json"), 1)
+
+    def test_report_includes_route_and_category_summary(self) -> None:
+        comparisons = [
+            oracle_module.Comparison(
+                id="case-1",
+                operation="tn",
+                language="en",
+                category="electronic",
+                input="a",
+                expected="a",
+                current=oracle_module.EngineOutput(output="a", error=None),
+                oracle=oracle_module.EngineOutput(output="a", error=None),
+                status="match",
+                note=None,
+            ),
+            oracle_module.Comparison(
+                id="case-2",
+                operation="tn",
+                language="en",
+                category="money",
+                input="$1",
+                expected="one dollar",
+                current=oracle_module.EngineOutput(output="one dollar", error=None),
+                oracle=oracle_module.EngineOutput(output="one dollar", error=None),
+                status="match",
+                note=None,
+            ),
+        ]
+
+        report = oracle_module.build_report(Path("/tmp/fun_text_processing"), comparisons, 0.1)
+
+        self.assertEqual(
+            report["route_summary"],
+            [
+                {
+                    "operation": "tn",
+                    "language": "en",
+                    "total": 2,
+                    "status_counts": {"match": 2},
+                }
+            ],
+        )
+        self.assertEqual(len(report["category_summary"]), 2)
 
 
 if __name__ == "__main__":

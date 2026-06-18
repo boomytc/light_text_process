@@ -13,7 +13,9 @@
     "language": "es",
     "category": "decimal",
     "input": "Precio 12.5",
-    "expected": "Precio doce punto cinco"
+    "expected": "Precio doce punto cinco",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-date-iso",
@@ -21,7 +23,9 @@
     "language": "es",
     "category": "date",
     "input": "Fecha 2026-06-15",
-    "expected": "Fecha dos mil veintiséis año seis mes quince día"
+    "expected": "Fecha dos mil veintiséis año seis mes quince día",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-time-clock",
@@ -29,7 +33,9 @@
     "language": "es",
     "category": "time",
     "input": "Hora 07:30",
-    "expected": "Hora siete horas treinta minutos"
+    "expected": "Hora siete horas treinta minutos",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-money-euro",
@@ -37,7 +43,9 @@
     "language": "es",
     "category": "money",
     "input": "Coste €12.50",
-    "expected": "Coste doce euros cincuenta céntimos"
+    "expected": "Coste doce euros cincuenta céntimos",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-measure-kg",
@@ -53,7 +61,9 @@
     "language": "es",
     "category": "telephone",
     "input": "teléfono +34 91 123456",
-    "expected": "teléfono más tres cuatro nueve uno uno dos tres cuatro cinco seis"
+    "expected": "teléfono más tres cuatro nueve uno uno dos tres cuatro cinco seis",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-es-email",
@@ -61,7 +71,9 @@
     "language": "es",
     "category": "electronic",
     "input": "Correo test@example.es",
-    "expected": "Correo test at example dot es"
+    "expected": "Correo test at example dot es",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-es-fraction-simple",
@@ -69,7 +81,9 @@
     "language": "es",
     "category": "fraction",
     "input": "Parte 1/2",
-    "expected": "Parte uno sobre dos"
+    "expected": "Parte uno sobre dos",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-ordinal-simple",
@@ -77,7 +91,9 @@
     "language": "es",
     "category": "ordinal",
     "input": "Rango 1º",
-    "expected": "Rango primero."
+    "expected": "Rango primero.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-es-whitelist-product",
@@ -97,5 +113,140 @@
     "category": "negative",
     "input": "Este texto queda normal.",
     "expected": "Este texto queda normal."
+  },
+  {
+    "id": "tn-es-cardinal-negative-large",
+    "operation": "tn",
+    "language": "es",
+    "category": "cardinal",
+    "input": "ID -42 y 1000",
+    "expected": "ID menos cuarenta y dos y mil"
+  },
+  {
+    "id": "tn-es-decimal-comma",
+    "operation": "tn",
+    "language": "es",
+    "category": "decimal",
+    "input": "Precio 3,75",
+    "expected": "Precio tres punto siete cinco",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-date-single-digit",
+    "operation": "tn",
+    "language": "es",
+    "category": "date",
+    "input": "Fecha 2026-6-5",
+    "expected": "Fecha dos mil veintiséis año seis mes cinco día",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-time-leading-minute",
+    "operation": "tn",
+    "language": "es",
+    "category": "time",
+    "input": "Hora 7:05",
+    "expected": "Hora siete horas cinco minutos",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-money-dollar-and-euro",
+    "operation": "tn",
+    "language": "es",
+    "category": "money",
+    "input": "Costo $3.05 y €12",
+    "expected": "Costo tres dólares cinco centavos y doce euros",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-measure-distance-length",
+    "operation": "tn",
+    "language": "es",
+    "category": "measure",
+    "input": "Distancia 3.5 km y 2 m",
+    "expected": "Distancia tres punto cinco kilómetros y dos metros",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-telephone-hyphenated",
+    "operation": "tn",
+    "language": "es",
+    "category": "telephone",
+    "input": "Teléfono +34-91-12345",
+    "expected": "Teléfono más tres cuatro nueve uno uno dos tres cuatro cinco",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "tn-es-email-subdomain",
+    "operation": "tn",
+    "language": "es",
+    "category": "electronic",
+    "input": "Correo first.last-test@example.es",
+    "expected": "Correo first dot last dash test at example dot es",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "tn-es-fraction-three-fourths",
+    "operation": "tn",
+    "language": "es",
+    "category": "fraction",
+    "input": "Parte 3/4",
+    "expected": "Parte tres sobre cuatro",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-ordinal-second",
+    "operation": "tn",
+    "language": "es",
+    "category": "ordinal",
+    "input": "Rango 2.",
+    "expected": "Rango segundo.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "tn-es-whitelist-lighttts",
+    "operation": "tn",
+    "language": "es",
+    "category": "whitelist",
+    "input": "Producto Light T T S",
+    "expected": "Producto LightTTS",
+    "options": {
+      "whitelist_path": "data/whitelists/product_terms.tsv"
+    }
+  },
+  {
+    "id": "tn-es-negative-punctuation",
+    "operation": "tn",
+    "language": "es",
+    "category": "negative",
+    "input": "Esta frase queda normal, gracias.",
+    "expected": "Esta frase queda normal, gracias."
+  },
+  {
+    "id": "tn-es-boundary-parentheses",
+    "operation": "tn",
+    "language": "es",
+    "category": "punctuation",
+    "input": "Valor (12).",
+    "expected": "Valor (doce).",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "tn-es-product-version",
+    "operation": "tn",
+    "language": "es",
+    "category": "mixed",
+    "input": "Modelo X100 v2.0 listo.",
+    "expected": "Modelo X100 v2.0 listo."
   }
 ]

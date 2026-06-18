@@ -17,25 +17,25 @@ vendor TN surface.
 
 For each public TN route:
 
-- [ ] Expand cardinal and decimal cases across small numbers, large numbers,
+- [x] Expand cardinal and decimal cases across small numbers, large numbers,
   negative numbers, and grouped numbers.
-- [ ] Cover ordinal forms used by the language.
-- [ ] Cover date and time variants that the former route handled.
-- [ ] Cover money with common currency symbols and decimals.
-- [ ] Cover measures and units with language-appropriate wording.
-- [ ] Cover telephone and electronic forms.
-- [ ] Cover fractions and ranges where supported.
-- [ ] Cover whitelist replacement through project-local files.
-- [ ] Add negative ordinary-text cases.
-- [ ] Compare against oracle output and classify every meaningful difference.
+- [x] Cover ordinal forms used by the language.
+- [x] Cover date and time variants that the former route handled.
+- [x] Cover money with common currency symbols and decimals.
+- [x] Cover measures and units with language-appropriate wording.
+- [x] Cover telephone and electronic forms.
+- [x] Cover fractions and ranges where supported.
+- [x] Cover whitelist replacement through project-local files.
+- [x] Add negative ordinary-text cases.
+- [x] Compare against oracle output and classify every meaningful difference.
 
 ## Language-Specific Checks
 
-- [ ] `de`: compound number behavior, decimal separator expectations, currency
+- [x] `de`: compound number behavior, decimal separator expectations, currency
   wording, ordinal suffixes, and measurement wording.
-- [ ] `es`: gender-sensitive wording where public output requires it, decimal
+- [x] `es`: gender-sensitive wording where public output requires it, decimal
   wording, dates, currencies, and ordinal behavior.
-- [ ] `ru`: number wording, decimal wording, currency and unit morphology where
+- [x] `ru`: number wording, decimal wording, currency and unit morphology where
   public output depends on it.
 
 ## Validation

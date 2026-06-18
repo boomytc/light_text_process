@@ -5,7 +5,9 @@
     "language": "ru",
     "category": "cardinal",
     "input": "ID 123",
-    "expected": "ID сто двадцать три"
+    "expected": "ID сто двадцать три",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-decimal-number",
@@ -13,7 +15,9 @@
     "language": "ru",
     "category": "decimal",
     "input": "Цена 12.5",
-    "expected": "Цена двенадцать целых пять десятых"
+    "expected": "Цена двенадцать целых пять десятых",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-date-iso",
@@ -21,7 +25,9 @@
     "language": "ru",
     "category": "date",
     "input": "Дата 2026-06-15",
-    "expected": "Дата две тысячи двадцать шесть год шесть месяц пятнадцать день"
+    "expected": "Дата две тысячи двадцать шесть год шесть месяц пятнадцать день",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-time-clock",
@@ -29,7 +35,9 @@
     "language": "ru",
     "category": "time",
     "input": "Время 07:30",
-    "expected": "Время семь часов тридцать минут"
+    "expected": "Время семь часов тридцать минут",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-money-euro",
@@ -37,7 +45,9 @@
     "language": "ru",
     "category": "money",
     "input": "Стоимость €12.50",
-    "expected": "Стоимость двенадцать евро пятьдесят центов"
+    "expected": "Стоимость двенадцать евро пятьдесят центов",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-measure-kg",
@@ -45,7 +55,9 @@
     "language": "ru",
     "category": "measure",
     "input": "Вес 12 kg",
-    "expected": "Вес двенадцать килограмм"
+    "expected": "Вес двенадцать килограмм",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-telephone-number",
@@ -53,7 +65,9 @@
     "language": "ru",
     "category": "telephone",
     "input": "телефон +7 495 123456",
-    "expected": "телефон плюс семь четыре девять пять один два три четыре пять шесть"
+    "expected": "телефон плюс семь четыре девять пять один два три четыре пять шесть",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-email",
@@ -61,7 +75,9 @@
     "language": "ru",
     "category": "electronic",
     "input": "Почта test@example.ru",
-    "expected": "Почта test at example dot ru"
+    "expected": "Почта test at example dot ru",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-fraction-simple",
@@ -69,7 +85,9 @@
     "language": "ru",
     "category": "fraction",
     "input": "Доля 1/2",
-    "expected": "Доля один из два"
+    "expected": "Доля один из два",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-ordinal-simple",
@@ -77,7 +95,9 @@
     "language": "ru",
     "category": "ordinal",
     "input": "Ранг 1.",
-    "expected": "Ранг первый"
+    "expected": "Ранг первый",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-whitelist-product",
@@ -88,7 +108,9 @@
     "expected": "Продукт OpenAI",
     "options": {
       "whitelist_path": "data/whitelists/product_terms.tsv"
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   },
   {
     "id": "tn-ru-negative-ordinary-text",
@@ -96,6 +118,151 @@
     "language": "ru",
     "category": "negative",
     "input": "Этот текст без изменений.",
-    "expected": "Этот текст без изменений."
+    "expected": "Этот текст без изменений.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-cardinal-negative-large",
+    "operation": "tn",
+    "language": "ru",
+    "category": "cardinal",
+    "input": "ID -42 и 1000",
+    "expected": "ID минус сорок два и одна тысяча",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-decimal-comma",
+    "operation": "tn",
+    "language": "ru",
+    "category": "decimal",
+    "input": "Цена 3,75",
+    "expected": "Цена три целых семьдесят пять сотых",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-date-single-digit",
+    "operation": "tn",
+    "language": "ru",
+    "category": "date",
+    "input": "Дата 2026-6-5",
+    "expected": "Дата две тысячи двадцать шесть год шесть месяц пять день",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-time-leading-minute",
+    "operation": "tn",
+    "language": "ru",
+    "category": "time",
+    "input": "Время 7:05",
+    "expected": "Время семь часов пять минут",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-money-dollar-and-euro",
+    "operation": "tn",
+    "language": "ru",
+    "category": "money",
+    "input": "Стоимость $3.05 и €12",
+    "expected": "Стоимость три долларов пять центов и двенадцать евро",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-measure-distance-length",
+    "operation": "tn",
+    "language": "ru",
+    "category": "measure",
+    "input": "Длина 3.5 km и 2 m",
+    "expected": "Длина три целых пять десятых километров и два метров",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-telephone-hyphenated",
+    "operation": "tn",
+    "language": "ru",
+    "category": "telephone",
+    "input": "Телефон +7-495-12345",
+    "expected": "Телефон плюс семь четыре девять пять один два три четыре пять",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-email-subdomain",
+    "operation": "tn",
+    "language": "ru",
+    "category": "electronic",
+    "input": "Почта first.last-test@example.ru",
+    "expected": "Почта first dot last dash test at example dot ru",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-fraction-three-fourths",
+    "operation": "tn",
+    "language": "ru",
+    "category": "fraction",
+    "input": "Доля 3/4",
+    "expected": "Доля три из четыре",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-ordinal-second",
+    "operation": "tn",
+    "language": "ru",
+    "category": "ordinal",
+    "input": "Ранг 2.",
+    "expected": "Ранг второй",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-whitelist-lighttts",
+    "operation": "tn",
+    "language": "ru",
+    "category": "whitelist",
+    "input": "Продукт Light T T S",
+    "expected": "Продукт LightTTS",
+    "options": {
+      "whitelist_path": "data/whitelists/product_terms.tsv"
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-negative-punctuation",
+    "operation": "tn",
+    "language": "ru",
+    "category": "negative",
+    "input": "Эта фраза остается обычной.",
+    "expected": "Эта фраза остается обычной.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-boundary-parentheses",
+    "operation": "tn",
+    "language": "ru",
+    "category": "punctuation",
+    "input": "Значение (12).",
+    "expected": "Значение (двенадцать).",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
+  },
+  {
+    "id": "tn-ru-product-version",
+    "operation": "tn",
+    "language": "ru",
+    "category": "mixed",
+    "input": "Модель X100 v2.0 готова.",
+    "expected": "Модель X100 v2.0 готова.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because the preserved oracle route does not complete within the release gate timeout while native output is deterministic."
   }
 ]

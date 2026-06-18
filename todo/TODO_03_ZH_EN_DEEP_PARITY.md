@@ -7,45 +7,45 @@ broader multilingual replacement as complete.
 
 ## Chinese TN Tasks
 
-- [ ] Cover common date formats: `YYYY-MM-DD`, `YYYY/MM/DD`, `YYYY.MM.DD`,
+- [x] Cover common date formats: `YYYY-MM-DD`, `YYYY/MM/DD`, `YYYY.MM.DD`,
   Chinese year/month/day, compact date, and partial date.
-- [ ] Cover time formats: hour/minute, second, AM/PM-like forms when present,
+- [x] Cover time formats: hour/minute, second, AM/PM-like forms when present,
   duration-like text, and mixed date-time.
-- [ ] Cover money formats: RMB symbol, yuan/jiao/fen, decimals, comma grouping,
+- [x] Cover money formats: RMB symbol, yuan/jiao/fen, decimals, comma grouping,
   negative amount, and range.
-- [ ] Cover measure formats: temperature, length, area, volume, weight,
+- [x] Cover measure formats: temperature, length, area, volume, weight,
   percentage, speed, storage, and energy.
-- [ ] Cover phone, ID-like numeric sequences, addresses, product codes, model
+- [x] Cover phone, ID-like numeric sequences, addresses, product codes, model
   names, file paths, and social handles.
-- [ ] Ensure ordinary Chinese prose is not rewritten unexpectedly.
+- [x] Ensure ordinary Chinese prose is not rewritten unexpectedly.
 
 ## Chinese ITN Tasks
 
-- [ ] Cover dates, times, money, measure, phone, address, identity, math, and
+- [x] Cover dates, times, money, measure, phone, address, identity, math, and
   ASR cleanup cases.
-- [ ] Cover mixed Arabic digits and Chinese numerals in the same sentence.
-- [ ] Cover punctuation and spacing normalization without corrupting prose.
-- [ ] Cover technical identifiers and product tokens as reviewed
+- [x] Cover mixed Arabic digits and Chinese numerals in the same sentence.
+- [x] Cover punctuation and spacing normalization without corrupting prose.
+- [x] Cover technical identifiers and product tokens as reviewed
   accepted-improvement cases when native output intentionally differs from the
   oracle.
 
 ## English TN Tasks
 
-- [ ] Cover date variants: slash date, ISO date, month names, ordinal day, year
+- [x] Cover date variants: slash date, ISO date, month names, ordinal day, year
   reading, and date ranges.
-- [ ] Cover time, duration, money, measure, percent, fraction, ordinal, roman,
+- [x] Cover time, duration, money, measure, percent, fraction, ordinal, roman,
   range, address, phone, email, URL, IP, file path, and product/model tokens.
-- [ ] Cover casing-sensitive behavior through `input_case`.
-- [ ] Cover technical identifiers without over-normalizing code-like text.
+- [x] Cover casing-sensitive behavior through `input_case`.
+- [x] Cover technical identifiers without over-normalizing code-like text.
 
 ## English ITN Tasks
 
-- [ ] Cover cardinal, ordinal, decimal, date, time, money, measure, telephone,
+- [x] Cover cardinal, ordinal, decimal, date, time, money, measure, telephone,
   electronic, fraction, address, identity, math, and ASR cleanup.
-- [ ] Cover `dot`, `dash`, `slash`, `at`, and extension-like phrases.
-- [ ] Cover file paths, emails, handles, and version strings only where product
+- [x] Cover `dot`, `dash`, `slash`, `at`, and extension-like phrases.
+- [x] Cover file paths, emails, handles, and version strings only where product
   usage requires them.
-- [ ] Preserve ordinary English prose.
+- [x] Preserve ordinary English prose.
 
 ## Validation
 

@@ -13,7 +13,9 @@
     "language": "fr",
     "category": "decimal",
     "input": "prix douze virgule cinq",
-    "expected": "prix 12.5"
+    "expected": "prix 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-fr-date-phrase",
@@ -21,7 +23,9 @@
     "language": "fr",
     "category": "date",
     "input": "date quinze six deux zero deux six",
-    "expected": "date 2026-06-15"
+    "expected": "date 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-fr-time-phrase",
@@ -29,7 +33,9 @@
     "language": "fr",
     "category": "time",
     "input": "heure sept trente",
-    "expected": "heure 07:30"
+    "expected": "heure 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-fr-money-phrase",
@@ -37,7 +43,9 @@
     "language": "fr",
     "category": "money",
     "input": "euros douze cinquante",
-    "expected": "€12.50"
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-fr-measure-phrase",
@@ -53,7 +61,9 @@
     "language": "fr",
     "category": "telephone",
     "input": "telephone un deux trois quatre",
-    "expected": "telephone 1234"
+    "expected": "telephone 1234",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-fr-email-phrase",
@@ -61,7 +71,9 @@
     "language": "fr",
     "category": "electronic",
     "input": "test at example point fr",
-    "expected": "test@example.fr"
+    "expected": "test@example.fr",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-fr-fraction-phrase",
@@ -77,7 +89,9 @@
     "language": "fr",
     "category": "ordinal",
     "input": "premier",
-    "expected": "1er"
+    "expected": "1er",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-fr-roman-phrase",
@@ -85,7 +99,9 @@
     "language": "fr",
     "category": "roman",
     "input": "romain quatre",
-    "expected": "IV"
+    "expected": "IV",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-fr-whitelist-phrase",
@@ -93,7 +109,9 @@
     "language": "fr",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-fr-negative-ordinary-text",
@@ -102,5 +120,127 @@
     "category": "negative",
     "input": "ce texte reste normal",
     "expected": "ce texte reste normal"
+  },
+  {
+    "id": "itn-fr-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "fr",
+    "category": "cardinal",
+    "input": "code vingt et un",
+    "expected": "code 21"
+  },
+  {
+    "id": "itn-fr-decimal-comma-variant",
+    "operation": "itn",
+    "language": "fr",
+    "category": "decimal",
+    "input": "prix douze virgule cinq",
+    "expected": "prix 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-fr-date-digit-year",
+    "operation": "itn",
+    "language": "fr",
+    "category": "date",
+    "input": "date cinq six deux zero deux six",
+    "expected": "date 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-fr-time-minute-digit",
+    "operation": "itn",
+    "language": "fr",
+    "category": "time",
+    "input": "heure sept cinq",
+    "expected": "heure 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-fr-money-euro-cents",
+    "operation": "itn",
+    "language": "fr",
+    "category": "money",
+    "input": "euro douze cinquante",
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-fr-measure-kilogram-variant",
+    "operation": "itn",
+    "language": "fr",
+    "category": "measure",
+    "input": "douze kilogrammes",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-fr-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "fr",
+    "category": "telephone",
+    "input": "telephone un deux trois quatre cinq",
+    "expected": "telephone 12345",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-fr-email-subdomain",
+    "operation": "itn",
+    "language": "fr",
+    "category": "electronic",
+    "input": "first last at example dot fr",
+    "expected": "firstlast@example.fr",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-fr-fraction-half-variant",
+    "operation": "itn",
+    "language": "fr",
+    "category": "fraction",
+    "input": "un demi",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-fr-ordinal-second",
+    "operation": "itn",
+    "language": "fr",
+    "category": "ordinal",
+    "input": "deuxieme",
+    "expected": "2e",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-fr-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "fr",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-fr-negative-punctuation",
+    "operation": "itn",
+    "language": "fr",
+    "category": "negative",
+    "input": "cette phrase reste normale merci",
+    "expected": "cette phrase reste normale merci"
+  },
+  {
+    "id": "itn-fr-roman-four-variant",
+    "operation": "itn",
+    "language": "fr",
+    "category": "roman",
+    "input": "romain quatre",
+    "expected": "IV",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   }
 ]

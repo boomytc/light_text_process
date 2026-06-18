@@ -42,9 +42,11 @@ REQUIRED_CATEGORY_COVERAGE = {
         "electronic",
         "fraction",
         "measure",
+        "mixed",
         "money",
         "negative",
         "ordinal",
+        "punctuation",
         "telephone",
         "time",
         "whitelist",
@@ -69,9 +71,11 @@ REQUIRED_CATEGORY_COVERAGE = {
         "electronic",
         "fraction",
         "measure",
+        "mixed",
         "money",
         "negative",
         "ordinal",
+        "punctuation",
         "telephone",
         "time",
         "whitelist",
@@ -83,9 +87,11 @@ REQUIRED_CATEGORY_COVERAGE = {
         "electronic",
         "fraction",
         "measure",
+        "mixed",
         "money",
         "negative",
         "ordinal",
+        "punctuation",
         "telephone",
         "time",
         "whitelist",
@@ -235,6 +241,7 @@ REQUIRED_CATEGORY_COVERAGE = {
         "whitelist",
     },
     ("itn", "tl"): {
+        "asr-postprocess",
         "cardinal",
         "date",
         "decimal",
@@ -249,6 +256,7 @@ REQUIRED_CATEGORY_COVERAGE = {
         "whitelist",
     },
     ("itn", "vi"): {
+        "asr-postprocess",
         "cardinal",
         "date",
         "decimal",
@@ -335,7 +343,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Validate zh/en TN and ITN rule regression cases.",
+        description="Validate public TN and ITN rule regression cases.",
     )
     parser.add_argument(
         "--cases",

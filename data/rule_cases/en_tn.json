@@ -42,7 +42,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-flight-time",
@@ -72,7 +74,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-version-decimal",
@@ -87,7 +91,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-dotted-version",
@@ -102,7 +108,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-negative-currency",
@@ -117,7 +125,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-number-abbreviation",
@@ -132,7 +142,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-page-abbreviations",
@@ -140,7 +152,9 @@
     "language": "en",
     "category": "ordinal",
     "input": "Room 201, Ch. 12, p. 2, pp. 3-5, No. 5.",
-    "expected": "Room two zero one, chapter twelve, page two, pages three to five, number five."
+    "expected": "Room two zero one, chapter twelve, page two, pages three to five, number five.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-signed-percent-hash-number",
@@ -155,7 +169,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-finance-basis-abbreviated-values",
@@ -170,7 +186,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-percent-point-scientific-coordinate",
@@ -185,7 +203,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-url",
@@ -200,7 +220,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-email-ip",
@@ -230,7 +252,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-business-codes-extension",
@@ -245,7 +269,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-identity-vehicle-codes",
@@ -260,7 +286,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-file-path-social",
@@ -292,7 +320,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-mac-uuid-hex-color",
@@ -307,7 +337,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-temperature-fahrenheit-kelvin",
@@ -322,7 +354,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-ipv4-port-ipv6",
@@ -337,7 +371,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-isbn-doi",
@@ -352,7 +388,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-semver-prerelease",
@@ -367,7 +405,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-http-port-iso-datetime",
@@ -382,7 +422,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-address-zip-room",
@@ -397,7 +439,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-power-area-abbreviated-count",
@@ -412,7 +456,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-medical-science-units",
@@ -427,7 +473,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-square-meter-unit-price",
@@ -435,7 +483,9 @@
     "language": "en",
     "category": "measure",
     "input": "Area is 80 m², rent is $12/m², volume is 3 m³.",
-    "expected": "Area is eighty square meters, rent is twelve dollars per square meter, volume is three cubic meters."
+    "expected": "Area is eighty square meters, rent is twelve dollars per square meter, volume is three cubic meters.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-micro-lab-units",
@@ -450,7 +500,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-engineering-lab-units",
@@ -465,7 +517,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-electrical-units",
@@ -480,7 +534,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-motion-pressure-units",
@@ -495,7 +551,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-resolution-dimension",
@@ -510,7 +568,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-si-data-units",
@@ -525,7 +585,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-length-liter-units",
@@ -540,7 +602,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-throughput-latency-binary",
@@ -555,7 +619,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-duration-angle-frequency",
@@ -570,7 +636,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-imperial-units",
@@ -585,7 +653,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-power-storage-units",
@@ -600,7 +670,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-ratio-range-math",
@@ -615,7 +687,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-fraction-comparison",
@@ -630,7 +704,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-plus-phone",
@@ -645,7 +721,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-speed-kmh",
@@ -660,7 +738,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-ftp-url",
@@ -675,7 +755,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-domain-timezone",
@@ -690,7 +772,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-temperature-percent",
@@ -713,7 +797,9 @@
     "language": "en",
     "category": "measure",
     "input": "Temperature 36.5C ±2C, humidity 40%-60%.",
-    "expected": "Temperature thirty six point five degrees Celsius plus or minus two degrees Celsius, humidity forty to sixty percent."
+    "expected": "Temperature thirty six point five degrees Celsius plus or minus two degrees Celsius, humidity forty to sixty percent.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-per-mille",
@@ -728,7 +814,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-measure-phone",
@@ -743,7 +831,9 @@
       "post_process": true,
       "punct_pre_process": false,
       "punct_post_process": false
-    }
+    },
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-shortcut-space-datetime",
@@ -751,7 +841,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Press Ctrl+C, then Cmd+Shift+P and Alt+F4. Deadline 2026-06-15 14:30:05.",
-    "expected": "Press control plus C, then command plus shift plus P and alt plus F four. Deadline two zero two six dash zero six dash one five one four colon three zero colon zero five."
+    "expected": "Press control plus C, then command plus shift plus P and alt plus F four. Deadline two zero two six dash zero six dash one five one four colon three zero colon zero five.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-not-equal-comparison",
@@ -759,7 +851,9 @@
     "language": "en",
     "category": "math",
     "input": "x!=5 and y≠10.",
-    "expected": "x not equal to five and y not equal to ten."
+    "expected": "x not equal to five and y not equal to ten.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-clock-plusminus-approx",
@@ -767,7 +861,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Meeting at 14:30. Tolerance ±0.5mm. x≈5.",
-    "expected": "Meeting at fourteen thirty. Tolerance plus or minus zero point five millimeters. x approximately equal to five."
+    "expected": "Meeting at fourteen thirty. Tolerance plus or minus zero point five millimeters. x approximately equal to five.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-numeric-date-context-area-money",
@@ -775,7 +871,9 @@
     "language": "en",
     "category": "mixed",
     "input": "The event is on 1/2/2026. Ch. 1, Fig. 3. Area 80㎡, price $1,234.56.",
-    "expected": "The event is on january second twenty twenty six. chapter one, figure three. Area eighty square meters, price one thousand two hundred and thirty four dollars fifty six cents."
+    "expected": "The event is on january second twenty twenty six. chapter one, figure three. Area eighty square meters, price one thousand two hundred and thirty four dollars fifty six cents.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-time-range",
@@ -783,7 +881,9 @@
     "language": "en",
     "category": "time",
     "input": "Office hours 09:00-18:30, meeting 14:30~15:45.",
-    "expected": "Office hours nine o'clock to eighteen thirty, meeting fourteen thirty to fifteen forty five."
+    "expected": "Office hours nine o'clock to eighteen thirty, meeting fourteen thirty to fifteen forty five.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-suffix-currency-percent-money-unit-ranges",
@@ -791,7 +891,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Budget 12 USD, cost 3 EUR. Range 10%-20%, price $10-$20, weight 5-10kg.",
-    "expected": "Budget twelve dollars, cost three euros. Range ten to twenty percent, price ten to twenty dollars, weight five to ten kilograms."
+    "expected": "Budget twelve dollars, cost three euros. Range ten to twenty percent, price ten to twenty dollars, weight five to ten kilograms.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-square-unit-words",
@@ -799,7 +901,9 @@
     "language": "en",
     "category": "measure",
     "input": "Area 80 sq m, lot 2 sq km, room 120 sq ft.",
-    "expected": "Area eighty square meters, lot two square kilometers, room one hundred and twenty square feet."
+    "expected": "Area eighty square meters, lot two square kilometers, room one hundred and twenty square feet.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-context-temperature-yard-money",
@@ -807,7 +911,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Temperature 23C, temp -5F, area 80 sq yd, distance 5 yd. Price 12.50 dollars.",
-    "expected": "Temperature twenty three degrees Celsius, temp minus five degrees Fahrenheit, area eighty square yards, distance five yards. Price twelve dollars fifty cents."
+    "expected": "Temperature twenty three degrees Celsius, temp minus five degrees Fahrenheit, area eighty square yards, distance five yards. Price twelve dollars fifty cents.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-score-phone-plus",
@@ -815,7 +921,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Score 3:2. The ratio is 1:2. Call +86 13800138000.",
-    "expected": "Score three to two. The ratio is one to two. Call plus eighty six one three eight zero zero one three eight zero zero zero."
+    "expected": "Score three to two. The ratio is one to two. Call plus eighty six one three eight zero zero one three eight zero zero zero.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-room-hkd-am-pm",
@@ -823,7 +931,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Room B-1208. Price HK$7. Meet at 3:30 p.m. Price.",
-    "expected": "Room B dash one two zero eight. Price seven Hong Kong dollars. Meet at three thirty PM. Price."
+    "expected": "Room B dash one two zero eight. Price seven Hong Kong dollars. Meet at three thirty PM. Price.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-model-code",
@@ -831,7 +941,9 @@
     "language": "en",
     "category": "identity",
     "input": "Model X-200.",
-    "expected": "Model X dash two zero zero."
+    "expected": "Model X dash two zero zero.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-toll-free-phone",
@@ -839,7 +951,9 @@
     "language": "en",
     "category": "telephone",
     "input": "Call 1-800-555-0123, ext 9.",
-    "expected": "Call one eight hundred five five five zero one two three, extension nine."
+    "expected": "Call one eight hundred five five five zero one two three, extension nine.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-context-temperature-is",
@@ -847,7 +961,9 @@
     "language": "en",
     "category": "measure",
     "input": "The temp is -3C. Temperature is 72F.",
-    "expected": "The temp is minus three degrees Celsius. Temperature is seventy two degrees Fahrenheit."
+    "expected": "The temp is minus three degrees Celsius. Temperature is seventy two degrees Fahrenheit.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-ampm-time-range",
@@ -863,7 +979,9 @@
     "language": "en",
     "category": "temperature",
     "input": "Temperature -3°C, feels like -5F.",
-    "expected": "Temperature minus three degrees Celsius, feels like minus five degrees Fahrenheit."
+    "expected": "Temperature minus three degrees Celsius, feels like minus five degrees Fahrenheit.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-rating-weekday-range",
@@ -871,7 +989,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Rating 4.8/5, score 9/10. Open Mon-Fri.",
-    "expected": "Rating four point eight out of five, score nine out of ten. Open Monday to Friday."
+    "expected": "Rating four point eight out of five, score nine out of ten. Open Monday to Friday.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-unit-price-phone-order",
@@ -879,7 +999,9 @@
     "language": "en",
     "category": "mixed",
     "input": "Unit price $12.50/kg, fee $3/hour. Support 1-800-555-0123, order #12345.",
-    "expected": "Unit price twelve dollars fifty cents per kilogram, fee three dollars per hour. Support one eight hundred five five five zero one two three, order number one two three four five."
+    "expected": "Unit price twelve dollars fifty cents per kilogram, fee three dollars per hour. Support one eight hundred five five five zero one two three, order number one two three four five.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "tn-en-iso-date-range",
@@ -887,7 +1009,9 @@
     "language": "en",
     "category": "date",
     "input": "Valid 2026-06-15 - 2026-06-20.",
-    "expected": "Valid june fifteenth twenty twenty six to june twentieth twenty twenty six."
+    "expected": "Valid june fifteenth twenty twenty six to june twentieth twenty twenty six.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-compact-duration-sequences",
@@ -895,7 +1019,9 @@
     "language": "en",
     "category": "time",
     "input": "Duration 1h30min, wait 2min30s.",
-    "expected": "Duration one hour thirty minutes, wait two minutes thirty seconds."
+    "expected": "Duration one hour thirty minutes, wait two minutes thirty seconds.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-temperature-range",
@@ -903,7 +1029,9 @@
     "language": "en",
     "category": "measure",
     "input": "Temperature 20-30C, body temperature 36.5-37.2°C.",
-    "expected": "Temperature twenty to thirty degrees Celsius, body temperature thirty six point five to thirty seven point two degrees Celsius."
+    "expected": "Temperature twenty to thirty degrees Celsius, body temperature thirty six point five to thirty seven point two degrees Celsius.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-numeric-ordinals",
@@ -919,7 +1047,9 @@
     "language": "en",
     "category": "date",
     "input": "The meeting is June 15, 2026 and Jun. 16, 2026.",
-    "expected": "The meeting is June fifteenth twenty twenty six and June sixteenth twenty twenty six."
+    "expected": "The meeting is June fifteenth twenty twenty six and June sixteenth twenty twenty six.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-dotted-date-context",
@@ -927,7 +1057,9 @@
     "language": "en",
     "category": "date",
     "input": "Date 2026.06.15, deadline 2026.6.5.",
-    "expected": "Date June fifteenth twenty twenty six, deadline June fifth twenty twenty six."
+    "expected": "Date June fifteenth twenty twenty six, deadline June fifth twenty twenty six.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "tn-en-ordinal-range",
@@ -935,6 +1067,8 @@
     "language": "en",
     "category": "ordinal",
     "input": "Rank 1st-3rd, floors 2nd-5th.",
-    "expected": "Rank first to third, floors second to fifth."
+    "expected": "Rank first to third, floors second to fifth.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   }
 ]

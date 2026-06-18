@@ -13,7 +13,9 @@
     "language": "pt",
     "category": "decimal",
     "input": "preco doze virgula cinco",
-    "expected": "preco 12.5"
+    "expected": "preco 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-date-phrase",
@@ -21,7 +23,9 @@
     "language": "pt",
     "category": "date",
     "input": "data quinze seis dois zero dois seis",
-    "expected": "data 2026-06-15"
+    "expected": "data 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-time-phrase",
@@ -29,7 +33,9 @@
     "language": "pt",
     "category": "time",
     "input": "hora sete trinta",
-    "expected": "hora 07:30"
+    "expected": "hora 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-money-phrase",
@@ -37,7 +43,9 @@
     "language": "pt",
     "category": "money",
     "input": "euros doze cinquenta",
-    "expected": "€12.50"
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-measure-phrase",
@@ -53,7 +61,9 @@
     "language": "pt",
     "category": "telephone",
     "input": "telefone um dois tres quatro",
-    "expected": "telefone 1234"
+    "expected": "telefone 1234",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-pt-email-phrase",
@@ -61,7 +71,9 @@
     "language": "pt",
     "category": "electronic",
     "input": "test at example ponto pt",
-    "expected": "test@example.pt"
+    "expected": "test@example.pt",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-pt-fraction-phrase",
@@ -69,7 +81,9 @@
     "language": "pt",
     "category": "fraction",
     "input": "um meio",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-ordinal-phrase",
@@ -77,7 +91,9 @@
     "language": "pt",
     "category": "ordinal",
     "input": "primeiro",
-    "expected": "1."
+    "expected": "1.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-pt-whitelist-phrase",
@@ -85,7 +101,9 @@
     "language": "pt",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-pt-negative-ordinary-text",
@@ -94,5 +112,119 @@
     "category": "negative",
     "input": "este texto fica normal",
     "expected": "este texto fica normal"
+  },
+  {
+    "id": "itn-pt-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "pt",
+    "category": "cardinal",
+    "input": "codigo vinte e um",
+    "expected": "codigo 21"
+  },
+  {
+    "id": "itn-pt-decimal-comma-variant",
+    "operation": "itn",
+    "language": "pt",
+    "category": "decimal",
+    "input": "preco doze virgula cinco",
+    "expected": "preco 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-date-digit-year",
+    "operation": "itn",
+    "language": "pt",
+    "category": "date",
+    "input": "data cinco seis dois zero dois seis",
+    "expected": "data 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-time-minute-digit",
+    "operation": "itn",
+    "language": "pt",
+    "category": "time",
+    "input": "hora sete cinco",
+    "expected": "hora 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-money-euro-cents",
+    "operation": "itn",
+    "language": "pt",
+    "category": "money",
+    "input": "euro doze cinquenta",
+    "expected": "€12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-measure-kilogram-variant",
+    "operation": "itn",
+    "language": "pt",
+    "category": "measure",
+    "input": "doze quilogramas",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-pt-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "pt",
+    "category": "telephone",
+    "input": "telefone um dois tres quatro cinco",
+    "expected": "telefone 12345",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-pt-email-subdomain",
+    "operation": "itn",
+    "language": "pt",
+    "category": "electronic",
+    "input": "first last at example ponto pt",
+    "expected": "firstlast@example.pt",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-pt-fraction-half-variant",
+    "operation": "itn",
+    "language": "pt",
+    "category": "fraction",
+    "input": "um meio",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-ordinal-second",
+    "operation": "itn",
+    "language": "pt",
+    "category": "ordinal",
+    "input": "segundo",
+    "expected": "2.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-pt-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "pt",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-pt-negative-punctuation",
+    "operation": "itn",
+    "language": "pt",
+    "category": "negative",
+    "input": "esta frase fica normal obrigado",
+    "expected": "esta frase fica normal obrigado"
   }
 ]

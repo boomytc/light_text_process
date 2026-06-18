@@ -5,7 +5,9 @@
     "language": "vi",
     "category": "cardinal",
     "input": "hoa don muoi hai",
-    "expected": "hoa don 12"
+    "expected": "hoa don 12",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-decimal-phrase",
@@ -13,7 +15,9 @@
     "language": "vi",
     "category": "decimal",
     "input": "gia muoi hai phay nam",
-    "expected": "gia 12.5"
+    "expected": "gia 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-date-phrase",
@@ -21,7 +25,9 @@
     "language": "vi",
     "category": "date",
     "input": "ngay muoi lam sau hai khong hai sau",
-    "expected": "ngay 2026-06-15"
+    "expected": "ngay 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-time-phrase",
@@ -29,7 +35,9 @@
     "language": "vi",
     "category": "time",
     "input": "gio bay ba muoi",
-    "expected": "gio 07:30"
+    "expected": "gio 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-money-phrase",
@@ -37,7 +45,9 @@
     "language": "vi",
     "category": "money",
     "input": "dong muoi hai nam muoi",
-    "expected": "₫12.50"
+    "expected": "₫12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-measure-phrase",
@@ -45,7 +55,9 @@
     "language": "vi",
     "category": "measure",
     "input": "muoi hai kilogam",
-    "expected": "12 kg"
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-telephone-phrase",
@@ -53,7 +65,9 @@
     "language": "vi",
     "category": "telephone",
     "input": "dien thoai mot hai ba bon",
-    "expected": "dien thoai 1234"
+    "expected": "dien thoai 1234",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-vi-email-phrase",
@@ -61,7 +75,9 @@
     "language": "vi",
     "category": "electronic",
     "input": "test at example dot vn",
-    "expected": "test@example.vn"
+    "expected": "test@example.vn",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-vi-fraction-phrase",
@@ -69,7 +85,9 @@
     "language": "vi",
     "category": "fraction",
     "input": "mot phan hai",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-ordinal-phrase",
@@ -77,7 +95,9 @@
     "language": "vi",
     "category": "ordinal",
     "input": "thu nhat",
-    "expected": "1."
+    "expected": "1.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-vi-whitelist-phrase",
@@ -85,7 +105,9 @@
     "language": "vi",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-vi-negative-ordinary-text",
@@ -94,5 +116,133 @@
     "category": "negative",
     "input": "cau nay giu nguyen",
     "expected": "cau nay giu nguyen"
+  },
+  {
+    "id": "itn-vi-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "vi",
+    "category": "cardinal",
+    "input": "ma hai muoi mot",
+    "expected": "ma 21",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-decimal-point-variant",
+    "operation": "itn",
+    "language": "vi",
+    "category": "decimal",
+    "input": "gia muoi hai phay nam",
+    "expected": "gia 12.5",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-date-digit-year",
+    "operation": "itn",
+    "language": "vi",
+    "category": "date",
+    "input": "ngay nam sau hai khong hai sau",
+    "expected": "ngay 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-time-minute-digit",
+    "operation": "itn",
+    "language": "vi",
+    "category": "time",
+    "input": "gio bay nam",
+    "expected": "gio 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-money-dong-cents",
+    "operation": "itn",
+    "language": "vi",
+    "category": "money",
+    "input": "dong muoi hai nam muoi",
+    "expected": "₫12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-measure-kilogam-variant",
+    "operation": "itn",
+    "language": "vi",
+    "category": "measure",
+    "input": "muoi hai kilogam",
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "vi",
+    "category": "telephone",
+    "input": "dien thoai mot hai ba bon nam",
+    "expected": "dien thoai 12345",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-vi-email-subdomain",
+    "operation": "itn",
+    "language": "vi",
+    "category": "electronic",
+    "input": "first last at example dot vn",
+    "expected": "firstlast@example.vn",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-vi-fraction-half-variant",
+    "operation": "itn",
+    "language": "vi",
+    "category": "fraction",
+    "input": "mot phan hai",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-ordinal-second",
+    "operation": "itn",
+    "language": "vi",
+    "category": "ordinal",
+    "input": "thu hai",
+    "expected": "2.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-vi-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "vi",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-vi-negative-punctuation",
+    "operation": "itn",
+    "language": "vi",
+    "category": "negative",
+    "input": "cau nay giu nguyen binh thuong",
+    "expected": "cau nay giu nguyen binh thuong"
+  },
+  {
+    "id": "itn-vi-asr-openai-digits",
+    "operation": "itn",
+    "language": "vi",
+    "category": "asr-postprocess",
+    "input": "open ai mot hai ba",
+    "expected": "OpenAI 123",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   }
 ]

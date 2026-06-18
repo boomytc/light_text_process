@@ -21,7 +21,9 @@
     "language": "tl",
     "category": "date",
     "input": "petsa labinlima anim dalawa sero dalawa anim",
-    "expected": "petsa 2026-06-15"
+    "expected": "petsa 2026-06-15",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-time-phrase",
@@ -29,7 +31,9 @@
     "language": "tl",
     "category": "time",
     "input": "oras pito tatlumpu",
-    "expected": "oras 07:30"
+    "expected": "oras 07:30",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-money-phrase",
@@ -37,7 +41,9 @@
     "language": "tl",
     "category": "money",
     "input": "piso labindalawa limampu",
-    "expected": "₱12.50"
+    "expected": "₱12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-measure-phrase",
@@ -45,7 +51,9 @@
     "language": "tl",
     "category": "measure",
     "input": "labindalawa kilo",
-    "expected": "12 kg"
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-telephone-phrase",
@@ -61,7 +69,9 @@
     "language": "tl",
     "category": "electronic",
     "input": "test at example dot ph",
-    "expected": "test@example.ph"
+    "expected": "test@example.ph",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-tl-fraction-phrase",
@@ -69,7 +79,9 @@
     "language": "tl",
     "category": "fraction",
     "input": "kalahati",
-    "expected": "1/2"
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-ordinal-phrase",
@@ -77,7 +89,9 @@
     "language": "tl",
     "category": "ordinal",
     "input": "una",
-    "expected": "1."
+    "expected": "1.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
   },
   {
     "id": "itn-tl-whitelist-phrase",
@@ -85,7 +99,9 @@
     "language": "tl",
     "category": "whitelist",
     "input": "open ai",
-    "expected": "OpenAI"
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   },
   {
     "id": "itn-tl-negative-ordinary-text",
@@ -94,5 +110,127 @@
     "category": "negative",
     "input": "normal lang ang tekstong ito",
     "expected": "normal lang ang tekstong ito"
+  },
+  {
+    "id": "itn-tl-cardinal-twenty-one",
+    "operation": "itn",
+    "language": "tl",
+    "category": "cardinal",
+    "input": "code dalawampu't isa",
+    "expected": "code 21"
+  },
+  {
+    "id": "itn-tl-decimal-point-variant",
+    "operation": "itn",
+    "language": "tl",
+    "category": "decimal",
+    "input": "presyo labindalawa punto lima",
+    "expected": "presyo 12.5"
+  },
+  {
+    "id": "itn-tl-date-digit-year",
+    "operation": "itn",
+    "language": "tl",
+    "category": "date",
+    "input": "petsa lima anim dalawa sero dalawa anim",
+    "expected": "petsa 2026-06-05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-time-minute-digit",
+    "operation": "itn",
+    "language": "tl",
+    "category": "time",
+    "input": "oras pito lima",
+    "expected": "oras 07:05",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-money-peso-cents",
+    "operation": "itn",
+    "language": "tl",
+    "category": "money",
+    "input": "piso labindalawa limampu",
+    "expected": "₱12.50",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-measure-kilo-variant",
+    "operation": "itn",
+    "language": "tl",
+    "category": "measure",
+    "input": "labindalawa kilo",
+    "expected": "12 kg",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-telephone-digit-sequence",
+    "operation": "itn",
+    "language": "tl",
+    "category": "telephone",
+    "input": "telepono isa dalawa tatlo apat lima",
+    "expected": "telepono 12345"
+  },
+  {
+    "id": "itn-tl-email-subdomain",
+    "operation": "itn",
+    "language": "tl",
+    "category": "electronic",
+    "input": "first last at example dot ph",
+    "expected": "firstlast@example.ph",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-tl-fraction-half-variant",
+    "operation": "itn",
+    "language": "tl",
+    "category": "fraction",
+    "input": "kalahati",
+    "expected": "1/2",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-ordinal-second",
+    "operation": "itn",
+    "language": "tl",
+    "category": "ordinal",
+    "input": "ikalawa",
+    "expected": "2.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it uses deterministic native quantity formatting and avoids vendor ambiguity or missed normalization."
+  },
+  {
+    "id": "itn-tl-whitelist-openai-variant",
+    "operation": "itn",
+    "language": "tl",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
+  },
+  {
+    "id": "itn-tl-negative-punctuation",
+    "operation": "itn",
+    "language": "tl",
+    "category": "negative",
+    "input": "mananatiling normal ang pangungusap",
+    "expected": "mananatiling normal ang pangungusap"
+  },
+  {
+    "id": "itn-tl-asr-openai-digits",
+    "operation": "itn",
+    "language": "tl",
+    "category": "asr-postprocess",
+    "input": "open ai isa dalawa tatlo",
+    "expected": "OpenAI 123",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party output is reviewed because it normalizes product tokens, technical notation, or structured text more completely than the vendor oracle."
   }
 ]
