@@ -27,17 +27,16 @@ surface.
 
 ## Current Phase
 
-Current work is P0/P1: establish a measurable coverage baseline and a
-non-runtime oracle for `fun_text_processing` behavior. No route should be called
-fully covered until it has category coverage, regression cases, and comparison
-evidence.
+Current work is P2/P4: close category parity with first-party rules and golden
+cases. No route should be called fully covered until it has category coverage,
+regression cases, and comparison evidence.
 
 ## Phase Index
 
 | Status | Phase | File | Purpose |
 | --- | --- | --- | --- |
-| [~] | P0 | [TODO_00_COVERAGE_BASELINE.md](todo/full_fun_text_processing_coverage/TODO_00_COVERAGE_BASELINE.md) | Define the full route/category coverage target. |
-| [~] | P1 | [TODO_01_ORACLE_AND_DIFF.md](todo/full_fun_text_processing_coverage/TODO_01_ORACLE_AND_DIFF.md) | Build a safe comparison oracle for former vendor behavior. |
+| [x] | P0 | [TODO_00_COVERAGE_BASELINE.md](todo/full_fun_text_processing_coverage/TODO_00_COVERAGE_BASELINE.md) | Define the full route/category coverage target. |
+| [x] | P1 | [TODO_01_ORACLE_AND_DIFF.md](todo/full_fun_text_processing_coverage/TODO_01_ORACLE_AND_DIFF.md) | Build a safe comparison oracle for former vendor behavior. |
 | [ ] | P2 | [TODO_02_ROUTE_CATEGORY_PARITY.md](todo/full_fun_text_processing_coverage/TODO_02_ROUTE_CATEGORY_PARITY.md) | Close parity gaps route by route and category by category. |
 | [ ] | P3 | [TODO_03_ZH_EN_SUPERSET.md](todo/full_fun_text_processing_coverage/TODO_03_ZH_EN_SUPERSET.md) | Preserve and expand the stronger zh/en TN/ITN behavior. |
 | [ ] | P4 | [TODO_04_MULTILINGUAL_PARITY.md](todo/full_fun_text_processing_coverage/TODO_04_MULTILINGUAL_PARITY.md) | Bring non-zh/en routes up to the former vendor surface. |

@@ -18,6 +18,8 @@ DEFAULT_CASES_DIR = PROJECT_DIR / "data" / "rule_cases"
 DEFAULT_OUTPUT = PROJECT_DIR / "runtime" / "oracle" / "fun_text_processing_diff.json"
 DEFAULT_CACHE_DIR = PROJECT_DIR / "runtime" / "oracle" / "fun_text_processing_cache"
 SUPPORTED_OPERATIONS = {"tn", "itn"}
+REVIEW_STATUSES = {"match", "accepted-improvement", "regression", "unsupported-gap"}
+STRICT_FAILURE_STATUSES = {"regression", "unsupported-gap"}
 
 if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
@@ -34,6 +36,8 @@ class OracleCase:
     category: str
     input: str
     options: dict[str, Any]
+    oracle_status: str | None
+    oracle_note: str | None
 
 
 @dataclass(frozen=True)
@@ -52,6 +56,7 @@ class Comparison:
     current: EngineOutput
     oracle: EngineOutput
     status: str
+    note: str | None
 
 
 class FunTextProcessingOracle:
@@ -249,7 +254,7 @@ def compare(args: argparse.Namespace) -> int:
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print_comparison_summary(comparisons, elapsed, args.output, verbose=args.verbose)
-    if args.strict and any(comparison.status != "match" for comparison in comparisons):
+    if args.strict and any(comparison.status in STRICT_FAILURE_STATUSES for comparison in comparisons):
         return 1
     return 0
 
@@ -295,6 +300,16 @@ def parse_case(raw_case: Any, case_file: Path, index: int) -> OracleCase:
         TNOptions(**options)
     else:
         ITNOptions(**options)
+    oracle_status = raw_case.get("oracle_status")
+    if oracle_status is not None:
+        if not isinstance(oracle_status, str) or oracle_status not in REVIEW_STATUSES:
+            raise ValueError(
+                f"{case_file} case {values['id']} oracle_status must be one of: "
+                f"{', '.join(sorted(REVIEW_STATUSES))}"
+            )
+    oracle_note = raw_case.get("oracle_note")
+    if oracle_note is not None and (not isinstance(oracle_note, str) or not oracle_note.strip()):
+        raise ValueError(f"{case_file} case {values['id']} oracle_note must be a non-empty string")
     return OracleCase(
         id=values["id"],
         operation=values["operation"],
@@ -302,6 +317,8 @@ def parse_case(raw_case: Any, case_file: Path, index: int) -> OracleCase:
         category=values["category"],
         input=values["input"],
         options=options,
+        oracle_status=oracle_status,
+        oracle_note=oracle_note,
     )
 
 
@@ -331,7 +348,7 @@ def compare_cases(cases: Sequence[OracleCase], oracle: FunTextProcessingOracle) 
     for case in cases:
         current_output = run_current_case(current, case)
         oracle_output = run_oracle_case(oracle, case)
-        status = classify(current_output, oracle_output)
+        status = classify(current_output, oracle_output, reviewed_status=case.oracle_status)
         comparisons.append(
             Comparison(
                 id=case.id,
@@ -342,6 +359,7 @@ def compare_cases(cases: Sequence[OracleCase], oracle: FunTextProcessingOracle) 
                 current=current_output,
                 oracle=oracle_output,
                 status=status,
+                note=case.oracle_note,
             )
         )
     return comparisons
@@ -366,16 +384,25 @@ def run_oracle_case(oracle: FunTextProcessingOracle, case: OracleCase) -> Engine
         return EngineOutput(output=None, error=str(exc) or exc.__class__.__name__)
 
 
-def classify(current: EngineOutput, oracle: EngineOutput) -> str:
-    if current.error and oracle.error:
-        return "both-error"
+def classify(
+    current: EngineOutput,
+    oracle: EngineOutput,
+    *,
+    reviewed_status: str | None = None,
+) -> str:
     if current.error:
-        return "current-error"
+        return _reviewed_or_default(reviewed_status, "unsupported-gap")
     if oracle.error:
-        return "oracle-error"
+        return _reviewed_or_default(reviewed_status, "accepted-improvement")
     if current.output == oracle.output:
         return "match"
-    return "diff"
+    return _reviewed_or_default(reviewed_status, "regression")
+
+
+def _reviewed_or_default(reviewed_status: str | None, default: str) -> str:
+    if reviewed_status in {None, "match"}:
+        return default
+    return reviewed_status
 
 
 def build_report(reference: Path, comparisons: Sequence[Comparison], elapsed: float) -> dict[str, Any]:
@@ -413,6 +440,8 @@ def print_comparison_summary(
             print(f"  input:   {comparison.input}")
             print(f"  current: {comparison.current.output if comparison.current.error is None else comparison.current.error}")
             print(f"  oracle:  {comparison.oracle.output if comparison.oracle.error is None else comparison.oracle.error}")
+            if comparison.note:
+                print(f"  note:    {comparison.note}")
     summary = ", ".join(f"{key}={value}" for key, value in sorted(counts.items()))
     print(f"summary: total={len(comparisons)}, {summary}, elapsed={elapsed:.3f}s")
     print(f"report: {output}")

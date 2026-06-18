@@ -15,7 +15,7 @@ behavior without reintroducing it into runtime code.
       selected route/category fixtures.
 - [x] Store differential reports under ignored `runtime/oracle/` output paths by
       default.
-- [ ] Add reviewed classification for diffs as `match`,
+- [x] Add reviewed classification for diffs as `match`,
       `accepted-improvement`, `regression`, or `unsupported-gap`.
 - [x] Make the differential checker support operation, language, category, and
       fixture-file filters.

@@ -1,72 +1,72 @@
 # Replacement Matrix
 
-This matrix records the route-level replacement scope for removing the
-temporary `third_party/fun_text_processing` backend.
+This matrix records the first-party replacement target for the former
+`fun_text_processing` TN/ITN surface. Runtime code is vendor-free: coverage gaps
+are tracked as first-party work, not as fallback or compatibility behavior.
 
-## Decision Values
+## Status Values
 
-- `replace`: keep the public route and implement it in first-party runtime code.
-- `defer`: keep the route vendor-backed only while the vendor tree still exists.
+- `covered`: first-party rule code and golden cases cover the category.
+- `partial`: first-party behavior exists, but coverage is narrower than the
+  former route/category target.
+- `missing`: the category is part of the former route target and has no focused
+  first-party coverage yet.
+- `intentional-delta`: first-party output is deliberately different and must be
+  documented in oracle diff classification.
 
-`defer` is not valid for the final vendor-free release.
-
-## Category Legend
-
-Vendor route directories use combinations of these major categories:
-cardinal, ordinal, decimal, date, time, money, measure, telephone, electronic,
-fraction, range, roman, whitelist, word, punctuation, and language-specific
-character or name handling.
-
-First-party route coverage is currently product-owned zh/en rule logic under
-`light_text_process/rules/`. Golden coverage is under `data/rule_cases/` and is
-limited to zh/en TN/ITN.
-
-## TN Routes
-
-| Language | Vendor categories | First-party categories | Vendor assets | Golden coverage | Decision |
-| --- | --- | --- | --- | --- | --- |
-| de | cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| en | abbreviation, cardinal, date, decimal, electronic, fraction, measure, money, ordinal, range, roman, telephone, time, whitelist, word | dates, times, money, measures, identifiers, electronic strings, addresses, punctuation, math, mixed ASR/product tokens | TSV data, checked-in FAR files, grammar modules, FAR/FST cache generation | `data/rule_cases/en_tn.json` | replace |
-| es | cardinal, date, decimals, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| ru | cardinal, date, decimals, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| zh | cardinal, char, date, electronic, measure, money, sport, telephone, time, whitelist, word | dates, times, money, measures, identifiers, electronic strings, addresses, punctuation, math, mixed ASR/product tokens | TSV data, grammar modules, FAR/FST cache generation | `data/rule_cases/zh_tn.json` | replace |
-
-## ITN Routes
-
-| Language | Vendor categories | First-party categories | Vendor assets/options | Golden coverage | Decision |
-| --- | --- | --- | --- | --- | --- |
-| de | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, word | none | grammar modules, FAR/FST cache generation | none | replace |
-| en | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | ASR cleanup, dates, times, money, measures, identifiers, electronic strings, addresses, punctuation, math, mixed product tokens | TSV data, grammar modules, FAR/FST cache generation | `data/rule_cases/en_itn.json` | replace |
-| es | cardinal, date, decimals, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| fr | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word, roman | none | TSV/TXT data, grammar modules, FAR/FST cache generation | none | replace |
-| id | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV/TXT data, grammar modules, FAR/FST cache generation | none | replace |
-| ja | cardinal, char, date, decimal, electronic, fraction, measure, money, name, ordinal, telephone, time, whitelist, word | none | TSV/TXT data, grammar modules, FAR/FST cache generation, `enable_standalone_number`, `enable_0_to_9` | none | replace |
-| ko | cardinal, char, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| pt | cardinal, date, decimals, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| ru | cardinal, date, decimals, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | grammar modules, FAR/FST cache generation | none | replace |
-| tl | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| vi | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | none | TSV data, grammar modules, FAR/FST cache generation | none | replace |
-| zh | cardinal, char, date, electronic, fraction, math, measure, money, sport, telephone, time, whitelist, word | ASR cleanup, dates, times, money, measures, identifiers, electronic strings, addresses, punctuation, math, mixed product tokens | TSV data, grammar modules, FAR/FST cache generation | `data/rule_cases/zh_itn.json` | replace |
-
-## Final Public Route Policy
-
-The vendor-free release must keep these TN/ITN routes:
+## Former Public Routes
 
 - TN: `de`, `en`, `es`, `ru`, `zh`
 - ITN: `de`, `en`, `es`, `fr`, `id`, `ja`, `ko`, `pt`, `ru`, `tl`, `vi`, `zh`
-- num2words: dependency-backed languages reported by `num2words`
 
-No current vendor TN/ITN route is considered replaced until first-party code
-preserves its public capability. Routes without first-party coverage stay
-vendor-backed during the transition.
+The target category vocabulary is: cardinal, ordinal, decimal, date, time,
+money, measure, telephone, electronic, fraction, range, roman, whitelist, word,
+punctuation, and language-specific character or name handling.
 
-## Migration Order
+## TN Coverage Baseline
 
-1. Make zh/en native routes pass the golden suite without importing
-   `fun_text_processing`.
-2. Add first-party modules and golden coverage for remaining vendor TN routes.
-3. Add first-party modules and golden coverage for remaining vendor ITN routes.
-4. Switch `TextProcessor` route by route from vendor fallback to first-party
-   implementations.
-5. Delete vendor runtime files, path insertion, package metadata, vendor-only
-   dependencies, and grammar cache maintenance assumptions.
+| Route | Owner module | Former categories | Current category status |
+| --- | --- | --- | --- |
+| `tn/de` | `light_text_process/rules/de_tn.py`, `multilingual_tn.py` | cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, word | `covered`: cardinal, decimal, date, electronic, money, time. `partial`: word. `missing`: fraction, measure, ordinal, telephone. |
+| `tn/en` | `light_text_process/rules/en_tn.py` | abbreviation, cardinal, date, decimal, electronic, fraction, measure, money, ordinal, range, roman, telephone, time, whitelist, word | `covered`: date, time, money, measure, telephone, electronic, fraction, ordinal, range, roman, punctuation, word/product-token behavior. `intentional-delta`: ASR and technical-token handling beyond former vendor behavior. |
+| `tn/es` | `light_text_process/rules/es_tn.py`, `multilingual_tn.py` | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal, decimal, date, electronic, money, time. `partial`: word. `missing`: fraction, measure, ordinal, telephone, whitelist. |
+| `tn/ru` | `light_text_process/rules/ru_tn.py`, `multilingual_tn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal, decimal, date, electronic, money, time. `partial`: word. `missing`: measure, ordinal, telephone, whitelist. |
+| `tn/zh` | `light_text_process/rules/zh_tn.py` | cardinal, char, date, electronic, measure, money, sport, telephone, time, whitelist, word | `covered`: date, time, money, measure, telephone, electronic, punctuation, math, word/product-token behavior. `intentional-delta`: ASR and mixed technical-token handling beyond former vendor behavior. |
+
+## ITN Coverage Baseline
+
+| Route | Owner module | Former categories | Current category status |
+| --- | --- | --- | --- |
+| `itn/de` | `light_text_process/rules/de_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, word. |
+| `itn/en` | `light_text_process/rules/en_itn.py` | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist/product tokens, word cleanup. `intentional-delta`: ASR cleanup and technical identifiers beyond former vendor behavior. |
+| `itn/es` | `light_text_process/rules/es_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/fr` | `light_text_process/rules/fr_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word, roman | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, fraction, measure, money, ordinal, telephone, time, whitelist, word, roman. |
+| `itn/id` | `light_text_process/rules/id_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/ja` | `light_text_process/rules/ja_itn.py`, `multilingual_itn.py` | cardinal, char, date, decimal, electronic, fraction, measure, money, name, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `partial`: `enable_standalone_number`, `enable_0_to_9` options are exposed but not behaviorally distinct yet. `missing`: date, decimal, fraction, measure, money, name, ordinal, telephone, time, whitelist, word. |
+| `itn/ko` | `light_text_process/rules/ko_itn.py`, `multilingual_itn.py` | cardinal, char, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/pt` | `light_text_process/rules/pt_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/ru` | `light_text_process/rules/ru_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/tl` | `light_text_process/rules/tl_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/vi` | `light_text_process/rules/vi_itn.py`, `multilingual_itn.py` | cardinal, date, decimal, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, word | `covered`: cardinal digit sequences, electronic. `missing`: date, decimal, fraction, measure, money, ordinal, telephone, time, whitelist, word. |
+| `itn/zh` | `light_text_process/rules/zh_itn.py` | cardinal, char, date, electronic, fraction, math, measure, money, sport, telephone, time, whitelist, word | `covered`: cardinal, char, date, electronic, fraction, math, measure, money, telephone, time, whitelist/product tokens, word cleanup. `intentional-delta`: ASR cleanup and mixed technical-token handling beyond former vendor behavior. |
+
+## Gap Summary
+
+- Non-zh/en ITN must move beyond digit-sequence cardinal and electronic smoke
+  coverage into decimal, date, time, money, measure, telephone, ordinal,
+  fraction where applicable, whitelist, and negative cases.
+- Non-zh/en TN must split the existing mixed smoke cases into category-specific
+  golden cases and add missing measure, telephone, ordinal, fraction, and
+  whitelist coverage where applicable.
+- Japanese ITN option behavior for standalone numbers and 0-to-9 handling must
+  be proven with dedicated cases.
+- zh/en accepted differences must be classified as reviewed deltas in oracle
+  output, not hidden as generic mismatches.
+
+## Release Gate
+
+Complete replacement can only be claimed when this matrix has no `missing` or
+unexplained `partial` category, rule validation passes for all route/category
+fixtures, strict oracle comparison has no `regression` or `unsupported-gap`, and
+runtime code still has no `fun_text_processing` dependency or package-data
+coupling.
