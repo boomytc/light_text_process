@@ -4,6 +4,11 @@ This matrix records the first-party replacement coverage for the former
 `fun_text_processing` TN/ITN surface. Runtime code is vendor-free: every public
 TN/ITN route is served by `light_text_process_native` rule modules.
 
+The frozen replacement baseline is recorded in
+[`docs/baseline_inventory.md`](baseline_inventory.md), including route lists,
+case counts, category coverage, owner modules, oracle reference path, and
+runtime vendor audit commands.
+
 ## Status Values
 
 - `covered`: first-party rule code, route/category golden cases, and the

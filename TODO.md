@@ -42,7 +42,7 @@ This is a capability coverage plan, not a compatibility-layer plan.
 
 ## Phase Index
 
-- [ ] C0: [Baseline Inventory](todo/TODO_00_BASELINE_INVENTORY.md)
+- [x] C0: [Baseline Inventory](todo/TODO_00_BASELINE_INVENTORY.md)
 - [ ] C1: [Oracle Diff Gate](todo/TODO_01_ORACLE_DIFF_GATE.md)
 - [ ] C2: [Golden Corpus Expansion](todo/TODO_02_GOLDEN_CORPUS_EXPANSION.md)
 - [ ] C3: [Chinese and English Deep Parity](todo/TODO_03_ZH_EN_DEEP_PARITY.md)

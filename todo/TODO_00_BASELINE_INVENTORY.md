@@ -8,20 +8,20 @@ growth.
 
 ## Tasks
 
-- [ ] Record the current public TN and ITN route list from
+- [x] Record the current public TN and ITN route list from
   `light_text_process.capabilities`.
-- [ ] Record the current case count by file and route from `data/rule_cases/`.
-- [ ] Record category coverage by route using `scripts/validate_rules.py --list`
+- [x] Record the current case count by file and route from `data/rule_cases/`.
+- [x] Record category coverage by route using `scripts/validate_rules.py --list`
   or an equivalent read-only inventory.
-- [ ] Identify which public routes are first-party rule implementations and
+- [x] Identify which public routes are first-party rule implementations and
   which shared helper modules they use.
-- [ ] Record the exact external oracle reference path used for comparison, such
+- [x] Record the exact external oracle reference path used for comparison, such
   as a preserved `fun_text_processing` directory outside runtime code.
-- [ ] Confirm that the root package imports and runtime code do not import
+- [x] Confirm that the root package imports and runtime code do not import
   `fun_text_processing`.
-- [ ] Confirm the Web product imports root `TextProcessor`, root schemas, and
+- [x] Confirm the Web product imports root `TextProcessor`, root schemas, and
   root capability metadata instead of owning engine code.
-- [ ] Add a short baseline note to `docs/replacement_matrix.md` if the current
+- [x] Add a short baseline note to `docs/replacement_matrix.md` if the current
   documented route list or category list is stale.
 
 ## Required Evidence
