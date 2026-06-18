@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-vi-digit-sequence",
+    "id": "itn-vi-cardinal-phrase",
     "operation": "itn",
     "language": "vi",
     "category": "cardinal",
-    "input": "mot hai ba",
-    "expected": "123"
+    "input": "hoa don muoi hai",
+    "expected": "hoa don 12"
+  },
+  {
+    "id": "itn-vi-decimal-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "decimal",
+    "input": "gia muoi hai phay nam",
+    "expected": "gia 12.5"
+  },
+  {
+    "id": "itn-vi-date-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "date",
+    "input": "ngay muoi lam sau hai khong hai sau",
+    "expected": "ngay 2026-06-15"
+  },
+  {
+    "id": "itn-vi-time-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "time",
+    "input": "gio bay ba muoi",
+    "expected": "gio 07:30"
+  },
+  {
+    "id": "itn-vi-money-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "money",
+    "input": "dong muoi hai nam muoi",
+    "expected": "₫12.50"
+  },
+  {
+    "id": "itn-vi-measure-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "measure",
+    "input": "muoi hai kilogam",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-vi-telephone-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "telephone",
+    "input": "dien thoai mot hai ba bon",
+    "expected": "dien thoai 1234"
+  },
+  {
+    "id": "itn-vi-email-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "electronic",
+    "input": "test at example dot vn",
+    "expected": "test@example.vn"
+  },
+  {
+    "id": "itn-vi-fraction-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "fraction",
+    "input": "mot phan hai",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-vi-ordinal-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "ordinal",
+    "input": "thu nhat",
+    "expected": "1."
+  },
+  {
+    "id": "itn-vi-whitelist-phrase",
+    "operation": "itn",
+    "language": "vi",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-vi-negative-ordinary-text",
+    "operation": "itn",
+    "language": "vi",
+    "category": "negative",
+    "input": "cau nay giu nguyen",
+    "expected": "cau nay giu nguyen"
   }
 ]

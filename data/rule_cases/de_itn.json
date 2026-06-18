@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-de-digit-sequence",
+    "id": "itn-de-cardinal-phrase",
     "operation": "itn",
     "language": "de",
     "category": "cardinal",
-    "input": "eins zwei drei",
-    "expected": "123"
+    "input": "rechnung zwölf",
+    "expected": "rechnung 12"
+  },
+  {
+    "id": "itn-de-decimal-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "decimal",
+    "input": "preis zwölf komma fünf",
+    "expected": "preis 12.5"
+  },
+  {
+    "id": "itn-de-date-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "date",
+    "input": "datum fünfzehn sechs zwei null zwei sechs",
+    "expected": "datum 2026-06-15"
+  },
+  {
+    "id": "itn-de-time-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "time",
+    "input": "uhrzeit sieben dreißig",
+    "expected": "uhrzeit 07:30"
+  },
+  {
+    "id": "itn-de-money-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "money",
+    "input": "euro zwölf fünfzig",
+    "expected": "€12.50"
+  },
+  {
+    "id": "itn-de-measure-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "measure",
+    "input": "zwölf kilogramm",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-de-telephone-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "telephone",
+    "input": "telefon eins zwei drei vier",
+    "expected": "telefon 1234"
+  },
+  {
+    "id": "itn-de-email-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "electronic",
+    "input": "test at example punkt de",
+    "expected": "test@example.de"
+  },
+  {
+    "id": "itn-de-fraction-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "fraction",
+    "input": "ein halb",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-de-ordinal-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "ordinal",
+    "input": "erste",
+    "expected": "1."
+  },
+  {
+    "id": "itn-de-whitelist-phrase",
+    "operation": "itn",
+    "language": "de",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-de-negative-ordinary-text",
+    "operation": "itn",
+    "language": "de",
+    "category": "negative",
+    "input": "dieser satz bleibt normal",
+    "expected": "dieser satz bleibt normal"
   }
 ]

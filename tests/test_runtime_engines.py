@@ -51,6 +51,20 @@ class RuntimeEngineBoundaryTests(unittest.TestCase):
 
         self.assertEqual(output, ["Email test at example dot com and IP one nine two dot one six eight dot zero dot one."])
 
+    def test_native_tn_whitelist_path_is_project_local_and_visible(self) -> None:
+        engine = NativeTextProcessingEngine()
+
+        output = engine.normalize(
+            ["Produkt Open A I"],
+            "de",
+            TNOptions(whitelist_path="data/whitelists/product_terms.tsv"),
+        )
+
+        self.assertEqual(output, ["Produkt OpenAI"])
+
+        with self.assertRaisesRegex(ValueError, "whitelist file does not exist"):
+            engine.normalize(["Produkt Open A I"], "de", TNOptions(whitelist_path="data/missing.tsv"))
+
     def test_native_engine_does_not_import_vendor_backend(self) -> None:
         code = """
 import sys

@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-id-digit-sequence",
+    "id": "itn-id-cardinal-phrase",
     "operation": "itn",
     "language": "id",
     "category": "cardinal",
-    "input": "satu dua tiga",
-    "expected": "123"
+    "input": "faktur dua belas",
+    "expected": "faktur 12"
+  },
+  {
+    "id": "itn-id-decimal-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "decimal",
+    "input": "harga dua belas koma lima",
+    "expected": "harga 12.5"
+  },
+  {
+    "id": "itn-id-date-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "date",
+    "input": "tanggal lima belas enam dua nol dua enam",
+    "expected": "tanggal 2026-06-15"
+  },
+  {
+    "id": "itn-id-time-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "time",
+    "input": "pukul tujuh tiga puluh",
+    "expected": "pukul 07:30"
+  },
+  {
+    "id": "itn-id-money-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "money",
+    "input": "rupiah dua belas lima puluh",
+    "expected": "Rp12.50"
+  },
+  {
+    "id": "itn-id-measure-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "measure",
+    "input": "dua belas kilogram",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-id-telephone-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "telephone",
+    "input": "telepon satu dua tiga empat",
+    "expected": "telepon 1234"
+  },
+  {
+    "id": "itn-id-email-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "electronic",
+    "input": "test at example dot id",
+    "expected": "test@example.id"
+  },
+  {
+    "id": "itn-id-fraction-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "fraction",
+    "input": "setengah",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-id-ordinal-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "ordinal",
+    "input": "pertama",
+    "expected": "1."
+  },
+  {
+    "id": "itn-id-whitelist-phrase",
+    "operation": "itn",
+    "language": "id",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-id-negative-ordinary-text",
+    "operation": "itn",
+    "language": "id",
+    "category": "negative",
+    "input": "teks ini tetap normal",
+    "expected": "teks ini tetap normal"
   }
 ]

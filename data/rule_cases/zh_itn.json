@@ -373,7 +373,9 @@
     "language": "zh",
     "category": "electronic",
     "input": "文件report下划线v二点零点pdf路径斜杠data斜杠input杠零一斜杠test点csv账号艾特light下划线user话题井号AI二零二六",
-    "expected": "文件report_v2.0.pdf路径/data/input-01/test.csv账号@light_user话题#AI2026"
+    "expected": "文件report_v2.0.pdf路径/data/input-01/test.csv账号@light_user话题#AI2026",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party ITN intentionally restores file paths, handles, and hashtags as product tokens."
   },
   {
     "id": "itn-zh-url-query-fragment",

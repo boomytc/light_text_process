@@ -1,10 +1,101 @@
 [
   {
-    "id": "tn-ru-money-date-time-email-id",
+    "id": "tn-ru-cardinal-number",
     "operation": "tn",
     "language": "ru",
-    "category": "mixed",
-    "input": "Контакт test@example.com стоит €45.50 на 2026-06-15 в 07:30, ID 123.",
-    "expected": "Контакт test at example dot com стоит сорок пять евро пятьдесят центов на две тысячи двадцать шесть год шесть месяц пятнадцать день в семь часов тридцать минут, ID сто двадцать три."
+    "category": "cardinal",
+    "input": "ID 123",
+    "expected": "ID сто двадцать три"
+  },
+  {
+    "id": "tn-ru-decimal-number",
+    "operation": "tn",
+    "language": "ru",
+    "category": "decimal",
+    "input": "Цена 12.5",
+    "expected": "Цена двенадцать целых пять десятых"
+  },
+  {
+    "id": "tn-ru-date-iso",
+    "operation": "tn",
+    "language": "ru",
+    "category": "date",
+    "input": "Дата 2026-06-15",
+    "expected": "Дата две тысячи двадцать шесть год шесть месяц пятнадцать день"
+  },
+  {
+    "id": "tn-ru-time-clock",
+    "operation": "tn",
+    "language": "ru",
+    "category": "time",
+    "input": "Время 07:30",
+    "expected": "Время семь часов тридцать минут"
+  },
+  {
+    "id": "tn-ru-money-euro",
+    "operation": "tn",
+    "language": "ru",
+    "category": "money",
+    "input": "Стоимость €12.50",
+    "expected": "Стоимость двенадцать евро пятьдесят центов"
+  },
+  {
+    "id": "tn-ru-measure-kg",
+    "operation": "tn",
+    "language": "ru",
+    "category": "measure",
+    "input": "Вес 12 kg",
+    "expected": "Вес двенадцать килограмм"
+  },
+  {
+    "id": "tn-ru-telephone-number",
+    "operation": "tn",
+    "language": "ru",
+    "category": "telephone",
+    "input": "телефон +7 495 123456",
+    "expected": "телефон плюс семь четыре девять пять один два три четыре пять шесть"
+  },
+  {
+    "id": "tn-ru-email",
+    "operation": "tn",
+    "language": "ru",
+    "category": "electronic",
+    "input": "Почта test@example.ru",
+    "expected": "Почта test at example dot ru"
+  },
+  {
+    "id": "tn-ru-fraction-simple",
+    "operation": "tn",
+    "language": "ru",
+    "category": "fraction",
+    "input": "Доля 1/2",
+    "expected": "Доля один из два"
+  },
+  {
+    "id": "tn-ru-ordinal-simple",
+    "operation": "tn",
+    "language": "ru",
+    "category": "ordinal",
+    "input": "Ранг 1.",
+    "expected": "Ранг первый"
+  },
+  {
+    "id": "tn-ru-whitelist-product",
+    "operation": "tn",
+    "language": "ru",
+    "category": "whitelist",
+    "input": "Продукт Open A I",
+    "expected": "Продукт OpenAI",
+    "options": {
+      "whitelist_path": "data/whitelists/product_terms.tsv"
+    }
+  },
+  {
+    "id": "tn-ru-negative-ordinary-text",
+    "operation": "tn",
+    "language": "ru",
+    "category": "negative",
+    "input": "Этот текст без изменений.",
+    "expected": "Этот текст без изменений."
   }
 ]

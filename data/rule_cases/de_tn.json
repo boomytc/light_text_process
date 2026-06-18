@@ -1,10 +1,101 @@
 [
   {
-    "id": "tn-de-money-date-time-email-id",
+    "id": "tn-de-cardinal-number",
     "operation": "tn",
     "language": "de",
-    "category": "mixed",
-    "input": "Kontakt test@example.com kostet €45.50 am 2026-06-15 um 07:30, ID 123.",
-    "expected": "Kontakt test at example dot com kostet fünfundvierzig Euro fünfzig Cent am zweitausendsechsundzwanzig Jahr sechs Monat fünfzehn Tag um sieben Uhr dreißig Minuten, ID einhundertdreiundzwanzig."
+    "category": "cardinal",
+    "input": "ID 123",
+    "expected": "ID einhundertdreiundzwanzig"
+  },
+  {
+    "id": "tn-de-decimal-number",
+    "operation": "tn",
+    "language": "de",
+    "category": "decimal",
+    "input": "Preis 12.5",
+    "expected": "Preis zwölf Komma fünf"
+  },
+  {
+    "id": "tn-de-date-iso",
+    "operation": "tn",
+    "language": "de",
+    "category": "date",
+    "input": "Datum 2026-06-15",
+    "expected": "Datum zweitausendsechsundzwanzig Jahr sechs Monat fünfzehn Tag"
+  },
+  {
+    "id": "tn-de-time-clock",
+    "operation": "tn",
+    "language": "de",
+    "category": "time",
+    "input": "Zeit 07:30",
+    "expected": "Zeit sieben Uhr dreißig Minuten"
+  },
+  {
+    "id": "tn-de-money-euro",
+    "operation": "tn",
+    "language": "de",
+    "category": "money",
+    "input": "Kosten €12.50",
+    "expected": "Kosten zwölf Euro fünfzig Cent"
+  },
+  {
+    "id": "tn-de-measure-kg",
+    "operation": "tn",
+    "language": "de",
+    "category": "measure",
+    "input": "Gewicht 12 kg",
+    "expected": "Gewicht zwölf Kilogramm"
+  },
+  {
+    "id": "tn-de-telephone-number",
+    "operation": "tn",
+    "language": "de",
+    "category": "telephone",
+    "input": "Telefon +49 30 123456",
+    "expected": "Telefon plus vier neun drei null eins zwei drei vier fünf sechs"
+  },
+  {
+    "id": "tn-de-email",
+    "operation": "tn",
+    "language": "de",
+    "category": "electronic",
+    "input": "Mail test@example.de",
+    "expected": "Mail test at example dot de"
+  },
+  {
+    "id": "tn-de-fraction-simple",
+    "operation": "tn",
+    "language": "de",
+    "category": "fraction",
+    "input": "Anteil 1/2",
+    "expected": "Anteil eins durch zwei"
+  },
+  {
+    "id": "tn-de-ordinal-simple",
+    "operation": "tn",
+    "language": "de",
+    "category": "ordinal",
+    "input": "Rang 1.",
+    "expected": "Rang erste."
+  },
+  {
+    "id": "tn-de-whitelist-product",
+    "operation": "tn",
+    "language": "de",
+    "category": "whitelist",
+    "input": "Produkt Open A I",
+    "expected": "Produkt OpenAI",
+    "options": {
+      "whitelist_path": "data/whitelists/product_terms.tsv"
+    }
+  },
+  {
+    "id": "tn-de-negative-ordinary-text",
+    "operation": "tn",
+    "language": "de",
+    "category": "negative",
+    "input": "Dieser Satz bleibt normal.",
+    "expected": "Dieser Satz bleibt normal."
   }
 ]

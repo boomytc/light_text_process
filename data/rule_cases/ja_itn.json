@@ -1,10 +1,136 @@
 [
   {
-    "id": "itn-ja-digit-sequence",
+    "id": "itn-ja-cardinal-phrase",
     "operation": "itn",
     "language": "ja",
     "category": "cardinal",
-    "input": "ichi ni san",
-    "expected": "123"
+    "input": "ju ni",
+    "expected": "12"
+  },
+  {
+    "id": "itn-ja-decimal-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "decimal",
+    "input": "kakaku ju ni ten go",
+    "expected": "kakaku 12.5"
+  },
+  {
+    "id": "itn-ja-date-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "date",
+    "input": "hiduke ju go roku ni zero ni roku",
+    "expected": "hiduke 2026-06-15"
+  },
+  {
+    "id": "itn-ja-time-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "time",
+    "input": "jikan nana sanju",
+    "expected": "jikan 07:30"
+  },
+  {
+    "id": "itn-ja-money-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "money",
+    "input": "en ju ni goju",
+    "expected": "¥12.50"
+  },
+  {
+    "id": "itn-ja-measure-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "measure",
+    "input": "ju ni kiroguramu",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-ja-telephone-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "telephone",
+    "input": "denwa ichi ni san yon",
+    "expected": "denwa 1234"
+  },
+  {
+    "id": "itn-ja-email-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "electronic",
+    "input": "test at example dot jp",
+    "expected": "test@example.jp"
+  },
+  {
+    "id": "itn-ja-fraction-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "fraction",
+    "input": "ni bun no ichi",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-ja-ordinal-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "ordinal",
+    "input": "dai ichi",
+    "expected": "第1"
+  },
+  {
+    "id": "itn-ja-name-preserved",
+    "operation": "itn",
+    "language": "ja",
+    "category": "name",
+    "input": "namae yamada taro",
+    "expected": "namae yamada taro"
+  },
+  {
+    "id": "itn-ja-whitelist-phrase",
+    "operation": "itn",
+    "language": "ja",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-ja-standalone-digit-enabled",
+    "operation": "itn",
+    "language": "ja",
+    "category": "option",
+    "input": "ichi",
+    "expected": "1"
+  },
+  {
+    "id": "itn-ja-standalone-number-disabled",
+    "operation": "itn",
+    "language": "ja",
+    "category": "option",
+    "input": "ichi",
+    "expected": "ichi",
+    "options": {
+      "enable_standalone_number": false
+    }
+  },
+  {
+    "id": "itn-ja-zero-to-nine-disabled",
+    "operation": "itn",
+    "language": "ja",
+    "category": "option",
+    "input": "ichi",
+    "expected": "ichi",
+    "options": {
+      "enable_0_to_9": false
+    }
+  },
+  {
+    "id": "itn-ja-negative-ordinary-text",
+    "operation": "itn",
+    "language": "ja",
+    "category": "negative",
+    "input": "kono bun wa sono mama",
+    "expected": "kono bun wa sono mama"
   }
 ]

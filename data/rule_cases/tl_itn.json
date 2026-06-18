@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-tl-digit-sequence",
+    "id": "itn-tl-cardinal-phrase",
     "operation": "itn",
     "language": "tl",
     "category": "cardinal",
-    "input": "isa dalawa tatlo",
-    "expected": "123"
+    "input": "resibo labindalawa",
+    "expected": "resibo 12"
+  },
+  {
+    "id": "itn-tl-decimal-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "decimal",
+    "input": "presyo labindalawa punto lima",
+    "expected": "presyo 12.5"
+  },
+  {
+    "id": "itn-tl-date-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "date",
+    "input": "petsa labinlima anim dalawa sero dalawa anim",
+    "expected": "petsa 2026-06-15"
+  },
+  {
+    "id": "itn-tl-time-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "time",
+    "input": "oras pito tatlumpu",
+    "expected": "oras 07:30"
+  },
+  {
+    "id": "itn-tl-money-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "money",
+    "input": "piso labindalawa limampu",
+    "expected": "₱12.50"
+  },
+  {
+    "id": "itn-tl-measure-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "measure",
+    "input": "labindalawa kilo",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-tl-telephone-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "telephone",
+    "input": "telepono isa dalawa tatlo apat",
+    "expected": "telepono 1234"
+  },
+  {
+    "id": "itn-tl-email-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "electronic",
+    "input": "test at example dot ph",
+    "expected": "test@example.ph"
+  },
+  {
+    "id": "itn-tl-fraction-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "fraction",
+    "input": "kalahati",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-tl-ordinal-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "ordinal",
+    "input": "una",
+    "expected": "1."
+  },
+  {
+    "id": "itn-tl-whitelist-phrase",
+    "operation": "itn",
+    "language": "tl",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-tl-negative-ordinary-text",
+    "operation": "itn",
+    "language": "tl",
+    "category": "negative",
+    "input": "normal lang ang tekstong ito",
+    "expected": "normal lang ang tekstong ito"
   }
 ]

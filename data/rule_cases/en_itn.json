@@ -301,7 +301,9 @@
     "language": "en",
     "category": "electronic",
     "input": "file report underscore v two point zero dot p d f path slash data slash input dash zero one slash test dot c s v handle at light underscore user hashtag hash A I two zero two six",
-    "expected": "file report_v2.0.pdf path /data/input-01/test.csv handle @light_user hashtag #AI2026"
+    "expected": "file report_v2.0.pdf path /data/input-01/test.csv handle @light_user hashtag #AI2026",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party ITN intentionally restores file paths, handles, and hashtags as product tokens."
   },
   {
     "id": "itn-en-url-query-fragment",

@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-ru-digit-sequence",
+    "id": "itn-ru-cardinal-phrase",
     "operation": "itn",
     "language": "ru",
     "category": "cardinal",
-    "input": "odin dva tri",
-    "expected": "123"
+    "input": "счет двенадцать",
+    "expected": "счет 12"
+  },
+  {
+    "id": "itn-ru-decimal-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "decimal",
+    "input": "цена двенадцать запятая пять",
+    "expected": "цена 12.5"
+  },
+  {
+    "id": "itn-ru-date-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "date",
+    "input": "дата пятнадцать шесть два ноль два шесть",
+    "expected": "дата 2026-06-15"
+  },
+  {
+    "id": "itn-ru-time-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "time",
+    "input": "время семь тридцать",
+    "expected": "время 07:30"
+  },
+  {
+    "id": "itn-ru-money-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "money",
+    "input": "евро двенадцать пятьдесят",
+    "expected": "€12.50"
+  },
+  {
+    "id": "itn-ru-measure-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "measure",
+    "input": "двенадцать килограмм",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-ru-telephone-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "telephone",
+    "input": "телефон один два три четыре",
+    "expected": "телефон 1234"
+  },
+  {
+    "id": "itn-ru-email-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "electronic",
+    "input": "test at example точка ru",
+    "expected": "test@example.ru"
+  },
+  {
+    "id": "itn-ru-fraction-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "fraction",
+    "input": "одна вторая",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-ru-ordinal-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "ordinal",
+    "input": "первый",
+    "expected": "1-й"
+  },
+  {
+    "id": "itn-ru-whitelist-phrase",
+    "operation": "itn",
+    "language": "ru",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-ru-negative-ordinary-text",
+    "operation": "itn",
+    "language": "ru",
+    "category": "negative",
+    "input": "этот текст без изменений",
+    "expected": "этот текст без изменений"
   }
 ]

@@ -269,6 +269,8 @@
     "category": "electronic",
     "input": "File report_v2.0.pdf, path /data/input-01/test.csv, handle @light_user, hashtag #AI2026.",
     "expected": "File report underscore v two point zero dot p d f, path slash data slash input dash zero one slash test dot c s v, handle at light underscore user, hashtag hash A I two zero two six.",
+    "oracle_status": "accepted-improvement",
+    "oracle_note": "First-party TN intentionally verbalizes file paths, social handles, and hashtags as product tokens.",
     "options": {
       "input_case": "cased",
       "deterministic": true,

@@ -1,10 +1,106 @@
 [
   {
-    "id": "itn-ko-digit-sequence",
+    "id": "itn-ko-cardinal-phrase",
     "operation": "itn",
     "language": "ko",
     "category": "cardinal",
-    "input": "il i sam",
-    "expected": "123"
+    "input": "sip i",
+    "expected": "12"
+  },
+  {
+    "id": "itn-ko-decimal-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "decimal",
+    "input": "gagyeok sip i jeom o",
+    "expected": "gagyeok 12.5"
+  },
+  {
+    "id": "itn-ko-date-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "date",
+    "input": "naljja sibo yuk i gong i yuk",
+    "expected": "naljja 2026-06-15"
+  },
+  {
+    "id": "itn-ko-time-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "time",
+    "input": "sigan chil samsip",
+    "expected": "sigan 07:30"
+  },
+  {
+    "id": "itn-ko-money-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "money",
+    "input": "won sip i osip",
+    "expected": "₩12.50"
+  },
+  {
+    "id": "itn-ko-measure-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "measure",
+    "input": "sip i killogeuraem",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-ko-telephone-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "telephone",
+    "input": "jeonhwa il i sam sa",
+    "expected": "jeonhwa 1234"
+  },
+  {
+    "id": "itn-ko-email-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "electronic",
+    "input": "test at example dot kr",
+    "expected": "test@example.kr"
+  },
+  {
+    "id": "itn-ko-fraction-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "fraction",
+    "input": "i bun ui il",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-ko-ordinal-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "ordinal",
+    "input": "cheot beonjjae",
+    "expected": "1번째"
+  },
+  {
+    "id": "itn-ko-char-preserved",
+    "operation": "itn",
+    "language": "ko",
+    "category": "char",
+    "input": "hangeul hanguk",
+    "expected": "hangeul hanguk"
+  },
+  {
+    "id": "itn-ko-whitelist-phrase",
+    "operation": "itn",
+    "language": "ko",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-ko-negative-ordinary-text",
+    "operation": "itn",
+    "language": "ko",
+    "category": "negative",
+    "input": "i munjang geudaero",
+    "expected": "i munjang geudaero"
   }
 ]

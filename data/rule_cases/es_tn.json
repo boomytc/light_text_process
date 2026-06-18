@@ -1,10 +1,101 @@
 [
   {
-    "id": "tn-es-money-date-time-email-id",
+    "id": "tn-es-cardinal-number",
     "operation": "tn",
     "language": "es",
-    "category": "mixed",
-    "input": "Contacto test@example.com cuesta €45.50 el 2026-06-15 a las 07:30, ID 123.",
-    "expected": "Contacto test at example dot com cuesta cuarenta y cinco euros cincuenta céntimos el dos mil veintiséis año seis mes quince día a las siete horas treinta minutos, ID ciento veintitrés."
+    "category": "cardinal",
+    "input": "ID 123",
+    "expected": "ID ciento veintitrés"
+  },
+  {
+    "id": "tn-es-decimal-number",
+    "operation": "tn",
+    "language": "es",
+    "category": "decimal",
+    "input": "Precio 12.5",
+    "expected": "Precio doce punto cinco"
+  },
+  {
+    "id": "tn-es-date-iso",
+    "operation": "tn",
+    "language": "es",
+    "category": "date",
+    "input": "Fecha 2026-06-15",
+    "expected": "Fecha dos mil veintiséis año seis mes quince día"
+  },
+  {
+    "id": "tn-es-time-clock",
+    "operation": "tn",
+    "language": "es",
+    "category": "time",
+    "input": "Hora 07:30",
+    "expected": "Hora siete horas treinta minutos"
+  },
+  {
+    "id": "tn-es-money-euro",
+    "operation": "tn",
+    "language": "es",
+    "category": "money",
+    "input": "Coste €12.50",
+    "expected": "Coste doce euros cincuenta céntimos"
+  },
+  {
+    "id": "tn-es-measure-kg",
+    "operation": "tn",
+    "language": "es",
+    "category": "measure",
+    "input": "Peso 12 kg",
+    "expected": "Peso doce kilogramos"
+  },
+  {
+    "id": "tn-es-telephone-number",
+    "operation": "tn",
+    "language": "es",
+    "category": "telephone",
+    "input": "teléfono +34 91 123456",
+    "expected": "teléfono más tres cuatro nueve uno uno dos tres cuatro cinco seis"
+  },
+  {
+    "id": "tn-es-email",
+    "operation": "tn",
+    "language": "es",
+    "category": "electronic",
+    "input": "Correo test@example.es",
+    "expected": "Correo test at example dot es"
+  },
+  {
+    "id": "tn-es-fraction-simple",
+    "operation": "tn",
+    "language": "es",
+    "category": "fraction",
+    "input": "Parte 1/2",
+    "expected": "Parte uno sobre dos"
+  },
+  {
+    "id": "tn-es-ordinal-simple",
+    "operation": "tn",
+    "language": "es",
+    "category": "ordinal",
+    "input": "Rango 1º",
+    "expected": "Rango primero."
+  },
+  {
+    "id": "tn-es-whitelist-product",
+    "operation": "tn",
+    "language": "es",
+    "category": "whitelist",
+    "input": "Producto Open A I",
+    "expected": "Producto OpenAI",
+    "options": {
+      "whitelist_path": "data/whitelists/product_terms.tsv"
+    }
+  },
+  {
+    "id": "tn-es-negative-ordinary-text",
+    "operation": "tn",
+    "language": "es",
+    "category": "negative",
+    "input": "Este texto queda normal.",
+    "expected": "Este texto queda normal."
   }
 ]

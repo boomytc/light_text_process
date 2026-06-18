@@ -1,10 +1,98 @@
 [
   {
-    "id": "itn-es-digit-sequence",
+    "id": "itn-es-cardinal-phrase",
     "operation": "itn",
     "language": "es",
     "category": "cardinal",
-    "input": "uno dos tres",
-    "expected": "123"
+    "input": "factura doce",
+    "expected": "factura 12"
+  },
+  {
+    "id": "itn-es-decimal-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "decimal",
+    "input": "precio doce punto cinco",
+    "expected": "precio 12.5"
+  },
+  {
+    "id": "itn-es-date-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "date",
+    "input": "fecha quince seis dos cero dos seis",
+    "expected": "fecha 2026-06-15"
+  },
+  {
+    "id": "itn-es-time-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "time",
+    "input": "hora siete treinta",
+    "expected": "hora 07:30"
+  },
+  {
+    "id": "itn-es-money-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "money",
+    "input": "euros doce cincuenta",
+    "expected": "€12.50"
+  },
+  {
+    "id": "itn-es-measure-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "measure",
+    "input": "doce kilogramos",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-es-telephone-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "telephone",
+    "input": "teléfono uno dos tres cuatro",
+    "expected": "teléfono 1234"
+  },
+  {
+    "id": "itn-es-email-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "electronic",
+    "input": "test arroba example punto es",
+    "expected": "test@example.es"
+  },
+  {
+    "id": "itn-es-fraction-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "fraction",
+    "input": "un medio",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-es-ordinal-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "ordinal",
+    "input": "primero",
+    "expected": "1."
+  },
+  {
+    "id": "itn-es-whitelist-phrase",
+    "operation": "itn",
+    "language": "es",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-es-negative-ordinary-text",
+    "operation": "itn",
+    "language": "es",
+    "category": "negative",
+    "input": "este texto queda normal",
+    "expected": "este texto queda normal"
   }
 ]

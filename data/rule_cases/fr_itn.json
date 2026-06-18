@@ -1,10 +1,106 @@
 [
   {
-    "id": "itn-fr-digit-sequence",
+    "id": "itn-fr-cardinal-phrase",
     "operation": "itn",
     "language": "fr",
     "category": "cardinal",
-    "input": "un deux trois",
-    "expected": "123"
+    "input": "facture douze",
+    "expected": "facture 12"
+  },
+  {
+    "id": "itn-fr-decimal-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "decimal",
+    "input": "prix douze virgule cinq",
+    "expected": "prix 12.5"
+  },
+  {
+    "id": "itn-fr-date-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "date",
+    "input": "date quinze six deux zero deux six",
+    "expected": "date 2026-06-15"
+  },
+  {
+    "id": "itn-fr-time-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "time",
+    "input": "heure sept trente",
+    "expected": "heure 07:30"
+  },
+  {
+    "id": "itn-fr-money-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "money",
+    "input": "euros douze cinquante",
+    "expected": "€12.50"
+  },
+  {
+    "id": "itn-fr-measure-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "measure",
+    "input": "douze kilogrammes",
+    "expected": "12 kg"
+  },
+  {
+    "id": "itn-fr-telephone-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "telephone",
+    "input": "telephone un deux trois quatre",
+    "expected": "telephone 1234"
+  },
+  {
+    "id": "itn-fr-email-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "electronic",
+    "input": "test at example point fr",
+    "expected": "test@example.fr"
+  },
+  {
+    "id": "itn-fr-fraction-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "fraction",
+    "input": "un demi",
+    "expected": "1/2"
+  },
+  {
+    "id": "itn-fr-ordinal-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "ordinal",
+    "input": "premier",
+    "expected": "1er"
+  },
+  {
+    "id": "itn-fr-roman-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "roman",
+    "input": "romain quatre",
+    "expected": "IV"
+  },
+  {
+    "id": "itn-fr-whitelist-phrase",
+    "operation": "itn",
+    "language": "fr",
+    "category": "whitelist",
+    "input": "open ai",
+    "expected": "OpenAI"
+  },
+  {
+    "id": "itn-fr-negative-ordinary-text",
+    "operation": "itn",
+    "language": "fr",
+    "category": "negative",
+    "input": "ce texte reste normal",
+    "expected": "ce texte reste normal"
   }
 ]

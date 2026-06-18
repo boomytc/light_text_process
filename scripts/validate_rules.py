@@ -34,6 +34,250 @@ CASE_FILES = (
 )
 SUPPORTED_LANGUAGES = {"de", "en", "es", "fr", "id", "ja", "ko", "pt", "ru", "tl", "vi", "zh"}
 SUPPORTED_OPERATIONS = {"tn", "itn"}
+REQUIRED_CATEGORY_COVERAGE = {
+    ("tn", "de"): {
+        "cardinal",
+        "decimal",
+        "date",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("tn", "en"): {
+        "address",
+        "date",
+        "electronic",
+        "identity",
+        "math",
+        "measure",
+        "mixed",
+        "money",
+        "ordinal",
+        "telephone",
+        "time",
+    },
+    ("tn", "es"): {
+        "cardinal",
+        "decimal",
+        "date",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("tn", "ru"): {
+        "cardinal",
+        "decimal",
+        "date",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("tn", "zh"): {
+        "address",
+        "date",
+        "electronic",
+        "identity",
+        "math",
+        "measure",
+        "mixed",
+        "money",
+        "ordinal",
+        "telephone",
+        "time",
+    },
+    ("itn", "de"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "en"): {
+        "address",
+        "asr-postprocess",
+        "date",
+        "electronic",
+        "fraction",
+        "identity",
+        "math",
+        "measure",
+        "mixed",
+        "money",
+        "ordinal",
+        "telephone",
+        "time",
+    },
+    ("itn", "es"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "fr"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "roman",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "id"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "ja"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "name",
+        "negative",
+        "option",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "ko"): {
+        "cardinal",
+        "char",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "pt"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "ru"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "tl"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "vi"): {
+        "cardinal",
+        "date",
+        "decimal",
+        "electronic",
+        "fraction",
+        "measure",
+        "money",
+        "negative",
+        "ordinal",
+        "telephone",
+        "time",
+        "whitelist",
+    },
+    ("itn", "zh"): {
+        "address",
+        "asr-postprocess",
+        "date",
+        "electronic",
+        "fraction",
+        "identity",
+        "math",
+        "measure",
+        "mixed",
+        "money",
+        "ordinal",
+        "phone",
+        "time",
+    },
+}
 
 if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
@@ -68,7 +312,10 @@ class RuleResult:
 def main(argv: Sequence[str] | None = None) -> int:
     try:
         args = build_parser().parse_args(argv)
-        cases = filter_cases(load_cases(args.cases), args)
+        all_cases = load_cases(args.cases)
+        if not args.skip_coverage_gate and not _has_selection_filters(args):
+            validate_category_coverage(all_cases)
+        cases = filter_cases(all_cases, args)
         if args.list:
             print_cases(cases)
             return 0
@@ -107,6 +354,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="text processing engine to validate (default: default)",
     )
     parser.add_argument("--list", action="store_true", help="list selected cases without running them")
+    parser.add_argument(
+        "--skip-coverage-gate",
+        action="store_true",
+        help="skip full route/category coverage checks before running selected cases",
+    )
     parser.add_argument("--verbose", action="store_true", help="print passing case outputs too")
     return parser
 
@@ -201,6 +453,26 @@ def filter_cases(cases: Iterable[RuleCase], args: argparse.Namespace) -> list[Ru
         if missing:
             raise ValueError(f"unknown case id: {', '.join(missing)}")
     return selected
+
+
+def validate_category_coverage(cases: Sequence[RuleCase]) -> None:
+    categories_by_route: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for case in cases:
+        categories_by_route[(case.operation, case.language)].add(case.category)
+
+    failures = []
+    for route, required_categories in sorted(REQUIRED_CATEGORY_COVERAGE.items()):
+        present = categories_by_route.get(route, set())
+        missing = sorted(required_categories - present)
+        if missing:
+            operation, language = route
+            failures.append(f"{operation}/{language}: missing categories {', '.join(missing)}")
+    if failures:
+        raise ValueError("route/category coverage gate failed: " + "; ".join(failures))
+
+
+def _has_selection_filters(args: argparse.Namespace) -> bool:
+    return bool(args.language or args.operation or args.category or args.case_ids)
 
 
 def run_cases(

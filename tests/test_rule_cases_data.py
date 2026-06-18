@@ -72,6 +72,21 @@ class RuleCaseDataTests(unittest.TestCase):
 
         self.assertEqual([case.id for case in selected], ["tn-zh-square-meter-word"])
 
+    def test_rule_cases_pass_route_category_coverage_gate(self) -> None:
+        cases = validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
+
+        validate_rules.validate_category_coverage(cases)
+
+    def test_route_category_coverage_gate_reports_missing_categories(self) -> None:
+        cases = [
+            case
+            for case in validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
+            if case.id != "itn-de-money-phrase"
+        ]
+
+        with self.assertRaisesRegex(ValueError, "itn/de: missing categories money"):
+            validate_rules.validate_category_coverage(cases)
+
     def test_native_engine_validates_filtered_rule_cases(self) -> None:
         cases = validate_rules.load_cases(validate_rules.DEFAULT_CASES_DIR)
         args = validate_rules.build_parser().parse_args(
