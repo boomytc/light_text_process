@@ -8,6 +8,9 @@ dependency-backed through `num2words`. Product-owned rules live in
 `light_text_process/rules`, runtime adapters live in `light_text_process/runtime`,
 and golden regression cases live in `data/rule_cases`.
 
+The official Web/API product for this engine lives at
+`products/light_text_process_web`.
+
 ## Setup
 
 ```bash
@@ -32,10 +35,27 @@ print(processor.number_to_words("123", "en").output)
 - `light_text_process/rules/` contains owned TN/ITN rule modules.
 - `light_text_process/runtime/` contains runtime adapters and the engine boundary.
 - `data/rule_cases/` is the golden regression suite for public TN/ITN behavior.
+- `products/light_text_process_web/` contains the FastAPI Web/API product shell.
 - `scripts/validate_rules.py` runs the golden suite.
 - `scripts/cache_maintenance.py` reports the vendor-free cache policy.
 - `docs/replacement_matrix.md` records route/category coverage.
 - `docs/route_ownership.md` records first-party route ownership.
+
+## Web Product
+
+```bash
+cd products/light_text_process_web
+uv venv --python 3.12
+uv pip install -e ../..
+uv pip install -e .
+./start.sh
+```
+
+Default URL: `http://127.0.0.1:8011`.
+
+The Web product exposes `/api/v1/capabilities`, `/api/v1/tn`,
+`/api/v1/itn`, `/api/v1/num2words`, and `/api/v1/batch`. It imports the root
+engine package directly and keeps browser assets local.
 
 ## Validation
 
