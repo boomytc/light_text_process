@@ -27,8 +27,8 @@ surface.
 
 ## Current Phase
 
-Current work is P5: run the release gates, refresh validation evidence, and
-remove transient artifacts.
+All phases are complete. Keep this file as the historical coverage checklist for
+the vendor-free replacement work.
 
 ## Phase Index
 
@@ -39,7 +39,7 @@ remove transient artifacts.
 | [x] | P2 | [TODO_02_ROUTE_CATEGORY_PARITY.md](todo/full_fun_text_processing_coverage/TODO_02_ROUTE_CATEGORY_PARITY.md) | Close parity gaps route by route and category by category. |
 | [x] | P3 | [TODO_03_ZH_EN_SUPERSET.md](todo/full_fun_text_processing_coverage/TODO_03_ZH_EN_SUPERSET.md) | Preserve and expand the stronger zh/en TN/ITN behavior. |
 | [x] | P4 | [TODO_04_MULTILINGUAL_PARITY.md](todo/full_fun_text_processing_coverage/TODO_04_MULTILINGUAL_PARITY.md) | Bring non-zh/en routes up to the former vendor surface. |
-| [ ] | P5 | [TODO_05_RELEASE_GATES.md](todo/full_fun_text_processing_coverage/TODO_05_RELEASE_GATES.md) | Prove full coverage before claiming completion. |
+| [x] | P5 | [TODO_05_RELEASE_GATES.md](todo/full_fun_text_processing_coverage/TODO_05_RELEASE_GATES.md) | Prove full coverage before claiming completion. |
 
 ## Coverage Scope
 

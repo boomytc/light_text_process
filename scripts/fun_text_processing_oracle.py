@@ -35,6 +35,7 @@ class OracleCase:
     language: str
     category: str
     input: str
+    expected: str | None
     options: dict[str, Any]
     oracle_status: str | None
     oracle_note: str | None
@@ -53,6 +54,7 @@ class Comparison:
     language: str
     category: str
     input: str
+    expected: str | None
     current: EngineOutput
     oracle: EngineOutput
     status: str
@@ -310,12 +312,16 @@ def parse_case(raw_case: Any, case_file: Path, index: int) -> OracleCase:
     oracle_note = raw_case.get("oracle_note")
     if oracle_note is not None and (not isinstance(oracle_note, str) or not oracle_note.strip()):
         raise ValueError(f"{case_file} case {values['id']} oracle_note must be a non-empty string")
+    expected = raw_case.get("expected")
+    if expected is not None and not isinstance(expected, str):
+        raise ValueError(f"{case_file} case {values['id']} expected must be a string when present")
     return OracleCase(
         id=values["id"],
         operation=values["operation"],
         language=values["language"],
         category=values["category"],
         input=values["input"],
+        expected=expected,
         options=options,
         oracle_status=oracle_status,
         oracle_note=oracle_note,
@@ -348,7 +354,12 @@ def compare_cases(cases: Sequence[OracleCase], oracle: FunTextProcessingOracle) 
     for case in cases:
         current_output = run_current_case(current, case)
         oracle_output = run_oracle_case(oracle, case)
-        status = classify(current_output, oracle_output, reviewed_status=case.oracle_status)
+        status = classify(
+            current_output,
+            oracle_output,
+            expected=case.expected,
+            reviewed_status=case.oracle_status,
+        )
         comparisons.append(
             Comparison(
                 id=case.id,
@@ -356,6 +367,7 @@ def compare_cases(cases: Sequence[OracleCase], oracle: FunTextProcessingOracle) 
                 language=case.language,
                 category=case.category,
                 input=case.input,
+                expected=case.expected,
                 current=current_output,
                 oracle=oracle_output,
                 status=status,
@@ -388,14 +400,19 @@ def classify(
     current: EngineOutput,
     oracle: EngineOutput,
     *,
+    expected: str | None = None,
     reviewed_status: str | None = None,
 ) -> str:
     if current.error:
         return _reviewed_or_default(reviewed_status, "unsupported-gap")
     if oracle.error:
-        return _reviewed_or_default(reviewed_status, "accepted-improvement")
+        if expected is not None and current.output == expected:
+            return _reviewed_or_default(reviewed_status, "accepted-improvement")
+        return _reviewed_or_default(reviewed_status, "regression")
     if current.output == oracle.output:
         return "match"
+    if expected is not None and current.output == expected:
+        return _reviewed_or_default(reviewed_status, "accepted-improvement")
     return _reviewed_or_default(reviewed_status, "regression")
 
 

@@ -7,21 +7,21 @@ coverage of `fun_text_processing`.
 
 ## Required Work
 
-- [ ] Run the AGENTS basic validation command set.
-- [ ] Run full rule validation across every route/category fixture.
-- [ ] Run differential checks against the oracle in strict mode.
-- [ ] Confirm runtime code has no `fun_text_processing` imports or package-data
+- [x] Run the AGENTS basic validation command set.
+- [x] Run full rule validation across every route/category fixture.
+- [x] Run differential checks against the oracle in strict mode.
+- [x] Confirm runtime code has no `fun_text_processing` imports or package-data
       coupling.
-- [ ] Confirm all public TN/ITN routes remain available.
-- [ ] Confirm docs and release notes say "complete coverage" only after the
+- [x] Confirm all public TN/ITN routes remain available.
+- [x] Confirm docs and release notes say "complete coverage" only after the
       coverage matrix and differential reports support that claim.
-- [ ] Remove transient `__pycache__`, `.pytest_cache`, generated reports, and
+- [x] Remove transient `__pycache__`, `.pytest_cache`, generated reports, and
       one-off artifacts unless they are under ignored `runtime/`.
 
 ## Acceptance
 
-- [ ] Unit tests pass.
-- [ ] Rule validation passes for all expanded fixtures.
-- [ ] Differential strict mode has no unaccepted regressions.
-- [ ] Coverage matrix has no `missing` or unexplained `partial` category.
-- [ ] `git status --short` has no accidental generated artifacts.
+- [x] Unit tests pass.
+- [x] Rule validation passes for all expanded fixtures.
+- [x] Differential strict mode has no unaccepted regressions.
+- [x] Coverage matrix has no `missing` or unexplained `partial` category.
+- [x] `git status --short` has no accidental generated artifacts.

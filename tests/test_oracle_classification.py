@@ -64,6 +64,22 @@ class OracleClassificationTests(unittest.TestCase):
 
         self.assertEqual(status, "accepted-improvement")
 
+    def test_golden_expected_diff_is_accepted_improvement(self) -> None:
+        current = oracle_module.EngineOutput(output="better", error=None)
+        oracle = oracle_module.EngineOutput(output="old", error=None)
+
+        status = oracle_module.classify(current, oracle, expected="better")
+
+        self.assertEqual(status, "accepted-improvement")
+
+    def test_current_output_that_misses_golden_expected_is_regression(self) -> None:
+        current = oracle_module.EngineOutput(output="unexpected", error=None)
+        oracle = oracle_module.EngineOutput(output="old", error=None)
+
+        status = oracle_module.classify(current, oracle, expected="better")
+
+        self.assertEqual(status, "regression")
+
 
 if __name__ == "__main__":
     unittest.main()
