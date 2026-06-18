@@ -23,18 +23,23 @@ runtime vendor audit commands.
 - ITN: `de`, `en`, `es`, `fr`, `id`, `ja`, `ko`, `pt`, `ru`, `tl`, `vi`, `zh`
 
 The tracked category vocabulary is: cardinal, ordinal, decimal, date, time,
-money, measure, telephone, electronic, fraction, range, roman, whitelist, word,
-punctuation, and language-specific character or name handling. Ordinary-text
-negative cases are included to prevent broad regex substitutions.
+money, measure, telephone/phone, electronic, fraction, range, roman, whitelist,
+word, punctuation, address, identity, math, mixed product tokens,
+ASR postprocess, temperature, and language-specific character or name handling.
+Ordinary-text negative cases are included to prevent broad regex substitutions.
+
+The current golden suite has 705 cases. Latest strict oracle comparison:
+76 `match`, 629 reviewed `accepted-improvement`, and no `regression` or
+`unsupported-gap`.
 
 ## TN Coverage
 
 | Route | Owner module | Coverage status |
 | --- | --- | --- |
-| `tn/de` | `light_text_process/rules/de_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
+| `tn/de` | `light_text_process/rules/de_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, mixed product tokens, money, ordinal, punctuation, telephone, time, whitelist, negative ordinary text. |
 | `tn/en` | `light_text_process/rules/en_tn.py` | `covered`: date, time, money, measure, telephone, electronic, fraction, ordinal, range, roman, punctuation, address, identity, math, mixed ASR/product tokens. `intentional-delta`: technical identifiers, file paths, social handles, and product-token behavior. |
-| `tn/es` | `light_text_process/rules/es_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
-| `tn/ru` | `light_text_process/rules/ru_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
+| `tn/es` | `light_text_process/rules/es_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, mixed product tokens, money, ordinal, punctuation, telephone, time, whitelist, negative ordinary text. |
+| `tn/ru` | `light_text_process/rules/ru_tn.py`, `multilingual_tn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, mixed product tokens, money, ordinal, punctuation, telephone, time, whitelist, negative ordinary text. |
 | `tn/zh` | `light_text_process/rules/zh_tn.py` | `covered`: date, time, money, measure, telephone, electronic, punctuation, address, identity, math, mixed ASR/product tokens. `intentional-delta`: technical identifiers, file paths, social handles, and product-token behavior. |
 
 ## ITN Coverage
@@ -50,8 +55,8 @@ negative cases are included to prevent broad regex substitutions.
 | `itn/ko` | `light_text_process/rules/ko_itn.py`, `multilingual_itn.py` | `covered`: cardinal, char-preservation, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
 | `itn/pt` | `light_text_process/rules/pt_itn.py`, `multilingual_itn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
 | `itn/ru` | `light_text_process/rules/ru_itn.py`, `multilingual_itn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
-| `itn/tl` | `light_text_process/rules/tl_itn.py`, `multilingual_itn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
-| `itn/vi` | `light_text_process/rules/vi_itn.py`, `multilingual_itn.py` | `covered`: cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
+| `itn/tl` | `light_text_process/rules/tl_itn.py`, `multilingual_itn.py` | `covered`: ASR postprocess, cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
+| `itn/vi` | `light_text_process/rules/vi_itn.py`, `multilingual_itn.py` | `covered`: ASR postprocess, cardinal, decimal, date, electronic, fraction, measure, money, ordinal, telephone, time, whitelist, negative ordinary text. |
 | `itn/zh` | `light_text_process/rules/zh_itn.py` | `covered`: cardinal, char, date, electronic, fraction, math, measure, money, telephone/phone, time, address, identity, mixed ASR cleanup, product tokens. `intentional-delta`: technical identifiers, file paths, social handles, and product-token behavior. |
 
 ## Validation Contract
@@ -60,9 +65,11 @@ negative cases are included to prevent broad regex substitutions.
   before running selected cases.
 - `scripts/validate_rules.py --language ... --operation ... --category ...`
   still runs focused subsets for route/category triage.
-- `scripts/fun_text_processing_oracle.py compare --strict` fails only
+- `scripts/fun_text_processing_oracle.py compare --strict` fails
   `regression` and `unsupported-gap`; reviewed `accepted-improvement` cases are
-  allowed by strict mode.
+  allowed by strict mode. The release command uses
+  `--oracle-timeout-seconds 10` so slow preserved vendor grammars become
+  auditable report entries instead of blocking indefinitely.
 - Complete replacement requires a clean validation pass and no runtime
   `fun_text_processing`, `third_party`, FAR/FST cache, or compatibility-shim
   coupling.

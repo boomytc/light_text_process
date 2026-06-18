@@ -19,9 +19,9 @@ golden coverage for every non-zh/en route that replaced the former
 
 | Route | Owner module | Priority | Minimum golden coverage |
 | --- | --- | --- | --- |
-| `tn:de` | `light_text_process/rules/de_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
-| `tn:es` | `light_text_process/rules/es_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
-| `tn:ru` | `light_text_process/rules/ru_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
+| `tn:de` | `light_text_process/rules/de_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, punctuation, mixed, negative |
+| `tn:es` | `light_text_process/rules/es_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, punctuation, mixed, negative |
+| `tn:ru` | `light_text_process/rules/ru_tn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, punctuation, mixed, negative |
 
 ## ITN Routes
 
@@ -35,8 +35,8 @@ golden coverage for every non-zh/en route that replaced the former
 | `itn:ko` | `light_text_process/rules/ko_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, char, whitelist, negative |
 | `itn:pt` | `light_text_process/rules/pt_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
 | `itn:ru` | `light_text_process/rules/ru_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
-| `itn:tl` | `light_text_process/rules/tl_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
-| `itn:vi` | `light_text_process/rules/vi_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, negative |
+| `itn:tl` | `light_text_process/rules/tl_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, ASR postprocess, negative |
+| `itn:vi` | `light_text_process/rules/vi_itn.py` | Complete | cardinal, decimal, date, time, money, measure, telephone, electronic, fraction, ordinal, whitelist, ASR postprocess, negative |
 
 ## Current Gate
 

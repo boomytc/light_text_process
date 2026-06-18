@@ -43,14 +43,14 @@ This is a capability coverage plan, not a compatibility-layer plan.
 ## Phase Index
 
 - [x] C0: [Baseline Inventory](todo/TODO_00_BASELINE_INVENTORY.md)
-- [ ] C1: [Oracle Diff Gate](todo/TODO_01_ORACLE_DIFF_GATE.md)
-- [ ] C2: [Golden Corpus Expansion](todo/TODO_02_GOLDEN_CORPUS_EXPANSION.md)
-- [ ] C3: [Chinese and English Deep Parity](todo/TODO_03_ZH_EN_DEEP_PARITY.md)
-- [ ] C4: [Multilingual TN Parity](todo/TODO_04_MULTILINGUAL_TN_PARITY.md)
-- [ ] C5: [Multilingual ITN Parity](todo/TODO_05_MULTILINGUAL_ITN_PARITY.md)
-- [ ] C6: [API Product Contract and num2words Boundary](todo/TODO_06_API_PRODUCT_CONTRACT.md)
-- [ ] C7: [Performance and Robustness](todo/TODO_07_PERFORMANCE_ROBUSTNESS.md)
-- [ ] C8: [Release Gate and Old Product Retirement](todo/TODO_08_RELEASE_GATE.md)
+- [x] C1: [Oracle Diff Gate](todo/TODO_01_ORACLE_DIFF_GATE.md)
+- [x] C2: [Golden Corpus Expansion](todo/TODO_02_GOLDEN_CORPUS_EXPANSION.md)
+- [x] C3: [Chinese and English Deep Parity](todo/TODO_03_ZH_EN_DEEP_PARITY.md)
+- [x] C4: [Multilingual TN Parity](todo/TODO_04_MULTILINGUAL_TN_PARITY.md)
+- [x] C5: [Multilingual ITN Parity](todo/TODO_05_MULTILINGUAL_ITN_PARITY.md)
+- [x] C6: [API Product Contract and num2words Boundary](todo/TODO_06_API_PRODUCT_CONTRACT.md)
+- [x] C7: [Performance and Robustness](todo/TODO_07_PERFORMANCE_ROBUSTNESS.md)
+- [x] C8: [Release Gate and Old Product Retirement](todo/TODO_08_RELEASE_GATE.md)
 
 ## Global Validation Gate
 

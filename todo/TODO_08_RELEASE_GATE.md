@@ -8,18 +8,18 @@ old LightASR Web product removable.
 
 ## Release Gate Tasks
 
-- [ ] C0 through C7 are complete.
-- [ ] Full rule validation passes.
-- [ ] Full unit test suite passes.
-- [ ] Oracle comparison strict mode has no unreviewed `regression`.
-- [ ] Oracle comparison strict mode has no unreviewed `unsupported-gap`.
-- [ ] Every accepted improvement has explicit expected output and reason.
-- [ ] `docs/replacement_matrix.md` reflects final route/category status.
-- [ ] `docs/route_ownership.md` reflects final owner modules.
-- [ ] Web product examples match current root engine output.
-- [ ] Vendor audit confirms runtime code has no vendor coupling.
-- [ ] Release notes describe customer-visible behavior changes.
-- [ ] Old LightASR product retirement is proposed separately with evidence,
+- [x] C0 through C7 are complete.
+- [x] Full rule validation passes.
+- [x] Full unit test suite passes.
+- [x] Oracle comparison strict mode has no unreviewed `regression`.
+- [x] Oracle comparison strict mode has no unreviewed `unsupported-gap`.
+- [x] Every accepted improvement has explicit expected output and reason.
+- [x] `docs/replacement_matrix.md` reflects final route/category status.
+- [x] `docs/route_ownership.md` reflects final owner modules.
+- [x] Web product examples match current root engine output.
+- [x] Vendor audit confirms runtime code has no vendor coupling.
+- [x] Release notes describe customer-visible behavior changes.
+- [x] Old LightASR product retirement is proposed separately with evidence,
   not bundled into rule coverage work.
 
 ## Final Validation
