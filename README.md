@@ -34,7 +34,8 @@ print(processor.number_to_words("123", "en").output)
 - `data/rule_cases/` is the golden regression suite for public TN/ITN behavior.
 - `scripts/validate_rules.py` runs the golden suite.
 - `scripts/cache_maintenance.py` reports the vendor-free cache policy.
-- `docs/vendor_replacement_roadmap.md` records the completed vendor removal.
+- `docs/replacement_matrix.md` records route/category coverage.
+- `docs/route_ownership.md` records first-party route ownership.
 
 ## Validation
 
