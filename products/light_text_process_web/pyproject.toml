@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "light-text-process-web"
+version = "0.1.0"
+description = "FastAPI Web product for the light_text_process engine"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi",
+  "jinja2",
+  "pydantic>=2",
+  "python-multipart",
+  "uvicorn[standard]",
+]
+
+[project.scripts]
+light-text-process-web = "app:main"
+
+[tool.setuptools]
+py-modules = ["app", "product_paths"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["api*"]
+namespaces = true
